@@ -1,40 +1,42 @@
 import { Link } from "react-router-dom";
 import { Calendar } from "lucide-react";
-import { BlogPost, categories } from "@/data/blogPosts";
+import type { BlogPost } from "@/data/blogTypes";
+import { getCategoryEmoji, getCategoryLabel, getCategoryTone, getPostCategories, getPrimaryCategory } from "@/lib/blogCategories";
+import { useBlogStore } from "@/stores/blogStore";
 
 interface BlogCardProps {
   post: BlogPost;
 }
 
 const BlogCard = ({ post }: BlogCardProps) => {
-  const cat = categories.find((c) => c.id === post.category);
+  const availableCategories = useBlogStore((state) => state.categories);
+  const categories = getPostCategories(post);
+  const primaryCategory = getPrimaryCategory(post);
 
   return (
-    <Link to={`/${post.slug}/`} className="block group">
-      <article className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 h-full">
-        <div className="h-48 bg-accent flex items-center justify-center">
-          <span className="text-4xl">
-            {post.category === "irrigacao" ? "🌱" : post.category === "ferramentas" ? "🔧" : "⚙️"}
-          </span>
+    <Link to={`/${post.slug}/`} className="group block">
+      <article className="h-full overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:shadow-lg">
+        <div className="flex h-48 items-center justify-center bg-accent">
+          <span className="text-4xl">{getCategoryEmoji(primaryCategory, availableCategories)}</span>
         </div>
         <div className="p-5">
-          <div className="flex items-center gap-3 mb-3">
-            <span className={`text-xs font-semibold px-2 py-1 rounded-full ${
-              post.category === "irrigacao" ? "bg-brand-green/10 text-brand-green" :
-              post.category === "ferramentas" ? "bg-brand-orange/10 text-brand-orange" :
-              "bg-primary/10 text-primary"
-            }`}>
-              {cat?.label}
-            </span>
+          <div className="mb-3 flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap gap-1">
+              {categories.map((categoryId) => (
+                <span key={categoryId} className={`rounded-full px-2 py-1 text-xs font-semibold ${getCategoryTone(categoryId, availableCategories)}`}>
+                  {getCategoryLabel(categoryId, availableCategories)}
+                </span>
+              ))}
+            </div>
             <span className="flex items-center gap-1 text-xs text-muted-foreground">
-              <Calendar className="w-3 h-3" />
+              <Calendar className="h-3 w-3" />
               {new Date(post.date).toLocaleDateString("pt-BR")}
             </span>
           </div>
-          <h3 className="font-heading font-bold text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2">
+          <h3 className="mb-2 line-clamp-2 font-heading font-bold text-foreground transition-colors group-hover:text-primary">
             {post.title}
           </h3>
-          <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
+          <p className="line-clamp-2 text-sm text-muted-foreground">{post.excerpt}</p>
         </div>
       </article>
     </Link>

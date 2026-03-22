@@ -1,32 +1,37 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index";
-import Segmentos from "./pages/Segmentos";
-import IrrigacaoPage from "./pages/segmentos/Irrigacao";
-import FerramentasPage from "./pages/segmentos/Ferramentas";
-import MaquinasPage from "./pages/segmentos/Maquinas";
-import NossaHistoria from "./pages/NossaHistoria";
-import Contato from "./pages/Contato";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import AdminPage from "./pages/Admin";
-import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
-const queryClient = new QueryClient();
+const Index = lazy(() => import("./pages/Index"));
+const Segmentos = lazy(() => import("./pages/Segmentos"));
+const IrrigacaoPage = lazy(() => import("./pages/segmentos/Irrigacao"));
+const FerramentasPage = lazy(() => import("./pages/segmentos/Ferramentas"));
+const MaquinasPage = lazy(() => import("./pages/segmentos/Maquinas"));
+const NossaHistoria = lazy(() => import("./pages/NossaHistoria"));
+const Contato = lazy(() => import("./pages/Contato"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const AdminPage = lazy(() => import("./pages/Admin"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+const RouteFallback = () => (
+  <div className="flex min-h-[40vh] items-center justify-center px-4 text-center text-sm text-muted-foreground">
+    Carregando página...
+  </div>
+);
 
 const App = () => (
   <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <ScrollToTop />
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <ScrollToTop />
+        <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/segmentos" element={<Segmentos />} />
@@ -40,9 +45,9 @@ const App = () => (
             <Route path="/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+        </Suspense>
+      </BrowserRouter>
+    </TooltipProvider>
   </HelmetProvider>
 );
 

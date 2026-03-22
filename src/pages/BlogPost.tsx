@@ -4,12 +4,13 @@ import { Calendar, Tag, ArrowLeft } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
-import { categories } from "@/data/blogPosts";
 import { useBlogStore } from "@/stores/blogStore";
+import { getCategoryLabel, getPostCategories } from "@/lib/blogCategories";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const init = useBlogStore((state) => state.init);
+  const categoriesList = useBlogStore((state) => state.categories);
   const getPost = useBlogStore((state) => state.getPost);
   const getRelated = useBlogStore((state) => state.getRelated);
   const loading = useBlogStore((state) => state.loading);
@@ -46,7 +47,7 @@ const BlogPostPage = () => {
   }
 
   const related = getRelated(post);
-  const category = categories.find((item) => item.id === post.category);
+  const categories = getPostCategories(post);
 
   const isHtml = (content: string) => /<[a-z][\s\S]*>/i.test(content);
 
@@ -126,7 +127,7 @@ const BlogPostPage = () => {
         description={post.seo.metaDescription}
         canonical={`/${post.slug}/`}
         type="article"
-        article={{ publishedTime: post.date, section: category?.label, tags: post.tags }}
+        article={{ publishedTime: post.date, section: categories.map((categoryId) => getCategoryLabel(categoryId, categoriesList)).join(", "), tags: post.tags }}
       />
 
       <article>
@@ -136,8 +137,12 @@ const BlogPostPage = () => {
               <ArrowLeft className="h-4 w-4" />
               Blog
             </Link>
-            <div className="mb-4 flex items-center gap-3">
-              <span className="rounded-full bg-primary-foreground/20 px-2 py-1 text-xs font-semibold">{category?.label}</span>
+            <div className="mb-4 flex flex-wrap items-center gap-3">
+              {categories.map((categoryId) => (
+                <span key={categoryId} className="rounded-full bg-primary-foreground/20 px-2 py-1 text-xs font-semibold">
+                  {getCategoryLabel(categoryId, categoriesList)}
+                </span>
+              ))}
               <span className="flex items-center gap-1 text-xs text-primary-foreground/60">
                 <Calendar className="h-3 w-3" />
                 {new Date(post.date).toLocaleDateString("pt-BR")}

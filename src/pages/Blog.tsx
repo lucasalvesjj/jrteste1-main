@@ -3,11 +3,11 @@ import { Search } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
-import { categories } from "@/data/blogPosts";
 import { useBlogStore } from "@/stores/blogStore";
 
 const Blog = () => {
   const init = useBlogStore((state) => state.init);
+  const categories = useBlogStore((state) => state.categories);
   const posts = useBlogStore((state) => state.posts);
   const loading = useBlogStore((state) => state.loading);
   const [search, setSearch] = useState("");
@@ -21,7 +21,7 @@ const Blog = () => {
   const filtered = useMemo(() => {
     return posts
       .filter((post) => post.status === "published")
-      .filter((post) => selectedCat === "all" || post.category === selectedCat)
+      .filter((post) => selectedCat === "all" || post.categories.includes(selectedCat))
       .filter(
         (post) =>
           !search ||
