@@ -1,11 +1,8 @@
 @echo off
 cd /d "C:\Users\lucas\Downloads\jr1-main 2203\jrteste1-main"
 
-REM 1. GARANTE MASTER ATUALIZADO
+REM 1. BACKUP PRIMEIRO REPO (SEU CÓDIGO ORIGINAL)
 git checkout master
-git pull origin master --allow-unrelated-histories
-
-REM 2. BACKUP ORIGINAL
 git add .
 git diff --cached --quiet
 if %errorlevel%==0 (
@@ -15,11 +12,16 @@ if %errorlevel%==0 (
     git push origin master
 )
 
-REM 3. ESPELHA TUDO (força sincronização completa)
-git remote remove seguinte 2>nul
-git remote add seguinte https://github.com/lucasalvesjj/comercial-jr-2.git
-git push seguinte master --mirror --force
+REM 2. SINCRONIZAÇÃO SIMPLES (SEM --mirror)
+git remote | findstr /C:"seguinte" >nul || git remote add seguinte https://github.com/lucasalvesjj/comercial-jr-2.git
+git push seguinte master:master --force
+echo ✅ comercial-jr-2 sincronizado!
 
+REM 3. PROVA IMEDIATA
 echo.
-echo 👉 VERIFIQUE: https://github.com/lucasalvesjj/comercial-jr-2/commits/master
+echo VERIFICAÇÃO:
+git fetch seguinte
+git rev-parse origin/master
+git rev-parse seguinte/master
+echo 👉 https://github.com/lucasalvesjj/comercial-jr-2/commits/master
 pause
