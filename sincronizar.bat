@@ -1,5 +1,5 @@
 @echo off
-cd /d "C:\CAMINHO\DO\PROJETO"
+cd /d "C:\Users\lucas\Downloads\jr1-main 2203\jrteste1-main"
 
 git add .
 
