@@ -21,3 +21,7 @@ REM *** FORÇA TOTAL - BYPASSSA TUDO ***
 git push seguinte +main:main
 echo ✓ comercial-jr-2 FORÇADO com sucesso!
 pause
+
+REM MOSTRA ÚLTIMAS 3 ALTERAÇÕES NO SEGUNDO REPO
+git log seguinte/main --oneline -3
+pause
