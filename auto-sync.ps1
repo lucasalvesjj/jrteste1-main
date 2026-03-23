@@ -1,6 +1,6 @@
 $path = "C:\Users\lucas\Downloads\jr1-main 2203\jrteste1-main"
 $bat = "C:\Users\lucas\Downloads\jr1-main 2203\jrteste1-main\sincronizar.bat"
-$log = ""C:\Users\lucas\Downloads\jr1-main 2203\jrteste1-main\sync-log.txt""
+$log = "C:\Users\lucas\Downloads\jr1-main 2203\jrteste1-main\sync-log.txt"
 
 $delaySeconds = 20
 $lastChange = Get-Date
