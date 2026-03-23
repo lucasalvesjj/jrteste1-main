@@ -10,8 +10,7 @@ if %errorlevel%==0 (
     git push
 )
 
-REM === SÓ ADICIONE ISSO NO FINAL ===
-git remote add seguinte https://github.com/lucasalvesjj/comercial-jr-2.git
+REM Sincroniza segundo repo (SEM adicionar remote duplicado)
 git push seguinte main:main --force
 echo ✓ comercial-jr-2 atualizado!
 pause
