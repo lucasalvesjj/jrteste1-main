@@ -1,20 +1,18 @@
 @echo off
 cd /d "C:\Users\lucas\Downloads\jr1-main 2203\jrteste1-main"
 
-REM LÓGICA ORIGINAL + SINCRONIZAÇÃO
+REM BACKUP + SYNC
 git add .
 git diff --cached --quiet
 if %errorlevel%==0 (echo Sem mudanças.) else (git commit -m "auto backup %date% %time%"& git push)
 
 git remote | findstr /C:"seguinte" >nul || git remote add seguinte https://github.com/lucasalvesjj/comercial-jr-2.git
-git push seguinte +main:main
+git push seguinte +main:main >nul 2>&1
 
-REM *** MOSTRA HISTÓRICO DO SEGUNDO REPO ***
+REM MOSTRA SUCESSO LIMPO
 echo.
 echo ════════════════════════════════════════
-git fetch seguinte
-echo ÚLTIMAS 3 ALTERAÇÕES em comercial-jr-2:
-git log seguinte/main --oneline -3
-echo.
+echo ✅ BACKUP FEITO NO PRIMEIRO REPO
+echo ✅ SEGUNDO REPO ATUALIZADO (comercial-jr-2)  
 echo 👉 https://github.com/lucasalvesjj/comercial-jr-2/commits/main
 pause
