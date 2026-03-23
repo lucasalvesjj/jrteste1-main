@@ -1,39 +1,42 @@
 @echo off
 cd /d "C:\Users\lucas\Downloads\jr1-main 2203\jrteste1-main"
 
-REM 1. BACKUP PRIMEIRO REPO (LÓGICA ORIGINAL)
+REM 1. VAI PARA MASTER E ATUALIZA
+git checkout master
+git pull origin master
+
+REM 2. BACKUP ORIGINAL (só se mudanças)
 git add .
 git diff --cached --quiet
 if %errorlevel%==0 (
     echo Sem mudanças.
 ) else (
     git commit -m "auto backup %date% %time%"
-    git push origin main
+    git push origin master
     echo ✅ Backup primeiro repo OK
 )
 
-REM 2. VERIFICA REMOTE
+REM 3. VERIFICA REMOTE
 git remote | findstr /C:"seguinte" >nul
 if errorlevel 1 (
     git remote add seguinte https://github.com/lucasalvesjj/comercial-jr-2.git
-    echo Remote adicionado.
 )
 
-REM 3. PULL DO PRIMEIRO + PUSH REAL PARA SEGUNDO
-git pull origin main
-git push seguinte main:main --force
+REM 4. SINCRONIZA MASTER → MASTER
+git push seguinte master:master --force
+echo ✅ comercial-jr-2 sincronizado!
 
-REM 4. VERIFICA SE DEU CERTO
-git fetch seguinte
+REM 5. PROVA VISUAL
 echo.
 echo ════════════════════════════════════════
-echo COMPARAÇÃO DE COMMITS:
-echo PRIMEIRO repo: 
-git rev-parse origin/main
-echo SEGUNDO repo: 
-git rev-parse seguinte/main
+echo VERIFICAÇÃO:
+git fetch seguinte
+echo PRIMEIRO repo (master): 
+git rev-parse origin/master
+echo SEGUNDO repo (master): 
+git rev-parse seguinte/master
 echo.
-echo Histórico segundo repo:
-git log seguinte/main --oneline -3
-echo 👉 https://github.com/lucasalvesjj/comercial-jr-2/commits/main
+echo Últimos 3 commits SEGUNDO repo:
+git log seguinte/master --oneline -3
+echo 👉 https://github.com/lucasalvesjj/comercial-jr-2/commits/master
 pause
