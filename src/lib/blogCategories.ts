@@ -59,6 +59,11 @@ export const getCategoryTone = (categoryId?: string, categories: BlogCategory[] 
   return category ? colorToneMap[category.color] : "bg-primary/10 text-primary";
 };
 
+export const getCategoryEmoji = (categoryId?: string, categories: BlogCategory[] = normalizedCategories) => {
+  const category = categoryId ? findCategory(categoryId, categories) : undefined;
+  return category ? (colorEmojiMap[category.color] ?? "📦") : "📦";
+};
+
 export const getVisibleCategories = (categories: BlogCategory[] = normalizedCategories) =>
   categories.filter((category) => !category.hidden);
 
