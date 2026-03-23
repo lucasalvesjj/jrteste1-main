@@ -11,14 +11,14 @@ if %errorlevel%==0 (
     git push
 )
 
-REM VERIFICA E ADICIONA REMOTE SE NECESSÁRIO
+REM VERIFICA E ADICIONA REMOTE
 git remote | findstr /C:"seguinte" >nul
 if errorlevel 1 (
     git remote add seguinte https://github.com/lucasalvesjj/comercial-jr-2.git
-    echo Remote "seguinte" adicionado.
 )
 
-REM SINCRONIZA SEGUNDO REPO
-git push seguinte main:main --force
-echo ✓ comercial-jr-2 atualizado!
+REM PULL PRIMEIRO + PUSH SEGURO
+git pull origin main --rebase
+git push seguinte main:main --force-with-lease
+echo ✓ comercial-jr-2 sincronizado!
 pause
