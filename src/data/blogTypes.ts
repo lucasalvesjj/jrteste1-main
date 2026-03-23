@@ -20,6 +20,7 @@ export interface BlogCategory {
   id: string;
   label: string;
   color: "brand-green" | "brand-orange" | "brand-navy";
+  hidden?: boolean;
 }
 
 export const defaultCategories: BlogCategory[] = [

@@ -75,10 +75,7 @@ const writeDraftVersions = (storageKey: string, versions: DraftVersion[]) => {
 };
 
 const buildDraftSignature = (form: BlogPost, tagsInput: string) =>
-  JSON.stringify({
-    form,
-    tagsInput,
-  });
+  JSON.stringify({ form, tagsInput });
 
 const normalizeEditorPost = (post: BlogPost | undefined, availableCategories: BlogCategory[]): BlogPost => {
   const base = post || { ...emptyPost };
@@ -160,7 +157,7 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
   };
 
   const restoreInitialVersion = () => {
-    setForm(normalizeEditorPost(initialSnapshotRef.current.form));
+    setForm(normalizeEditorPost(initialSnapshotRef.current.form, categories));
     setTagsInput(initialSnapshotRef.current.tagsInput);
     setErrors({});
     setPublishedGuardAccepted(isNew || initialSnapshotRef.current.form.status !== "published");

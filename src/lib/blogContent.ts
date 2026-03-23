@@ -152,4 +152,17 @@ export const fetchPublishedPosts = async (): Promise<ParsedBlogImport> => {
   return parseBlogImport(text);
 };
 
-export const getFallbackPosts = async () => [];
+export const getFallbackPosts = async () => {
+  const { blogPosts } = await import("@/data/blogPosts");
+  return normalizePosts(
+    blogPosts.map((post) => ({
+      ...post,
+      image: post.image ?? "",
+      categories: post.categories?.length
+        ? post.categories
+        : post.category
+          ? [post.category]
+          : [],
+    }))
+  );
+};

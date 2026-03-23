@@ -59,7 +59,21 @@ export const getCategoryTone = (categoryId?: string, categories: BlogCategory[] 
   return category ? colorToneMap[category.color] : "bg-primary/10 text-primary";
 };
 
-export const getCategoryEmoji = (categoryId?: string, categories: BlogCategory[] = normalizedCategories) => {
-  const category = categoryId ? findCategory(categoryId, categories) : undefined;
-  return category ? colorEmojiMap[category.color] : "⚙️";
+export const getVisibleCategories = (categories: BlogCategory[] = normalizedCategories) =>
+  categories.filter((category) => !category.hidden);
+
+export const isPostVisibleInAnyCategory = (
+  post: Pick<BlogPost, "categories" | "category">,
+  categories: BlogCategory[] = normalizedCategories
+) => {
+  const postCats = getPostCategories(post);
+  // post sem categoria nenhuma → visível normalmente
+  if (postCats.length === 0) return true;
+  // basta ter ao menos uma categoria visível
+  return postCats.some((catId) => {
+    const found = categories.find((c) => c.id === catId);
+    return !found || !found.hidden;
+  });
 };
+
+

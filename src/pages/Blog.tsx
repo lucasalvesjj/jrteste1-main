@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
 import { useBlogStore } from "@/stores/blogStore";
+import { getVisibleCategories, isPostVisibleInAnyCategory } from "@/lib/blogCategories";
 
 const Blog = () => {
   const init = useBlogStore((state) => state.init);
@@ -18,9 +19,12 @@ const Blog = () => {
     void init();
   }, [init]);
 
+  const visibleCategories = useMemo(() => getVisibleCategories(categories), [categories]);
+
   const filtered = useMemo(() => {
     return posts
       .filter((post) => post.status === "published")
+      .filter((post) => isPostVisibleInAnyCategory(post, categories))
       .filter((post) => selectedCat === "all" || post.categories.includes(selectedCat))
       .filter(
         (post) =>
@@ -29,7 +33,7 @@ const Blog = () => {
           post.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase()))
       )
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  }, [posts, search, selectedCat]);
+  }, [posts, categories, search, selectedCat]);
 
   return (
     <Layout>
@@ -70,7 +74,7 @@ const Blog = () => {
               >
                 Todos
               </button>
-              {categories.map((category) => (
+              {visibleCategories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setSelectedCat(category.id)}

@@ -11,7 +11,10 @@ import {
   normalizePosts,
   type ParsedBlogImport,
 } from "@/lib/blogContent";
-import { normalizeCategoryId } from "@/lib/blogCategories";
+import {
+  normalizeCategoryId,
+  isPostVisibleInAnyCategory,
+} from "@/lib/blogCategories";
 
 type BlogSource = "published-json" | "fallback-code" | "local-draft";
 
@@ -26,6 +29,7 @@ interface BlogStore {
   reloadPublished: () => Promise<void>;
   resetToPublished: () => Promise<void>;
   addCategory: (label: string) => BlogCategory;
+  toggleCategoryVisibility: (id: string) => void;
   addPost: (post: BlogPost) => void;
   updatePost: (slug: string, post: BlogPost) => void;
   deletePost: (slug: string) => void;
@@ -61,13 +65,17 @@ const nextCategoryColor = (categories: BlogCategory[]): BlogCategory["color"] =>
 
 const normalizePersistedState = (
   persisted: Partial<Pick<BlogStore, "categories" | "posts" | "initialized" | "source" | "lastLoadedAt">> | undefined
-) => ({
-  categories: normalizeImportedCategories(persisted?.categories),
-  posts: normalizePosts(Array.isArray(persisted?.posts) ? persisted.posts : []),
-  initialized: Boolean(persisted?.initialized),
-  source: persisted?.source ?? "fallback-code",
-  lastLoadedAt: persisted?.lastLoadedAt,
-});
+) => {
+  const posts = normalizePosts(Array.isArray(persisted?.posts) ? persisted.posts : []);
+  return {
+    categories: normalizeImportedCategories(persisted?.categories),
+    posts,
+    // Se não há posts, força reinicialização para buscar do arquivo JSON
+    initialized: Boolean(persisted?.initialized) && posts.length > 0,
+    source: persisted?.source ?? "fallback-code",
+    lastLoadedAt: persisted?.lastLoadedAt,
+  };
+};
 
 export const useBlogStore = create<BlogStore>()(
   persist(
@@ -120,6 +128,14 @@ export const useBlogStore = create<BlogStore>()(
           lastLoadedAt: new Date().toISOString(),
         });
       },
+      toggleCategoryVisibility: (id) =>
+        set((state) => ({
+          categories: state.categories.map((cat) =>
+            cat.id === id ? { ...cat, hidden: !cat.hidden } : cat
+          ),
+          source: "local-draft" as const,
+          initialized: true,
+        })),
       addCategory: (label) => {
         const trimmedLabel = label.trim();
         if (!trimmedLabel) {
@@ -190,8 +206,19 @@ export const useBlogStore = create<BlogStore>()(
           initialized: true,
         })),
       getPost: (slug) => get().posts.find((post) => post.slug === slug),
-      getPublished: () => get().posts.filter((post) => post.status === "published"),
-      getByCategory: (cat) => get().posts.filter((post) => post.categories.includes(cat) && post.status === "published"),
+      getPublished: () =>
+        get().posts.filter(
+          (post) =>
+            post.status === "published" &&
+            isPostVisibleInAnyCategory(post, get().categories)
+        ),
+      getByCategory: (cat) =>
+        get().posts.filter(
+          (post) =>
+            post.categories.includes(cat) &&
+            post.status === "published" &&
+            isPostVisibleInAnyCategory(post, get().categories)
+        ),
       getRelated: (post, limit = 3) =>
         get()
           .posts.filter(

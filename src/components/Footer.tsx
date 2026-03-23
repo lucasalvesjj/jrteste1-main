@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container-custom py-12 md:py-16">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="mb-4 font-heading text-lg font-bold">{company.shortName}</h3>
+            <img src="/favicon.webp" alt="Comercial JR" className="h-12 w-12 rounded-full mb-4" />
             <p className="text-sm leading-relaxed text-primary-foreground/80">{company.description}</p>
           </div>
 
@@ -51,7 +51,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href={company.store} target="_blank" rel="noopener noreferrer" className="text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground">
-                  Loja Online -
+                  Loja Online
                 </a>
               </li>
             </ul>
@@ -70,7 +70,9 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2 text-sm text-primary-foreground/70">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                {company.fullAddress}
+                <a href={company.mapsUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
+                  {company.fullAddress}
+                </a>
               </li>
             </ul>
             <div className="mt-4 flex gap-3">
@@ -84,8 +86,17 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-primary-foreground/20 pt-6 text-center text-xs text-primary-foreground/50">
-          © {new Date().getFullYear()} {company.name}. Todos os direitos reservados.
+        <div className="mt-10 border-t border-primary-foreground/20 pt-6 flex flex-col items-center gap-2 text-center text-xs text-primary-foreground/50 sm:flex-row sm:justify-between">
+          <span className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0">
+            <span>© {new Date().getFullYear()} <img src="/favicon.webp" alt="Comercial JR" className="inline h-5 w-5 rounded-full mx-1 align-middle" />. Todos os direitos reservados.</span>
+            <span className="sm:before:content-['·'] sm:before:mx-2">CNPJ 28.532.489/0001-61</span>
+          </span>
+          <Link
+            to="/politica-de-privacidade"
+            className="transition-colors hover:text-primary-foreground/80 underline underline-offset-2"
+          >
+            Política de Privacidade
+          </Link>
         </div>
       </div>
     </footer>

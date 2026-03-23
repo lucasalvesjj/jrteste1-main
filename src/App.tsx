@@ -5,6 +5,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ScrollToTop from "./components/ScrollToTop";
+import CookieBanner from "./components/CookieBanner";
 
 const Index = lazy(() => import("./pages/Index"));
 const Segmentos = lazy(() => import("./pages/Segmentos"));
@@ -16,6 +17,7 @@ const Contato = lazy(() => import("./pages/Contato"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const AdminPage = lazy(() => import("./pages/Admin"));
+const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const RouteFallback = () => (
@@ -41,11 +43,13 @@ const App = () => (
             <Route path="/nossa-historia" element={<NossaHistoria />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        <CookieBanner />
       </BrowserRouter>
     </TooltipProvider>
   </HelmetProvider>

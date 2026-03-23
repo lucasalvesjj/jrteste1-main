@@ -7,6 +7,7 @@ import {
   Edit2,
   Trash2,
   Eye,
+  EyeOff,
   Download,
   Upload,
   LogOut,
@@ -32,7 +33,7 @@ import { getCategoryLabel, getCategoryTone, getPostCategories } from "@/lib/blog
 const AdminPostEditor = lazy(() => import("@/components/admin/AdminPostEditor"));
 const AdminSeoEditor = lazy(() => import("@/components/admin/AdminSeoEditor"));
 
-const ADMIN_PASS = "comercialjr2024";
+const ADMIN_PASS = "0";
 const ADMIN_AUTH_KEY = "comercial-jr-admin-authenticated";
 const POSTS_PAGE_SIZE = 20;
 
@@ -112,10 +113,25 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
     exportFile,
     isSlugUnique,
     resetToPublished,
+    toggleCategoryVisibility,
   } = useBlogStore();
 
-  const [view, setView] = useState<"list" | "edit" | "seo-global">("list");
-  const [editingSlug, setEditingSlug] = useState<string | null>(null);
+  const [view, setView] = useState<"list" | "edit" | "seo-global">(
+    () => (sessionStorage.getItem("admin-view") as "list" | "edit" | "seo-global") || "list"
+  );
+  const [editingSlug, setEditingSlug] = useState<string | null>(
+    () => sessionStorage.getItem("admin-editing-slug")
+  );
+
+  useEffect(() => {
+    sessionStorage.setItem("admin-view", view);
+    if (editingSlug) {
+      sessionStorage.setItem("admin-editing-slug", editingSlug);
+    } else {
+      sessionStorage.removeItem("admin-editing-slug");
+    }
+  }, [view, editingSlug]);
+
   const [search, setSearch] = useState("");
   const [filterCat, setFilterCat] = useState("all");
   const [filterStatus, setFilterStatus] = useState("all");
@@ -124,7 +140,12 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
   const [visibleCount, setVisibleCount] = useState(POSTS_PAGE_SIZE);
   const [newCategoryLabel, setNewCategoryLabel] = useState("");
+  const [publicationGuideOpen, setPublicationGuideOpen] = useState(false);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
+
+  // Estabiliza o nome do backup para evitar stale closure nos botões de cópia
+  const stableExportName = useMemo(() => `blog-posts-backup_${formatExportDate()}.json`, []);
 
   useEffect(() => {
     void init();
@@ -195,14 +216,42 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
     [categories.length, posts]
   );
 
-  const exportName = `blog-posts-backup_${formatExportDate()}.json`;
+  const exportName = stableExportName;
 
   const copyText = async (value: string, type: "path" | "filename") => {
-    try {
-      await navigator.clipboard.writeText(value);
+    const markCopied = () => {
       setCopiedItem(type);
       toast.success("Copiado para a área de transferência");
       window.setTimeout(() => setCopiedItem(null), 1800);
+    };
+
+    // Tenta clipboard moderno (requer HTTPS ou localhost)
+    if (navigator.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(value);
+        markCopied();
+        return;
+      } catch {
+        // cai no fallback abaixo
+      }
+    }
+
+    // Fallback via execCommand (funciona em HTTP e ambientes sem permissão de clipboard)
+    try {
+      const textarea = document.createElement("textarea");
+      textarea.value = value;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(textarea);
+      if (ok) {
+        markCopied();
+      } else {
+        toast.error("Não consegui copiar automaticamente");
+      }
     } catch {
       toast.error("Não consegui copiar automaticamente");
     }
@@ -431,54 +480,80 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
 
         <div className="mb-6 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-2xl border border-border bg-card p-5">
-            <div className="mb-4 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setPublicationGuideOpen((prev) => !prev)}
+              className="mb-1 flex w-full items-center gap-2 text-left"
+            >
               <HardDriveUpload className="h-5 w-5 text-primary" />
-              <h2 className="font-heading text-lg font-bold text-foreground">Publicação Guiada</h2>
-            </div>
-            <div className="grid gap-3 md:grid-cols-2">
-              {[
-                "1. Edite ou revise os posts na sua cópia local.",
-                "2. Clique em Exportar Publicação para baixar o arquivo oficial.",
-                "3. Envie o arquivo para o servidor substituindo o JSON atual.",
-                "4. Atualize o site ou limpe cache se necessário para ver a nova versão.",
-              ].map((step) => (
-                <div key={step} className="rounded-xl bg-muted/60 p-4 text-sm text-foreground">{step}</div>
-              ))}
-            </div>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <button onClick={() => void copyText(BLOG_DATA_PATH, "path")} className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent">
-                {copiedItem === "path" ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                Copiar Caminho do Servidor
-              </button>
-              <button onClick={() => { downloadJson(exportName); toast.success("Backup local exportado com data e hora"); }} className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent">
-                <Download className="h-4 w-4" />
-                Exportar Backup com Data
-              </button>
-              <button onClick={() => void copyText(exportName, "filename")} className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent">
-                {copiedItem === "filename" ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                Copiar Nome do Backup
-              </button>
-            </div>
+              <h2 className="flex-1 font-heading text-lg font-bold text-foreground">Publicação Guiada</h2>
+              {publicationGuideOpen ? (
+                <ChevronUp className="h-5 w-5 text-muted-foreground" />
+              ) : (
+                <ChevronDown className="h-5 w-5 text-muted-foreground" />
+              )}
+            </button>
+            {publicationGuideOpen && (
+              <>
+                <div className="grid gap-3 md:grid-cols-2 mt-3">
+                  {[
+                    "1. Edite ou revise os posts na sua cópia local.",
+                    "2. Clique em Exportar Publicação para baixar o arquivo oficial.",
+                    "3. Envie o arquivo para o servidor substituindo o JSON atual.",
+                    "4. Atualize o site ou limpe cache se necessário para ver a nova versão.",
+                  ].map((step) => (
+                    <div key={step} className="rounded-xl bg-muted/60 p-4 text-sm text-foreground">{step}</div>
+                  ))}
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <button onClick={() => void copyText(BLOG_DATA_PATH, "path")} className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent">
+                    {copiedItem === "path" ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                    Copiar Caminho do Servidor
+                  </button>
+                  <button onClick={() => { downloadJson(exportName); toast.success("Backup local exportado com data e hora"); }} className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent">
+                    <Download className="h-4 w-4" />
+                    Exportar Backup com Data
+                  </button>
+                  <button onClick={() => void copyText(exportName, "filename")} className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent">
+                    {copiedItem === "filename" ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                    Copiar Nome do Backup
+                  </button>
+                </div>
+              </>
+            )}
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
-            <h2 className="font-heading text-lg font-bold text-foreground">Resumo do Arquivo</h2>
-            <div className="mt-4 space-y-3 text-sm">
-              <div className="rounded-xl bg-muted/60 p-4">
-                <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Arquivo de publicação</div>
-                <div className="mt-1 font-mono text-foreground">blog-posts.json</div>
+            <button
+              type="button"
+              onClick={() => setPublicationGuideOpen((prev) => !prev)}
+              className="mb-1 flex w-full items-center gap-2 text-left"
+            >
+              <h2 className="flex-1 font-heading text-lg font-bold text-foreground">Resumo do Arquivo</h2>
+              {publicationGuideOpen ? (
+                <ChevronUp className="h-5 w-5 text-muted-foreground" />
+              ) : (
+                <ChevronDown className="h-5 w-5 text-muted-foreground" />
+              )}
+            </button>
+            {publicationGuideOpen && (
+              <div className="mt-3 space-y-3 text-sm">
+                <div className="rounded-xl bg-muted/60 p-4">
+                  <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Arquivo de publicação</div>
+                  <div className="mt-1 font-mono text-foreground">blog-posts.json</div>
+                </div>
+                <div className="rounded-xl bg-muted/60 p-4">
+                  <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Destino no servidor</div>
+                  <div className="mt-1 font-mono text-foreground">{BLOG_DATA_PATH}</div>
+                </div>
+                <div className="rounded-xl bg-muted/60 p-4">
+                  <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Backup sugerido</div>
+                  <div className="mt-1 font-mono break-all text-foreground">{exportName}</div>
+                </div>
+                <div className="rounded-xl bg-muted/60 p-4 text-muted-foreground">
+                  O JSON exportado leva posts e categorias juntos. Publique sempre com o nome fixo <code className="mx-1 rounded bg-background px-1 py-0.5">blog-posts.json</code>.
+                </div>
               </div>
-              <div className="rounded-xl bg-muted/60 p-4">
-                <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Destino no servidor</div>
-                <div className="mt-1 font-mono text-foreground">{BLOG_DATA_PATH}</div>
-              </div>
-              <div className="rounded-xl bg-muted/60 p-4">
-                <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Backup sugerido</div>
-                <div className="mt-1 font-mono break-all text-foreground">{exportName}</div>
-              </div>
-              <div className="rounded-xl bg-muted/60 p-4 text-muted-foreground">
-                O JSON exportado leva posts e categorias juntos. Publique sempre com o nome fixo <code className="mx-1 rounded bg-background px-1 py-0.5">blog-posts.json</code>.
-              </div>
-            </div>
+            )}
           </div>
         </div>
 
@@ -500,39 +575,71 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
         </div>
 
         <div className="mb-6 rounded-2xl border border-border bg-card p-5">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-            <div>
-              <h2 className="font-heading text-lg font-bold text-foreground">Categorias do Blog</h2>
-              <p className="mt-1 text-sm text-muted-foreground">Crie novas categorias aqui. Elas passam a valer no admin, no blog e no JSON exportado.</p>
-            </div>
-            <div className="flex w-full flex-col gap-2 sm:flex-row lg:max-w-xl">
-              <input
-                type="text"
-                value={newCategoryLabel}
-                onChange={(e) => setNewCategoryLabel(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    e.preventDefault();
-                    handleAddCategory();
-                  }
-                }}
-                placeholder="Ex: Jardinagem, Construção Civil..."
-                className="flex-1 rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-              />
-              <button type="button" onClick={handleAddCategory} className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90">
-                <FolderPlus className="h-4 w-4" />
-                Criar Categoria
-              </button>
-            </div>
-          </div>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {categories.map((category) => (
-              <div key={category.id} className={`rounded-full px-3 py-2 text-sm font-medium ${getCategoryTone(category.id, categories)}`}>
-                <span>{category.label}</span>
-                <span className="ml-2 opacity-70">/{category.id}</span>
+          <button
+            type="button"
+            onClick={() => setCategoriesOpen((prev) => !prev)}
+            className="flex w-full items-center gap-2 text-left"
+          >
+            <FolderPlus className="h-5 w-5 text-primary" />
+            <h2 className="flex-1 font-heading text-lg font-bold text-foreground">Categorias do Blog</h2>
+            <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">
+              {categories.length}
+            </span>
+            {categoriesOpen ? (
+              <ChevronUp className="h-5 w-5 text-muted-foreground" />
+            ) : (
+              <ChevronDown className="h-5 w-5 text-muted-foreground" />
+            )}
+          </button>
+          {categoriesOpen && (
+            <>
+              <p className="mt-2 text-sm text-muted-foreground">Crie novas categorias aqui. Elas passam a valer no admin, no blog e no JSON exportado.</p>
+              <div className="mt-4 flex w-full flex-col gap-2 sm:flex-row">
+                <input
+                  type="text"
+                  value={newCategoryLabel}
+                  onChange={(e) => setNewCategoryLabel(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      handleAddCategory();
+                    }
+                  }}
+                  placeholder="Ex: Jardinagem, Construção Civil..."
+                  className="flex-1 rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                />
+                <button type="button" onClick={handleAddCategory} className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90">
+                  <FolderPlus className="h-4 w-4" />
+                  Criar Categoria
+                </button>
               </div>
-            ))}
-          </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {categories.map((category) => (
+                  <div
+                    key={category.id}
+                    className={`flex items-center gap-1.5 rounded-full pl-3 pr-1.5 py-1.5 text-sm font-medium transition-opacity ${
+                      getCategoryTone(category.id, categories)
+                    } ${category.hidden ? "opacity-50" : ""}`}
+                  >
+                    <span>{category.label}</span>
+                    <span className="opacity-60 text-xs">/{category.id}</span>
+                    <button
+                      type="button"
+                      onClick={() => toggleCategoryVisibility(category.id)}
+                      title={category.hidden ? "Categoria oculta — clique para tornar visível" : "Categoria visível — clique para ocultar"}
+                      className="ml-1 rounded-full p-1 transition-colors hover:bg-black/10"
+                    >
+                      {category.hidden ? (
+                        <EyeOff className="h-3.5 w-3.5" />
+                      ) : (
+                        <Eye className="h-3.5 w-3.5" />
+                      )}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
         <div className="mb-6 flex flex-col gap-3 sm:flex-row">

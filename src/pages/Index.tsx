@@ -13,13 +13,15 @@ import {
   Truck,
   MessageCircle,
   Clock3,
+  MapPin,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
-import { company, brands } from "@/data/company";
+import { company } from "@/data/company";
 import { useBlogStore } from "@/stores/blogStore";
+import { isPostVisibleInAnyCategory } from "@/lib/blogCategories";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -29,6 +31,7 @@ const fadeIn = {
 const Index = () => {
   const init = useBlogStore((state) => state.init);
   const posts = useBlogStore((state) => state.posts);
+  const categories = useBlogStore((state) => state.categories);
 
   useEffect(() => {
     init();
@@ -36,6 +39,7 @@ const Index = () => {
 
   const recentPosts = posts
     .filter((post) => post.status === "published")
+    .filter((post) => isPostVisibleInAnyCategory(post, categories))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 6);
 
@@ -45,17 +49,16 @@ const Index = () => {
     <Layout>
       <SEOHead canonical="/" />
 
-      <section className="relative overflow-hidden bg-brand-gradient text-primary-foreground">
-        <div className="absolute inset-0 opacity-15">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-            }}
-          />
-        </div>
-        <div className="container-custom relative z-10 py-20 md:py-32">
+      {/* Hero */}
+      <section className="relative overflow-hidden text-primary-foreground">
+        {/* Imagem de fundo */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/hero-bg.webp')" }}
+        />
+        {/* Filtro azul sobre a imagem */}
+        <div className="absolute inset-0 bg-[#1a237e]/80" />
+        <div className="container-custom relative z-10 py-10 md:py-32">
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <motion.div initial="hidden" animate="visible" variants={fadeIn} className="max-w-3xl">
               <span className="mb-6 inline-block rounded-full bg-secondary px-4 py-1.5 text-sm font-bold text-secondary-foreground">
@@ -93,6 +96,7 @@ const Index = () => {
               </div>
             </motion.div>
 
+            {/* Stats card hero */}
             <motion.div
               initial="hidden"
               animate="visible"
@@ -101,9 +105,9 @@ const Index = () => {
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 {[
-                  { icon: Package, value: "13.000+", label: "produtos em linha" },
-                  { icon: Users, value: "50.000+", label: "clientes atendidos" },
-                  { icon: Award, value: "39+", label: "anos de tradição" },
+                  { icon: Package, value: `${company.stats.products.toLocaleString("pt-BR")}+`, label: "produtos em linha" },
+                  { icon: Users, value: `${company.stats.clients.toLocaleString("pt-BR")}+`, label: "clientes atendidos" },
+                  { icon: Award, value: `${company.stats.years}+`, label: "anos de tradição" },
                   { icon: Truck, value: "ES", label: "frete grátis no estado" },
                 ].map((stat) => (
                   <div key={stat.label} className="rounded-2xl bg-white/10 p-5">
@@ -125,6 +129,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Segmentos */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
           <div className="mb-12 text-center">
@@ -186,6 +191,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Sobre + stats secundários */}
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid items-center gap-12 md:grid-cols-2">
@@ -208,9 +214,9 @@ const Index = () => {
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {[
-                { icon: Package, value: "13.000+", label: "Produtos" },
-                { icon: Users, value: "50.000+", label: "Clientes" },
-                { icon: Award, value: "39+", label: "Anos" },
+                { icon: Package, value: `${company.stats.products.toLocaleString("pt-BR")}+`, label: "Produtos" },
+                { icon: Users, value: `${company.stats.clients.toLocaleString("pt-BR")}+`, label: "Clientes" },
+                { icon: Award, value: `${company.stats.years}+`, label: "Anos" },
               ].map((stat) => (
                 <div key={stat.label} className="rounded-xl bg-accent p-5 text-center">
                   <stat.icon className="mx-auto mb-2 h-8 w-8 text-primary" />
@@ -223,6 +229,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Diferenciais */}
       <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="mb-12 text-center">
@@ -259,20 +266,87 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Localização */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
-          <h2 className="mb-12 text-center font-heading text-3xl font-bold text-foreground md:text-4xl">Principais Marcas</h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {brands.map((brand) => (
-              <div key={brand.name} className="rounded-xl border border-border bg-card p-6 text-center transition-shadow hover:shadow-md">
-                <h3 className="mb-2 font-heading text-lg font-bold text-foreground">{brand.name}</h3>
-                <p className="text-sm text-muted-foreground">{brand.description}</p>
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 font-heading text-3xl font-bold text-foreground md:text-4xl">Onde Estamos</h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Venha nos visitar em Castelo ou entre em contato pelo WhatsApp. Estamos prontos para atender você.
+            </p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {/* Card Endereço */}
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-sm flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <div className="rounded-lg bg-accent p-3">
+                  <MapPin className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-foreground">Endereço</h3>
               </div>
-            ))}
+              <p className="text-sm leading-relaxed text-muted-foreground">{company.fullAddress}</p>
+              <a
+                href={company.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                <MapPin className="h-4 w-4" />
+                Abrir no Google Maps
+              </a>
+            </div>
+
+            {/* Card Horário */}
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-sm flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <div className="rounded-lg bg-accent p-3">
+                  <Clock3 className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-foreground">Horário de Funcionamento</h3>
+              </div>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex items-center justify-between rounded-lg bg-accent/50 px-4 py-3">
+                  <span className="font-semibold text-foreground">Segunda a Sexta</span>
+                  <span>7h às 17h</span>
+                </div>
+                <div className="flex items-center justify-between rounded-lg bg-accent/50 px-4 py-3">
+                  <span className="font-semibold text-foreground">Sábado</span>
+                  <span>7h às 11:30h</span>
+                </div>
+                <div className="flex items-center justify-between rounded-lg bg-muted px-4 py-3">
+                  <span className="font-semibold text-foreground">Domingo</span>
+                  <span className="text-destructive font-medium">Fechado</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card WhatsApp */}
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-sm flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <div className="rounded-lg bg-accent p-3">
+                  <MessageCircle className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-foreground">Fale Conosco</h3>
+              </div>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Prefere resolver pelo WhatsApp? Nossa equipe está pronta para te ajudar a escolher o produto ideal e tirar qualquer dúvida.
+              </p>
+              <p className="text-sm font-semibold text-foreground">{company.phone}</p>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Chamar no WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Blog */}
       <section className="section-padding">
         <div className="container-custom">
           <div className="mb-12 flex items-center justify-between">
@@ -296,6 +370,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* CTA final */}
       <section className="bg-brand-gradient py-16 text-primary-foreground">
         <div className="container-custom text-center">
           <h2 className="mb-4 font-heading text-3xl font-bold">Pronto para encontrar o produto ideal?</h2>

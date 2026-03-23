@@ -1,13 +1,52 @@
-import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { useState, useCallback } from "react";
+import { Phone, Mail, MapPin, Clock, Send, Copy, Check } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { company } from "@/data/company";
 import { toast } from "sonner";
 
+const isMobileDevice = () =>
+  /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+
 const Contato = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
-  const whatsappUrl = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de falar com a equipe da Comercial JR.")}`;
+
+  // Número principal para ligações (primeiro número do campo phone)
+  const phoneRaw = "2835421332"; // (28) 3542-1332
+  const phoneFormatted = "(28) 3542-1332";
+  const telLink = `tel:+55${phoneRaw}`;
+
+  const [copied, setCopied] = useState(false);
+  const handleCopyPhone = useCallback(() => {
+    const doCopy = () => {
+      setCopied(true);
+      toast.success("Número copiado! Cole onde quiser.");
+      setTimeout(() => setCopied(false), 2500);
+    };
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(phoneFormatted).then(doCopy).catch(() => {
+        // fallback para contextos sem permissão
+        fallbackCopy(phoneFormatted);
+        doCopy();
+      });
+    } else {
+      fallbackCopy(phoneFormatted);
+      doCopy();
+    }
+  }, [phoneFormatted]);
+
+  const fallbackCopy = (text: string) => {
+    const el = document.createElement("textarea");
+    el.value = text;
+    el.style.position = "fixed";
+    el.style.opacity = "0";
+    document.body.appendChild(el);
+    el.focus();
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,7 +55,25 @@ const Contato = () => {
       return;
     }
 
-    toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+    const lines = [
+      `*Novo contato pelo site*`,
+      ``,
+      `*Nome:* ${form.name}`,
+      `*E-mail:* ${form.email}`,
+      form.phone.trim() ? `*Telefone:* ${form.phone}` : null,
+      ``,
+      `*Mensagem:*`,
+      form.message,
+    ]
+      .filter((l) => l !== null)
+      .join("\n");
+
+    const encodedText = encodeURIComponent(lines);
+    const waUrl = isMobileDevice()
+      ? `https://wa.me/${company.whatsapp}?text=${encodedText}`
+      : `https://web.whatsapp.com/send?phone=${company.whatsapp}&text=${encodedText}`;
+    window.open(waUrl, "_blank", "noopener,noreferrer");
+
     setForm({ name: "", email: "", phone: "", message: "" });
   };
 
@@ -47,8 +104,8 @@ const Contato = () => {
                 {[
                   { icon: Phone, label: "Telefone", value: company.phone },
                   { icon: Mail, label: "E-mail", value: company.email },
-                  { icon: MapPin, label: "Endereço", value: company.fullAddress },
-                  { icon: Clock, label: "Horário", value: "Seg a Sex: 7h às 17h30 | Sáb: 7h às 12h" },
+                  { icon: MapPin, label: "Endereço", value: company.fullAddress, href: company.mapsUrl },
+                  { icon: Clock, label: "Horário", value: company.businessHours },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-4">
                     <div className="rounded-lg bg-accent p-3">
@@ -56,26 +113,47 @@ const Contato = () => {
                     </div>
                     <div>
                       <h3 className="font-heading text-sm font-bold text-foreground">{item.label}</h3>
-                      <p className="text-sm text-muted-foreground">{item.value}</p>
+                      {item.href ? (
+                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">{item.value}</a>
+                      ) : (
+                        <p className="text-sm text-muted-foreground">{item.value}</p>
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
 
               <div className="mt-8 rounded-2xl border border-border bg-muted/60 p-6">
-                <h3 className="mb-2 font-heading text-lg font-bold text-foreground">Atendimento rápido pelo WhatsApp</h3>
+                <h3 className="mb-2 font-heading text-lg font-bold text-foreground">Prefere ligar?</h3>
                 <p className="mb-4 text-sm text-muted-foreground">
-                  Se preferir, fale agora com nossa equipe para consultar produtos, disponibilidade e
-                  condições de entrega.
+                  Fale diretamente com nossa equipe por telefone.
                 </p>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-                >
-                  Falar no WhatsApp
-                </a>
+                {isMobileDevice() ? (
+                  <a
+                    href={telLink}
+                    className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                  >
+                    <Phone className="h-4 w-4" />
+                    Ligar para {phoneFormatted}
+                  </a>
+                ) : (
+                  <button
+                    onClick={handleCopyPhone}
+                    className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-5 py-3 font-semibold text-foreground transition-colors hover:bg-accent"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="h-4 w-4 text-green-600" />
+                        <span className="text-green-600">Número copiado!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="h-4 w-4" />
+                        {phoneFormatted} — clique para copiar
+                      </>
+                    )}
+                  </button>
+                )}
               </div>
             </div>
 
@@ -124,7 +202,7 @@ const Contato = () => {
                 </div>
                 <button type="submit" className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90">
                   <Send className="h-4 w-4" />
-                  Enviar Mensagem
+                  Enviar pelo WhatsApp
                 </button>
               </form>
             </div>
