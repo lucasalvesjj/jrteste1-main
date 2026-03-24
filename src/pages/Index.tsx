@@ -1,27 +1,216 @@
-import { useEffect } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Wrench,
   Droplets,
-  Cog,
+  Zap,
+  Gauge,
   ShoppingCart,
   Award,
   Users,
   Package,
   ShieldCheck,
+  Layers,
   Truck,
   MessageCircle,
   Clock3,
   MapPin,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
 import { company } from "@/data/company";
 import { useBlogStore } from "@/stores/blogStore";
 import { isPostVisibleInAnyCategory } from "@/lib/blogCategories";
+
+/* ── Dados dos 7 segmentos ── */
+const segmentos = [
+  {
+    icon: Droplets,
+    color: "text-blue-500",
+    bg: "bg-blue-50",
+    title: "Irrigação Agrícola",
+    desc: "Sistemas completos de irrigação para lavouras, pastagem, horticultura e jardinagem.",
+    href: "/segmentos/irrigacao",
+  },
+  {
+    icon: Wrench,
+    color: "text-orange-500",
+    bg: "bg-orange-50",
+    title: "Ferramentas Manuais",
+    desc: "Ferramentas profissionais para marcenaria, serralheria, construção e uso rural.",
+    href: "/segmentos/ferramentas",
+  },
+  {
+    icon: Zap,
+    color: "text-yellow-500",
+    bg: "bg-yellow-50",
+    title: "Máquinas Elétricas",
+    desc: "Furadeiras, esmerilhadeiras, serras, compressores e as melhores marcas do mercado.",
+    href: "/segmentos/maquinas",
+  },
+  {
+    icon: Gauge,
+    color: "text-cyan-600",
+    bg: "bg-cyan-50",
+    title: "Bombas e Motores",
+    desc: "Bombas centrífugas, submersas, periféricas e motores elétricos para diversas aplicações.",
+    href: "/segmentos/bombas-e-motores",
+  },
+  {
+    icon: Package,
+    color: "text-purple-500",
+    bg: "bg-purple-50",
+    title: "Locação de Equipamentos",
+    desc: "Aluguel de máquinas e equipamentos para obras, reformas e serviços rurais.",
+    href: "/segmentos/locacao",
+  },
+  {
+    icon: ShieldCheck,
+    color: "text-green-600",
+    bg: "bg-green-50",
+    title: "Assistência STIHL",
+    desc: "Revenda e assistência técnica autorizada com peças originais e garantia de fábrica.",
+    href: "/segmentos/assistencia-stihl",
+  },
+  {
+    icon: Layers,
+    color: "text-teal-600",
+    bg: "bg-teal-50",
+    title: "Poços Artesianos",
+    desc: "Bombas submersas, motores, painéis de controle e orientação técnica especializada.",
+    href: "/segmentos/pocos-artesianos",
+  },
+];
+
+const AUTOPLAY_MS = 5000;
+
+/* ── Componente do carrossel de segmentos ── */
+const SegmentosCarousel = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+  });
+
+  const [isPaused, setIsPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const timerStart = useRef(Date.now());
+  const rafId = useRef<number>(0);
+
+  /* Reseta a barra de progresso */
+  const resetProgress = useCallback(() => {
+    timerStart.current = Date.now();
+    setProgress(0);
+  }, []);
+
+  /* Animação da barra de progresso via requestAnimationFrame */
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const tick = () => {
+      if (!isPaused) {
+        const elapsed = Date.now() - timerStart.current;
+        const pct = Math.min((elapsed / AUTOPLAY_MS) * 100, 100);
+        setProgress(pct);
+
+        if (pct >= 100) {
+          emblaApi.scrollNext();
+          timerStart.current = Date.now();
+          setProgress(0);
+        }
+      }
+      rafId.current = requestAnimationFrame(tick);
+    };
+
+    rafId.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId.current);
+  }, [emblaApi, isPaused]);
+
+  /* Quando o slide muda manualmente, reseta o timer */
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => resetProgress();
+    emblaApi.on("select", onSelect);
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi, resetProgress]);
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  return (
+    <div
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => {
+        setIsPaused(false);
+        timerStart.current = Date.now() - (progress / 100) * AUTOPLAY_MS;
+      }}
+    >
+      {/* Carrossel */}
+      <div className="relative">
+        {/* Setas */}
+        <button
+          onClick={scrollPrev}
+          className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border bg-card p-2 shadow-sm transition-colors hover:bg-accent md:-left-5"
+          aria-label="Anterior"
+        >
+          <ChevronLeft className="h-5 w-5 text-muted-foreground" />
+        </button>
+        <button
+          onClick={scrollNext}
+          className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border bg-card p-2 shadow-sm transition-colors hover:bg-accent md:-right-5"
+          aria-label="Próximo"
+        >
+          <ChevronRight className="h-5 w-5 text-muted-foreground" />
+        </button>
+
+        {/* Slides */}
+        <div ref={emblaRef} className="overflow-hidden">
+          <div className="flex">
+            {segmentos.map((seg) => (
+              <div
+                key={seg.title}
+                className="min-w-0 shrink-0 grow-0 basis-full pl-5 sm:basis-1/2 lg:basis-1/3"
+              >
+                <Link
+                  to={seg.href}
+                  className="group flex h-full flex-col rounded-2xl border border-border bg-card p-7 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <div className={`mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl ${seg.bg}`}>
+                    <seg.icon className={`h-7 w-7 ${seg.color}`} />
+                  </div>
+                  <h3 className="mb-2 font-heading text-lg font-bold text-foreground transition-colors group-hover:text-primary">
+                    {seg.title}
+                  </h3>
+                  <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {seg.desc}
+                  </p>
+                  <span className="inline-flex items-center justify-center gap-1 text-sm font-semibold text-primary transition-all group-hover:gap-2">
+                    Saiba mais
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Barra de progresso */}
+      <div className="mx-auto mt-6 h-1 max-w-xs overflow-hidden rounded-full bg-primary/10">
+        <div
+          className="h-full rounded-full bg-primary transition-none"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+    </div>
+  );
+};
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -41,7 +230,7 @@ const Index = () => {
     .filter((post) => post.status === "published")
     .filter((post) => isPostVisibleInAnyCategory(post, categories))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 6);
+    .slice(0, 3);
 
   const whatsappUrl = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de um atendimento da Comercial JR.")}`;
 
@@ -132,61 +321,39 @@ const Index = () => {
       {/* Segmentos */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 font-heading text-3xl font-bold text-foreground md:text-4xl">Nossos Segmentos</h2>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="mb-10 text-center"
+          >
+            <h2 className="mb-4 font-heading text-3xl font-bold text-foreground md:text-4xl">
+              Nossos Segmentos
+            </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground">
               Um portfólio completo para quem trabalha no campo, na construção, na oficina ou quer
               mais eficiência em casa.
             </p>
-          </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {[
-              {
-                icon: Cog,
-                title: "Máquinas",
-                desc: "Máquinas elétricas, motosserras, compressores e soluções para alto desempenho.",
-                href: "/segmentos/maquinas",
-                emoji: "⚙️",
-              },
-              {
-                icon: Wrench,
-                title: "Ferramentas",
-                desc: "Ferramentas manuais e elétricas para profissionais, oficinas e uso doméstico.",
-                href: "/segmentos/ferramentas",
-                emoji: "🔧",
-              },
-              {
-                icon: Droplets,
-                title: "Irrigação",
-                desc: "Sistemas completos para agricultura, jardim, pastagem e distribuição de água.",
-                href: "/segmentos/irrigacao",
-                emoji: "💧",
-              },
-            ].map((seg, i) => (
-              <motion.div
-                key={seg.title}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{ ...fadeIn, visible: { ...fadeIn.visible, transition: { delay: i * 0.15, duration: 0.6 } } }}
-              >
-                <Link
-                  to={seg.href}
-                  className="group block rounded-2xl border border-border bg-card p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                >
-                  <div className="mb-4 text-5xl">{seg.emoji}</div>
-                  <seg.icon className="mx-auto mb-4 h-10 w-10 text-primary/30 transition-colors group-hover:text-primary" />
-                  <h3 className="mb-2 font-heading text-xl font-bold text-foreground transition-colors group-hover:text-primary">
-                    {seg.title}
-                  </h3>
-                  <p className="mb-4 text-sm text-muted-foreground">{seg.desc}</p>
-                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                    Saiba mais
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Link>
-              </motion.div>
-            ))}
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{ ...fadeIn, visible: { opacity: 1, y: 0, transition: { delay: 0.15, duration: 0.6 } } }}
+          >
+            <SegmentosCarousel />
+          </motion.div>
+
+          <div className="mt-8 text-center">
+            <Link
+              to="/segmentos"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              Ver todos os segmentos
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -346,23 +513,118 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Nossa História — Timeline */}
+      <section className="bg-brand-gradient py-16 text-primary-foreground md:py-24">
+        <div className="container-custom">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="mx-auto mb-12 max-w-2xl text-center"
+          >
+            <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold tracking-wide text-secondary">
+              Desde 1985
+            </span>
+            <h2 className="mb-4 font-heading text-3xl font-bold md:text-4xl">
+              Uma história construída em gerações
+            </h2>
+            <p className="text-primary-foreground/75">
+              Do balcão da oficina ao e-commerce com mais de 18 mil produtos. Três gerações
+              de uma família dedicada a atender quem trabalha com as mãos.
+            </p>
+          </motion.div>
+
+          {/* Timeline desktop (horizontal) / mobile (vertical) */}
+          <div className="relative mx-auto max-w-4xl">
+            {/* Linha horizontal — visível apenas no md+ */}
+            <div className="absolute left-0 right-0 top-6 hidden h-0.5 bg-white/20 md:block" />
+            {/* Linha vertical — visível apenas no mobile */}
+            <div className="absolute bottom-0 left-6 top-0 w-0.5 bg-white/20 md:hidden" />
+
+            <div className="grid gap-8 md:grid-cols-4">
+              {[
+                {
+                  year: "1960",
+                  title: "A oficina",
+                  desc: "Tudo começou numa pequena oficina mecânica em Castelo, com foco em reparo de máquinas agrícolas.",
+                },
+                {
+                  year: "1985",
+                  title: "Comercial JR nasce",
+                  desc: "A loja foi fundada e passou a vender ferramentas, peças e equipamentos para a região.",
+                },
+                {
+                  year: "2006",
+                  title: "Nova geração",
+                  desc: "A segunda geração assumiu a gestão, ampliando o portfólio e a área de atuação.",
+                },
+                {
+                  year: "Hoje",
+                  title: "Terceira geração",
+                  desc: "Mais de 41 anos, 18 mil produtos, loja online e atendimento em todo o Espírito Santo.",
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.year}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { delay: i * 0.15, duration: 0.5 } },
+                  }}
+                  className="relative pl-14 md:pl-0 md:text-center"
+                >
+                  {/* Nó da timeline */}
+                  <div className="absolute left-4 top-0 flex h-5 w-5 items-center justify-center md:left-1/2 md:-translate-x-1/2">
+                    <div className="h-3.5 w-3.5 rounded-full border-2 border-secondary bg-secondary/30" />
+                  </div>
+
+                  <div className="pt-1 md:pt-10">
+                    <span className="font-heading text-2xl font-black text-secondary">{item.year}</span>
+                    <h3 className="mt-1 font-heading text-base font-bold">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-primary-foreground/70">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{ ...fadeIn, visible: { opacity: 1, y: 0, transition: { delay: 0.6, duration: 0.5 } } }}
+            className="mt-10 text-center"
+          >
+            <Link
+              to="/nossa-historia"
+              className="inline-flex items-center gap-2 rounded-lg bg-secondary px-6 py-3 font-bold text-secondary-foreground transition-opacity hover:opacity-90"
+            >
+              Conhecer nossa história
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Blog */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="mb-12 flex items-center justify-between">
+          <div className="mb-12 text-center">
             <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">Posts Recentes</h2>
-            <Link to="/blog" className="hidden items-center gap-1 text-sm font-semibold text-primary transition-all hover:gap-2 md:inline-flex">
-              Ver todos
-              <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {recentPosts.map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}
           </div>
-          <div className="mt-8 text-center md:hidden">
-            <Link to="/blog" className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
+          <div className="mt-8 text-center">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 font-semibold text-foreground transition-colors hover:bg-accent"
+            >
               Ver todos os posts
               <ArrowRight className="h-4 w-4" />
             </Link>
