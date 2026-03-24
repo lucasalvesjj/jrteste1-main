@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
 import { useBlogStore } from "@/stores/blogStore";
 import { getCategoryLabel, getPostCategories } from "@/lib/blogCategories";
+import JRLoader from "@/components/JRLoader";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -25,9 +26,7 @@ const BlogPostPage = () => {
     return (
       <Layout>
         <SEOHead title="Carregando post" />
-        <div className="section-padding text-center">
-          <h1 className="mb-4 font-heading text-3xl font-bold text-foreground">Carregando post...</h1>
-        </div>
+        <JRLoader size="md" label="Carregando post..." />
       </Layout>
     );
   }

@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ScrollToTop from "./components/ScrollToTop";
 import CookieBanner from "./components/CookieBanner";
+import JRLoader from "./components/JRLoader";
 
 const Index = lazy(() => import("./pages/Index"));
 const Segmentos = lazy(() => import("./pages/Segmentos"));
@@ -17,6 +18,7 @@ const LocacaoPage = lazy(() => import("./pages/segmentos/Locacao"));
 const AssistenciaStihlPage = lazy(() => import("./pages/segmentos/AssistenciaStihl"));
 const PocosArtesianosPage = lazy(() => import("./pages/segmentos/PocosArtesianos"));
 const NossaHistoria = lazy(() => import("./pages/NossaHistoria"));
+const NossaMissao = lazy(() => import("./pages/NossaMissao"));
 const Contato = lazy(() => import("./pages/Contato"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -24,11 +26,7 @@ const AdminPage = lazy(() => import("./pages/Admin"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-const RouteFallback = () => (
-  <div className="flex min-h-[40vh] items-center justify-center px-4 text-center text-sm text-muted-foreground">
-    Carregando página...
-  </div>
-);
+const RouteFallback = () => <JRLoader size="lg" label="Carregando página..." />;
 
 const App = () => (
   <HelmetProvider>
@@ -49,6 +47,7 @@ const App = () => (
             <Route path="/segmentos/assistencia-stihl" element={<AssistenciaStihlPage />} />
             <Route path="/segmentos/pocos-artesianos" element={<PocosArtesianosPage />} />
             <Route path="/nossa-historia" element={<NossaHistoria />} />
+            <Route path="/nossa-missao" element={<NossaMissao />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />

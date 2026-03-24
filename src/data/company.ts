@@ -68,7 +68,13 @@ export const navLinks = [
       { label: "Pistolas de Pintura", href: "https://loja.comercialjrltda.com.br/pistola-de-pintura", external: true },
     ],
   },
-  { label: "Nossa História", href: "/nossa-historia" },
+  {
+    label: "Nossa História",
+    href: "/nossa-historia",
+    children: [
+      { label: "Nossa Missão", href: "/nossa-missao" },
+    ],
+  },
   { label: "Blog", href: "/blog" },
   { label: "Contato", href: "/contato" },
 ];

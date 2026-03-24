@@ -29,6 +29,7 @@ import { useBlogStore } from "@/stores/blogStore";
 import type { BlogPost } from "@/data/blogTypes";
 import { BLOG_DATA_PATH, parseBlogImport } from "@/lib/blogContent";
 import { getCategoryLabel, getCategoryTone, getPostCategories } from "@/lib/blogCategories";
+import JRLoader from "@/components/JRLoader";
 
 const AdminPostEditor = lazy(() => import("@/components/admin/AdminPostEditor"));
 const AdminSeoEditor = lazy(() => import("@/components/admin/AdminSeoEditor"));
@@ -92,9 +93,7 @@ const buildDuplicateTitle = (title: string, existingTitles: string[]) => {
 };
 
 const AdminViewFallback = ({ label }: { label: string }) => (
-  <div className="flex min-h-screen items-center justify-center bg-muted px-4 text-center text-sm text-muted-foreground">
-    Carregando {label}...
-  </div>
+  <JRLoader size="lg" label={`Carregando ${label}...`} />
 );
 
 const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {

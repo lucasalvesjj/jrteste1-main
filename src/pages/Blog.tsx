@@ -5,6 +5,7 @@ import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
 import { useBlogStore } from "@/stores/blogStore";
 import { getVisibleCategories, isPostVisibleInAnyCategory } from "@/lib/blogCategories";
+import JRLoader from "@/components/JRLoader";
 
 const Blog = () => {
   const init = useBlogStore((state) => state.init);
@@ -90,11 +91,13 @@ const Blog = () => {
             </div>
           </div>
 
-          <p className="mb-6 text-sm text-muted-foreground">
-            {loading
-              ? "Carregando posts..."
-              : `${filtered.length} artigo${filtered.length !== 1 ? "s" : ""} encontrado${filtered.length !== 1 ? "s" : ""}`}
-          </p>
+          {loading ? (
+            <JRLoader size="sm" label="Carregando posts..." />
+          ) : (
+            <p className="mb-6 text-sm text-muted-foreground">
+              {`${filtered.length} artigo${filtered.length !== 1 ? "s" : ""} encontrado${filtered.length !== 1 ? "s" : ""}`}
+            </p>
+          )}
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filtered.slice(0, visibleCount).map((post) => (

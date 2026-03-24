@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { Award, Users, MapPin, Calendar } from "lucide-react";
+import { Award, Users, MapPin, Calendar, ArrowRight } from "lucide-react";
 
 const NossaHistoria = () => (
   <Layout>
@@ -40,82 +41,21 @@ const NossaHistoria = () => (
             ))}
           </div>
 
-          {/* Missão / Visão / Valores */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-xl border-2 border-primary/20 bg-accent p-6">
-              <div className="mb-3 flex items-center gap-2">
-                <span className="text-2xl">🔵</span>
-                <h2 className="font-heading text-lg font-bold text-foreground">Missão</h2>
-              </div>
-              <p className="text-sm leading-relaxed">
-                Resolver problemas reais de quem produz, constrói e trabalha, através de soluções técnicas confiáveis que reduzem risco e evitam retrabalho.
-              </p>
-            </div>
-
-            <div className="rounded-xl border-2 border-brand-green/20 bg-accent p-6">
-              <div className="mb-3 flex items-center gap-2">
-                <span className="text-2xl">🟢</span>
-                <h2 className="font-heading text-lg font-bold text-foreground">Visão</h2>
-              </div>
-              <p className="text-sm leading-relaxed">
-                Ser reconhecida como a empresa mais confiável da região quando a decisão é difícil — aquela que o cliente escolhe quando não pode errar.
-              </p>
-            </div>
-
-            <div className="rounded-xl border-2 border-secondary/20 bg-accent p-6">
-              <div className="mb-3 flex items-center gap-2">
-                <span className="text-2xl">🟡</span>
-                <h2 className="font-heading text-lg font-bold text-foreground">Valores</h2>
-              </div>
-              <ul className="space-y-1.5 text-sm">
-                {[
-                  "Resolução acima de tudo",
-                  "Domínio técnico de verdade",
-                  "Proximidade com o cliente",
-                  "Compromisso com o resultado",
-                  "Honestidade nas decisões",
-                  "Segurança antes do preço",
-                  "Confiança conquistada",
-                  "Evolução sem perder a essência",
-                  "Respeito pelo campo",
-                ].map((v) => (
-                  <li key={v} className="flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-secondary rounded-full mt-1.5 shrink-0" />
-                    {v}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Valores detalhados */}
-          <div>
-            <h2 className="font-heading text-2xl font-bold text-foreground mb-6">Nossos Valores em Detalhe</h2>
-            <div className="space-y-4">
-              {[
-                { num: "01", title: "Resolução acima de tudo", desc: "Não vendemos produto — resolvemos problema." },
-                { num: "02", title: "Domínio técnico de verdade", desc: "Conhecimento não é discurso, é prática aplicada no campo." },
-                { num: "03", title: "Proximidade com o cliente", desc: "Estamos próximos não só para vender, mas para entender e acompanhar." },
-                { num: "04", title: "Compromisso com o resultado", desc: "Se não funcionar na prática, não serve." },
-                { num: "05", title: "Honestidade nas decisões", desc: "Falamos a verdade, mesmo quando não é a mais fácil." },
-                { num: "06", title: "Segurança antes do preço", desc: "Mais importante do que ser barato é evitar prejuízo." },
-                { num: "07", title: "Trabalho construído com confiança", desc: "Confiança não se compra — se conquista ao longo do tempo." },
-                { num: "08", title: "Evolução sem perder a essência", desc: "A empresa muda, cresce e se moderniza — mas não abandona o que a construiu." },
-                { num: "09", title: "Respeito pelo campo", desc: "Entendemos que por trás de cada decisão existe o sustento de uma família." },
-              ].map((item) => (
-                <div key={item.num} className="flex gap-4 rounded-xl bg-accent p-4">
-                  <span className="font-heading text-2xl font-black text-primary/30 shrink-0 w-10">{item.num}</span>
-                  <div>
-                    <div className="font-heading font-bold text-foreground">{item.title}</div>
-                    <div className="text-sm mt-0.5">{item.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <blockquote className="mt-8 rounded-xl border-l-4 border-secondary bg-accent p-6 italic text-foreground font-medium">
-              "A Comercial JR existe para garantir que o cliente não erre quando mais importa."
-            </blockquote>
+          {/* CTA — Missão, Visão e Valores */}
+          <div className="rounded-2xl border-2 border-primary/15 bg-accent p-8 text-center">
+            <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3">
+              Missão, Visão e Valores
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6 max-w-lg mx-auto">
+              Conheça os 9 princípios que guiam cada decisão da Comercial JR desde 1960 — construídos com trabalho, confiança e respeito pelo campo.
+            </p>
+            <Link
+              to="/nossa-missao"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Conhecer Nossa Missão
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
           {/* ── HISTÓRIA ── */}

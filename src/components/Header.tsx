@@ -120,7 +120,35 @@ const Header = () => {
                     {link.label}
                   </Link>
                 )}
-                {link.children && (
+                {link.children && link.label === "Nossa História" ? (
+                  /* Submenu sempre visível para "Nossa História" */
+                  <div className="ml-4 space-y-1">
+                    {link.children.map((child) =>
+                      child.external ? (
+                        <a
+                          key={child.label}
+                          href={child.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-primary"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {child.label}
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      ) : (
+                        <Link
+                          key={child.label}
+                          to={child.href}
+                          className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      )
+                    )}
+                  </div>
+                ) : link.children ? (
                   <>
                     <button
                       className="flex items-center gap-1 w-full px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary"
@@ -158,7 +186,7 @@ const Header = () => {
                       </div>
                     )}
                   </>
-                )}
+                ) : null}
               </div>
             ))}
           </nav>
