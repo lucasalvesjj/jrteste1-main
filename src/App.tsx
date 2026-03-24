@@ -12,6 +12,10 @@ const Segmentos = lazy(() => import("./pages/Segmentos"));
 const IrrigacaoPage = lazy(() => import("./pages/segmentos/Irrigacao"));
 const FerramentasPage = lazy(() => import("./pages/segmentos/Ferramentas"));
 const MaquinasPage = lazy(() => import("./pages/segmentos/Maquinas"));
+const BombasMotoresPage = lazy(() => import("./pages/segmentos/BombasMotores"));
+const LocacaoPage = lazy(() => import("./pages/segmentos/Locacao"));
+const AssistenciaStihlPage = lazy(() => import("./pages/segmentos/AssistenciaStihl"));
+const PocosArtesianosPage = lazy(() => import("./pages/segmentos/PocosArtesianos"));
 const NossaHistoria = lazy(() => import("./pages/NossaHistoria"));
 const Contato = lazy(() => import("./pages/Contato"));
 const Blog = lazy(() => import("./pages/Blog"));
@@ -40,6 +44,10 @@ const App = () => (
             <Route path="/segmentos/irrigacao" element={<IrrigacaoPage />} />
             <Route path="/segmentos/ferramentas" element={<FerramentasPage />} />
             <Route path="/segmentos/maquinas" element={<MaquinasPage />} />
+            <Route path="/segmentos/bombas-e-motores" element={<BombasMotoresPage />} />
+            <Route path="/segmentos/locacao" element={<LocacaoPage />} />
+            <Route path="/segmentos/assistencia-stihl" element={<AssistenciaStihlPage />} />
+            <Route path="/segmentos/pocos-artesianos" element={<PocosArtesianosPage />} />
             <Route path="/nossa-historia" element={<NossaHistoria />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/blog" element={<Blog />} />

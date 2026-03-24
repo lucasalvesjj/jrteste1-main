@@ -24,9 +24,9 @@ export const company = {
     years: 41,
   },
   seo: {
-    title: "Comercial JR LTDA - Máquinas, Ferramentas e Irrigação",
+    title: "Comercial JR LTDA - Máquinas, Ferramentas e Irrigação em Castelo ES",
     description:
-      "Referência em máquinas, ferramentas e irrigação no Espírito Santo. Mais de 18.000 produtos, 41 anos de tradição e frete grátis para todo o ES.",
+      "Referência em máquinas elétricas, ferramentas, irrigação, bombas e motores no Espírito Santo. Revenda autorizada STIHL. Mais de 18.000 produtos, 41 anos de tradição.",
     image: "/og-image.jpg",
   },
 };
@@ -37,9 +37,13 @@ export const navLinks = [
     label: "Segmentos",
     href: "/segmentos",
     children: [
-      { label: "Irrigação", href: "/segmentos/irrigacao" },
-      { label: "Ferramentas", href: "/segmentos/ferramentas" },
-      { label: "Máquinas", href: "/segmentos/maquinas" },
+      { label: "Assistência Técnica STIHL", href: "/segmentos/assistencia-stihl" },
+      { label: "Bombas e Motores", href: "/segmentos/bombas-e-motores" },
+      { label: "Ferramentas Manuais", href: "/segmentos/ferramentas" },
+      { label: "Irrigação Agrícola", href: "/segmentos/irrigacao" },
+      { label: "Locação de Equipamentos", href: "/segmentos/locacao" },
+      { label: "Máquinas Elétricas", href: "/segmentos/maquinas" },
+      { label: "Poços Artesianos", href: "/segmentos/pocos-artesianos" },
     ],
   },
   {
@@ -47,9 +51,21 @@ export const navLinks = [
     href: "https://loja.comercialjrltda.com.br/",
     external: true,
     children: [
-      { label: "Irrigação", href: "https://loja.comercialjrltda.com.br/marcas/agrologic", external: true },
-      { label: "Ferramentas", href: "https://loja.comercialjrltda.com.br/jogo-de-ferramentas", external: true },
-      { label: "Máquinas", href: "https://loja.comercialjrltda.com.br/ferramentas-eletricas", external: true },
+      { label: "Ferramentas Elétricas", href: "https://loja.comercialjrltda.com.br/ferramentas-eletricas", external: true },
+      { label: "Esmerilhadeira", href: "https://loja.comercialjrltda.com.br/esmerilhadeira", external: true },
+      { label: "Furadeira", href: "https://loja.comercialjrltda.com.br/furadeira", external: true },
+      { label: "Lixadeiras", href: "https://loja.comercialjrltda.com.br/lixadeira", external: true },
+      { label: "Martelete", href: "https://loja.comercialjrltda.com.br/martelete", external: true },
+      { label: "Parafusadeiras", href: "https://loja.comercialjrltda.com.br/parafusadeira", external: true },
+      { label: "Politriz", href: "https://loja.comercialjrltda.com.br/politriz", external: true },
+      { label: "Serra Circular", href: "https://loja.comercialjrltda.com.br/serra-circular", external: true },
+      { label: "Serra Mármore", href: "https://loja.comercialjrltda.com.br/serra-marmore", external: true },
+      { label: "Serra Tico-Tico", href: "https://loja.comercialjrltda.com.br/serra-tico-tico", external: true },
+      { label: "Soprador Térmico", href: "https://loja.comercialjrltda.com.br/soprador-termico", external: true },
+      { label: "Chave Elétrica", href: "https://loja.comercialjrltda.com.br/chave-eletrica", external: true },
+      { label: "Ferramentas Manuais", href: "https://loja.comercialjrltda.com.br/ferramentas-manuais", external: true },
+      { label: "Inversoras", href: "https://loja.comercialjrltda.com.br/inversoras", external: true },
+      { label: "Pistolas de Pintura", href: "https://loja.comercialjrltda.com.br/pistola-de-pintura", external: true },
     ],
   },
   { label: "Nossa História", href: "/nossa-historia" },
@@ -58,23 +74,10 @@ export const navLinks = [
 ];
 
 export const brands = [
-  {
-    name: "STIHL",
-    description:
-      "Reconhecida pela robustez e pelo alto padrão de qualidade em soluções para corte, poda e manutenção.",
-  },
-  {
-    name: "TIGRE",
-    description:
-      "Marca líder em soluções para construção, reforma e condução de água com excelente confiabilidade.",
-  },
-  {
-    name: "AMANCO",
-    description:
-      "Linha completa para instalações hidráulicas e irrigação com praticidade no dia a dia do campo e da obra.",
-  },
-  {
-    name: "DeWalt",
-    description: "Referência mundial em ferramentas elétricas profissionais, desempenho e durabilidade.",
-  },
+  { name: "STIHL", description: "Reconhecida pela robustez e alto padrão de qualidade em soluções para corte, poda e manutenção. Revenda e assistência técnica autorizada na Comercial JR." },
+  { name: "TIGRE", description: "Marca líder em soluções para construção, reforma e condução de água com excelente confiabilidade." },
+  { name: "AMANCO", description: "Linha completa para instalações hidráulicas e irrigação com praticidade no dia a dia do campo e da obra." },
+  { name: "DeWalt", description: "Referência mundial em ferramentas elétricas profissionais, desempenho e durabilidade." },
+  { name: "WEG", description: "Líder nacional em motores elétricos, com soluções para uso agrícola, industrial e doméstico." },
+  { name: "Gedore", description: "Ferramentas manuais de precisão alemã para profissionais exigentes de todos os setores." },
 ];

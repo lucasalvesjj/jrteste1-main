@@ -90,3 +90,6 @@
     @apply max-w-7xl mx-auto px-4 md:px-8;
   }
 }
+
+/* ── Brand Slider — estilos movidos para inline no componente ── */
+/* Mantido vazio para não quebrar imports existentes */
