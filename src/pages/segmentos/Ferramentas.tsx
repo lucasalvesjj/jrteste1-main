@@ -146,7 +146,7 @@ const FerramentasPage = () => {
             href="https://loja.comercialjrltda.com.br/ferramentas-manuais"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-white px-6 py-3 font-bold text-primary transition-opacity hover:opacity-90"
+            className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-white px-6 py-3 font-bold text-[hsl(240_60%_25%)] transition-opacity hover:opacity-90"
           >
             <ShoppingCart className="h-5 w-5" />
             Ver Ferramentas Manuais

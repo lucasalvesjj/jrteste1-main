@@ -53,8 +53,8 @@ const BrandLogo = ({ name }: { name: string }) => {
     <span
       style={{
         fontSize: 11, fontWeight: 700, textTransform: "uppercase",
-        letterSpacing: "0.1em", color: "rgba(0,0,0,0.4)",
-        border: "1px solid rgba(0,0,0,0.12)", borderRadius: 6,
+        letterSpacing: "0.1em", color: "hsl(var(--muted-foreground))",
+        border: "1px solid hsl(var(--border))", borderRadius: 6,
         padding: "4px 12px", whiteSpace: "nowrap",
       }}
     >

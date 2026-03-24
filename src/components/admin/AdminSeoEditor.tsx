@@ -42,7 +42,7 @@ const AdminSeoEditor = ({ onBack }: { onBack: () => void }) => {
   };
 
   return (
-    <div className="min-h-screen bg-muted">
+    <div className="dark admin-dark min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 bg-primary text-primary-foreground shadow-md">
         <div className="container-custom flex h-14 items-center justify-between">
           <button onClick={onBack} className="flex items-center gap-1.5 text-sm text-primary-foreground/70 hover:text-primary-foreground">

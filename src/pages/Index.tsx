@@ -18,6 +18,11 @@ import {
   MapPin,
   ChevronLeft,
   ChevronRight,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Youtube,
+  ExternalLink,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
@@ -33,7 +38,7 @@ const segmentos = [
   {
     icon: Droplets,
     color: "text-blue-500",
-    bg: "bg-blue-50",
+    bg: "bg-blue-50 dark:bg-blue-950/40",
     title: "Irrigação Agrícola",
     desc: "Sistemas completos de irrigação para lavouras, pastagem, horticultura e jardinagem.",
     href: "/segmentos/irrigacao",
@@ -41,7 +46,7 @@ const segmentos = [
   {
     icon: Wrench,
     color: "text-orange-500",
-    bg: "bg-orange-50",
+    bg: "bg-orange-50 dark:bg-orange-950/40",
     title: "Ferramentas Manuais",
     desc: "Ferramentas profissionais para marcenaria, serralheria, construção e uso rural.",
     href: "/segmentos/ferramentas",
@@ -49,15 +54,15 @@ const segmentos = [
   {
     icon: Zap,
     color: "text-yellow-500",
-    bg: "bg-yellow-50",
+    bg: "bg-yellow-50 dark:bg-yellow-950/40",
     title: "Máquinas Elétricas",
     desc: "Furadeiras, esmerilhadeiras, serras, compressores e as melhores marcas do mercado.",
     href: "/segmentos/maquinas",
   },
   {
     icon: Gauge,
-    color: "text-cyan-600",
-    bg: "bg-cyan-50",
+    color: "text-cyan-600 dark:text-cyan-400",
+    bg: "bg-cyan-50 dark:bg-cyan-950/40",
     title: "Bombas e Motores",
     desc: "Bombas centrífugas, submersas, periféricas e motores elétricos para diversas aplicações.",
     href: "/segmentos/bombas-e-motores",
@@ -65,23 +70,23 @@ const segmentos = [
   {
     icon: Package,
     color: "text-purple-500",
-    bg: "bg-purple-50",
+    bg: "bg-purple-50 dark:bg-purple-950/40",
     title: "Locação de Equipamentos",
     desc: "Aluguel de máquinas e equipamentos para obras, reformas e serviços rurais.",
     href: "/segmentos/locacao",
   },
   {
     icon: ShieldCheck,
-    color: "text-green-600",
-    bg: "bg-green-50",
+    color: "text-green-600 dark:text-green-400",
+    bg: "bg-green-50 dark:bg-green-950/40",
     title: "Assistência STIHL",
     desc: "Revenda e assistência técnica autorizada com peças originais e garantia de fábrica.",
     href: "/segmentos/assistencia-stihl",
   },
   {
     icon: Layers,
-    color: "text-teal-600",
-    bg: "bg-teal-50",
+    color: "text-teal-600 dark:text-teal-400",
+    bg: "bg-teal-50 dark:bg-teal-950/40",
     title: "Poços Artesianos",
     desc: "Bombas submersas, motores, painéis de controle e orientação técnica especializada.",
     href: "/segmentos/pocos-artesianos",
@@ -245,8 +250,8 @@ const Index = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/hero-bg.webp')" }}
         />
-        {/* Filtro azul sobre a imagem */}
-        <div className="absolute inset-0 bg-[#1a237e]/80" />
+        {/* Filtro sobre a imagem — azul no light, cinza escuro no dark */}
+        <div className="absolute inset-0 bg-[#1a237e]/80 dark:bg-[#111111]/85" />
         <div className="container-custom relative z-10 py-10 md:py-32">
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <motion.div initial="hidden" animate="visible" variants={fadeIn} className="max-w-3xl">
@@ -396,6 +401,46 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Conecte-se com a gente */}
+      <section className="section-padding bg-muted/50">
+        <div className="container-custom text-center">
+          <h2 className="mb-2 font-heading text-2xl font-bold text-foreground md:text-3xl">
+            Conecte-se com a gente
+          </h2>
+          <p className="mx-auto mb-10 max-w-lg text-muted-foreground">
+            Acompanhe novidades, dicas, bastidores e ofertas nas nossas redes sociais.
+          </p>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {[
+              { name: "Instagram", handle: "@comercialjrltda", href: company.social.instagram, icon: <Instagram className="h-7 w-7" />, color: "from-pink-500 to-orange-400" },
+              { name: "Facebook", handle: "/ComercialJRCastelo", href: company.social.facebook, icon: <Facebook className="h-7 w-7" />, color: "from-blue-600 to-blue-500" },
+              { name: "TikTok", handle: "@lojacomercialjr", href: company.social.tiktok, icon: <svg className="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.05a8.27 8.27 0 0 0 4.76 1.5V7.12a4.83 4.83 0 0 1-1-.43Z" /></svg>, color: "from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300" },
+              { name: "YouTube", handle: "@comercialjrltda", href: company.social.youtube, icon: <Youtube className="h-7 w-7" />, color: "from-red-600 to-red-500" },
+              { name: "LinkedIn", handle: "/comercial-jr", href: company.social.linkedin, icon: <Linkedin className="h-7 w-7" />, color: "from-blue-700 to-blue-600" },
+            ].map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center gap-3 rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className={`flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br ${social.color} text-white transition-transform duration-300 group-hover:scale-110`}>
+                  {social.icon}
+                </div>
+                <div>
+                  <p className="font-heading text-sm font-bold text-foreground">{social.name}</p>
+                  <p className="text-xs text-muted-foreground">{social.handle}</p>
+                </div>
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                  Seguir <ExternalLink className="h-3 w-3" />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Diferenciais */}
       <section className="section-padding bg-background">
         <div className="container-custom">
@@ -433,86 +478,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Localização */}
-      <section className="section-padding bg-muted">
-        <div className="container-custom">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 font-heading text-3xl font-bold text-foreground md:text-4xl">Onde Estamos</h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
-              Venha nos visitar em Castelo ou entre em contato pelo WhatsApp. Estamos prontos para atender você.
-            </p>
-          </div>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {/* Card Endereço */}
-            <div className="rounded-2xl border border-border bg-card p-8 shadow-sm flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <div className="rounded-lg bg-accent p-3">
-                  <MapPin className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="font-heading text-lg font-bold text-foreground">Endereço</h3>
-              </div>
-              <p className="text-sm leading-relaxed text-muted-foreground">{company.fullAddress}</p>
-              <a
-                href={company.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                <MapPin className="h-4 w-4" />
-                Abrir no Google Maps
-              </a>
-            </div>
-
-            {/* Card Horário */}
-            <div className="rounded-2xl border border-border bg-card p-8 shadow-sm flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <div className="rounded-lg bg-accent p-3">
-                  <Clock3 className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="font-heading text-lg font-bold text-foreground">Horário de Funcionamento</h3>
-              </div>
-              <div className="space-y-3 text-sm text-muted-foreground">
-                <div className="flex items-center justify-between rounded-lg bg-accent/50 px-4 py-3">
-                  <span className="font-semibold text-foreground">Segunda a Sexta</span>
-                  <span>7h às 17h</span>
-                </div>
-                <div className="flex items-center justify-between rounded-lg bg-accent/50 px-4 py-3">
-                  <span className="font-semibold text-foreground">Sábado</span>
-                  <span>7h às 11:30h</span>
-                </div>
-                <div className="flex items-center justify-between rounded-lg bg-muted px-4 py-3">
-                  <span className="font-semibold text-foreground">Domingo</span>
-                  <span className="text-destructive font-medium">Fechado</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Card WhatsApp */}
-            <div className="rounded-2xl border border-border bg-card p-8 shadow-sm flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <div className="rounded-lg bg-accent p-3">
-                  <MessageCircle className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="font-heading text-lg font-bold text-foreground">Fale Conosco</h3>
-              </div>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                Prefere resolver pelo WhatsApp? Nossa equipe está pronta para te ajudar a escolher o produto ideal e tirar qualquer dúvida.
-              </p>
-              <p className="text-sm font-semibold text-foreground">{company.phone}</p>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
-              >
-                <MessageCircle className="h-4 w-4" />
-                Chamar no WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Nossa História — Timeline */}
       <section className="bg-brand-gradient py-16 text-primary-foreground md:py-24">
         <div className="container-custom">
@@ -524,7 +489,7 @@ const Index = () => {
             className="mx-auto mb-12 max-w-2xl text-center"
           >
             <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold tracking-wide text-secondary">
-              Desde 1985
+              Desde 1960
             </span>
             <h2 className="mb-4 font-heading text-3xl font-bold md:text-4xl">
               Uma história construída em gerações
@@ -606,6 +571,86 @@ const Index = () => {
               <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Localização */}
+      <section className="section-padding bg-muted">
+        <div className="container-custom">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 font-heading text-3xl font-bold text-foreground md:text-4xl">Onde Estamos</h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Venha nos visitar em Castelo ou entre em contato pelo WhatsApp. Estamos prontos para atender você.
+            </p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {/* Card Endereço */}
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-sm flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <div className="rounded-lg bg-accent p-3">
+                  <MapPin className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-foreground">Endereço</h3>
+              </div>
+              <p className="text-sm leading-relaxed text-muted-foreground">{company.fullAddress}</p>
+              <a
+                href={company.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                <MapPin className="h-4 w-4" />
+                Abrir no Google Maps
+              </a>
+            </div>
+
+            {/* Card Horário */}
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-sm flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <div className="rounded-lg bg-accent p-3">
+                  <Clock3 className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-foreground">Horário de Funcionamento</h3>
+              </div>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex items-center justify-between rounded-lg bg-accent/50 px-4 py-3">
+                  <span className="font-semibold text-foreground">Segunda a Sexta</span>
+                  <span>7h às 17h</span>
+                </div>
+                <div className="flex items-center justify-between rounded-lg bg-accent/50 px-4 py-3">
+                  <span className="font-semibold text-foreground">Sábado</span>
+                  <span>7h às 11:30h</span>
+                </div>
+                <div className="flex items-center justify-between rounded-lg bg-muted px-4 py-3">
+                  <span className="font-semibold text-foreground">Domingo</span>
+                  <span className="text-destructive font-medium">Fechado</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card WhatsApp */}
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-sm flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <div className="rounded-lg bg-accent p-3">
+                  <MessageCircle className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-foreground">Fale Conosco</h3>
+              </div>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Prefere resolver pelo WhatsApp? Nossa equipe está pronta para te ajudar a escolher o produto ideal e tirar qualquer dúvida.
+              </p>
+              <p className="text-sm font-semibold text-foreground">{company.phone}</p>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Chamar no WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

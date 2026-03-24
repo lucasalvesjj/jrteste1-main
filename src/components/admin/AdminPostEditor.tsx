@@ -272,7 +272,7 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
   const isPublishedPost = !isNew && post?.status === "published";
 
   return (
-    <div className="min-h-screen bg-muted">
+    <div className="dark admin-dark min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 bg-primary text-primary-foreground shadow-md">
         <div className="container-custom flex h-14 items-center justify-between">
           <button onClick={onCancel} className="flex items-center gap-1.5 text-sm text-primary-foreground/70 hover:text-primary-foreground">

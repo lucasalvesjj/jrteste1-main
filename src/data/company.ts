@@ -13,8 +13,11 @@ export const company = {
   businessHours: "Seg a Sex: 7h às 17h | Sáb: 7h às 11:30h",
   serviceArea: "Atendimento em Castelo, região sul do Espírito Santo e vendas online para todo o Brasil.",
   social: {
-    facebook: "https://www.facebook.com/comercialjrltda",
+    facebook: "https://www.facebook.com/ComercialJRCastelo",
     instagram: "https://www.instagram.com/comercialjrltda",
+    tiktok: "https://www.tiktok.com/@lojacomercialjr",
+    linkedin: "https://www.linkedin.com/company/comercial-jr/",
+    youtube: "https://www.youtube.com/@comercialjrltda",
   },
   store: "https://loja.comercialjrltda.com.br/",
   siteUrl: "https://comercialjrltda.com.br",

@@ -26,7 +26,7 @@ const JRLoader = ({ size = "lg", label = "Carregando..." }: JRLoaderProps) => {
           <motion.div
             className="absolute inset-0 rounded-full"
             style={{
-              background: "radial-gradient(circle, hsla(240,60%,25%,0.08) 0%, transparent 70%)",
+              background: "radial-gradient(circle, hsl(var(--primary) / 0.08) 0%, transparent 70%)",
             }}
             animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
@@ -45,7 +45,7 @@ const JRLoader = ({ size = "lg", label = "Carregando..." }: JRLoaderProps) => {
               cy={svgSize / 2}
               r={r}
               fill="none"
-              stroke="hsl(240 60% 25% / 0.08)"
+              stroke="hsl(var(--primary) / 0.08)"
               strokeWidth={cfg.stroke}
             />
           </svg>
@@ -61,9 +61,9 @@ const JRLoader = ({ size = "lg", label = "Carregando..." }: JRLoaderProps) => {
           >
             <defs>
               <linearGradient id={`arc-grad-${size}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="hsl(240 60% 25%)" stopOpacity="0" />
-                <stop offset="50%" stopColor="hsl(240 60% 25%)" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="hsl(240 50% 45%)" stopOpacity="1" />
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+                <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="1" />
               </linearGradient>
             </defs>
             <circle

@@ -40,7 +40,7 @@ const CookieBanner = () => {
         <div className="shrink-0">
           <button
             onClick={handleAccept}
-            className="rounded-md bg-white px-6 py-2 text-sm font-bold text-primary transition-colors hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
+            className="rounded-md bg-white px-6 py-2 text-sm font-bold text-[hsl(240_60%_25%)] transition-colors hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
           >
             Aceitar
           </button>

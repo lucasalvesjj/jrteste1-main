@@ -418,7 +418,7 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
   const SourceIcon = currentSource.icon;
 
   return (
-    <div className="min-h-screen bg-muted">
+    <div className="dark admin-dark min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 bg-primary text-primary-foreground shadow-md">
         <div className="container-custom flex h-14 items-center justify-between">
           <div className="flex items-center gap-3">
@@ -765,7 +765,7 @@ const AdminPage = () => {
 
   if (!authenticated) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-muted p-4">
+      <div className="dark admin-dark flex min-h-screen items-center justify-center bg-background p-4">
         <div className="w-full max-w-sm rounded-xl border border-border bg-card p-8 shadow-lg">
           <div className="mb-6 text-center">
             <span className="rounded bg-primary px-3 py-1.5 font-heading text-lg font-black text-primary-foreground">JR</span>

@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { Phone, Mail, MapPin, Clock, Send, Copy, Check } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Copy, Check, Facebook, Instagram, Linkedin, Youtube, ExternalLink } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { company } from "@/data/company";
@@ -206,6 +206,79 @@ const Contato = () => {
                 </button>
               </form>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Conecte-se com a gente */}
+      <section className="section-padding bg-muted/50">
+        <div className="container-custom text-center">
+          <h2 className="mb-2 font-heading text-2xl font-bold text-foreground md:text-3xl">
+            Conecte-se com a gente
+          </h2>
+          <p className="mx-auto mb-10 max-w-lg text-muted-foreground">
+            Acompanhe novidades, dicas, bastidores e ofertas nas nossas redes sociais.
+          </p>
+
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {[
+              {
+                name: "Instagram",
+                handle: "@comercialjrltda",
+                href: company.social.instagram,
+                icon: <Instagram className="h-7 w-7" />,
+                color: "from-pink-500 to-orange-400",
+              },
+              {
+                name: "Facebook",
+                handle: "/ComercialJRCastelo",
+                href: company.social.facebook,
+                icon: <Facebook className="h-7 w-7" />,
+                color: "from-blue-600 to-blue-500",
+              },
+              {
+                name: "TikTok",
+                handle: "@lojacomercialjr",
+                href: company.social.tiktok,
+                icon: (
+                  <svg className="h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.05a8.27 8.27 0 0 0 4.76 1.5V7.12a4.83 4.83 0 0 1-1-.43Z" /></svg>
+                ),
+                color: "from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300",
+              },
+              {
+                name: "YouTube",
+                handle: "@comercialjrltda",
+                href: company.social.youtube,
+                icon: <Youtube className="h-7 w-7" />,
+                color: "from-red-600 to-red-500",
+              },
+              {
+                name: "LinkedIn",
+                handle: "/comercial-jr",
+                href: company.social.linkedin,
+                icon: <Linkedin className="h-7 w-7" />,
+                color: "from-blue-700 to-blue-600",
+              },
+            ].map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center gap-3 rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className={`flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br ${social.color} text-white transition-transform duration-300 group-hover:scale-110`}>
+                  {social.icon}
+                </div>
+                <div>
+                  <p className="font-heading text-sm font-bold text-foreground">{social.name}</p>
+                  <p className="text-xs text-muted-foreground">{social.handle}</p>
+                </div>
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                  Seguir <ExternalLink className="h-3 w-3" />
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
