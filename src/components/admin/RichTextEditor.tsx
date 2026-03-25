@@ -266,7 +266,6 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
         title: `${info.width}x${info.height}`,
       }).run();
     },
-    sourceType: "post",
     title: "Inserir Imagem no Conteúdo",
   });
 

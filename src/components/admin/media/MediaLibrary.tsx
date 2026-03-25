@@ -145,9 +145,12 @@ export default function MediaLibrary({
     }
   }, [isOpen]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ── Soft reset ao fechar — mantém cache de items e filtros ──
+  // ── Soft reset ao fechar — limpa seleção e filtros de contexto ──
   const handleClose = useCallback(() => {
     softReset();
+    // Reseta o ref para que o filtro inicial seja reaplicado
+    // corretamente na próxima abertura deste mesmo modal
+    hasInitializedFiltersRef.current = false;
     onClose();
   }, [onClose, softReset]);
 

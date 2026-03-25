@@ -468,8 +468,6 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
                   <MediaField
                     value={form.image}
                     onChange={(url) => updateField("image", url)}
-                    sourceType="post"
-                    sourceId={form.slug || undefined}
                     title="Selecionar Imagem Destacada"
                     label="Imagem Destacada"
                   />

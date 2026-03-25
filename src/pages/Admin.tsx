@@ -23,6 +23,7 @@ import {
   HardDriveUpload,
   ChevronUp,
   ChevronDown,
+  Image as ImageIcon,
 } from "lucide-react";
 import { toast } from "sonner";
 import { useBlogStore } from "@/stores/blogStore";
@@ -426,6 +427,10 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
             <span className="font-heading text-sm font-bold">Admin</span>
           </div>
           <div className="flex items-center gap-2">
+            <Link to="/admin/media" className="flex items-center gap-1 text-sm text-primary-foreground/70 hover:text-primary-foreground">
+              <ImageIcon className="h-4 w-4" />
+              Mídia
+            </Link>
             <Link to="/" className="flex items-center gap-1 text-sm text-primary-foreground/70 hover:text-primary-foreground">
               <Eye className="h-4 w-4" />
               Ver Site

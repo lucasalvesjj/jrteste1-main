@@ -24,6 +24,7 @@ const Contato = lazy(() => import("./pages/Contato"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const AdminPage = lazy(() => import("./pages/Admin"));
+const AdminMediaPage = lazy(() => import("./pages/AdminMedia"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -54,6 +55,7 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
               <Route path="/admin" element={<AdminPage />} />
+              <Route path="/admin/media" element={<AdminMediaPage />} />
               <Route path="/:slug" element={<BlogPost />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

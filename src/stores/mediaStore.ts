@@ -272,13 +272,24 @@ export const useMediaStore = create<MediaStore>()((set, get) => ({
     set({ filters: {} });
   },
 
-  // Soft reset: limpa toda a seleção, mantém items e filtros
+  // Soft reset: limpa seleção e filtros de contexto (sourceType/sourceId).
+  // Filtros de busca e ordenação são também zerados para evitar
+  // que um contexto anterior contamine a próxima abertura.
   softReset: () => {
-    set({
+    set((state) => ({
       selectedId: null,
       selectedIds: [],
       lastSelectedId: null,
-    });
+      filters: {
+        // Remove filtros de origem — nunca devem vazar entre contextos
+        sourceType: undefined,
+        sourceId: undefined,
+        // Mantém busca e ordenação se o usuário as definiu nesta sessão,
+        // mas limpa sourceType/sourceId que podem ter vindo de um post
+        search: state.filters.search,
+        sortBy: state.filters.sortBy,
+      },
+    }));
   },
 
   hardReset: () => {
