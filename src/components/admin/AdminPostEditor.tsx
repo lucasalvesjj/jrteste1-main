@@ -473,15 +473,6 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
                     title="Selecionar Imagem Destacada"
                     label="Imagem Destacada"
                   />
-                  <div className="mt-2">
-                    <input
-                      type="url"
-                      value={form.image || ""}
-                      onChange={(e) => updateField("image", e.target.value)}
-                      placeholder="Ou cole a URL/caminho da imagem, ex: /media/2025/03/abc/large.webp"
-                      className="w-full rounded-lg border border-input bg-background px-4 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
-                  </div>
                 </div>
 
                 <div>

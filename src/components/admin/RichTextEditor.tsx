@@ -25,7 +25,6 @@ import {
   Heading1,
   Heading2,
   Heading3,
-  Image,
   Italic,
   Link as LinkIcon,
   List,
@@ -198,9 +197,8 @@ const MediaLibraryLoadingOverlay = () => (
 );
 
 const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
-  const [activePanel, setActivePanel] = useState<"link" | "image" | "paste" | "plain-paste" | null>(null);
+  const [activePanel, setActivePanel] = useState<"link" | "paste" | "plain-paste" | null>(null);
   const [linkValue, setLinkValue] = useState("");
-  const [imageValue, setImageValue] = useState("");
   const [pasteValue, setPasteValue] = useState("");
 
   const editor = useEditor({
@@ -258,11 +256,6 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
     setActivePanel("link");
   }, [editor]);
 
-  const openImagePanel = useCallback(() => {
-    setImageValue("");
-    setActivePanel("image");
-  }, []);
-
   // ── Media Library para inserir imagem inline no editor ──
   const { open: openMediaLibraryInline, modalProps: mediaLibraryInlineProps } = useMediaLibrary({
     onSelect: (info) => {
@@ -305,13 +298,6 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
     setLinkValue("");
     setActivePanel(null);
   }, [editor]);
-
-  const applyImage = useCallback(() => {
-    if (!editor || !imageValue.trim()) return;
-    editor.chain().focus().setImage({ src: imageValue.trim() }).run();
-    setImageValue("");
-    setActivePanel(null);
-  }, [editor, imageValue]);
 
   const applyPastedHtml = useCallback(() => {
     if (!editor) return;
@@ -399,19 +385,6 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
           onCancel={() => setActivePanel(null)}
           confirmLabel="Aplicar link"
           placeholder="https://exemplo.com.br"
-        />
-      )}
-
-      {activePanel === "image" && (
-        <EditorInputPanel
-          title="Imagem"
-          value={imageValue}
-          onChange={setImageValue}
-          onConfirm={applyImage}
-          onCancel={() => setActivePanel(null)}
-          confirmLabel="Inserir imagem"
-          placeholder="/blog/minha-imagem.jpg"
-          helper="Prefira caminhos do próprio site ou imagens já hospedadas para não inflar o JSON."
         />
       )}
 
@@ -525,9 +498,6 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
         <ToolbarButton active={false} onClick={openMediaLibraryInline} title="Inserir imagem da biblioteca">
           <FolderOpen className="h-4 w-4" />
         </ToolbarButton>
-        <ToolbarButton active={false} onClick={openImagePanel} title="Inserir imagem por URL">
-          <Image className="h-4 w-4" />
-        </ToolbarButton>
         <ToolbarButton active={false} onClick={openPastePanel} title="Colar HTML pronto">
           <Sparkles className="h-4 w-4" />
         </ToolbarButton>
@@ -595,6 +565,7 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
           <span>`Sparkles`: cola HTML pronto</span>
           <span>`ClipboardPaste`: cola sem formatação</span>
           <span>`Clipboard`: copia o HTML atual</span>
+          <span>`FolderOpen`: inserir imagem da biblioteca</span>
         </div>
       </div>
 
