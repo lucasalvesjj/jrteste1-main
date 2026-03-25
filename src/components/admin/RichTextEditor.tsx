@@ -20,6 +20,7 @@ import {
   ClipboardPaste,
   Code,
   Eraser,
+  FolderOpen,
   Highlighter,
   Heading1,
   Heading2,
@@ -40,7 +41,10 @@ import {
   Undo,
   Unlink,
 } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, lazy, useCallback, useEffect, useMemo, useState } from "react";
+import { useMediaLibrary } from "@/hooks/useMediaLibrary";
+
+const MediaLibrary = lazy(() => import("./media/MediaLibrary"));
 
 interface RichTextEditorProps {
   content: string;
@@ -184,6 +188,15 @@ const EditorInputPanel = ({
   </div>
 );
 
+const MediaLibraryLoadingOverlay = () => (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+    <div className="flex items-center gap-2 rounded-lg bg-card px-4 py-3 text-sm text-muted-foreground shadow-lg">
+      <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+      Carregando biblioteca...
+    </div>
+  </div>
+);
+
 const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
   const [activePanel, setActivePanel] = useState<"link" | "image" | "paste" | "plain-paste" | null>(null);
   const [linkValue, setLinkValue] = useState("");
@@ -201,7 +214,14 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
       Subscript,
       Superscript,
       TextAlign.configure({ types: ["heading", "paragraph"] }),
-      ImageExt.configure({ inline: false }),
+      ImageExt.configure({
+        inline: false,
+        HTMLAttributes: {
+          class: "media-content-image",
+          loading: "lazy",
+          style: "max-width:100%;height:auto",
+        },
+      }),
       LinkExt.configure({
         openOnClick: false,
         autolink: true,
@@ -242,6 +262,20 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
     setImageValue("");
     setActivePanel("image");
   }, []);
+
+  // ── Media Library para inserir imagem inline no editor ──
+  const { open: openMediaLibraryInline, modalProps: mediaLibraryInlineProps } = useMediaLibrary({
+    onSelect: (info) => {
+      if (!editor) return;
+      editor.chain().focus().setImage({
+        src: info.url,
+        alt: info.alt,
+        title: `${info.width}x${info.height}`,
+      }).run();
+    },
+    sourceType: "post",
+    title: "Inserir Imagem no Conteúdo",
+  });
 
   const openPastePanel = useCallback(() => {
     setPasteValue(content || "");
@@ -488,7 +522,10 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
         <ToolbarButton active={false} onClick={removeLink} title="Remover link">
           <Unlink className="h-4 w-4" />
         </ToolbarButton>
-        <ToolbarButton active={false} onClick={openImagePanel} title="Inserir imagem">
+        <ToolbarButton active={false} onClick={openMediaLibraryInline} title="Inserir imagem da biblioteca">
+          <FolderOpen className="h-4 w-4" />
+        </ToolbarButton>
+        <ToolbarButton active={false} onClick={openImagePanel} title="Inserir imagem por URL">
           <Image className="h-4 w-4" />
         </ToolbarButton>
         <ToolbarButton active={false} onClick={openPastePanel} title="Colar HTML pronto">
@@ -562,6 +599,11 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
       </div>
 
       <EditorContent editor={editor} />
+
+      {/* Modal da Media Library para inserir imagens inline */}
+      <Suspense fallback={<MediaLibraryLoadingOverlay />}>
+        <MediaLibrary {...mediaLibraryInlineProps} />
+      </Suspense>
     </div>
   );
 };

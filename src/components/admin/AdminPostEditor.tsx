@@ -1,11 +1,11 @@
 import { Suspense, lazy, useEffect, useMemo, useRef, useState } from "react";
-import type { ChangeEvent } from "react";
 import { AlertTriangle, ArrowLeft, Eye, History, Image as ImageIcon, Info, RotateCcw, Save, Trash2, Undo2, X } from "lucide-react";
 import { toast } from "sonner";
 import type { BlogCategory, BlogPost } from "@/data/blogTypes";
 import { getCategoryLabel } from "@/lib/blogCategories";
 
 const RichTextEditor = lazy(() => import("./RichTextEditor"));
+const MediaField = lazy(() => import("./media/MediaField"));
 
 interface AdminPostEditorProps {
   post?: BlogPost;
@@ -113,7 +113,6 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
   const [draftVersions, setDraftVersions] = useState<DraftVersion[]>([]);
   const [hasRestorableVersion, setHasRestorableVersion] = useState(false);
   const [publishedGuardAccepted, setPublishedGuardAccepted] = useState(isNew || post?.status !== "published");
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const lastSavedSignatureRef = useRef("");
   const skipAutosaveRef = useRef(true);
   const initialSnapshotRef = useRef({
@@ -256,17 +255,6 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
       : [...form.categories, categoryId];
 
     updateField("categories", nextCategories);
-  };
-
-  const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      updateField("image", event.target?.result as string);
-    };
-    reader.readAsDataURL(file);
   };
 
   const isPublishedPost = !isNew && post?.status === "published";
@@ -477,35 +465,20 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
                 </div>
 
                 <div>
-                  <label className="mb-1 block text-sm font-medium text-foreground">Imagem Destacada</label>
-                  <input type="file" ref={fileInputRef} accept="image/*" onChange={handleImageUpload} className="hidden" />
-                  {form.image ? (
-                    <div className="relative overflow-hidden rounded-lg border border-border">
-                      <img src={form.image} alt="Imagem destacada" className="h-48 w-full object-cover" />
-                      <div className="absolute right-2 top-2 flex gap-1">
-                        <button onClick={() => fileInputRef.current?.click()} className="rounded-lg bg-background/80 p-1.5 backdrop-blur-sm transition-colors hover:bg-background" title="Trocar imagem">
-                          <ImageIcon className="h-4 w-4 text-foreground" />
-                        </button>
-                        <button onClick={() => updateField("image", "")} className="rounded-lg bg-background/80 p-1.5 backdrop-blur-sm transition-colors hover:bg-background" title="Remover imagem">
-                          <X className="h-4 w-4 text-destructive" />
-                        </button>
-                      </div>
-                    </div>
-                  ) : (
-                    <button
-                      onClick={() => fileInputRef.current?.click()}
-                      className="flex h-32 w-full flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-input text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-                    >
-                      <ImageIcon className="h-8 w-8" />
-                      <span className="text-sm">Clique para adicionar imagem</span>
-                    </button>
-                  )}
+                  <MediaField
+                    value={form.image}
+                    onChange={(url) => updateField("image", url)}
+                    sourceType="post"
+                    sourceId={form.slug || undefined}
+                    title="Selecionar Imagem Destacada"
+                    label="Imagem Destacada"
+                  />
                   <div className="mt-2">
                     <input
                       type="url"
                       value={form.image || ""}
                       onChange={(e) => updateField("image", e.target.value)}
-                      placeholder="Ou cole a URL/caminho da imagem, ex: /blog/post.jpg"
+                      placeholder="Ou cole a URL/caminho da imagem, ex: /media/2025/03/abc/large.webp"
                       className="w-full rounded-lg border border-input bg-background px-4 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     />
                   </div>

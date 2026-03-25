@@ -1,0 +1,16 @@
+# ──────────────────────────────────────────────
+# Cache headers para deploy estático
+# Compatível com Netlify, Cloudflare Pages e similar
+# ──────────────────────────────────────────────
+
+# Mídias: imutáveis (UUID no path garante unicidade)
+/media/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Catálogo de mídias: cache curto com revalidação
+/data/media-library.json
+  Cache-Control: public, max-age=60, stale-while-revalidate=300
+
+# Blog posts JSON: cache curto com revalidação
+/data/blog-posts.json
+  Cache-Control: public, max-age=60, stale-while-revalidate=300

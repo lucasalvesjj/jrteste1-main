@@ -4,6 +4,7 @@ import { Calendar, Tag, ArrowLeft } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
+import OptimizedImage from "@/components/OptimizedImage";
 import { useBlogStore } from "@/stores/blogStore";
 import { getCategoryLabel, getPostCategories } from "@/lib/blogCategories";
 import JRLoader from "@/components/JRLoader";
@@ -154,11 +155,11 @@ const BlogPostPage = () => {
         <section className="section-padding">
           <div className="container-custom mx-auto max-w-3xl">
             {post.image && (
-              <img
+              <OptimizedImage
                 src={post.image}
                 alt={post.title}
-                className="mb-8 h-64 w-full rounded-xl object-cover md:h-96"
-                loading="lazy"
+                className="mb-8 h-64 w-full rounded-xl md:h-96"
+                preset="hero"
               />
             )}
             {renderContent(post.content)}
