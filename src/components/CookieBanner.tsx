@@ -3,16 +3,17 @@ import { useLocation } from "react-router-dom";
 
 const STORAGE_KEY = "comercial-jr-cookie-consent";
 
-const CookieBanner = () => {
+const CookieBanner = ({ appReady }: { appReady: boolean }) => {
   const [visible, setVisible] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
+    if (!appReady) return;
     const accepted = localStorage.getItem(STORAGE_KEY);
     if (!accepted) {
       setVisible(true);
     }
-  }, []);
+  }, [appReady]);
 
   const handleAccept = () => {
     localStorage.setItem(STORAGE_KEY, "accepted");
