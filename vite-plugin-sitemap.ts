@@ -78,7 +78,6 @@ interface BlogCatalog {
 }
 
 function readBlogPosts(outDir: string): BlogPostJson[] {
-  // Tenta ler do dist (após copy dos assets) ou do public
   const candidates = [
     path.join(outDir, "data", "blog-posts.json"),
     path.join(process.cwd(), "public", "data", "blog-posts.json"),
@@ -88,8 +87,10 @@ function readBlogPosts(outDir: string): BlogPostJson[] {
     if (fs.existsSync(filePath)) {
       try {
         const raw = fs.readFileSync(filePath, "utf-8");
-        const catalog = JSON.parse(raw) as BlogCatalog;
-        return Array.isArray(catalog.posts) ? catalog.posts : [];
+        const parsed = JSON.parse(raw) as BlogCatalog | BlogPostJson[];
+        // Suporta tanto array direto quanto { posts: [...] }
+        if (Array.isArray(parsed)) return parsed;
+        if (Array.isArray(parsed.posts)) return parsed.posts;
       } catch {
         // continua para o próximo candidato
       }
