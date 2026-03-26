@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import {
   ArrowLeft, Eye, LogOut, Search, Upload, Trash2, X,
   Loader2, ImageIcon, FileImage, Calendar, HardDrive,
-  Maximize2, AlertTriangle, Check,
+  Maximize2, AlertTriangle, Check, Download,
 } from "lucide-react";
 import { toast } from "sonner";
 import { useMediaStore } from "@/stores/mediaStore";
@@ -17,6 +17,8 @@ import type { MediaSortBy } from "@/stores/mediaStore";
 import { validateMediaFile, ACCEPTED_EXTENSIONS } from "@/data/mediaTypes";
 import type { MediaItem, MediaSourceType } from "@/data/mediaTypes";
 import { MediaUsageSection } from "@/components/admin/media/MediaUsageSection";
+import { useAdapterInfo } from "@/hooks/useAdapterInfo";
+import ManualAdapterBanner from "@/components/admin/ManualAdapterBanner";
 
 const ADMIN_AUTH_KEY = "comercial-jr-admin-authenticated";
 const ADMIN_PASS = "0";
@@ -140,6 +142,8 @@ const AdminMediaContent = ({ onLogout }: { onLogout: () => void }) => {
   const dragCounter = useRef(0);
   const [isDragging, setIsDragging] = useState(false);
 
+  const { isManual, supportsAutoUpload } = useAdapterInfo();
+
   const items = useMediaStore((s) => s.items);
   const loadState = useMediaStore((s) => s.loadState);
   const error = useMediaStore((s) => s.error);
@@ -243,6 +247,13 @@ const AdminMediaContent = ({ onLogout }: { onLogout: () => void }) => {
           <p className="mt-1 text-sm text-muted-foreground">Gerencie todas as imagens — upload, visualização, filtros e remoção.</p>
         </div>
 
+        {/* Banner de modo manual — visível apenas quando manualAdapter está ativo */}
+        {isManual && (
+          <div className="mb-4">
+            <ManualAdapterBanner context="media" />
+          </div>
+        )}
+
         <div className="relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
           style={{ height: "calc(100vh - 200px)", minHeight: 500 }}
           onDragEnter={handleDragEnter} onDragOver={handleDragOver}
@@ -273,9 +284,16 @@ const AdminMediaContent = ({ onLogout }: { onLogout: () => void }) => {
               <input ref={fileInputRef} type="file" accept={ACCEPTED_EXTENSIONS}
                 onChange={(e) => handleFileSelect(e.target.files)} className="hidden" />
               <button onClick={() => fileInputRef.current?.click()} disabled={uploading}
-                className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50">
-                {uploading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
-                {uploading ? "Enviando..." : "Enviar"}
+                className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
+                title={isManual ? "Processa localmente e baixa os 4 arquivos gerados" : "Enviar imagem para a galeria"}
+              >
+                {uploading
+                  ? <Loader2 className="h-4 w-4 animate-spin" />
+                  : isManual
+                    ? <Download className="h-4 w-4" />
+                    : <Upload className="h-4 w-4" />
+                }
+                {uploading ? "Processando..." : isManual ? "Processar e baixar" : "Enviar"}
               </button>
             </div>
           </div>

@@ -18,6 +18,7 @@ import {
   Search,
   Trash2,
   Upload,
+  Download,
   X,
   AlertTriangle,
   FileImage,
@@ -42,6 +43,7 @@ import type { UploadingPlaceholder, MediaSortBy } from "@/stores/mediaStore";
 import { validateMediaFile, ACCEPTED_EXTENSIONS } from "@/data/mediaTypes";
 import type { MediaItem, MediaSourceType } from "@/data/mediaTypes";
 import type { MediaLibraryModalProps } from "@/hooks/useMediaLibrary";
+import { useAdapterInfo } from "@/hooks/useAdapterInfo";
 
 // ──────────────────────────────────────────────
 // Constantes de filtros
@@ -102,6 +104,7 @@ export default function MediaLibrary({
 }: MediaLibraryModalProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [searchInput, setSearchInput] = useState("");
+  const { isManual } = useAdapterInfo();
 
   /**
    * Controla se o filtro inicial já foi aplicado nesta instância do modal.
@@ -363,14 +366,17 @@ export default function MediaLibrary({
             <button
               onClick={() => fileInputRef.current?.click()}
               disabled={uploading}
+              title={isManual ? "Processa localmente e baixa os 4 arquivos gerados" : "Enviar imagem para a galeria"}
               className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
             >
               {uploading ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
+              ) : isManual ? (
+                <Download className="h-4 w-4" />
               ) : (
                 <Upload className="h-4 w-4" />
               )}
-              {uploading ? "Enviando..." : "Enviar"}
+              {uploading ? "Processando..." : isManual ? "Processar e baixar" : "Enviar"}
             </button>
           </div>
         </div>

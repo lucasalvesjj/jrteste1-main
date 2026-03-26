@@ -176,6 +176,7 @@ export function mediaUploadPlugin(): Plugin {
 
         // STATUS
         if (url === "/api/media/status") {
+          res.writeHead(200, { "Content-Type": "application/json" });
           res.end(JSON.stringify({ ok: true }));
           return;
         }
@@ -186,7 +187,7 @@ export function mediaUploadPlugin(): Plugin {
           try {
             sharpLib = await getSharp();
           } catch {
-            res.writeHead(503);
+            res.writeHead(503, { "Content-Type": "application/json" });
             res.end(JSON.stringify({ error: "sharp não disponível" }));
             return;
           }
@@ -195,7 +196,7 @@ export function mediaUploadPlugin(): Plugin {
             const { file } = await parseMultipart(req);
 
             if (!file) {
-              res.writeHead(400);
+              res.writeHead(400, { "Content-Type": "application/json" });
               res.end(JSON.stringify({ error: "Nenhum arquivo enviado" }));
               return;
             }
@@ -248,9 +249,10 @@ export function mediaUploadPlugin(): Plugin {
             catalog.items.unshift(item);
             writeCatalog(catalogPath, catalog);
 
+            res.writeHead(200, { "Content-Type": "application/json" });
             res.end(JSON.stringify(item));
           } catch (err: any) {
-            res.writeHead(500);
+            res.writeHead(500, { "Content-Type": "application/json" });
             res.end(JSON.stringify({ error: err.message }));
           }
 

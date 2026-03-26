@@ -36,6 +36,7 @@ async function resolveAdapter(): Promise<MediaStorageAdapter> {
   // 1. Em desenvolvimento, usar o Vite Plugin (upload para /public/media/)
   if (localDevAdapter.isAvailable()) {
     _activeAdapter = localDevAdapter;
+    console.info("[MediaAPI] Adapter selecionado: local-dev (Vite Plugin)");
     return _activeAdapter;
   }
 
@@ -46,6 +47,7 @@ async function resolveAdapter(): Promise<MediaStorageAdapter> {
       const { supabaseAdapter } = await import("@/lib/adapters/supabaseAdapter");
       if (supabaseAdapter.isAvailable()) {
         _activeAdapter = supabaseAdapter;
+        console.info("[MediaAPI] Adapter selecionado: supabase");
         return _activeAdapter;
       }
     } catch (err) {
@@ -55,6 +57,18 @@ async function resolveAdapter(): Promise<MediaStorageAdapter> {
 
   // 3. Fallback: modo manual (sempre funciona)
   _activeAdapter = manualAdapter;
+
+  // ── Aviso crítico: manual em DEV indica falha no Vite Plugin ──
+  if (import.meta.env.DEV) {
+    console.error(
+      "[MediaAPI] ⚠️ ATENÇÃO: ManualAdapter ativado em ambiente DEV. " +
+      "Isso causará downloads de arquivo ao fazer upload. " +
+      "Verifique se o Vite Plugin de upload está ativo e se o Sharp está instalado."
+    );
+  } else {
+    console.info("[MediaAPI] Adapter selecionado: manual (produção estática)");
+  }
+
   return _activeAdapter;
 }
 

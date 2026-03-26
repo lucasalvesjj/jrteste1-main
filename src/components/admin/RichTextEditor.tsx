@@ -43,6 +43,7 @@ import {
 import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useMediaLibrary } from "@/hooks/useMediaLibrary";
 import { useMediaStore } from "@/stores/mediaStore";
+import { useAdapterInfo } from "@/hooks/useAdapterInfo";
 import { validateMediaFile } from "@/data/mediaTypes";
 import { toast } from "sonner";
 
@@ -206,6 +207,7 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
 
   // ── Upload via galeria (vetores drag e paste) ──
   const uploadItem = useMediaStore((s) => s.uploadItem);
+  const { isManual } = useAdapterInfo();
   // Ref para acesso ao editor dentro dos handlers de evento sem re-render
   const editorRef = useRef<ReturnType<typeof useEditor>>(null);
 
@@ -215,6 +217,22 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
    */
   const uploadAndInsert = useCallback(
     async (file: File) => {
+      // ── Guard: modo produção estática — upload geraria downloads, não URLs ──
+      // O manualAdapter não salva arquivos no servidor — dispara downloads locais.
+      // Inserir a URL no editor resultaria em imagem quebrada após reload.
+      if (isManual) {
+        toast.warning(
+          "Modo produção: arraste imagens não suportado neste ambiente.",
+          {
+            description:
+              "Use o botão 📂 da toolbar para selecionar imagens já disponíveis " +
+              "na galeria, ou faça o upload manual e atualize o catálogo primeiro.",
+            duration: 8000,
+          }
+        );
+        return;
+      }
+
       const validation = validateMediaFile(file);
       if (!validation.valid) {
         toast.error(validation.error ?? "Arquivo inválido.");

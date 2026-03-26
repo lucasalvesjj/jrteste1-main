@@ -4,6 +4,8 @@ import { toast } from "sonner";
 import type { BlogCategory, BlogPost } from "@/data/blogTypes";
 import { getCategoryLabel } from "@/lib/blogCategories";
 import OptimizedImage from "@/components/OptimizedImage";
+import { useAdapterInfo } from "@/hooks/useAdapterInfo";
+import ManualAdapterBanner from "@/components/admin/ManualAdapterBanner";
 
 const RichTextEditor = lazy(() => import("./RichTextEditor"));
 const MediaField = lazy(() => import("./media/MediaField"));
@@ -105,6 +107,7 @@ const formatSavedAt = (value: string) =>
 
 const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugUnique }: AdminPostEditorProps) => {
   const isNew = !post;
+  const { isManual } = useAdapterInfo();
   const [form, setForm] = useState<BlogPost>(normalizeEditorPost(post, categories));
   const [tagsInput, setTagsInput] = useState(post?.tags.join(", ") || "");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -323,6 +326,13 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
                 continuam funcionando normalmente no campo de texto.
               </p>
             </div>
+
+            {/* Banner de modo manual — visível apenas quando manualAdapter está ativo */}
+            {isManual && (
+              <div className="mb-4">
+                <ManualAdapterBanner context="editor" />
+              </div>
+            )}
 
             {isPublishedPost && (
               <div className="mb-4 rounded-xl border border-brand-orange/30 bg-brand-orange/10 p-4">

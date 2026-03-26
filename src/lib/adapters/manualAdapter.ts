@@ -7,6 +7,7 @@
 // Funciona SEMPRE, sem nenhuma dependência externa.
 // ──────────────────────────────────────────────
 
+import { toast } from "sonner";
 import type {
   MediaItem,
   MediaStorageAdapter,
@@ -90,6 +91,18 @@ export const manualAdapter: MediaStorageAdapter = {
   },
 
   async upload(file: File, options?: UploadOptions): Promise<MediaItem> {
+    // ── Guard de segurança: bloqueia em ambiente de desenvolvimento ──
+    // Em DEV o localDevAdapter deve ser usado. Se o manualAdapter chegou até aqui
+    // em DEV, significa que o Vite Plugin falhou (Sharp indisponível, porta errada, etc).
+    // Lançar erro é melhor do que disparar downloads silenciosamente.
+    if (import.meta.env.DEV) {
+      throw new Error(
+        "[ManualAdapter] Ativado indevidamente em desenvolvimento. " +
+        "Verifique se o Vite Plugin de upload está funcionando (Sharp disponível, servidor rodando). " +
+        "Este adapter dispara downloads de arquivo — não deve ser usado em DEV."
+      );
+    }
+
     // Processar imagem no navegador
     const imageBitmap = await createImageBitmap(file);
     const id = generateMediaId();
@@ -201,6 +214,19 @@ async function downloadProcessedFiles(
   console.info(
     `[ManualAdapter] ${files.length} arquivos baixados. ` +
     `Copie-os para: public/${mediaDir}/`
+  );
+
+  // ── Toast com instruções para o usuário ──
+  toast.info(
+    `📥 ${files.length} arquivos baixados. Copie-os para:\n` +
+    `public/${mediaDir}/\n` +
+    `e atualize /data/media-library.json`,
+    {
+      duration: 10000,
+      description:
+        "Após copiar os arquivos para a pasta correta, atualize o catálogo " +
+        "media-library.json para que as imagens apareçam na galeria após o deploy.",
+    }
   );
 }
 
