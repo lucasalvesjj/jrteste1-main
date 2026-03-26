@@ -40,9 +40,9 @@ const Blog = () => {
     <Layout>
       <SEOHead
         title="Blog"
-        description="Dicas, tutoriais e informações sobre máquinas, ferramentas e irrigação. Conteúdo técnico e prático para profissionais."
+        description="Dicas e tutoriais sobre motosserras STIHL, bombas d'água, irrigação agrícola e ferramentas profissionais. Conteúdo técnico da Comercial JR — Castelo ES."
         canonical="/blog/"
-        ogImage="/favicon.webp"
+        ogImage="/og-image.jpg"
       />
 
       <section className="bg-brand-gradient py-16 text-primary-foreground md:py-24">

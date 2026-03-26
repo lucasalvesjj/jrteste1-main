@@ -73,7 +73,7 @@ const LocacaoPage = () => {
         title="Locação de Máquinas e Equipamentos em Castelo ES — Comercial JR"
         description="Aluguel de equipamentos para obra em Castelo ES: compressor, martelo rompedor, roçadeira, compactador, vibrador de concreto e mais. Locação por dia, semana ou mês."
         canonical="/segmentos/locacao/"
-        ogImage="/favicon.webp"
+        ogImage="/og-image.jpg"
       />
 
       {/* Hero */}

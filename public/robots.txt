@@ -18,5 +18,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/
 
-Sitemap: https://comercialjrltda.com.br/page-sitemap.xml
-Sitemap: https://comercialjrltda.com.br/post-sitemap.xml
+Sitemap: https://comercialjrltda.com.br/sitemap-index.xml

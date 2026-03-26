@@ -52,7 +52,7 @@ const MaquinasPage = () => {
         title="Máquinas Elétricas em Castelo ES | DeWalt, Bosch, Makita — Comercial JR"
         description="Máquinas elétricas profissionais em Castelo ES: furadeiras, marteletes, esmerilhadeiras, serras, compressores, politrizes e mais. Marcas DeWalt, Bosch, Makita, Black & Decker e Stanley. 41 anos de tradição."
         canonical="/segmentos/maquinas/"
-        ogImage="/favicon.webp"
+        ogImage="/og-image.jpg"
       />
 
       {/* Hero */}

@@ -106,7 +106,7 @@ const Segmentos = () => (
       title="Segmentos | Irrigação, Ferramentas, Máquinas e Mais — Comercial JR Castelo ES"
       description="Conheça todos os segmentos da Comercial JR: irrigação agrícola, ferramentas manuais, máquinas elétricas, bombas e motores, locação de equipamentos, assistência STIHL e poços artesianos. 41 anos no sul do ES."
       canonical="/segmentos/"
-      ogImage="/favicon.webp"
+      ogImage="/og-image.jpg"
     />
 
     <section className="bg-brand-gradient py-16 text-primary-foreground md:py-24">

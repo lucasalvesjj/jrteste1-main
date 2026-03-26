@@ -1,10 +1,11 @@
 /**
  * vite-plugin-sitemap.ts
- * Gera post-sitemap.xml e page-sitemap.xml automaticamente durante o build.
+ * Gera page-sitemap.xml, post-sitemap.xml e sitemap-index.xml durante o build.
  * Os arquivos são gravados em /dist (outDir configurado no vite.config.ts).
  *
- * post-sitemap.xml → lê /public/data/blog-posts.json e lista posts publicados
- * page-sitemap.xml → lista todas as páginas estáticas do site
+ * page-sitemap.xml  → lista todas as páginas estáticas do site
+ * post-sitemap.xml  → lê /public/data/blog-posts.json e lista posts publicados
+ * sitemap-index.xml → índice consolidado dos dois sitemaps acima (padrão Google)
  */
 
 import type { Plugin } from "vite";
@@ -113,6 +114,20 @@ function buildPostSitemap(posts: BlogPostJson[], today: string): string {
   return [buildXmlHeader(), ...entries, "</urlset>"].join("\n");
 }
 
+function buildSitemapIndex(today: string): string {
+  const sitemaps = ["page-sitemap.xml", "post-sitemap.xml"];
+  const entries = sitemaps.map(
+    (name) =>
+      `  <sitemap>\n    <loc>${SITE_URL}/${name}</loc>\n    <lastmod>${today}</lastmod>\n  </sitemap>`
+  );
+  return [
+    `<?xml version="1.0" encoding="UTF-8"?>`,
+    `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
+    ...entries,
+    `</sitemapindex>`,
+  ].join("\n");
+}
+
 export function sitemapPlugin(): Plugin {
   let resolvedOutDir = "dist";
 
@@ -140,6 +155,12 @@ export function sitemapPlugin(): Plugin {
       fs.writeFileSync(postPath, postSitemap, "utf-8");
       const published = posts.filter((p) => p.status === "published").length;
       console.log(`[sitemap] ✅ post-sitemap.xml gerado (${published} posts publicados)`);
+
+      // ── sitemap-index.xml ──
+      const indexSitemap = buildSitemapIndex(today);
+      const indexPath = path.join(resolvedOutDir, "sitemap-index.xml");
+      fs.writeFileSync(indexPath, indexSitemap, "utf-8");
+      console.log(`[sitemap] ✅ sitemap-index.xml gerado`);
     },
   };
 }

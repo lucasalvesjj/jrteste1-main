@@ -252,7 +252,7 @@ const NossaMissao = () => {
     url: company.siteUrl,
     description:
       "Missão, visão e valores da Comercial JR LTDA. Mais de 41 anos resolvendo problemas reais de quem produz, constrói e trabalha no Espírito Santo.",
-    foundingDate: "1960",
+    foundingDate: "1985",
     foundingLocation: {
       "@type": "Place",
       name: "Castelo, Espírito Santo, Brasil",
@@ -287,7 +287,7 @@ const NossaMissao = () => {
         title="Missão, Visão e Valores — Comercial JR LTDA em Castelo ES"
         description="Conheça a missão, visão e os 9 valores que guiam a Comercial JR LTDA há mais de 41 anos. Referência em máquinas, ferramentas e irrigação em Castelo e no Espírito Santo."
         canonical="/nossa-missao/"
-        ogImage="/favicon.webp"
+        ogImage="/og-image.jpg"
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>

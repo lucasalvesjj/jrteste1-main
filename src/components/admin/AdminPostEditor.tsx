@@ -227,7 +227,8 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
     };
 
     persistDraftVersion("Versão antes de salvar");
-    onSave({ ...form, tags, seo }, isNew);
+    const now = new Date().toISOString().slice(0, 10);
+    onSave({ ...form, tags, seo, updatedAt: isNew ? undefined : now }, isNew);
   };
 
   const updateField = (field: keyof BlogPost, value: string | string[]) => {

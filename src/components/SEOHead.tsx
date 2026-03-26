@@ -49,12 +49,12 @@ const SEOHead = ({
   const fullTitle = title ? `${title} | ${company.shortName}` : company.seo.title;
   const desc      = description || company.seo.description;
   const url       = canonical ? `${company.siteUrl}${canonical}` : company.siteUrl;
-  // Homepage: usa defaultImage do admin; posts: imagem do post; outras páginas estáticas: favicon
+  // Homepage: usa defaultImage do admin; posts: imagem do post; outras páginas estáticas: og-image.jpg
   const isHomepage = !canonical || canonical === "/";
   const adminDefaultImage = isHomepage
     ? getGlobalSeoValue("defaultImage", company.seo.image)
     : null;
-  const resolvedImage = ogImage ?? adminDefaultImage ?? "/favicon.webp";
+  const resolvedImage = ogImage ?? adminDefaultImage ?? "/og-image.jpg";
   const image = resolvedImage.startsWith("http")
     ? resolvedImage
     : `${company.siteUrl}${resolvedImage}`;

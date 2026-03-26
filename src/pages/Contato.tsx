@@ -81,9 +81,9 @@ const Contato = () => {
     <Layout>
       <SEOHead
         title="Contato"
-        description="Entre em contato com a Comercial JR LTDA. Telefone, e-mail, endereço e formulário de contato."
+        description="Fale com a Comercial JR em Castelo ES: (28) 3542-1332. Atendimento seg–sex 7h–17h | sáb 7h–11h30. Presencial, WhatsApp e e-mail."
         canonical="/contato/"
-        ogImage="/favicon.webp"
+        ogImage="/og-image.jpg"
       />
 
       <section className="bg-brand-gradient py-16 text-primary-foreground md:py-24">

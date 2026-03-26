@@ -8,9 +8,9 @@ const NossaHistoria = () => (
   <Layout>
     <SEOHead
       title="Nossa História"
-      description="Conheça a história da Comercial JR LTDA, mais de 41 anos de tradição em máquinas, ferramentas e irrigação no Espírito Santo."
+      description="Conheça a história da Comercial JR LTDA em Castelo ES: mais de 41 anos de tradição em máquinas, ferramentas, irrigação agrícola e referência no sul do Espírito Santo."
       canonical="/nossa-historia/"
-      ogImage="/favicon.webp"
+      ogImage="/og-image.jpg"
     />
 
     {/* Hero */}

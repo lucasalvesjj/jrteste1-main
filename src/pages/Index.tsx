@@ -41,7 +41,7 @@ const segmentos = [
     bg: "bg-blue-50 dark:bg-blue-950/40",
     title: "Irrigação Agrícola",
     desc: "Sistemas completos de irrigação para lavouras, pastagem, horticultura e jardinagem.",
-    href: "/segmentos/irrigacao",
+    href: "/segmentos/irrigacao/",
   },
   {
     icon: Wrench,
@@ -49,7 +49,7 @@ const segmentos = [
     bg: "bg-orange-50 dark:bg-orange-950/40",
     title: "Ferramentas Manuais",
     desc: "Ferramentas profissionais para marcenaria, serralheria, construção e uso rural.",
-    href: "/segmentos/ferramentas",
+    href: "/segmentos/ferramentas/",
   },
   {
     icon: Zap,
@@ -57,7 +57,7 @@ const segmentos = [
     bg: "bg-yellow-50 dark:bg-yellow-950/40",
     title: "Máquinas Elétricas",
     desc: "Furadeiras, esmerilhadeiras, serras, compressores e as melhores marcas do mercado.",
-    href: "/segmentos/maquinas",
+    href: "/segmentos/maquinas/",
   },
   {
     icon: Gauge,
@@ -65,7 +65,7 @@ const segmentos = [
     bg: "bg-cyan-50 dark:bg-cyan-950/40",
     title: "Bombas e Motores",
     desc: "Bombas centrífugas, submersas, periféricas e motores elétricos para diversas aplicações.",
-    href: "/segmentos/bombas-e-motores",
+    href: "/segmentos/bombas-e-motores/",
   },
   {
     icon: Package,
@@ -73,7 +73,7 @@ const segmentos = [
     bg: "bg-purple-50 dark:bg-purple-950/40",
     title: "Locação de Equipamentos",
     desc: "Aluguel de máquinas e equipamentos para obras, reformas e serviços rurais.",
-    href: "/segmentos/locacao",
+    href: "/segmentos/locacao/",
   },
   {
     icon: ShieldCheck,
@@ -81,7 +81,7 @@ const segmentos = [
     bg: "bg-green-50 dark:bg-green-950/40",
     title: "Assistência STIHL",
     desc: "Revenda e assistência técnica autorizada com peças originais e garantia de fábrica.",
-    href: "/segmentos/assistencia-stihl",
+    href: "/segmentos/assistencia-stihl/",
   },
   {
     icon: Layers,
@@ -89,7 +89,7 @@ const segmentos = [
     bg: "bg-teal-50 dark:bg-teal-950/40",
     title: "Poços Artesianos",
     desc: "Bombas submersas, motores, painéis de controle e orientação técnica especializada.",
-    href: "/segmentos/pocos-artesianos",
+    href: "/segmentos/pocos-artesianos/",
   },
 ];
 
@@ -716,7 +716,7 @@ const Index = () => {
             },
             image: "https://comercialjrltda.com.br/og-image.jpg",
             description: company.seo.description,
-            foundingDate: "1983",
+            foundingDate: "1985",
             slogan: company.slogan,
             address: {
               "@type": "PostalAddress",
@@ -781,14 +781,18 @@ const Index = () => {
             name: company.name,
             inLanguage: "pt-BR",
             publisher: { "@id": "https://comercialjrltda.com.br/#organization" },
-            potentialAction: {
-              "@type": "SearchAction",
-              target: {
-                "@type": "EntryPoint",
-                urlTemplate: "https://comercialjrltda.com.br/blog/?q={search_term_string}",
-              },
-              "query-input": "required name=search_term_string",
-            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://comercialjrltda.com.br/" },
+            ],
           }),
         }}
       />

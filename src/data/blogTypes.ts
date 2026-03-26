@@ -9,6 +9,7 @@ export interface BlogPost {
   categories: string[];
   tags: string[];
   date: string;
+  updatedAt?: string;
   status: "published" | "draft";
   seo: {
     metaTitle: string;
