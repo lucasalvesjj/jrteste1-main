@@ -1,7 +1,25 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-25T21:11:44.230Z",
+  "updatedAt": "2026-03-26T18:34:36.446Z",
   "items": [
+    {
+      "id": "014a58f1-4791-4ade-abec-b67c294669c6",
+      "name": "image.png",
+      "alt": "",
+      "paths": {
+        "thumbnail": "/media/2026/03/014a58f1-4791-4ade-abec-b67c294669c6/thumbnail.webp",
+        "medium": "/media/2026/03/014a58f1-4791-4ade-abec-b67c294669c6/medium.webp",
+        "large": "/media/2026/03/014a58f1-4791-4ade-abec-b67c294669c6/large.webp",
+        "original": "/media/2026/03/014a58f1-4791-4ade-abec-b67c294669c6/original.jpg"
+      },
+      "width": 554,
+      "height": 440,
+      "size": 104569,
+      "mimeType": "image/jpeg",
+      "uploadedAt": "2026-03-26T18:34:36.446Z",
+      "sourceType": "upload",
+      "sourceId": ""
+    },
     {
       "id": "ee2c965e-1f2c-427f-9b41-9adb5f8bd715",
       "name": "broca-chata.jpg",
