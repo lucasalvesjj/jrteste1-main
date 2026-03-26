@@ -149,6 +149,23 @@ export default function MediaLibrary({
     }
   }, [isOpen]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // ── Bloqueia download do navegador ao soltar arquivo fora do drop zone ──
+  // O DialogContent do Radix usa portal — sem este listener global, o navegador
+  // intercepta o drop e abre/baixa o arquivo quando solto fora da área do modal.
+  // Ativo apenas enquanto o modal estiver aberto.
+  useEffect(() => {
+    if (!isOpen) return;
+    const prevent = (e: DragEvent) => {
+      e.preventDefault();
+    };
+    document.addEventListener("dragover", prevent);
+    document.addEventListener("drop", prevent);
+    return () => {
+      document.removeEventListener("dragover", prevent);
+      document.removeEventListener("drop", prevent);
+    };
+  }, [isOpen]);
+
   // ── Soft reset ao fechar — limpa seleção e filtros de contexto ──
   const handleClose = useCallback(() => {
     softReset();

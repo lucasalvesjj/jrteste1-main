@@ -306,6 +306,21 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
     (editorRef as React.MutableRefObject<typeof editor>).current = editor;
   }, [editor]);
 
+  // ── Bloqueia download do navegador ao soltar arquivo fora da área do editor ──
+  // O handleDrop do TipTap só cobre a área editável. Este listener no document
+  // garante que o navegador nunca abra/baixe o arquivo, independente de onde cair.
+  useEffect(() => {
+    const prevent = (e: DragEvent) => {
+      e.preventDefault();
+    };
+    document.addEventListener("dragover", prevent);
+    document.addEventListener("drop", prevent);
+    return () => {
+      document.removeEventListener("dragover", prevent);
+      document.removeEventListener("drop", prevent);
+    };
+  }, []);
+
   useEffect(() => {
     if (editor && content !== editor.getHTML()) {
       editor.commands.setContent(content, { emitUpdate: false });
