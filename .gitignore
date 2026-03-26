@@ -38,3 +38,7 @@ Thumbs.db
 
 # Evita subir seu watcher/log
 sync-log.txt
+
+# Vite cache (crítico pro erro)
+.vite/
+node_modules/.vite/
