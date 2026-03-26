@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { updateMediaAlt, getMediaAltOverride } from "@/lib/mediaApi";
+import { MediaUsageSection } from "@/components/admin/media/MediaUsageSection";
 import {
   Dialog,
   DialogContent,
@@ -687,6 +688,9 @@ function MediaDetailPanel({ item, onConfirm, onDelete }: MediaDetailPanelProps) 
           <DetailRow icon={HardDrive} label="Tamanho"   value={formatFileSize(item.size)} />
           <DetailRow icon={FileImage} label="Tipo"      value={item.mimeType} />
         </div>
+
+        {/* ── Uso da imagem ── */}
+        <MediaUsageSection item={item} />
 
         {/* ── Edição de Alt ── */}
         <div className="border-t border-border pt-3">

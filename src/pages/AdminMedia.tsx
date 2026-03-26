@@ -16,6 +16,7 @@ import { useMediaStore } from "@/stores/mediaStore";
 import type { MediaSortBy } from "@/stores/mediaStore";
 import { validateMediaFile, ACCEPTED_EXTENSIONS } from "@/data/mediaTypes";
 import type { MediaItem, MediaSourceType } from "@/data/mediaTypes";
+import { MediaUsageSection } from "@/components/admin/media/MediaUsageSection";
 
 const ADMIN_AUTH_KEY = "comercial-jr-admin-authenticated";
 const ADMIN_PASS = "0";
@@ -112,6 +113,7 @@ function MediaDetailPanel({ item, onDelete }: { item: MediaItem; onDelete: () =>
           <div className="flex items-center gap-2"><Maximize2 className="h-3.5 w-3.5 flex-shrink-0" /><span>Dimensões:</span><span className="text-foreground">{item.width} × {item.height}px</span></div>
           <div className="flex items-center gap-2"><HardDrive className="h-3.5 w-3.5 flex-shrink-0" /><span>Tamanho:</span><span className="text-foreground">{formatFileSize(item.size)}</span></div>
         </div>
+        <MediaUsageSection item={item} />
         <div className="mt-3 border-t border-border pt-3">
           <div className="mb-1 font-medium text-foreground">URL</div>
           <div className="break-all rounded bg-muted px-2 py-1.5 font-mono text-[10px] leading-relaxed">{item.paths.original}</div>
