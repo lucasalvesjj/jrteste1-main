@@ -32,21 +32,31 @@ export interface MediaUsageInfo {
 // ──────────────────────────────────────────────
 
 const PAGE_LABELS: Record<string, string> = {
-  "home":               "Página Inicial",
-  "index":              "Página Inicial",
-  "nossa-historia":     "Nossa História",
-  "nossa-missao":       "Nossa Missão",
-  "segmentos":          "Segmentos",
-  "irrigacao":          "Irrigação",
-  "ferramentas":        "Ferramentas",
-  "maquinas":           "Máquinas",
-  "bombas-motores":     "Bombas e Motores",
-  "locacao":            "Locação",
-  "pocos-artesianos":   "Poços Artesianos",
-  "assistencia-stihl":  "Assistência STIHL",
-  "contato":            "Contato",
-  "blog":               "Blog",
+  // ── Raiz / Institucional ──────────────────────────────
+  "home":                 "Página Inicial",
+  "index":                "Página Inicial",
+  "nossa-historia":       "Nossa História",
+  "nossa-missao":         "Nossa Missão / Valores",
+  "contato":              "Contato",
+  "blog":                 "Blog",
   "politica-privacidade": "Política de Privacidade",
+  "not-found":            "Página não encontrada (404)",
+
+  // ── Segmentos (hub) ───────────────────────────────────
+  "segmentos":            "Segmentos (hub)",
+
+  // ── Segmentos individuais ─────────────────────────────
+  "irrigacao":            "Irrigação Agrícola",
+  "ferramentas":          "Ferramentas Manuais",
+  "maquinas":             "Máquinas Elétricas",
+  "bombas-motores":       "Bombas e Motores",
+  "locacao":              "Locação de Equipamentos",
+  "assistencia-stihl":    "Assistência Técnica STIHL",
+  "pocos-artesianos":     "Poços Artesianos",
+
+  // ── Admin ─────────────────────────────────────────────
+  "admin":                "Painel Admin",
+  "admin-media":          "Admin — Biblioteca de Mídia",
 };
 
 // ──────────────────────────────────────────────

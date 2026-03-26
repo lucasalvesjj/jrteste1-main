@@ -14,7 +14,16 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container-custom flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center">
-          <img src="/logo.webp" alt="Comercial JR" className="h-6 md:h-8 w-auto dark:brightness-0 dark:invert" />
+          <img
+            src="/logo.webp"
+            alt="Comercial JR"
+            className="h-6 md:h-8 w-auto dark:brightness-0 dark:invert"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+            width="160"
+            height="32"
+          />
         </Link>
 
         {/* Desktop Nav */}

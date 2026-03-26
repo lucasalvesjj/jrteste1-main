@@ -11,7 +11,7 @@
 //  - unused     → badge amarelo + "Sem uso detectado"
 // ──────────────────────────────────────────────
 
-import { FileText, Globe, Image, AlertCircle } from "lucide-react";
+import { FileText, Globe, Image, AlertCircle, ExternalLink } from "lucide-react";
 import { useMemo } from "react";
 import { useBlogStore } from "@/stores/blogStore";
 import { getMediaUsage, buildPostTitleMap } from "@/lib/mediaUsage";
@@ -86,13 +86,24 @@ export function MediaUsageSection({ item }: MediaUsageSectionProps) {
           {config.label}
         </span>
 
-        {/* Rótulo da origem */}
-        <span
-          className="text-xs leading-relaxed text-foreground"
-          title={usage.label}
-        >
-          {usage.label}
-        </span>
+        {/* Rótulo da origem — clicável se post com link */}
+        {usage.status === "post" && usage.link ? (
+          <a
+            href={usage.link}
+            title={`Editar post: ${usage.label}`}
+            className="inline-flex items-center gap-1 text-xs leading-relaxed text-primary underline-offset-2 hover:underline"
+          >
+            <span className="truncate max-w-[160px]">{usage.label}</span>
+            <ExternalLink className="h-3 w-3 flex-shrink-0 opacity-60" />
+          </a>
+        ) : (
+          <span
+            className="text-xs leading-relaxed text-foreground"
+            title={usage.label}
+          >
+            {usage.label}
+          </span>
+        )}
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import SchemaOrg from "@/components/SchemaOrg";
 import BrandSlider from "@/components/BrandSlider";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const ALL_BRANDS = [
   { name: "Bosch",        logo: "/brands/bosch.svg" },
@@ -152,10 +153,11 @@ const Segmentos = () => (
               </Link>
             </div>
             <div className={i % 2 === 1 ? "md:order-1" : ""}>
-              <img
+              <OptimizedImage
                 src={seg.image}
                 alt={seg.imageAlt}
-                className="h-64 w-full rounded-xl object-cover shadow-md md:h-72"
+                className="h-64 w-full rounded-xl md:h-72"
+                preset="content"
                 loading="lazy"
               />
             </div>

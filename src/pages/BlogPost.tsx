@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, Tag, ArrowLeft } from "lucide-react";
 import Layout from "@/components/Layout";
@@ -8,6 +8,9 @@ import OptimizedImage from "@/components/OptimizedImage";
 import { useBlogStore } from "@/stores/blogStore";
 import { getCategoryLabel, getPostCategories } from "@/lib/blogCategories";
 import JRLoader from "@/components/JRLoader";
+import { useMediaStore } from "@/stores/mediaStore";
+import { enrichContentImages } from "@/lib/contentImages";
+import { useMediaItem } from "@/hooks/useMediaItem";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -17,9 +20,16 @@ const BlogPostPage = () => {
   const getRelated = useBlogStore((state) => state.getRelated);
   const loading = useBlogStore((state) => state.loading);
 
+  // Catálogo de mídias para enriquecer <img> no HTML do post
+  const mediaItems = useMediaStore((s) => s.items);
+  const loadMedia  = useMediaStore((s) => s.loadItems);
+  const mediaState = useMediaStore((s) => s.loadState);
+
   useEffect(() => {
     void init();
-  }, [init]);
+    // Carrega o catálogo de mídias apenas uma vez (se ainda não carregado)
+    if (mediaState === "idle") loadMedia();
+  }, [init, loadMedia, mediaState]);
 
   const post = getPost(slug || "");
 
@@ -49,11 +59,22 @@ const BlogPostPage = () => {
   const related = getRelated(post);
   const categories = getPostCategories(post);
 
+  // Lookup do MediaItem da imagem hero — fornece blurDataUrl, width e height
+  // para o OptimizedImage, evitando CLS e ativando o placeholder blur.
+  // Retorna null se a imagem não estiver no catálogo (ex: path estático legado).
+  const heroMediaItem = useMediaItem(post.image);
+
   const isHtml = (content: string) => /<[a-z][\s\S]*>/i.test(content);
+
+  // Enriquece o HTML com srcset/loading nas <img> da Media Library
+  const enrichedContent = useMemo(
+    () => (isHtml(post.content) ? enrichContentImages(post.content, mediaItems) : post.content),
+    [post.content, mediaItems]
+  );
 
   const renderContent = (content: string) => {
     if (isHtml(content)) {
-      return <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: content }} />;
+      return <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: enrichedContent }} />;
     }
 
     return (
@@ -169,6 +190,9 @@ const BlogPostPage = () => {
                 preset="hero"
                 loading="lazy"
                 decoding="async"
+                width={heroMediaItem?.width}
+                height={heroMediaItem?.height}
+                blurDataUrl={heroMediaItem?.blurDataUrl}
               />
             )}
             {renderContent(post.content)}

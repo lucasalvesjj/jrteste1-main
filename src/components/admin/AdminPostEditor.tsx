@@ -3,6 +3,7 @@ import { AlertTriangle, ArrowLeft, Eye, History, Image as ImageIcon, Info, Rotat
 import { toast } from "sonner";
 import type { BlogCategory, BlogPost } from "@/data/blogTypes";
 import { getCategoryLabel } from "@/lib/blogCategories";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const RichTextEditor = lazy(() => import("./RichTextEditor"));
 const MediaField = lazy(() => import("./media/MediaField"));
@@ -735,7 +736,15 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
               <div className="sticky top-20">
                 <h3 className="mb-3 font-heading text-sm font-bold text-foreground">Preview do Post</h3>
                 <div className="max-h-[calc(100vh-8rem)] overflow-y-auto overflow-hidden rounded-xl border border-border bg-card">
-                  {form.image && <img src={form.image} alt={form.title} className="h-48 w-full object-cover" />}
+                  {form.image && (
+                    <OptimizedImage
+                      src={form.image}
+                      alt={form.title}
+                      className="h-48 w-full"
+                      preset="hero"
+                      loading="eager"
+                    />
+                  )}
                   <div className="p-6">
                     <div className="mb-3 flex items-center gap-2">
                       <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">

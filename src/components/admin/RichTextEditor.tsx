@@ -40,8 +40,11 @@ import {
   Undo,
   Unlink,
 } from "lucide-react";
-import { Suspense, lazy, useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useMediaLibrary } from "@/hooks/useMediaLibrary";
+import { useMediaStore } from "@/stores/mediaStore";
+import { validateMediaFile } from "@/data/mediaTypes";
+import { toast } from "sonner";
 
 const MediaLibrary = lazy(() => import("./media/MediaLibrary"));
 
@@ -201,6 +204,41 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
   const [linkValue, setLinkValue] = useState("");
   const [pasteValue, setPasteValue] = useState("");
 
+  // ── Upload via galeria (vetores drag e paste) ──
+  const uploadItem = useMediaStore((s) => s.uploadItem);
+  // Ref para acesso ao editor dentro dos handlers de evento sem re-render
+  const editorRef = useRef<ReturnType<typeof useEditor>>(null);
+
+  /**
+   * Recebe um File de imagem, faz upload pela galeria e insere no editor.
+   * Bloqueia qualquer inserção de base64 ou URL externa.
+   */
+  const uploadAndInsert = useCallback(
+    async (file: File) => {
+      const validation = validateMediaFile(file);
+      if (!validation.valid) {
+        toast.error(validation.error ?? "Arquivo inválido.");
+        return;
+      }
+      const toastId = toast.loading(`Enviando "${file.name}" para a galeria...`);
+      try {
+        const mediaItem = await uploadItem(file);
+        toast.success(`"${file.name}" adicionado à galeria.`, { id: toastId });
+        const ed = editorRef.current;
+        if (!ed) return;
+        ed.chain().focus().setImage({
+          src: mediaItem.paths.large,
+          alt: mediaItem.alt || mediaItem.name,
+          title: `${mediaItem.width}x${mediaItem.height}`,
+        }).run();
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : "Erro no upload";
+        toast.error(msg, { id: toastId });
+      }
+    },
+    [uploadItem]
+  );
+
   const editor = useEditor({
     extensions: [
       StarterKit.configure({ heading: { levels: [1, 2, 3] } }),
@@ -237,8 +275,36 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
       attributes: {
         class: "prose prose-sm max-w-none min-h-[320px] p-4 focus:outline-none",
       },
+      // ── Vetor 1: Bloquear drag de arquivo de imagem local ──
+      // TipTap chamaria handleDrop antes de inserir base64.
+      // Retornar true sinaliza "evento tratado", impedindo o comportamento padrão.
+      handleDrop(_, event) {
+        const files = Array.from(event.dataTransfer?.files ?? []);
+        const imageFiles = files.filter((f) => f.type.startsWith("image/"));
+        if (imageFiles.length === 0) return false;
+        event.preventDefault();
+        // Processa apenas o primeiro arquivo por drop
+        void uploadAndInsert(imageFiles[0]);
+        return true;
+      },
+      // ── Vetor 2: Bloquear paste de imagem do clipboard ──
+      // Cobre Ctrl+V com imagem copiada ou Print Screen.
+      handlePaste(_, event) {
+        const items = Array.from(event.clipboardData?.items ?? []);
+        const imageItem = items.find((i) => i.type.startsWith("image/"));
+        if (!imageItem) return false;
+        event.preventDefault();
+        const file = imageItem.getAsFile();
+        if (file) void uploadAndInsert(file);
+        return true;
+      },
     },
   });
+
+  // Mantém a ref sincronizada com a instância atual do editor
+  useEffect(() => {
+    (editorRef as React.MutableRefObject<typeof editor>).current = editor;
+  }, [editor]);
 
   useEffect(() => {
     if (editor && content !== editor.getHTML()) {
