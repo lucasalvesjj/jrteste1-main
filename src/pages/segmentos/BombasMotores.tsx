@@ -179,3 +179,7 @@ const BombasMotoresPage = () => {
         url="/segmentos/bombas-e-motores/"
       />
     </Layout>
+  );
+};
+
+export default BombasMotoresPage;
