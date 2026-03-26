@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { company } from "@/data/company";
+import { loadSeoSettings } from "@/hooks/useSeoSettings";
 
 const Footer = () => {
+  const seoSettings = loadSeoSettings();
+  // rel para links externos (exceto subdomínio da loja)
+  const externalRel = seoSettings.externalLinksNofollow
+    ? "noopener noreferrer nofollow"
+    : "noopener noreferrer";
+
   return (
     <footer className="bg-primary text-primary-foreground dark:bg-[hsl(240_50%_12%)]">
       <div className="container-custom py-12 md:py-16">

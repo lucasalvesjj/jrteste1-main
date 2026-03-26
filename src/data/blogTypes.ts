@@ -4,6 +4,7 @@ export interface BlogPost {
   excerpt: string;
   content: string;
   image?: string;
+  imageAlt?: string;
   category?: string;
   categories: string[];
   tags: string[];
@@ -13,6 +14,9 @@ export interface BlogPost {
     metaTitle: string;
     metaDescription: string;
     ogImage?: string;
+    ogType?: string;
+    canonical?: string;
+    robots?: string;
   };
 }
 

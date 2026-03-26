@@ -100,8 +100,10 @@ function getAspectRatioStyle(width?: number, height?: number): React.CSSProperti
 interface OptimizedImageProps {
   /** Caminho da imagem (pode ser path da Media Library ou qualquer URL/base64) */
   src: string;
-  /** Texto alternativo */
+  /** Texto alternativo — sempre obrigatório para SEO e acessibilidade */
   alt: string;
+  /** Título opcional da imagem (tooltip + reforço semântico) */
+  title?: string;
   /** Classes CSS no container */
   className?: string;
   /** Largura original da imagem em px (da MediaItem.width) */
@@ -116,6 +118,10 @@ interface OptimizedImageProps {
   sizes?: string;
   /** Se deve usar loading="eager" em vez de "lazy" (above-the-fold) */
   priority?: boolean;
+  /** loading="lazy" | "eager" — sobrescreve priority se ambos informados */
+  loading?: "lazy" | "eager";
+  /** decoding="async" | "sync" | "auto" */
+  decoding?: "async" | "sync" | "auto";
   /**
    * Cache-buster: string anexada como ?v={value} nos URLs.
    * Usar o uploadedAt do MediaItem para invalidar cache após re-upload.
@@ -135,6 +141,7 @@ interface OptimizedImageProps {
 const OptimizedImage = memo(function OptimizedImage({
   src,
   alt,
+  title,
   className = "",
   width,
   height,
@@ -142,6 +149,8 @@ const OptimizedImage = memo(function OptimizedImage({
   preset = "content",
   sizes: sizesProp,
   priority = false,
+  loading: loadingProp,
+  decoding: decodingProp = "async",
   cacheBuster,
   onLoad: onLoadProp,
   onError: onErrorProp,
@@ -215,8 +224,9 @@ const OptimizedImage = memo(function OptimizedImage({
         alt={alt}
         width={width}
         height={height}
-        loading={priority ? "eager" : "lazy"}
-        decoding={priority ? "sync" : "async"}
+        loading={loadingProp ?? (priority ? "eager" : "lazy")}
+        decoding={decodingProp ?? (priority ? "sync" : "async")}
+        title={title}
         onLoad={handleLoad}
         onError={handleError}
         className={`h-full w-full object-cover transition-opacity duration-300 ${

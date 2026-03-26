@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ShoppingCart, Wrench, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import BlogCard from "@/components/BlogCard";
 import BrandSlider from "@/components/BrandSlider";
 import { useBlogStore } from "@/stores/blogStore";
@@ -49,7 +50,8 @@ const FerramentasPage = () => {
       <SEOHead
         title="Ferramentas Manuais em Castelo ES | Gedore, MTX, Foxlux — Comercial JR"
         description="Ferramentas manuais profissionais e domésticas em Castelo ES. Chaves, alicates, serras, martelos e mais. Marcas Gedore, Gedore Red, Foxlux, MTX, APEX e Carbografite. 41 anos de tradição."
-        canonical="/segmentos/ferramentas"
+        canonical="/segmentos/ferramentas/"
+        ogImage="/favicon.webp"
       />
 
       {/* Hero */}
@@ -170,6 +172,16 @@ const FerramentasPage = () => {
           </div>
         </section>
       )}
+      <SchemaOrg type="breadcrumb" items={[
+        { name: "Início",    url: "/" },
+        { name: "Segmentos", url: "/segmentos/" },
+        { name: "Ferramentas Manuais", url: "/segmentos/ferramentas/" },
+      ]} />
+      <SchemaOrg type="service"
+        name="Ferramentas Manuais"
+        description="Ferramentas manuais profissionais Gedore, MTX, Foxlux para marcenaria, serralheria e construção civil em Castelo ES."
+        url="/segmentos/ferramentas/"
+      />
     </Layout>
   );
 };

@@ -238,6 +238,11 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
         next.category = value[0];
       }
 
+      // Imagem destacada sempre espelha em seo.ogImage automaticamente
+      if (field === "image" && typeof value === "string") {
+        next.seo = { ...next.seo, ogImage: value };
+      }
+
       return next;
     });
     if (errors[field]) {
@@ -642,14 +647,31 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
                   <p className="mt-1 text-xs text-muted-foreground">{(form.seo.metaDescription || form.excerpt).length}/160</p>
                 </div>
                 <div>
-                  <label className="mb-1 block text-sm font-medium text-foreground">OG Image URL</label>
-                  <input
-                    type="url"
-                    value={form.seo.ogImage || ""}
-                    onChange={(e) => setForm((current) => ({ ...current, seo: { ...current.seo, ogImage: e.target.value } }))}
-                    className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    placeholder="https://..."
-                  />
+                  <label className="mb-1 block text-sm font-medium text-foreground">OG Image (og:image)</label>
+                  {/* Preview de link compartilhado */}
+                  <div className="overflow-hidden rounded-lg border border-border bg-muted/40">
+                    <div className="flex items-stretch">
+                      {/* Thumbnail à esquerda */}
+                      <div className="flex w-28 flex-shrink-0 items-center justify-center bg-muted" style={{ minHeight: 90 }}>
+                        {(() => {
+                          const src = form.seo.ogImage || "/favicon.webp";
+                          const absolute = src.startsWith("http") ? src : `${window.location.origin}${src}`;
+                          return <img src={absolute} alt="" className="h-full w-full object-cover" style={{ maxHeight: 90 }} />;
+                        })()}
+                      </div>
+                      {/* Texto à direita */}
+                      <div className="flex min-w-0 flex-col justify-center gap-0.5 px-4 py-3">
+                        <p className="text-[10px] uppercase tracking-wide text-muted-foreground">comercialjrltda.com.br</p>
+                        <p className="line-clamp-2 text-sm font-semibold text-foreground leading-snug">
+                          {form.seo.metaTitle || form.title || "Título do post"}
+                        </p>
+                        <p className="line-clamp-2 text-xs text-muted-foreground">
+                          {form.seo.metaDescription || form.excerpt || "Descrição do post"}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-1.5 text-[10px] text-muted-foreground">Imagem preenchida automaticamente pela imagem destacada do post</p>
                 </div>
                 <div className="rounded-lg border border-border bg-card p-4">
                   <h3 className="mb-3 font-heading text-sm font-bold text-foreground">Preview Google</h3>
@@ -659,6 +681,48 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
                     </div>
                     <div className="text-xs text-green-700">comercialjrltda.com.br/{form.slug}/</div>
                     <div className="line-clamp-2 text-sm text-muted-foreground">{form.seo.metaDescription || form.excerpt}</div>
+                  </div>
+                </div>
+
+                {/* ── SEO Avançado ── */}
+                <div className="rounded-lg border border-border bg-card p-4 space-y-4">
+                  <h3 className="font-heading text-sm font-bold text-foreground">Configurações Avançadas</h3>
+                  <div>
+                    <label className="mb-1 block text-sm font-medium text-foreground">og:type</label>
+                    <select
+                      value={form.seo.ogType || "article"}
+                      onChange={(e) => setForm((c) => ({ ...c, seo: { ...c.seo, ogType: e.target.value } }))}
+                      className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    >
+                      <option value="article">article (post de blog)</option>
+                      <option value="website">website</option>
+                      <option value="product">product</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="mb-1 block text-sm font-medium text-foreground">Canonical customizado</label>
+                    <input
+                      type="text"
+                      value={form.seo.canonical || ""}
+                      onChange={(e) => setForm((c) => ({ ...c, seo: { ...c.seo, canonical: e.target.value } }))}
+                      className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                      placeholder={`/${form.slug}/ (deixe vazio para usar o padrão)`}
+                    />
+                    <p className="mt-1 text-xs text-muted-foreground">Normalmente deixe vazio — só preencha se precisar apontar canonical para outra URL.</p>
+                  </div>
+                  <div>
+                    <label className="mb-1 block text-sm font-medium text-foreground">Robots (indexação deste post)</label>
+                    <select
+                      value={form.seo.robots || ""}
+                      onChange={(e) => setForm((c) => ({ ...c, seo: { ...c.seo, robots: e.target.value } }))}
+                      className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    >
+                      <option value="">Padrão global (index,follow)</option>
+                      <option value="index,follow">index, follow</option>
+                      <option value="noindex,follow">noindex, follow (não indexar)</option>
+                      <option value="index,nofollow">index, nofollow</option>
+                      <option value="noindex,nofollow">noindex, nofollow</option>
+                    </select>
                   </div>
                 </div>
               </div>

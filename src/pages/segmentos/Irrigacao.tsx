@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ShoppingCart, Droplets, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import BlogCard from "@/components/BlogCard";
 import BrandSlider from "@/components/BrandSlider";
 import { useBlogStore } from "@/stores/blogStore";
@@ -60,7 +61,8 @@ const IrrigacaoPage = () => {
       <SEOHead
         title="Irrigação Agrícola em Castelo ES | Sistemas, Bombas e Acessórios"
         description="Soluções completas em irrigação para cafeicultura, pastagem e horticultura no Espírito Santo. Aspersão, gotejamento, bombas e acessórios das melhores marcas. Comercial JR — 41 anos de tradição em Castelo ES."
-        canonical="/segmentos/irrigacao"
+        canonical="/segmentos/irrigacao/"
+        ogImage="/favicon.webp"
       />
 
       {/* Hero */}
@@ -186,6 +188,16 @@ const IrrigacaoPage = () => {
           </div>
         </section>
       )}
+      <SchemaOrg type="breadcrumb" items={[
+        { name: "Início",    url: "/" },
+        { name: "Segmentos", url: "/segmentos/" },
+        { name: "Irrigação Agrícola", url: "/segmentos/irrigacao/" },
+      ]} />
+      <SchemaOrg type="service"
+        name="Irrigação Agrícola"
+        description="Sistemas completos de irrigação para cafeicultura, pastagem, horticultura e jardinagem em Castelo ES."
+        url="/segmentos/irrigacao/"
+      />
     </Layout>
   );
 };

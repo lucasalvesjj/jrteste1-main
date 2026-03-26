@@ -4,6 +4,7 @@
 // ──────────────────────────────────────────────
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft, Eye, LogOut, Search, Upload, Trash2, X,
@@ -205,6 +206,15 @@ const AdminMediaContent = ({ onLogout }: { onLogout: () => void }) => {
 
   return (
     <div className="dark admin-dark min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Admin Mídia — Comercial JR</title>
+        <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noodp,noimageindex,noai" />
+        <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
+        <meta name="bingbot" content="noindex,nofollow,noarchive,nosnippet" />
+        <meta name="referrer" content="no-referrer" />
+        <meta name="description" content="" />
+        <link rel="canonical" href="https://comercialjrltda.com.br/" />
+      </Helmet>
       <header className="sticky top-0 z-50 bg-primary text-primary-foreground shadow-md">
         <div className="container-custom flex h-14 items-center justify-between">
           <div className="flex items-center gap-3">
@@ -397,6 +407,15 @@ const AdminMediaPage = () => {
   if (!authenticated) {
     return (
       <div className="dark admin-dark flex min-h-screen items-center justify-center bg-background p-4">
+        <Helmet>
+          <title>Admin Mídia — Comercial JR</title>
+          <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noodp,noimageindex,noai" />
+          <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
+          <meta name="bingbot" content="noindex,nofollow,noarchive,nosnippet" />
+          <meta name="referrer" content="no-referrer" />
+          <meta name="description" content="" />
+          <link rel="canonical" href="https://comercialjrltda.com.br/" />
+        </Helmet>
         <div className="w-full max-w-sm rounded-xl border border-border bg-card p-8 shadow-lg">
           <div className="mb-6 text-center">
             <span className="rounded bg-primary px-3 py-1.5 font-heading text-lg font-black text-primary-foreground">JR</span>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import { Award, Users, MapPin, Calendar, ArrowRight } from "lucide-react";
 
 const NossaHistoria = () => (
@@ -8,7 +9,8 @@ const NossaHistoria = () => (
     <SEOHead
       title="Nossa História"
       description="Conheça a história da Comercial JR LTDA, mais de 41 anos de tradição em máquinas, ferramentas e irrigação no Espírito Santo."
-      canonical="/nossa-historia"
+      canonical="/nossa-historia/"
+      ogImage="/favicon.webp"
     />
 
     {/* Hero */}
@@ -342,6 +344,16 @@ const NossaHistoria = () => (
         </div>
       </div>
     </section>
+
+    <SchemaOrg type="breadcrumb" items={[
+      { name: "Início",         url: "/" },
+      { name: "Nossa História", url: "/nossa-historia/" },
+    ]} />
+    <SchemaOrg type="webpage"
+      name="Nossa História — Comercial JR LTDA"
+      description="Conheça a história da Comercial JR LTDA, mais de 41 anos de tradição em máquinas, ferramentas e irrigação no Espírito Santo."
+      url="/nossa-historia/"
+    />
   </Layout>
 );
 

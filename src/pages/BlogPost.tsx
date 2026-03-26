@@ -125,9 +125,15 @@ const BlogPostPage = () => {
       <SEOHead
         title={post.seo.metaTitle.replace(" | Comercial JR", "")}
         description={post.seo.metaDescription}
-        canonical={`/${post.slug}/`}
-        type="article"
-        article={{ publishedTime: post.date, section: categories.map((categoryId) => getCategoryLabel(categoryId, categoriesList)).join(", "), tags: post.tags }}
+        canonical={post.seo.canonical || `/${post.slug}/`}
+        ogImage={post.seo.ogImage || undefined}
+        type={post.seo.ogType || "article"}
+        robots={post.seo.robots || undefined}
+        article={{
+          publishedTime: post.date,
+          section: categories.map((categoryId) => getCategoryLabel(categoryId, categoriesList)).join(", "),
+          tags: post.tags,
+        }}
       />
 
       <article>
@@ -157,9 +163,12 @@ const BlogPostPage = () => {
             {post.image && (
               <OptimizedImage
                 src={post.image}
-                alt={post.title}
+                alt={post.imageAlt || post.title}
+                title={post.title}
                 className="mb-8 h-64 w-full rounded-xl md:h-96"
                 preset="hero"
+                loading="lazy"
+                decoding="async"
               />
             )}
             {renderContent(post.content)}
@@ -195,10 +204,41 @@ const BlogPostPage = () => {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: post.title,
-            description: post.seo.metaDescription,
+            description: post.seo.metaDescription || post.excerpt,
             datePublished: post.date,
-            author: { "@type": "Organization", name: "Comercial JR LTDA" },
-            publisher: { "@type": "Organization", name: "Comercial JR LTDA" },
+            dateModified: post.date,
+            image: post.seo.ogImage || post.image || `https://comercialjrltda.com.br/favicon.webp`,
+            url: `https://comercialjrltda.com.br/${post.slug}/`,
+            inLanguage: "pt-BR",
+            author: {
+              "@type": "Organization",
+              name: "Comercial JR LTDA",
+              url: "https://comercialjrltda.com.br",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Comercial JR LTDA",
+              url: "https://comercialjrltda.com.br",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://comercialjrltda.com.br/logo.webp",
+              },
+            },
+            keywords: post.tags.join(", "),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Início",  item: "https://comercialjrltda.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Blog",    item: "https://comercialjrltda.com.br/blog/" },
+              { "@type": "ListItem", position: 3, name: post.title, item: `https://comercialjrltda.com.br/${post.slug}/` },
+            ],
           }),
         }}
       />

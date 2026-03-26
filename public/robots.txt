@@ -1,14 +1,22 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
+Disallow: /admin/
 
 User-agent: Bingbot
 Allow: /
-
-User-agent: Twitterbot
-Allow: /
+Disallow: /admin
+Disallow: /admin/
 
 User-agent: facebookexternalhit
 Allow: /
+Disallow: /admin
+Disallow: /admin/
 
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/
+
+Sitemap: https://comercialjrltda.com.br/page-sitemap.xml
+Sitemap: https://comercialjrltda.com.br/post-sitemap.xml

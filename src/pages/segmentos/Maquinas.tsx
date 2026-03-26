@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ShoppingCart, Zap, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import BlogCard from "@/components/BlogCard";
 import BrandSlider from "@/components/BrandSlider";
 import { useBlogStore } from "@/stores/blogStore";
@@ -50,7 +51,8 @@ const MaquinasPage = () => {
       <SEOHead
         title="Máquinas Elétricas em Castelo ES | DeWalt, Bosch, Makita — Comercial JR"
         description="Máquinas elétricas profissionais em Castelo ES: furadeiras, marteletes, esmerilhadeiras, serras, compressores, politrizes e mais. Marcas DeWalt, Bosch, Makita, Black & Decker e Stanley. 41 anos de tradição."
-        canonical="/segmentos/maquinas"
+        canonical="/segmentos/maquinas/"
+        ogImage="/favicon.webp"
       />
 
       {/* Hero */}
@@ -169,6 +171,16 @@ const MaquinasPage = () => {
           </div>
         </section>
       )}
+      <SchemaOrg type="breadcrumb" items={[
+        { name: "Início",    url: "/" },
+        { name: "Segmentos", url: "/segmentos/" },
+        { name: "Máquinas Elétricas", url: "/segmentos/maquinas/" },
+      ]} />
+      <SchemaOrg type="service"
+        name="Máquinas Elétricas"
+        description="Furadeiras, esmerilhadeiras, serras, compressores e máquinas elétricas DeWalt, Bosch, Makita em Castelo ES."
+        url="/segmentos/maquinas/"
+      />
     </Layout>
   );
 };

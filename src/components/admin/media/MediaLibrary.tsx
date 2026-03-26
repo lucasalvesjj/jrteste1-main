@@ -24,8 +24,11 @@ import {
   Calendar,
   HardDrive,
   Maximize2,
+  Pencil,
+  Save,
 } from "lucide-react";
 import { toast } from "sonner";
+import { updateMediaAlt, getMediaAltOverride } from "@/lib/mediaApi";
 import {
   Dialog,
   DialogContent,
@@ -631,14 +634,37 @@ interface MediaDetailPanelProps {
 function MediaDetailPanel({ item, onConfirm, onDelete }: MediaDetailPanelProps) {
   const [previewError, setPreviewError] = useState(false);
 
+  // ── Edição de alt ──
+  const savedAlt = getMediaAltOverride(item.id) ?? item.alt ?? "";
+  const [altValue, setAltValue] = useState(savedAlt);
+  const [altSaving, setAltSaving] = useState(false);
+  const [altSaved, setAltSaved] = useState(false);
+
+  // Sincroniza quando item muda
+  const handleAltSave = async () => {
+    setAltSaving(true);
+    try {
+      await updateMediaAlt(item.id, altValue.trim());
+      setAltSaved(true);
+      toast.success("Texto alternativo salvo");
+      setTimeout(() => setAltSaved(false), 2000);
+    } catch {
+      toast.error("Não foi possível salvar o alt");
+    } finally {
+      setAltSaving(false);
+    }
+  };
+
   return (
-    <div className="flex w-[280px] flex-shrink-0 flex-col border-l border-border bg-card">
+    <div className="flex w-[300px] flex-shrink-0 flex-col border-l border-border bg-card">
       {/* Preview */}
       <div className="relative aspect-video w-full overflow-hidden bg-muted">
         {!previewError ? (
           <img
             src={item.paths.medium}
-            alt={item.alt || item.name}
+            alt={altValue || item.name}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-contain"
             onError={() => setPreviewError(true)}
           />
@@ -650,23 +676,51 @@ function MediaDetailPanel({ item, onConfirm, onDelete }: MediaDetailPanelProps) 
       </div>
 
       {/* Detalhes */}
-      <div className="flex-1 overflow-y-auto p-4">
-        <h3 className="mb-3 truncate text-sm font-semibold text-foreground" title={item.name}>
+      <div className="flex-1 overflow-y-auto p-4 space-y-3">
+        <h3 className="truncate text-sm font-semibold text-foreground" title={item.name}>
           {item.name}
         </h3>
 
-        <div className="space-y-2.5 text-xs text-muted-foreground">
-          <DetailRow icon={Calendar} label="Data" value={formatDate(item.uploadedAt)} />
+        <div className="space-y-2 text-xs text-muted-foreground">
+          <DetailRow icon={Calendar}  label="Data"      value={formatDate(item.uploadedAt)} />
           <DetailRow icon={Maximize2} label="Dimensões" value={`${item.width} × ${item.height}px`} />
-          <DetailRow icon={HardDrive} label="Tamanho" value={formatFileSize(item.size)} />
-          <DetailRow icon={FileImage} label="Tipo" value={item.mimeType} />
+          <DetailRow icon={HardDrive} label="Tamanho"   value={formatFileSize(item.size)} />
+          <DetailRow icon={FileImage} label="Tipo"      value={item.mimeType} />
+        </div>
 
-          {item.alt && (
-            <div className="mt-3 border-t border-border pt-3">
-              <span className="mb-1 block text-xs font-medium text-foreground">Texto alternativo</span>
-              <span className="text-xs text-muted-foreground">{item.alt}</span>
-            </div>
-          )}
+        {/* ── Edição de Alt ── */}
+        <div className="border-t border-border pt-3">
+          <label className="mb-1 flex items-center gap-1.5 text-xs font-semibold text-foreground">
+            <Pencil className="h-3 w-3 text-primary" />
+            Texto alternativo (alt)
+          </label>
+          <p className="mb-2 text-[10px] text-muted-foreground leading-relaxed">
+            Descreva a imagem com a keyword principal. Usado em acessibilidade e indexação de imagens no Google.
+          </p>
+          <textarea
+            value={altValue}
+            onChange={(e) => setAltValue(e.target.value)}
+            rows={3}
+            maxLength={200}
+            placeholder="Ex: Furadeira de impacto STIHL 600W em uso em obra"
+            className="w-full resize-none rounded-lg border border-input bg-background px-3 py-2 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+          />
+          <div className="mt-1.5 flex items-center justify-between">
+            <span className="text-[10px] text-muted-foreground">{altValue.length}/200</span>
+            <button
+              onClick={handleAltSave}
+              disabled={altSaving}
+              className="flex items-center gap-1 rounded-lg bg-primary px-3 py-1.5 text-[11px] font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
+            >
+              {altSaved ? (
+                <><Check className="h-3 w-3" /> Salvo</>
+              ) : altSaving ? (
+                "Salvando..."
+              ) : (
+                <><Save className="h-3 w-3" /> Salvar alt</>
+              )}
+            </button>
+          </div>
         </div>
       </div>
 

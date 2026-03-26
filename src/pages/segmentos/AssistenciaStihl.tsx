@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Phone, Send, Copy, Check, ShieldCheck, CheckCircle, ArrowRight, Star } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import { company } from "@/data/company";
 import { toast } from "sonner";
 
@@ -72,7 +73,8 @@ const AssistenciaStihlPage = () => {
       <SEOHead
         title="Assistência Técnica STIHL Autorizada em Castelo ES | Revenda Oficial — Comercial JR"
         description="Revenda e assistência técnica autorizada STIHL em Castelo ES. Manutenção de motosserras, roçadeiras, sopradores e toda a linha STIHL. Peças originais e atendimento especializado no sul do Espírito Santo."
-        canonical="/segmentos/assistencia-stihl"
+        canonical="/segmentos/assistencia-stihl/"
+        ogImage="/favicon.webp"
       />
 
       {/* Hero */}
@@ -253,6 +255,17 @@ const AssistenciaStihlPage = () => {
           </div>
         </div>
       </section>
+
+      <SchemaOrg type="breadcrumb" items={[
+        { name: "Início",    url: "/" },
+        { name: "Segmentos", url: "/segmentos/" },
+        { name: "Assistência Técnica STIHL", url: "/segmentos/assistencia-stihl/" },
+      ]} />
+      <SchemaOrg type="service"
+        name="Assistência Técnica STIHL Autorizada"
+        description="Revenda e assistência técnica autorizada STIHL em Castelo ES. Manutenção de motosserras, roçadeiras e sopradores com peças originais."
+        url="/segmentos/assistencia-stihl/"
+      />
     </Layout>
   );
 };

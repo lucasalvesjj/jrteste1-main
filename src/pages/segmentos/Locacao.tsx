@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Phone, Send, Copy, Check, Package, CheckCircle, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import { company } from "@/data/company";
 import { toast } from "sonner";
 
@@ -71,7 +72,8 @@ const LocacaoPage = () => {
       <SEOHead
         title="Locação de Máquinas e Equipamentos em Castelo ES — Comercial JR"
         description="Aluguel de equipamentos para obra em Castelo ES: compressor, martelo rompedor, roçadeira, compactador, vibrador de concreto e mais. Locação por dia, semana ou mês."
-        canonical="/segmentos/locacao"
+        canonical="/segmentos/locacao/"
+        ogImage="/favicon.webp"
       />
 
       {/* Hero */}
@@ -236,6 +238,17 @@ const LocacaoPage = () => {
           </div>
         </div>
       </section>
+
+      <SchemaOrg type="breadcrumb" items={[
+        { name: "Início",    url: "/" },
+        { name: "Segmentos", url: "/segmentos/" },
+        { name: "Locação de Equipamentos", url: "/segmentos/locacao/" },
+      ]} />
+      <SchemaOrg type="service"
+        name="Locação de Máquinas e Equipamentos"
+        description="Aluguel de equipamentos para obras em Castelo ES: compressor, martelo rompedor, roçadeira, compactador e mais. Locação por dia, semana ou mês."
+        url="/segmentos/locacao/"
+      />
     </Layout>
   );
 };

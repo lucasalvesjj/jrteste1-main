@@ -82,7 +82,8 @@ const Contato = () => {
       <SEOHead
         title="Contato"
         description="Entre em contato com a Comercial JR LTDA. Telefone, e-mail, endereço e formulário de contato."
-        canonical="/contato"
+        canonical="/contato/"
+        ogImage="/favicon.webp"
       />
 
       <section className="bg-brand-gradient py-16 text-primary-foreground md:py-24">
@@ -282,6 +283,34 @@ const Contato = () => {
           </div>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Início",  item: "https://comercialjrltda.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Contato", item: "https://comercialjrltda.com.br/contato/" },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "@id": "https://comercialjrltda.com.br/contato/",
+            name: "Contato — Comercial JR",
+            url: "https://comercialjrltda.com.br/contato/",
+            inLanguage: "pt-BR",
+            publisher: { "@id": "https://comercialjrltda.com.br/#organization" },
+          }),
+        }}
+      />
     </Layout>
   );
 };

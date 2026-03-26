@@ -4,7 +4,7 @@ import SEOHead from "@/components/SEOHead";
 
 const NotFound = () => (
   <Layout>
-    <SEOHead title="Página não encontrada" />
+    <SEOHead title="Página não encontrada" robots="noindex,nofollow" />
     <div className="section-padding text-center min-h-[60vh] flex flex-col items-center justify-center">
       <span className="text-8xl mb-4">🔧</span>
       <h1 className="font-heading text-5xl font-black text-foreground mb-4">404</h1>

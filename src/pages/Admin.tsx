@@ -1,4 +1,5 @@
 import { Suspense, lazy, useEffect, useMemo, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
   Plus,
@@ -14,7 +15,6 @@ import {
   FileText,
   CheckCircle,
   Clock,
-  BarChart3,
   RefreshCw,
   Server,
   Laptop,
@@ -24,6 +24,11 @@ import {
   ChevronUp,
   ChevronDown,
   Image as ImageIcon,
+  SlidersHorizontal,
+  Tags,
+  X,
+  BookOpen,
+  Terminal,
 } from "lucide-react";
 import { toast } from "sonner";
 import { useBlogStore } from "@/stores/blogStore";
@@ -31,6 +36,13 @@ import type { BlogPost } from "@/data/blogTypes";
 import { BLOG_DATA_PATH, parseBlogImport } from "@/lib/blogContent";
 import { getCategoryLabel, getCategoryTone, getPostCategories } from "@/lib/blogCategories";
 import JRLoader from "@/components/JRLoader";
+import {
+  getTrackingCodes,
+  saveTrackingCodes,
+  type TrackingCode,
+  type TrackingPosition,
+  type TrackingScope,
+} from "@/components/admin/AdminSeoEditor";
 
 const AdminPostEditor = lazy(() => import("@/components/admin/AdminPostEditor"));
 const AdminSeoEditor = lazy(() => import("@/components/admin/AdminSeoEditor"));
@@ -97,6 +109,373 @@ const AdminViewFallback = ({ label }: { label: string }) => (
   <JRLoader size="lg" label={`Carregando ${label}...`} />
 );
 
+// ── Modal de Categorias ───────────────────────────────────────────────────────
+interface CategoryModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  categories: ReturnType<typeof useBlogStore>["categories"] extends infer T ? T : never;
+  onAdd: (label: string) => void;
+  onToggleVisibility: (id: string) => void;
+}
+
+function CategoryModal({ isOpen, onClose, categories, onAdd, onToggleVisibility }: CategoryModalProps) {
+  const [newLabel, setNewLabel] = useState("");
+
+  const handleAdd = () => {
+    if (!newLabel.trim()) { toast.error("Digite um nome para criar a categoria"); return; }
+    onAdd(newLabel.trim());
+    setNewLabel("");
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+
+      {/* Modal */}
+      <div className="relative flex w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-border px-6 py-4">
+          <div className="flex items-center gap-2">
+            <Tags className="h-5 w-5 text-primary" />
+            <h2 className="font-heading text-lg font-bold text-foreground">Categorias do Blog</h2>
+            <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">
+              {categories.length}
+            </span>
+          </div>
+          <button
+            onClick={onClose}
+            className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* Body */}
+        <div className="flex-1 overflow-y-auto p-6 space-y-5">
+          <p className="text-sm text-muted-foreground">
+            Crie e gerencie categorias do blog. Elas passam a valer no admin, no blog e no JSON exportado.
+          </p>
+
+          {/* Criar nova */}
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={newLabel}
+              onChange={(e) => setNewLabel(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); handleAdd(); } }}
+              placeholder="Ex: Jardinagem, Construção Civil..."
+              className="flex-1 rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+            <button
+              type="button"
+              onClick={handleAdd}
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              <Plus className="h-4 w-4" />
+              Criar
+            </button>
+          </div>
+
+          {/* Lista de categorias */}
+          {categories.length === 0 ? (
+            <div className="rounded-xl border border-dashed border-border bg-muted/30 p-8 text-center text-sm text-muted-foreground">
+              Nenhuma categoria criada ainda.
+            </div>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {categories.map((cat) => (
+                <div
+                  key={cat.id}
+                  className={`flex items-center gap-1.5 rounded-full pl-3 pr-1.5 py-1.5 text-sm font-medium transition-opacity ${
+                    getCategoryTone(cat.id, categories)
+                  } ${cat.hidden ? "opacity-45" : ""}`}
+                >
+                  <span>{cat.label}</span>
+                  <span className="text-xs opacity-60">/{cat.id}</span>
+                  <button
+                    type="button"
+                    onClick={() => onToggleVisibility(cat.id)}
+                    title={cat.hidden ? "Oculta — clique para tornar visível" : "Visível — clique para ocultar"}
+                    className="ml-1 rounded-full p-1 transition-colors hover:bg-black/10"
+                  >
+                    {cat.hidden ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="flex justify-end border-t border-border px-6 py-4">
+          <button
+            onClick={onClose}
+            className="rounded-lg border border-border px-5 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+          >
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Modal de Publicação ───────────────────────────────────────────────────────
+interface PublicationModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  source: keyof typeof sourceMeta;
+  exportName: string;
+  blogDataPath: string;
+  copiedItem: "path" | "filename" | null;
+  loading: boolean;
+  onCopyText: (value: string, type: "path" | "filename") => void;
+  onDownloadJson: (filename: string) => void;
+  onResetToPublished: () => void;
+}
+
+function PublicationModal({
+  isOpen, onClose, source, exportName, blogDataPath,
+  copiedItem, loading, onCopyText, onDownloadJson, onResetToPublished,
+}: PublicationModalProps) {
+  if (!isOpen) return null;
+
+  const current = sourceMeta[source];
+  const SourceIcon = current.icon;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative flex w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
+
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-border px-6 py-4">
+          <div className="flex items-center gap-2">
+            <BookOpen className="h-5 w-5 text-primary" />
+            <h2 className="font-heading text-lg font-bold text-foreground">Publicação</h2>
+          </div>
+          <button onClick={onClose} className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* Body */}
+        <div className="overflow-y-auto p-6 space-y-6">
+
+          {/* Status da fonte */}
+          <div className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold ${current.tone}`}>
+            <SourceIcon className="h-4 w-4" />
+            {current.label}
+          </div>
+
+          {/* Guia passo a passo */}
+          <div>
+            <h3 className="mb-3 font-heading text-sm font-bold text-foreground flex items-center gap-2">
+              <HardDriveUpload className="h-4 w-4 text-primary" />
+              Publicação Guiada
+            </h3>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                "1. Edite ou revise os posts na sua cópia local.",
+                "2. Clique em Exportar Publicação para baixar o arquivo oficial.",
+                "3. Envie o arquivo para o servidor substituindo o JSON atual.",
+                "4. Atualize o site ou limpe cache se necessário para ver a nova versão.",
+              ].map((step) => (
+                <div key={step} className="rounded-xl bg-muted/60 p-4 text-sm text-foreground">{step}</div>
+              ))}
+            </div>
+          </div>
+
+          {/* Resumo do arquivo */}
+          <div>
+            <h3 className="mb-3 font-heading text-sm font-bold text-foreground">Resumo do Arquivo</h3>
+            <div className="space-y-2 text-sm">
+              <div className="rounded-xl bg-muted/60 p-4">
+                <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Arquivo de publicação</div>
+                <div className="mt-1 font-mono text-foreground">blog-posts.json</div>
+              </div>
+              <div className="rounded-xl bg-muted/60 p-4">
+                <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Destino no servidor</div>
+                <div className="mt-1 font-mono text-foreground">{blogDataPath}</div>
+              </div>
+              <div className="rounded-xl bg-muted/60 p-4">
+                <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Backup sugerido</div>
+                <div className="mt-1 break-all font-mono text-foreground">{exportName}</div>
+              </div>
+              <div className="rounded-xl bg-muted/60 p-4 text-sm text-muted-foreground">
+                O JSON exportado leva posts e categorias juntos. Publique sempre com o nome fixo{" "}
+                <code className="mx-1 rounded bg-background px-1 py-0.5">blog-posts.json</code>.
+              </div>
+            </div>
+          </div>
+
+          {/* Ações */}
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => void onCopyText(blogDataPath, "path")}
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            >
+              {copiedItem === "path" ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              Copiar Caminho do Servidor
+            </button>
+            <button
+              onClick={() => { onDownloadJson(exportName); toast.success("Backup local exportado com data e hora"); }}
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            >
+              <Download className="h-4 w-4" />
+              Exportar Backup com Data
+            </button>
+            <button
+              onClick={() => void onCopyText(exportName, "filename")}
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            >
+              {copiedItem === "filename" ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              Copiar Nome do Backup
+            </button>
+            <button
+              onClick={() => { onResetToPublished(); }}
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            >
+              <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
+              Recarregar Publicado
+            </button>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="flex justify-end border-t border-border px-6 py-4">
+          <button onClick={onClose} className="rounded-lg border border-border px-5 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── CodesModal — Tracking Codes popup standalone no Admin ────────────────────
+const inputClsAdmin  = "w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm";
+const selectClsAdmin = "w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm";
+
+function newCode(count: number): TrackingCode {
+  return { id: `tc-${Date.now()}`, name: "", code: "", position: "head", scope: "global", includedPaths: [], excludedPaths: [], enabled: true, order: count };
+}
+
+function CodesModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const [tracking, setTracking] = useState<TrackingCode[]>(() => getTrackingCodes());
+  const [savedStr, setSavedStr] = useState(() => JSON.stringify(getTrackingCodes()));
+  const [expanded, setExpanded] = useState<string | null>(null);
+  const [pathInputs, setPathInputs] = useState<Record<string, { inc: string; exc: string }>>({});
+
+  const dirty = JSON.stringify(tracking) !== savedStr;
+  const posLabel: Record<TrackingPosition, string> = { head: "<head>", body_start: "<body> início", body_end: "<body> fim" };
+
+  const add    = () => { const c = newCode(tracking.length); setTracking((t) => [...t, c]); setExpanded(c.id); };
+  const upd    = (id: string, patch: Partial<TrackingCode>) => setTracking((t) => t.map((c) => c.id === id ? { ...c, ...patch } : c));
+  const rem    = (id: string) => { if (!window.confirm("Remover?")) return; setTracking((t) => t.filter((c) => c.id !== id)); };
+  const mv     = (from: number, to: number) => setTracking((t) => { const n=[...t]; const [item]=n.splice(from,1); n.splice(to,0,item); return n.map((c,i)=>({...c,order:i})); });
+  const addP   = (id: string, field: "includedPaths"|"excludedPaths", val: string) => { const v=val.trim(); if(!v) return; upd(id,{[field]:[...(tracking.find(c=>c.id===id)?.[field]??[]),v]}); setPathInputs(p=>({...p,[id]:{...p[id],[field==="includedPaths"?"inc":"exc"]:""}})); };
+  const remP   = (id: string, field: "includedPaths"|"excludedPaths", idx: number) => upd(id,{[field]:(tracking.find(c=>c.id===id)?.[field]??[]).filter((_,i)=>i!==idx)});
+  const doSave = () => { saveTrackingCodes(tracking); setSavedStr(JSON.stringify(tracking)); toast.success("Tracking codes salvos"); };
+  const discard= () => { const fresh=getTrackingCodes(); setTracking(fresh); setSavedStr(JSON.stringify(fresh)); };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="dark admin-dark fixed inset-0 z-50 flex items-start justify-center p-4 pt-16">
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative flex w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl max-h-[80vh]">
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-border px-6 py-4">
+          <div className="flex items-center gap-2">
+            <Terminal className="h-5 w-5 text-primary" />
+            <h2 className="font-heading text-lg font-bold text-foreground">Tracking Codes</h2>
+            {tracking.length > 0 && <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">{tracking.filter(t=>t.enabled).length}/{tracking.length} ativos</span>}
+            {dirty && <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-semibold text-amber-600">não salvo</span>}
+          </div>
+          <div className="flex items-center gap-2">
+            <button onClick={add} className="flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-90"><Plus className="h-3.5 w-3.5" /> Adicionar</button>
+            <button onClick={onClose} className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"><X className="h-5 w-5" /></button>
+          </div>
+        </div>
+        {/* Body */}
+        <div className="flex-1 overflow-y-auto p-6 space-y-4">
+          <p className="text-xs text-muted-foreground">Adicione Google Analytics, Tag Manager, Meta Pixel, Hotjar etc. Scripts de <code className="bg-muted px-1 rounded font-mono">head</code> injetados via react-helmet; <code className="bg-muted px-1 rounded font-mono">body</code> injetados globalmente.</p>
+          {tracking.length === 0 && <div className="rounded-lg border border-dashed border-border bg-muted/30 p-8 text-center text-xs text-muted-foreground">Nenhum tracking code. Clique em "Adicionar".</div>}
+          {tracking.length > 1 && <p className="text-[10px] text-muted-foreground">Use ▲▼ para definir a ordem de injeção dentro da mesma posição.</p>}
+          <div className="space-y-2">
+            {tracking.map((tc, index) => (
+              <div key={tc.id} className={`rounded-xl border ${tc.enabled?"border-border":"border-border/40 opacity-60"} bg-background overflow-hidden`}>
+                <div className="flex items-center gap-2 px-3 py-3">
+                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-muted text-[10px] font-bold text-muted-foreground">{index+1}</span>
+                  <button onClick={()=>upd(tc.id,{enabled:!tc.enabled})} className={`relative h-5 w-9 flex-shrink-0 rounded-full transition-colors ${tc.enabled?"bg-primary":"bg-muted-foreground/30"}`}><span className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform ${tc.enabled?"translate-x-4":"translate-x-0.5"}`}/></button>
+                  <button onClick={()=>setExpanded(expanded===tc.id?null:tc.id)} className="flex flex-1 items-center gap-2 text-left min-w-0">
+                    <Code className="h-3.5 w-3.5 flex-shrink-0 text-muted-foreground"/>
+                    <span className="truncate text-sm font-semibold text-foreground">{tc.name||<span className="italic text-muted-foreground">Sem nome</span>}</span>
+                    <span className="ml-auto flex-shrink-0 rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">{posLabel[tc.position]}</span>
+                    <span className={`flex-shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium ${tc.scope==="global"?"bg-green-500/10 text-green-600":"bg-blue-500/10 text-blue-600"}`}>{tc.scope==="global"?"Global":"Específico"}</span>
+                  </button>
+                  <div className="flex flex-shrink-0 flex-col">
+                    <button onClick={()=>mv(index,index-1)} disabled={index===0} className="rounded p-0.5 text-muted-foreground hover:bg-accent hover:text-foreground disabled:opacity-30"><ChevronUp className="h-3.5 w-3.5"/></button>
+                    <button onClick={()=>mv(index,index+1)} disabled={index===tracking.length-1} className="rounded p-0.5 text-muted-foreground hover:bg-accent hover:text-foreground disabled:opacity-30"><ChevronDown className="h-3.5 w-3.5"/></button>
+                  </div>
+                  <button onClick={()=>rem(tc.id)} className="flex-shrink-0 rounded p-1.5 text-muted-foreground hover:bg-destructive/10 hover:text-destructive"><X className="h-3.5 w-3.5"/></button>
+                </div>
+                {expanded===tc.id && (
+                  <div className="border-t border-border px-4 pb-4 pt-4 space-y-4">
+                    <div><label className="mb-1 block text-xs font-medium text-foreground">Nome</label><input type="text" value={tc.name} onChange={e=>upd(tc.id,{name:e.target.value})} className={inputClsAdmin} placeholder="Ex: Google Analytics GA4, Meta Pixel..."/></div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div><label className="mb-1 block text-xs font-medium text-foreground">Posição</label>
+                        <select value={tc.position} onChange={e=>upd(tc.id,{position:e.target.value as TrackingPosition})} className={selectClsAdmin}>
+                          <option value="head">No &lt;head&gt;</option><option value="body_start">Início do &lt;body&gt;</option><option value="body_end">Fim do &lt;body&gt;</option>
+                        </select>
+                      </div>
+                      <div><label className="mb-1 block text-xs font-medium text-foreground">Escopo</label>
+                        <select value={tc.scope} onChange={e=>upd(tc.id,{scope:e.target.value as TrackingScope})} className={selectClsAdmin}>
+                          <option value="global">Global</option><option value="specific">Páginas específicas</option>
+                        </select>
+                      </div>
+                    </div>
+                    {tc.scope==="global"?(
+                      <div><label className="mb-1 block text-xs font-medium text-foreground">Excluir páginas</label>
+                        <div className="flex gap-2"><input type="text" value={pathInputs[tc.id]?.exc??""} onChange={e=>setPathInputs(p=>({...p,[tc.id]:{...p[tc.id],exc:e.target.value}}))} onKeyDown={e=>{if(e.key==="Enter"){e.preventDefault();addP(tc.id,"excludedPaths",pathInputs[tc.id]?.exc??"");}}} className="flex-1 rounded-lg border border-input bg-background px-3 py-1.5 font-mono text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="/pagina/"/>
+                        <button onClick={()=>addP(tc.id,"excludedPaths",pathInputs[tc.id]?.exc??"")} className="flex items-center gap-1 rounded-lg bg-muted px-3 py-1.5 text-xs font-medium text-foreground hover:bg-accent"><Plus className="h-3 w-3"/>Add</button></div>
+                        <div className="mt-2 flex flex-wrap gap-1.5">{tc.excludedPaths.map((p,i)=><span key={i} className="flex items-center gap-1 rounded-full border border-border bg-muted px-2.5 py-1 font-mono text-[10px] text-foreground">{p}<button onClick={()=>remP(tc.id,"excludedPaths",i)} className="ml-0.5 text-muted-foreground hover:text-destructive"><X className="h-2.5 w-2.5"/></button></span>)}</div>
+                      </div>
+                    ):(
+                      <div><label className="mb-1 block text-xs font-medium text-foreground">Apenas nestas páginas</label>
+                        <div className="flex gap-2"><input type="text" value={pathInputs[tc.id]?.inc??""} onChange={e=>setPathInputs(p=>({...p,[tc.id]:{...p[tc.id],inc:e.target.value}}))} onKeyDown={e=>{if(e.key==="Enter"){e.preventDefault();addP(tc.id,"includedPaths",pathInputs[tc.id]?.inc??"");}}} className="flex-1 rounded-lg border border-input bg-background px-3 py-1.5 font-mono text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="/pagina/"/>
+                        <button onClick={()=>addP(tc.id,"includedPaths",pathInputs[tc.id]?.inc??"")} className="flex items-center gap-1 rounded-lg bg-muted px-3 py-1.5 text-xs font-medium text-foreground hover:bg-accent"><Plus className="h-3 w-3"/>Add</button></div>
+                        <div className="mt-2 flex flex-wrap gap-1.5">{tc.includedPaths.map((p,i)=><span key={i} className="flex items-center gap-1 rounded-full border border-border bg-muted px-2.5 py-1 font-mono text-[10px] text-foreground">{p}<button onClick={()=>remP(tc.id,"includedPaths",i)} className="ml-0.5 text-muted-foreground hover:text-destructive"><X className="h-2.5 w-2.5"/></button></span>)}</div>
+                      </div>
+                    )}
+                    <div><label className="mb-1 block text-xs font-medium text-foreground">Código / Script</label>
+                      <textarea value={tc.code} onChange={e=>upd(tc.id,{code:e.target.value})} rows={6} className="w-full resize-y rounded-lg border border-input bg-background px-3 py-2 font-mono text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder={`<!-- Google Analytics -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>`}/>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Footer */}
+        <div className="flex items-center justify-between border-t border-border px-6 py-4">
+          <div>{dirty&&<span className="text-xs text-amber-600 font-medium">● Alterações não salvas</span>}</div>
+          <div className="flex gap-2">
+            {dirty&&<button onClick={discard} className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted-foreground hover:bg-muted">Descartar</button>}
+            <button onClick={()=>{if(dirty)doSave();onClose();}} className={`flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold hover:opacity-90 ${dirty?"bg-secondary text-secondary-foreground":"border border-border text-foreground hover:bg-muted"}`}>
+              {dirty?<><Save className="h-4 w-4"/>Salvar e fechar</>:"Fechar"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
   const {
     categories,
@@ -139,9 +518,10 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
   const [sortField, setSortField] = useState<SortField>("date");
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
   const [visibleCount, setVisibleCount] = useState(POSTS_PAGE_SIZE);
-  const [newCategoryLabel, setNewCategoryLabel] = useState("");
-  const [publicationGuideOpen, setPublicationGuideOpen] = useState(false);
-  const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const [publicationModalOpen, setPublicationModalOpen] = useState(false);
+  const [categoriesModalOpen, setCategoriesModalOpen] = useState(false);
+  const [codesModalOpen, setCodesModalOpen] = useState(false);
+  const [codesFromMenu, setCodesFromMenu] = useState(false);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   // Estabiliza o nome do backup para evitar stale closure nos botões de cópia
@@ -315,17 +695,15 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
     input.click();
   };
 
-  const handleAddCategory = () => {
+  const handleAddCategory = (label: string) => {
     try {
-      const created = addCategory(newCategoryLabel);
-      setNewCategoryLabel("");
+      const created = addCategory(label);
       toast.success(`Categoria "${created.label}" criada com sucesso`);
     } catch (error) {
       if (error instanceof Error && (error.message === "duplicate-category" || error.message === "empty-category")) {
         toast.error(error.message === "duplicate-category" ? "Já existe uma categoria com esse nome" : "Digite um nome para criar a categoria");
         return;
       }
-
       toast.error("Não foi possível criar a categoria");
     }
   };
@@ -410,7 +788,10 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
   if (view === "seo-global") {
     return (
       <Suspense fallback={<AdminViewFallback label="SEO" />}>
-        <AdminSeoEditor onBack={() => setView("list")} />
+        <AdminSeoEditor
+          onBack={() => { setView("list"); setCodesFromMenu(false); }}
+          openCodes={codesFromMenu}
+        />
       </Suspense>
     );
   }
@@ -420,28 +801,94 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
 
   return (
     <div className="dark admin-dark min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Admin — Comercial JR</title>
+        <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noodp,noimageindex,noai" />
+        <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
+        <meta name="bingbot" content="noindex,nofollow,noarchive,nosnippet" />
+        <meta name="referrer" content="no-referrer" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Admin" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="" />
+        <meta name="description" content="" />
+        <link rel="canonical" href="https://comercialjrltda.com.br/" />
+      </Helmet>
       <header className="sticky top-0 z-50 bg-primary text-primary-foreground shadow-md">
-        <div className="container-custom flex h-14 items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="container-custom flex h-14 items-center gap-6">
+          {/* Logo */}
+          <div className="flex flex-shrink-0 items-center gap-3">
             <span className="rounded bg-primary-foreground px-2 py-0.5 font-heading text-sm font-black text-primary">JR</span>
             <span className="font-heading text-sm font-bold">Admin</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Link to="/admin/media" className="flex items-center gap-1 text-sm text-primary-foreground/70 hover:text-primary-foreground">
+
+          {/* Nav — alinhado à esquerda, cresce */}
+          <div className="flex flex-1 items-center gap-1">
+            <Link to="/admin/media" className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground">
               <ImageIcon className="h-4 w-4" />
               Mídia
             </Link>
-            <Link to="/" className="flex items-center gap-1 text-sm text-primary-foreground/70 hover:text-primary-foreground">
+            <button
+              onClick={() => setCategoriesModalOpen(true)}
+              className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            >
+              <Tags className="h-4 w-4" />
+              Categorias
+            </button>
+            <button
+              onClick={() => setView("seo-global")}
+              className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            >
+              <SlidersHorizontal className="h-4 w-4" />
+              SEO
+            </button>
+            <button
+              onClick={() => setCodesModalOpen(true)}
+              className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            >
+              <Terminal className="h-4 w-4" />
+              Codes
+            </button>
+          </div>
+
+          {/* Ver Site + Sair — agrupados à direita */}
+          <div className="flex flex-shrink-0 items-center gap-1">
+            <Link to="/" className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground">
               <Eye className="h-4 w-4" />
               Ver Site
             </Link>
-            <button onClick={onLogout} className="ml-3 flex items-center gap-1 text-sm text-primary-foreground/70 hover:text-primary-foreground">
+            <button onClick={onLogout} className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground">
               <LogOut className="h-4 w-4" />
               Sair
             </button>
           </div>
         </div>
       </header>
+
+      <CodesModal isOpen={codesModalOpen} onClose={() => setCodesModalOpen(false)} />
+
+      <CategoryModal
+        isOpen={categoriesModalOpen}
+        onClose={() => setCategoriesModalOpen(false)}
+        categories={categories}
+        onAdd={handleAddCategory}
+        onToggleVisibility={toggleCategoryVisibility}
+      />
+
+      <PublicationModal
+        isOpen={publicationModalOpen}
+        onClose={() => setPublicationModalOpen(false)}
+        source={source}
+        exportName={exportName}
+        blogDataPath={BLOG_DATA_PATH}
+        copiedItem={copiedItem}
+        loading={loading}
+        onCopyText={copyText}
+        onDownloadJson={downloadJson}
+        onResetToPublished={() =>
+          void resetToPublished().then(() => toast.success("Cópia local recarregada a partir da versão publicada"))
+        }
+      />
 
       <div className="container-custom py-6">
         <div className="mb-6 rounded-2xl border border-border bg-card p-5">
@@ -462,9 +909,9 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
                 <Plus className="h-4 w-4" />
                 Novo Post
               </button>
-              <button onClick={() => setView("seo-global")} className="flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/80">
-                <BarChart3 className="h-4 w-4" />
-                SEO Global
+              <button onClick={() => setPublicationModalOpen(true)} className="flex items-center gap-1.5 rounded-lg border border-border px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-accent">
+                <BookOpen className="h-4 w-4" />
+                Publicação
               </button>
               <button onClick={() => { downloadJson("blog-posts.json"); toast.success("Arquivo principal pronto para envio ao servidor"); }} className="flex items-center gap-1.5 rounded-lg border border-border px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-accent">
                 <Download className="h-4 w-4" />
@@ -482,93 +929,18 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
           </div>
         </div>
 
-        <div className="mb-6 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-2xl border border-border bg-card p-5">
-            <button
-              type="button"
-              onClick={() => setPublicationGuideOpen((prev) => !prev)}
-              className="mb-1 flex w-full items-center gap-2 text-left"
-            >
-              <HardDriveUpload className="h-5 w-5 text-primary" />
-              <h2 className="flex-1 font-heading text-lg font-bold text-foreground">Publicação Guiada</h2>
-              {publicationGuideOpen ? (
-                <ChevronUp className="h-5 w-5 text-muted-foreground" />
-              ) : (
-                <ChevronDown className="h-5 w-5 text-muted-foreground" />
-              )}
-            </button>
-            {publicationGuideOpen && (
-              <>
-                <div className="grid gap-3 md:grid-cols-2 mt-3">
-                  {[
-                    "1. Edite ou revise os posts na sua cópia local.",
-                    "2. Clique em Exportar Publicação para baixar o arquivo oficial.",
-                    "3. Envie o arquivo para o servidor substituindo o JSON atual.",
-                    "4. Atualize o site ou limpe cache se necessário para ver a nova versão.",
-                  ].map((step) => (
-                    <div key={step} className="rounded-xl bg-muted/60 p-4 text-sm text-foreground">{step}</div>
-                  ))}
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <button onClick={() => void copyText(BLOG_DATA_PATH, "path")} className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent">
-                    {copiedItem === "path" ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                    Copiar Caminho do Servidor
-                  </button>
-                  <button onClick={() => { downloadJson(exportName); toast.success("Backup local exportado com data e hora"); }} className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent">
-                    <Download className="h-4 w-4" />
-                    Exportar Backup com Data
-                  </button>
-                  <button onClick={() => void copyText(exportName, "filename")} className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent">
-                    {copiedItem === "filename" ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                    Copiar Nome do Backup
-                  </button>
-                </div>
-              </>
-            )}
-          </div>
-          <div className="rounded-2xl border border-border bg-card p-5">
-            <button
-              type="button"
-              onClick={() => setPublicationGuideOpen((prev) => !prev)}
-              className="mb-1 flex w-full items-center gap-2 text-left"
-            >
-              <h2 className="flex-1 font-heading text-lg font-bold text-foreground">Resumo do Arquivo</h2>
-              {publicationGuideOpen ? (
-                <ChevronUp className="h-5 w-5 text-muted-foreground" />
-              ) : (
-                <ChevronDown className="h-5 w-5 text-muted-foreground" />
-              )}
-            </button>
-            {publicationGuideOpen && (
-              <div className="mt-3 space-y-3 text-sm">
-                <div className="rounded-xl bg-muted/60 p-4">
-                  <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Arquivo de publicação</div>
-                  <div className="mt-1 font-mono text-foreground">blog-posts.json</div>
-                </div>
-                <div className="rounded-xl bg-muted/60 p-4">
-                  <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Destino no servidor</div>
-                  <div className="mt-1 font-mono text-foreground">{BLOG_DATA_PATH}</div>
-                </div>
-                <div className="rounded-xl bg-muted/60 p-4">
-                  <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Backup sugerido</div>
-                  <div className="mt-1 font-mono break-all text-foreground">{exportName}</div>
-                </div>
-                <div className="rounded-xl bg-muted/60 p-4 text-muted-foreground">
-                  O JSON exportado leva posts e categorias juntos. Publique sempre com o nome fixo <code className="mx-1 rounded bg-background px-1 py-0.5">blog-posts.json</code>.
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-
         <div className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
           {[
-            { label: "Total", value: stats.total, icon: FileText, color: "text-primary" },
-            { label: "Publicados", value: stats.published, icon: CheckCircle, color: "text-brand-green" },
-            { label: "Rascunhos", value: stats.draft, icon: Clock, color: "text-brand-orange" },
-            { label: "Categorias", value: stats.categories, icon: FolderPlus, color: "text-primary" },
+            { label: "Total", value: stats.total, icon: FileText, color: "text-primary", onClick: undefined },
+            { label: "Publicados", value: stats.published, icon: CheckCircle, color: "text-brand-green", onClick: undefined },
+            { label: "Rascunhos", value: stats.draft, icon: Clock, color: "text-brand-orange", onClick: undefined },
+            { label: "Categorias", value: stats.categories, icon: FolderPlus, color: "text-primary", onClick: () => setCategoriesModalOpen(true) },
           ].map((item) => (
-            <div key={item.label} className="flex items-center gap-3 rounded-xl border border-border bg-card p-4">
+            <div
+              key={item.label}
+              onClick={item.onClick}
+              className={`flex items-center gap-3 rounded-xl border border-border bg-card p-4 ${item.onClick ? "cursor-pointer transition-colors hover:bg-accent" : ""}`}
+            >
               <item.icon className={`h-8 w-8 ${item.color}`} />
               <div>
                 <div className="font-heading text-2xl font-black text-foreground">{item.value}</div>
@@ -576,74 +948,6 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mb-6 rounded-2xl border border-border bg-card p-5">
-          <button
-            type="button"
-            onClick={() => setCategoriesOpen((prev) => !prev)}
-            className="flex w-full items-center gap-2 text-left"
-          >
-            <FolderPlus className="h-5 w-5 text-primary" />
-            <h2 className="flex-1 font-heading text-lg font-bold text-foreground">Categorias do Blog</h2>
-            <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">
-              {categories.length}
-            </span>
-            {categoriesOpen ? (
-              <ChevronUp className="h-5 w-5 text-muted-foreground" />
-            ) : (
-              <ChevronDown className="h-5 w-5 text-muted-foreground" />
-            )}
-          </button>
-          {categoriesOpen && (
-            <>
-              <p className="mt-2 text-sm text-muted-foreground">Crie novas categorias aqui. Elas passam a valer no admin, no blog e no JSON exportado.</p>
-              <div className="mt-4 flex w-full flex-col gap-2 sm:flex-row">
-                <input
-                  type="text"
-                  value={newCategoryLabel}
-                  onChange={(e) => setNewCategoryLabel(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      e.preventDefault();
-                      handleAddCategory();
-                    }
-                  }}
-                  placeholder="Ex: Jardinagem, Construção Civil..."
-                  className="flex-1 rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                />
-                <button type="button" onClick={handleAddCategory} className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90">
-                  <FolderPlus className="h-4 w-4" />
-                  Criar Categoria
-                </button>
-              </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {categories.map((category) => (
-                  <div
-                    key={category.id}
-                    className={`flex items-center gap-1.5 rounded-full pl-3 pr-1.5 py-1.5 text-sm font-medium transition-opacity ${
-                      getCategoryTone(category.id, categories)
-                    } ${category.hidden ? "opacity-50" : ""}`}
-                  >
-                    <span>{category.label}</span>
-                    <span className="opacity-60 text-xs">/{category.id}</span>
-                    <button
-                      type="button"
-                      onClick={() => toggleCategoryVisibility(category.id)}
-                      title={category.hidden ? "Categoria oculta — clique para tornar visível" : "Categoria visível — clique para ocultar"}
-                      className="ml-1 rounded-full p-1 transition-colors hover:bg-black/10"
-                    >
-                      {category.hidden ? (
-                        <EyeOff className="h-3.5 w-3.5" />
-                      ) : (
-                        <Eye className="h-3.5 w-3.5" />
-                      )}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
         </div>
 
         <div className="mb-6 flex flex-col gap-3 sm:flex-row">
@@ -771,6 +1075,15 @@ const AdminPage = () => {
   if (!authenticated) {
     return (
       <div className="dark admin-dark flex min-h-screen items-center justify-center bg-background p-4">
+        <Helmet>
+          <title>Admin — Comercial JR</title>
+          <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noodp,noimageindex,noai" />
+          <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
+          <meta name="bingbot" content="noindex,nofollow,noarchive,nosnippet" />
+          <meta name="referrer" content="no-referrer" />
+          <meta name="description" content="" />
+          <link rel="canonical" href="https://comercialjrltda.com.br/" />
+        </Helmet>
         <div className="w-full max-w-sm rounded-xl border border-border bg-card p-8 shadow-lg">
           <div className="mb-6 text-center">
             <span className="rounded bg-primary px-3 py-1.5 font-heading text-lg font-black text-primary-foreground">JR</span>

@@ -41,7 +41,8 @@ const Blog = () => {
       <SEOHead
         title="Blog"
         description="Dicas, tutoriais e informações sobre máquinas, ferramentas e irrigação. Conteúdo técnico e prático para profissionais."
-        canonical="/blog"
+        canonical="/blog/"
+        ogImage="/favicon.webp"
       />
 
       <section className="bg-brand-gradient py-16 text-primary-foreground md:py-24">
@@ -117,6 +118,35 @@ const Blog = () => {
           )}
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Início", item: "https://comercialjrltda.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Blog",   item: "https://comercialjrltda.com.br/blog/" },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://comercialjrltda.com.br/blog/",
+            name: "Blog — Comercial JR",
+            description: "Dicas, tutoriais e informações sobre máquinas, ferramentas e irrigação.",
+            url: "https://comercialjrltda.com.br/blog/",
+            inLanguage: "pt-BR",
+            publisher: { "@id": "https://comercialjrltda.com.br/#organization" },
+          }),
+        }}
+      />
     </Layout>
   );
 };

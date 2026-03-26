@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ShoppingCart, Layers, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import { company } from "@/data/company";
 
 const SOLUCOES = [
@@ -27,7 +28,8 @@ const PocosArtesianosPage = () => (
     <SEOHead
       title="Soluções para Poços Artesianos em Castelo ES | Bombas Submersas — Comercial JR"
       description="Bombas submersas, motores, painéis de controle e acessórios para poços artesianos e semi-artesianos em Castelo ES. Orientação técnica especializada e estoque para pronta entrega no sul do Espírito Santo."
-      canonical="/segmentos/pocos-artesianos"
+      canonical="/segmentos/pocos-artesianos/"
+      ogImage="/favicon.webp"
     />
 
     {/* Hero */}
@@ -133,6 +135,17 @@ const PocosArtesianosPage = () => (
         </div>
       </div>
     </section>
+
+    <SchemaOrg type="breadcrumb" items={[
+      { name: "Início",    url: "/" },
+      { name: "Segmentos", url: "/segmentos/" },
+      { name: "Poços Artesianos", url: "/segmentos/pocos-artesianos/" },
+    ]} />
+    <SchemaOrg type="service"
+      name="Soluções para Poços Artesianos"
+      description="Bombas submersas, motores, painéis de controle e acessórios para poços artesianos em Castelo ES. Orientação técnica especializada."
+      url="/segmentos/pocos-artesianos/"
+    />
   </Layout>
 );
 

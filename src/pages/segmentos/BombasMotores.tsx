@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ShoppingCart, Gauge, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import BlogCard from "@/components/BlogCard";
 import BrandSlider from "@/components/BrandSlider";
 import { useBlogStore } from "@/stores/blogStore";
@@ -48,7 +49,8 @@ const BombasMotoresPage = () => {
       <SEOHead
         title="Bombas e Motores Elétricos em Castelo ES | WEG, Schneider, Lepono — Comercial JR"
         description="Bombas centrífugas, submersas, periféricas e motores elétricos monofásicos e trifásicos em Castelo ES. Marcas WEG, Schneider, Lepono, Anauger e Eletroplas. Atendimento técnico especializado."
-        canonical="/segmentos/bombas-e-motores"
+        canonical="/segmentos/bombas-e-motores/"
+        ogImage="/favicon.webp"
       />
 
       {/* Hero */}
@@ -166,8 +168,14 @@ const BombasMotoresPage = () => {
           </div>
         </section>
       )}
+      <SchemaOrg type="breadcrumb" items={[
+        { name: "Início",    url: "/" },
+        { name: "Segmentos", url: "/segmentos/" },
+        { name: "Bombas e Motores", url: "/segmentos/bombas-e-motores/" },
+      ]} />
+      <SchemaOrg type="service"
+        name="Bombas e Motores Elétricos"
+        description="Bombas centrífugas, periféricas, submersas e motores elétricos WEG, Schneider, Lepono para irrigação e abastecimento em Castelo ES."
+        url="/segmentos/bombas-e-motores/"
+      />
     </Layout>
-  );
-};
-
-export default BombasMotoresPage;

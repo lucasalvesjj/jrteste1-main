@@ -703,12 +703,92 @@ const Index = () => {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Organization",
+            "@type": ["Organization", "LocalBusiness"],
+            "@id": "https://comercialjrltda.com.br/#organization",
             name: company.name,
+            alternateName: company.shortName,
             url: company.siteUrl,
+            logo: {
+              "@type": "ImageObject",
+              url: "https://comercialjrltda.com.br/logo.webp",
+              width: 512,
+              height: 512,
+            },
+            image: "https://comercialjrltda.com.br/og-image.jpg",
             description: company.seo.description,
-            address: { "@type": "PostalAddress", addressLocality: "Castelo", addressRegion: "ES", addressCountry: "BR" },
-            contactPoint: { "@type": "ContactPoint", telephone: company.phone, contactType: "sales" },
+            foundingDate: "1983",
+            slogan: company.slogan,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Av. Nossa Senhora da Penha, 1320",
+              addressLocality: "Castelo",
+              addressRegion: "ES",
+              postalCode: "29360-000",
+              addressCountry: "BR",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: -20.6044,
+              longitude: -41.1939,
+            },
+            telephone: "+552835421332",
+            email: company.email,
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                opens: "07:00",
+                closes: "17:00",
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: "Saturday",
+                opens: "07:00",
+                closes: "11:30",
+              },
+            ],
+            sameAs: [
+              company.social.facebook,
+              company.social.instagram,
+              company.social.youtube,
+              company.social.linkedin,
+              company.social.tiktok,
+            ],
+            hasMap: company.mapsUrl,
+            priceRange: "$$",
+            areaServed: {
+              "@type": "State",
+              name: "Espírito Santo",
+              addressCountry: "BR",
+            },
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+552835421332",
+              contactType: "customer service",
+              availableLanguage: "Portuguese",
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://comercialjrltda.com.br/#website",
+            url: "https://comercialjrltda.com.br/",
+            name: company.name,
+            inLanguage: "pt-BR",
+            publisher: { "@id": "https://comercialjrltda.com.br/#organization" },
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: "https://comercialjrltda.com.br/blog/?q={search_term_string}",
+              },
+              "query-input": "required name=search_term_string",
+            },
           }),
         }}
       />

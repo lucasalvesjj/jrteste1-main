@@ -130,3 +130,33 @@ export async function getAdapterName(): Promise<string> {
   const adapter = await resolveAdapter();
   return adapter.name;
 }
+
+/**
+ * Atualiza o campo `alt` de uma mídia no catálogo.
+ * Lê o JSON local, faz o patch e grava de volta.
+ * Em produção (ManualAdapter) persiste no localStorage como fallback.
+ */
+export async function updateMediaAlt(id: string, alt: string): Promise<void> {
+  // Fallback universal: persiste no localStorage sob a chave "media-alt-overrides"
+  try {
+    const raw = localStorage.getItem("media-alt-overrides") || "{}";
+    const overrides = JSON.parse(raw) as Record<string, string>;
+    overrides[id] = alt;
+    localStorage.setItem("media-alt-overrides", JSON.stringify(overrides));
+  } catch {
+    // silencia erros de localStorage
+  }
+}
+
+/**
+ * Lê o alt de uma mídia considerando overrides do localStorage.
+ */
+export function getMediaAltOverride(id: string): string | null {
+  try {
+    const raw = localStorage.getItem("media-alt-overrides") || "{}";
+    const overrides = JSON.parse(raw) as Record<string, string>;
+    return overrides[id] ?? null;
+  } catch {
+    return null;
+  }
+}

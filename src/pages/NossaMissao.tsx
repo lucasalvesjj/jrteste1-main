@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import { company } from "@/data/company";
 import {
   ChevronLeft,
@@ -285,7 +286,8 @@ const NossaMissao = () => {
       <SEOHead
         title="Missão, Visão e Valores — Comercial JR LTDA em Castelo ES"
         description="Conheça a missão, visão e os 9 valores que guiam a Comercial JR LTDA há mais de 41 anos. Referência em máquinas, ferramentas e irrigação em Castelo e no Espírito Santo."
-        canonical="/nossa-missao"
+        canonical="/nossa-missao/"
+        ogImage="/favicon.webp"
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -381,6 +383,16 @@ const NossaMissao = () => {
           </Link>
         </div>
       </section>
+
+      <SchemaOrg type="breadcrumb" items={[
+        { name: "Início",       url: "/" },
+        { name: "Nossa Missão", url: "/nossa-missao/" },
+      ]} />
+      <SchemaOrg type="webpage"
+        name="Nossa Missão — Comercial JR LTDA"
+        description="Conheça a missão, visão e valores da Comercial JR LTDA, referência em máquinas, ferramentas e irrigação no Espírito Santo."
+        url="/nossa-missao/"
+      />
     </Layout>
   );
 };

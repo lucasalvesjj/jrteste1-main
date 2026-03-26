@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Droplets, Wrench, Zap, Gauge, Package, ShieldCheck, Layers } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import BrandSlider from "@/components/BrandSlider";
 
 const ALL_BRANDS = [
@@ -104,7 +105,8 @@ const Segmentos = () => (
     <SEOHead
       title="Segmentos | Irrigação, Ferramentas, Máquinas e Mais — Comercial JR Castelo ES"
       description="Conheça todos os segmentos da Comercial JR: irrigação agrícola, ferramentas manuais, máquinas elétricas, bombas e motores, locação de equipamentos, assistência STIHL e poços artesianos. 41 anos no sul do ES."
-      canonical="/segmentos"
+      canonical="/segmentos/"
+      ogImage="/favicon.webp"
     />
 
     <section className="bg-brand-gradient py-16 text-primary-foreground md:py-24">
@@ -184,6 +186,16 @@ const Segmentos = () => (
         </div>
       </div>
     </section>
+
+    <SchemaOrg type="breadcrumb" items={[
+      { name: "Início",    url: "/" },
+      { name: "Segmentos", url: "/segmentos/" },
+    ]} />
+    <SchemaOrg type="webpage"
+      name="Segmentos — Comercial JR LTDA"
+      description="Irrigação, ferramentas, máquinas elétricas, bombas e motores, locação, assistência STIHL e poços artesianos em Castelo ES."
+      url="/segmentos/"
+    />
   </Layout>
 );
 
