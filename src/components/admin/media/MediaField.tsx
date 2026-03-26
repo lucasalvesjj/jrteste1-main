@@ -19,14 +19,19 @@ import { useMediaField } from "@/hooks/useMediaField";
 import type { UseMediaFieldOptions } from "@/hooks/useMediaField";
 import MediaFieldUI from "./MediaFieldUI";
 
-interface MediaFieldProps extends UseMediaFieldOptions {
-  /** Label do campo */
+interface MediaFieldProps {
+  value: string | string[];
+  onChange: (url: string | string[]) => void;
+  mode?: "single" | "multiple";
+  sourceType?: "post" | "page" | "standalone";
+  sourceId?: string;
+  title?: string;
+  maxItems?: number;
   label?: string;
-  /** Classe CSS adicional */
   className?: string;
 }
 
 export default function MediaField({ label, className, ...options }: MediaFieldProps) {
-  const field = useMediaField(options);
+  const field = useMediaField(options as any as UseMediaFieldOptions);
   return <MediaFieldUI {...field} label={label} className={className} />;
 }

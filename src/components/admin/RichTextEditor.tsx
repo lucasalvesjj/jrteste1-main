@@ -107,7 +107,7 @@ const DivBlock = Node.create({
         () =>
         ({ commands }) =>
           commands.setNode(this.name),
-    };
+    } as any;
   },
 });
 
@@ -419,7 +419,7 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
         <ToolbarButton active={editor.isActive("paragraph")} onClick={() => editor.chain().focus().setParagraph().run()} title="Parágrafo">
           <Pilcrow className="h-4 w-4" />
         </ToolbarButton>
-        <ToolbarButton active={editor.isActive("divBlock")} onClick={() => editor.chain().focus().setDivBlock().run()} title="DIV">
+        <ToolbarButton active={editor.isActive("divBlock")} onClick={() => (editor.chain().focus() as any).setDivBlock().run()} title="DIV">
           <span className="text-[10px] font-semibold">DIV</span>
         </ToolbarButton>
         <ToolbarButton active={editor.isActive("heading", { level: 1 })} onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} title="Título 1">

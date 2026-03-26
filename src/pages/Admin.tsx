@@ -32,7 +32,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { useBlogStore } from "@/stores/blogStore";
-import type { BlogPost } from "@/data/blogTypes";
+import type { BlogPost, BlogCategory } from "@/data/blogTypes";
 import { BLOG_DATA_PATH, parseBlogImport } from "@/lib/blogContent";
 import { getCategoryLabel, getCategoryTone, getPostCategories } from "@/lib/blogCategories";
 import JRLoader from "@/components/JRLoader";
@@ -113,7 +113,7 @@ const AdminViewFallback = ({ label }: { label: string }) => (
 interface CategoryModalProps {
   isOpen: boolean;
   onClose: () => void;
-  categories: ReturnType<typeof useBlogStore>["categories"] extends infer T ? T : never;
+  categories: BlogCategory[];
   onAdd: (label: string) => void;
   onToggleVisibility: (id: string) => void;
 }
@@ -790,7 +790,6 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
       <Suspense fallback={<AdminViewFallback label="SEO" />}>
         <AdminSeoEditor
           onBack={() => { setView("list"); setCodesFromMenu(false); }}
-          openCodes={codesFromMenu}
         />
       </Suspense>
     );
