@@ -254,7 +254,7 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
         toast.error(msg, { id: toastId });
       }
     },
-    [uploadItem]
+    [uploadItem, isManual]
   );
 
   const editor = useEditor({

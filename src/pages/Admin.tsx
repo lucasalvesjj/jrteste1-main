@@ -29,7 +29,21 @@ import {
   X,
   BookOpen,
   Terminal,
+  Github,
+  Send,
+  KeyRound,
+  ExternalLink,
+  AlertTriangle,
 } from "lucide-react";
+import {
+  loadGitHubConfig,
+  saveGitHubConfig,
+  clearGitHubConfig,
+  publishToGitHub,
+  DEFAULT_FILE_PATH,
+  DEFAULT_BRANCH,
+  type GitHubPublishConfig,
+} from "@/lib/githubPublish";
 import { toast } from "sonner";
 import { useBlogStore } from "@/stores/blogStore";
 import type { BlogPost, BlogCategory } from "@/data/blogTypes";
@@ -476,6 +490,121 @@ function CodesModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
   );
 }
 
+// ── Modal de Publicação no GitHub ─────────────────────────────────────────────
+interface GitHubPublishModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onPublish: (config: GitHubPublishConfig) => Promise<void>;
+  publishing: boolean;
+}
+
+function GitHubPublishModal({ isOpen, onClose, onPublish, publishing }: GitHubPublishModalProps) {
+  const saved = loadGitHubConfig();
+  const [token, setToken] = useState(saved?.token ?? "");
+  const [repo, setRepo] = useState(saved?.repo ?? "lucasalvesjj/comercial-jr-2");
+  const [branch, setBranch] = useState(saved?.branch ?? DEFAULT_BRANCH);
+  const [filePath, setFilePath] = useState(saved?.filePath ?? DEFAULT_FILE_PATH);
+  const [showToken, setShowToken] = useState(false);
+
+  if (!isOpen) return null;
+
+  const handleSubmit = () => {
+    if (!token.trim() || !repo.trim()) return;
+    const config: GitHubPublishConfig = { token: token.trim(), repo: repo.trim(), branch: branch.trim() || DEFAULT_BRANCH, filePath: filePath.trim() || DEFAULT_FILE_PATH };
+    saveGitHubConfig(config);
+    void onPublish(config);
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative flex w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-border px-6 py-4">
+          <div className="flex items-center gap-2">
+            <Github className="h-5 w-5 text-primary" />
+            <h2 className="font-heading text-lg font-bold text-foreground">Publicar no GitHub</h2>
+          </div>
+          <button onClick={onClose} className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* Body */}
+        <div className="overflow-y-auto p-6 space-y-5">
+          <div className="rounded-xl bg-amber-500/10 border border-amber-500/20 p-4 flex gap-3">
+            <AlertTriangle className="h-4 w-4 text-amber-500 mt-0.5 flex-shrink-0" />
+            <p className="text-xs text-amber-600">
+              O token é salvo apenas no <strong>localStorage deste navegador</strong>, nunca enviado a servidores externos. Use um token com escopo <code className="bg-black/10 px-1 rounded">contents:write</code> apenas para este repositório.
+            </p>
+          </div>
+
+          <div>
+            <label className="mb-1.5 block text-xs font-semibold text-foreground">Personal Access Token (PAT)</label>
+            <div className="relative">
+              <KeyRound className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <input
+                type={showToken ? "text" : "password"}
+                value={token}
+                onChange={(e) => setToken(e.target.value)}
+                placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
+                className="w-full rounded-lg border border-input bg-background py-2.5 pl-10 pr-16 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+              <button type="button" onClick={() => setShowToken((v) => !v)} className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground hover:text-foreground">
+                {showToken ? "ocultar" : "mostrar"}
+              </button>
+            </div>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Crie em{" "}
+              <a href="https://github.com/settings/tokens/new?scopes=repo&description=Comercial+JR+Blog+Admin" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-0.5 text-primary underline underline-offset-2">
+                github.com/settings/tokens <ExternalLink className="h-3 w-3" />
+              </a>
+              {" "}com escopo <code className="bg-muted px-1 rounded">repo</code> ou <code className="bg-muted px-1 rounded">contents:write</code>.
+            </p>
+          </div>
+
+          <div>
+            <label className="mb-1.5 block text-xs font-semibold text-foreground">Repositório</label>
+            <input type="text" value={repo} onChange={(e) => setRepo(e.target.value)} placeholder="usuario/nome-do-repo" className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="mb-1.5 block text-xs font-semibold text-foreground">Branch</label>
+              <input type="text" value={branch} onChange={(e) => setBranch(e.target.value)} placeholder="main" className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
+            </div>
+            <div>
+              <label className="mb-1.5 block text-xs font-semibold text-foreground">Caminho do arquivo</label>
+              <input type="text" value={filePath} onChange={(e) => setFilePath(e.target.value)} placeholder="public/data/blog-posts.json" className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
+            </div>
+          </div>
+
+          {saved?.token && (
+            <button type="button" onClick={() => { clearGitHubConfig(); setToken(""); }} className="text-xs text-destructive underline underline-offset-2 hover:opacity-80">
+              Remover token salvo
+            </button>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="flex items-center justify-end gap-2 border-t border-border px-6 py-4">
+          <button onClick={onClose} className="rounded-lg border border-border px-5 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted">
+            Cancelar
+          </button>
+          <button
+            onClick={handleSubmit}
+            disabled={publishing || !token.trim() || !repo.trim()}
+            className="flex items-center gap-2 rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
+          >
+            {publishing ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+            {publishing ? "Publicando..." : "Publicar agora"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
   const {
     categories,
@@ -522,7 +651,29 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
   const [categoriesModalOpen, setCategoriesModalOpen] = useState(false);
   const [codesModalOpen, setCodesModalOpen] = useState(false);
   const [codesFromMenu, setCodesFromMenu] = useState(false);
+  const [githubModalOpen, setGithubModalOpen] = useState(false);
+  const [publishing, setPublishing] = useState(false);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
+
+  const handleGitHubPublish = async (config: GitHubPublishConfig) => {
+    setPublishing(true);
+    try {
+      const jsonContent = JSON.stringify(exportFile(), null, 2);
+      const result = await publishToGitHub(jsonContent, config);
+      if (result.ok) {
+        toast.success("✅ Blog publicado no GitHub com sucesso!", {
+          description: result.commitUrl ? "Clique para ver o commit" : undefined,
+          action: result.commitUrl ? { label: "Ver commit", onClick: () => window.open(result.commitUrl, "_blank") } : undefined,
+          duration: 8000,
+        });
+        setGithubModalOpen(false);
+      } else {
+        toast.error("Falha ao publicar no GitHub", { description: result.error, duration: 8000 });
+      }
+    } finally {
+      setPublishing(false);
+    }
+  };
 
   // Estabiliza o nome do backup para evitar stale closure nos botões de cópia
   const stableExportName = useMemo(() => `blog-posts-backup_${formatExportDate()}.json`, []);
@@ -866,6 +1017,13 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
 
       <CodesModal isOpen={codesModalOpen} onClose={() => setCodesModalOpen(false)} />
 
+      <GitHubPublishModal
+        isOpen={githubModalOpen}
+        onClose={() => setGithubModalOpen(false)}
+        onPublish={handleGitHubPublish}
+        publishing={publishing}
+      />
+
       <CategoryModal
         isOpen={categoriesModalOpen}
         onClose={() => setCategoriesModalOpen(false)}
@@ -915,6 +1073,13 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
               <button onClick={() => { downloadJson("blog-posts.json"); toast.success("Arquivo principal pronto para envio ao servidor"); }} className="flex items-center gap-1.5 rounded-lg border border-border px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-accent">
                 <Download className="h-4 w-4" />
                 Exportar Publicação
+              </button>
+              <button
+                onClick={() => setGithubModalOpen(true)}
+                className="flex items-center gap-1.5 rounded-lg bg-brand-green px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                <Github className="h-4 w-4" />
+                Publicar no GitHub
               </button>
               <button onClick={handleImport} className="flex items-center gap-1.5 rounded-lg border border-border px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-accent">
                 <Upload className="h-4 w-4" />
