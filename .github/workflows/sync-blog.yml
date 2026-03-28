@@ -1,19 +1,14 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# sync-blog.yml
-# Executado no repositório jrteste1-main (repo de trabalho).
-# Sempre que public/data/blog-posts.json for alterado no push para master,
-# este workflow copia o arquivo atualizado para o repo de produção
-# (comercial-jr-2/main), disparando o rebuild automático do Lovable.
+# sync-blog.yml — DESATIVADO neste repositório (jrteste1-main)
+#
+# Este workflow foi movido para comercial-jr-2 e não deve rodar aqui.
+# Manter o arquivo apenas para referência histórica.
 # ─────────────────────────────────────────────────────────────────────────────
 
-name: Sync blog-posts.json para produção
+name: Sync blog-posts.json para produção (DESATIVADO)
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - "public/data/blog-posts.json"
+  workflow_dispatch: # só roda se disparado manualmente — nunca automático
 
 jobs:
   sync:
