@@ -1,16 +1,15 @@
 // ──────────────────────────────────────────────────────────────
 // SupabaseAdapter — Upload real de mídia via Supabase Storage
 // ──────────────────────────────────────────────────────────────
-// Ativado automaticamente quando:
+// Ativado automaticamente quando as env vars estão definidas:
 //   VITE_SUPABASE_URL=https://xxxx.supabase.co
 //   VITE_SUPABASE_ANON_KEY=eyJhbGci...
 //
-// Setup no Supabase (fazer UMA vez):
-//   1. supabase.com → novo projeto
-//   2. Storage → New bucket → nome: "media" → Public: ON
-//   3. Settings → API → copiar URL e anon key
-//   4. Adicionar as env vars no Lovable:
-//      Project Settings → Environment Variables
+// Setup no Supabase (uma vez):
+//   1. supabase.com → New Project
+//   2. Storage → New Bucket → nome: "media" → Public: ON
+//   3. Settings → API → copiar Project URL e anon/public key
+//   4. Lovable → Project Settings → Environment Variables → adicionar as duas vars
 // ──────────────────────────────────────────────────────────────
 
 import type {
@@ -29,7 +28,7 @@ import {
   getMediaFileName,
 } from "@/data/mediaTypes";
 
-// ── Helpers de imagem (reutilizados do manualAdapter) ──────────
+// ── Helpers de processamento de imagem ────────────────────────
 
 async function resizeToWebP(
   bitmap: ImageBitmap,
@@ -51,148 +50,179 @@ async function resizeToWebP(
 }
 
 async function generateBlurPlaceholder(bitmap: ImageBitmap): Promise<string> {
-  const w = 20;
-  const h = Math.round((bitmap.height / bitmap.width) * w);
-  const canvas = new OffscreenCanvas(w, h);
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return "";
-  ctx.drawImage(bitmap, 0, 0, w, h);
-  const blob = await canvas.convertToBlob({ type: "image/webp", quality: 0.3 });
-  const buffer = await blob.arrayBuffer();
-  const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)));
-  return `data:image/webp;base64,${base64}`;
+  try {
+    const w = 20;
+    const h = Math.max(1, Math.round((bitmap.height / bitmap.width) * w));
+    const canvas = new OffscreenCanvas(w, h);
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return "";
+    ctx.drawImage(bitmap, 0, 0, w, h);
+    const blob = await canvas.convertToBlob({ type: "image/webp", quality: 0.3 });
+    const buffer = await blob.arrayBuffer();
+    const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)));
+    return `data:image/webp;base64,${base64}`;
+  } catch {
+    return "";
+  }
 }
 
-// ── Cliente Supabase mínimo (sem SDK extra) ────────────────────
+// ── Cliente Supabase Storage (sem SDK) ────────────────────────
 
-function supabaseHeaders(): Record<string, string> {
+function getEnv() {
+  const url = import.meta.env.VITE_SUPABASE_URL as string;
+  const key = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
+  if (!url || !key) throw new Error("Variáveis Supabase não configuradas");
+  return { url: url.replace(/\/$/, ""), key };
+}
+
+function authHeaders(): Record<string, string> {
+  const { key } = getEnv();
   return {
-    apikey: import.meta.env.VITE_SUPABASE_ANON_KEY,
-    Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+    apikey: key,
+    Authorization: `Bearer ${key}`,
   };
 }
 
-function storageUrl(path: string): string {
-  const base = import.meta.env.VITE_SUPABASE_URL.replace(/\/$/, "");
-  return `${base}/storage/v1/object/media/${path}`;
+/** URL de upload (POST para criar, PUT para sobrescrever) */
+function uploadEndpoint(path: string): string {
+  const { url } = getEnv();
+  return `${url}/storage/v1/object/media/${path}`;
 }
 
+/** URL pública do CDN para servir a imagem */
 function publicUrl(path: string): string {
-  const base = import.meta.env.VITE_SUPABASE_URL.replace(/\/$/, "");
-  return `${base}/storage/v1/object/public/media/${path}`;
+  const { url } = getEnv();
+  return `${url}/storage/v1/object/public/media/${path}`;
 }
 
-/** Faz upload de um Blob para o bucket "media" no Supabase */
+/** Faz upload de um Blob para o bucket "media" */
 async function uploadBlob(path: string, blob: Blob): Promise<void> {
-  const res = await fetch(storageUrl(path), {
+  const res = await fetch(uploadEndpoint(path), {
     method: "POST",
     headers: {
-      ...supabaseHeaders(),
-      "Content-Type": blob.type,
-      "x-upsert": "true",
+      ...authHeaders(),
+      "Content-Type": blob.type || "application/octet-stream",
+      "x-upsert": "true",   // substitui se já existir
+      "cache-control": "3600",
     },
     body: blob,
   });
+
   if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Supabase upload falhou (${res.status}): ${err}`);
+    const body = await res.text().catch(() => res.statusText);
+    throw new Error(`Upload falhou [${res.status}] ${path}: ${body}`);
   }
 }
 
-/** Remove um arquivo do bucket "media" */
-async function deleteBlob(path: string): Promise<void> {
-  const base = import.meta.env.VITE_SUPABASE_URL.replace(/\/$/, "");
-  const url = `${base}/storage/v1/object/media`;
-  const res = await fetch(url, {
+/** Remove arquivos do bucket pelo path relativo (dentro de "media") */
+async function deletePaths(paths: string[]): Promise<void> {
+  if (paths.length === 0) return;
+  const { url } = getEnv();
+  const endpoint = `${url}/storage/v1/object/media`;
+
+  const res = await fetch(endpoint, {
     method: "DELETE",
-    headers: { ...supabaseHeaders(), "Content-Type": "application/json" },
-    body: JSON.stringify({ prefixes: [path] }),
+    headers: {
+      ...authHeaders(),
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ prefixes: paths }),
   });
+
+  // 404 é aceitável (arquivo já deletado)
   if (!res.ok && res.status !== 404) {
-    const err = await res.text();
-    throw new Error(`Supabase delete falhou (${res.status}): ${err}`);
+    const body = await res.text().catch(() => res.statusText);
+    console.warn(`[SupabaseAdapter] Delete parcial [${res.status}]: ${body}`);
   }
 }
 
-// ── Catálogo via GitHub API ────────────────────────────────────
-// O media-library.json é mantido no repositório e lido via fetch.
-// Para atualizar o catálogo em produção, salvamos no localStorage
-// como cache e atualizamos via publicação GitHub (igual ao blog).
+// ── Catálogo de mídia (localStorage + GitHub) ─────────────────
+// O catálogo é lido do /data/media-library.json servido pelo site.
+// Após cada upload/delete, é atualizado no localStorage e publicado
+// no GitHub via API (usando a mesma config do botão "Publicar no GitHub").
 
-const CATALOG_STORAGE_KEY = "comercial-jr-media-catalog";
+const CATALOG_KEY = "comercial-jr-media-catalog";
+const GITHUB_CONFIG_KEY = "comercial-jr-github-publish-config";
 
 function loadLocalCatalog(): MediaCatalog | null {
   try {
-    const raw = localStorage.getItem(CATALOG_STORAGE_KEY);
-    if (!raw) return null;
-    return JSON.parse(raw) as MediaCatalog;
+    const raw = localStorage.getItem(CATALOG_KEY);
+    return raw ? (JSON.parse(raw) as MediaCatalog) : null;
   } catch { return null; }
 }
 
 function saveLocalCatalog(catalog: MediaCatalog): void {
   try {
-    localStorage.setItem(CATALOG_STORAGE_KEY, JSON.stringify(catalog));
-  } catch { /* silencia */ }
-}
-
-async function fetchRemoteCatalog(): Promise<MediaCatalog> {
-  const res = await fetch("/data/media-library.json", { cache: "no-store" });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return (await res.json()) as MediaCatalog;
+    localStorage.setItem(CATALOG_KEY, JSON.stringify(catalog));
+  } catch { /* ignora erros de storage */ }
 }
 
 async function loadCatalog(): Promise<MediaCatalog> {
+  // Tenta buscar do servidor (versão publicada)
   try {
-    return await fetchRemoteCatalog();
-  } catch {
-    return loadLocalCatalog() ?? {
-      version: MEDIA_CATALOG_VERSION,
-      updatedAt: new Date().toISOString(),
-      items: [],
-    };
-  }
-}
+    const res = await fetch("/data/media-library.json", { cache: "no-store" });
+    if (res.ok) {
+      const data = (await res.json()) as MediaCatalog;
+      // Mescla com localStorage para incluir itens ainda não publicados
+      const local = loadLocalCatalog();
+      if (local && local.updatedAt > (data.updatedAt ?? "")) {
+        return local;
+      }
+      return data;
+    }
+  } catch { /* servidor não respondeu */ }
 
-function buildUpdatedCatalog(items: MediaCatalog["items"]): MediaCatalog {
-  return {
+  // Fallback: localStorage
+  return loadLocalCatalog() ?? {
     version: MEDIA_CATALOG_VERSION,
     updatedAt: new Date().toISOString(),
-    items,
+    items: [],
   };
 }
 
-/** Publica o catálogo atualizado via GitHub API (reutiliza config do blog) */
-async function publishCatalogToGitHub(catalog: MediaCatalog): Promise<void> {
-  const raw = localStorage.getItem("comercial-jr-github-publish-config");
-  if (!raw) return; // sem config: salva só localmente
-  const config = JSON.parse(raw) as {
-    token: string; repo: string; branch?: string;
-  };
-
-  const filePath = "public/data/media-library.json";
-  const branch   = config.branch ?? "main";
-  const content  = btoa(unescape(encodeURIComponent(JSON.stringify(catalog, null, 2))));
-  const headers  = {
-    Authorization: `Bearer ${config.token}`,
-    Accept: "application/vnd.github+json",
-    "Content-Type": "application/json",
-    "X-GitHub-Api-Version": "2022-11-28",
-  };
-  const apiUrl = `https://api.github.com/repos/${config.repo}/contents/${filePath}`;
-
-  let sha: string | undefined;
+/** Publica media-library.json no GitHub em background */
+async function publishCatalog(catalog: MediaCatalog): Promise<void> {
   try {
-    const get = await fetch(`${apiUrl}?ref=${branch}`, { headers });
-    if (get.ok) sha = ((await get.json()) as { sha?: string }).sha;
-  } catch { /* arquivo pode não existir */ }
+    const raw = localStorage.getItem(GITHUB_CONFIG_KEY);
+    if (!raw) return; // sem config GitHub configurada, só salva local
 
-  const body: Record<string, unknown> = {
-    message: "media: atualiza catálogo via admin",
-    content, branch,
-  };
-  if (sha) body.sha = sha;
+    const cfg = JSON.parse(raw) as { token: string; repo: string; branch?: string };
+    if (!cfg.token || !cfg.repo) return;
 
-  await fetch(apiUrl, { method: "PUT", headers, body: JSON.stringify(body) });
+    const branch  = cfg.branch ?? "main";
+    const apiPath = "public/data/media-library.json";
+    const apiUrl  = `https://api.github.com/repos/${cfg.repo}/contents/${apiPath}`;
+    const headers = {
+      Authorization: `Bearer ${cfg.token}`,
+      Accept: "application/vnd.github+json",
+      "Content-Type": "application/json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    };
+
+    // Busca SHA atual (necessário para update)
+    let sha: string | undefined;
+    const getRes = await fetch(`${apiUrl}?ref=${branch}`, { headers });
+    if (getRes.ok) {
+      sha = ((await getRes.json()) as { sha?: string }).sha;
+    }
+
+    // Codifica conteúdo em base64 preservando UTF-8
+    const json    = JSON.stringify(catalog, null, 2);
+    const bytes   = new TextEncoder().encode(json);
+    const binary  = Array.from(bytes).map((b) => String.fromCharCode(b)).join("");
+    const content = btoa(binary);
+
+    const body: Record<string, unknown> = {
+      message: "media: atualiza catálogo via admin",
+      content, branch,
+    };
+    if (sha) body.sha = sha;
+
+    await fetch(apiUrl, { method: "PUT", headers, body: JSON.stringify(body) });
+  } catch (err) {
+    // Não bloqueia o upload — falha silenciosa com log
+    console.warn("[SupabaseAdapter] Falha ao publicar catálogo no GitHub:", err);
+  }
 }
 
 // ── Adapter principal ─────────────────────────────────────────
@@ -209,12 +239,8 @@ export const supabaseAdapter: MediaStorageAdapter = {
   },
 
   async upload(file: File, options?: UploadOptions): Promise<MediaItem> {
+    // 1. Processa imagem no browser
     const bitmap = await createImageBitmap(file);
-    const id = generateMediaId();
-    const mediaDir = getMediaDir(id);
-    const ext = file.name.split(".").pop()?.toLowerCase() ?? "jpg";
-
-    // Gerar variantes + blur placeholder em paralelo
     const originalWidth  = bitmap.width;
     const originalHeight = bitmap.height;
 
@@ -226,13 +252,17 @@ export const supabaseAdapter: MediaStorageAdapter = {
     ]);
     bitmap.close();
 
-    // Paths dentro do bucket (sem leading slash)
-    const thumbPath    = `${mediaDir}/${getMediaFileName("thumbnail")}`;
-    const medPath      = `${mediaDir}/${getMediaFileName("medium")}`;
-    const largePath    = `${mediaDir}/${getMediaFileName("large")}`;
-    const origPath     = `${mediaDir}/${getMediaFileName("original", ext)}`;
+    // 2. Gera paths únicos
+    const id       = generateMediaId();
+    const mediaDir = getMediaDir(id);
+    const ext      = file.name.split(".").pop()?.toLowerCase() ?? "jpg";
 
-    // Upload de todas as variantes em paralelo
+    const thumbPath = `${mediaDir}/${getMediaFileName("thumbnail")}`;
+    const medPath   = `${mediaDir}/${getMediaFileName("medium")}`;
+    const largePath = `${mediaDir}/${getMediaFileName("large")}`;
+    const origPath  = `${mediaDir}/${getMediaFileName("original", ext)}`;
+
+    // 3. Faz upload paralelo de todas as variantes
     await Promise.all([
       uploadBlob(thumbPath, thumbnail),
       uploadBlob(medPath,   medium),
@@ -240,7 +270,7 @@ export const supabaseAdapter: MediaStorageAdapter = {
       uploadBlob(origPath,  file),
     ]);
 
-    // URLs públicas do CDN Supabase
+    // 4. Monta MediaItem com URLs públicas
     const paths: MediaPaths = {
       thumbnail: publicUrl(thumbPath),
       medium:    publicUrl(medPath),
@@ -251,25 +281,24 @@ export const supabaseAdapter: MediaStorageAdapter = {
     const item: MediaItem = {
       id,
       name: file.name,
-      alt: options?.alt ?? "",
+      alt:  options?.alt ?? "",
       paths,
-      width: originalWidth,
-      height: originalHeight,
-      size: file.size,
-      mimeType: file.type,
+      width:      originalWidth,
+      height:     originalHeight,
+      size:       file.size,
+      mimeType:   file.type,
       uploadedAt: new Date().toISOString(),
       sourceType: options?.sourceType ?? "standalone",
-      sourceId: options?.sourceId ?? "",
+      sourceId:   options?.sourceId   ?? "",
       blurDataUrl,
     };
 
-    // Atualizar catálogo local + publicar no GitHub
+    // 5. Atualiza catálogo local e publica no GitHub em background
     const catalog = await loadCatalog();
-    catalog.items.unshift(item);
+    catalog.items = [item, ...catalog.items.filter((i) => i.id !== item.id)];
     catalog.updatedAt = new Date().toISOString();
     saveLocalCatalog(catalog);
-    // Publica em background (não bloqueia o retorno)
-    void publishCatalogToGitHub(catalog);
+    void publishCatalog(catalog);
 
     return item;
   },
@@ -279,25 +308,30 @@ export const supabaseAdapter: MediaStorageAdapter = {
     const item = catalog.items.find((i) => i.id === id);
 
     if (item) {
-      // Remove todas as variantes do bucket em paralelo
-      const paths = [
+      // Extrai paths relativos das URLs públicas
+      const marker = "/storage/v1/object/public/media/";
+      const relativePaths = [
         item.paths.thumbnail,
         item.paths.medium,
         item.paths.large,
         item.paths.original,
-      ].map((url) => {
-        // Extrai o path relativo da URL pública
-        const marker = "/object/public/media/";
-        const idx = url.indexOf(marker);
-        return idx !== -1 ? url.slice(idx + marker.length) : "";
-      }).filter(Boolean);
+      ]
+        .map((url) => {
+          const idx = url.indexOf(marker);
+          return idx !== -1 ? url.slice(idx + marker.length) : "";
+        })
+        .filter(Boolean);
 
-      await Promise.allSettled(paths.map(deleteBlob));
+      // Remove do bucket (falhas não bloqueiam remoção do catálogo)
+      await deletePaths(relativePaths).catch((err) =>
+        console.warn("[SupabaseAdapter] Erro ao deletar do bucket:", err)
+      );
 
+      // Atualiza catálogo
       catalog.items = catalog.items.filter((i) => i.id !== id);
       catalog.updatedAt = new Date().toISOString();
       saveLocalCatalog(catalog);
-      void publishCatalogToGitHub(catalog);
+      void publishCatalog(catalog);
     }
   },
 
