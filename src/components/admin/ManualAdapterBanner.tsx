@@ -4,6 +4,7 @@
 
 import { AlertTriangle, X, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from "@/lib/supabaseConfig";
 
 interface ManualAdapterBannerProps {
   context?: "media" | "editor";
@@ -13,10 +14,7 @@ export default function ManualAdapterBanner({ context = "media" }: ManualAdapter
   const [dismissed, setDismissed] = useState(false);
   if (dismissed) return null;
 
-  const supabaseConfigured = !!(
-    import.meta.env.VITE_SUPABASE_URL &&
-    import.meta.env.VITE_SUPABASE_ANON_KEY
-  );
+  const supabaseConfigured = !!(SUPABASE_URL && SUPABASE_ANON_KEY);
 
   return (
     <div className="flex items-start gap-3 rounded-xl border border-brand-orange/40 bg-brand-orange/10 px-4 py-3 text-sm text-foreground">

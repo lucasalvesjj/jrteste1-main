@@ -27,6 +27,7 @@ import {
   getMediaDir,
   getMediaFileName,
 } from "@/data/mediaTypes";
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from "@/lib/supabaseConfig";
 
 // ── Helpers de processamento de imagem ────────────────────────
 
@@ -69,8 +70,8 @@ async function generateBlurPlaceholder(bitmap: ImageBitmap): Promise<string> {
 // ── Cliente Supabase Storage (sem SDK) ────────────────────────
 
 function getEnv() {
-  const url = import.meta.env.VITE_SUPABASE_URL as string;
-  const key = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
+  const url = SUPABASE_URL;
+  const key = SUPABASE_ANON_KEY;
   if (!url || !key) throw new Error("Variáveis Supabase não configuradas");
   return { url: url.replace(/\/$/, ""), key };
 }
@@ -232,10 +233,7 @@ export const supabaseAdapter: MediaStorageAdapter = {
   supportsAutoUpload: true,
 
   isAvailable(): boolean {
-    return !!(
-      import.meta.env.VITE_SUPABASE_URL &&
-      import.meta.env.VITE_SUPABASE_ANON_KEY
-    );
+    return !!(SUPABASE_URL && SUPABASE_ANON_KEY);
   },
 
   async upload(file: File, options?: UploadOptions): Promise<MediaItem> {
