@@ -1,9 +1,14 @@
 @echo off
 cd /d "C:\Users\lucas\Downloads\jr1-main 2203\jrteste1-main"
+
 git checkout master
+
+REM Sincroniza com o remoto antes de qualquer coisa
+git pull origin master --rebase
+
 git add .
 git diff --cached --quiet
-if %errorlevel%==0 (echo Sem mudanças.) else (
+if %errorlevel%==0 (echo Sem mudanças para commitar.) else (
     git commit -m "auto backup %date% %time%"
     git push origin master
 )
@@ -17,6 +22,6 @@ git checkout master
 
 echo.
 echo ════════════════════════════════════════
-echo ✅ BACKUP OK ✓ comercial-jr-2/main ATUALIZADO (43de2da)
+echo ✅ BACKUP OK ✓ comercial-jr-2/main ATUALIZADO
 echo 👉 https://github.com/lucasalvesjj/comercial-jr-2/commits/main
 pause
