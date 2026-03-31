@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(node scripts/import-wordpress-content.mjs --slug=inversor-para-solda --dry-run)",
+      "Bash(node scripts/import-wordpress-content.mjs --slug=como-comecar-plantacao-de-cafe --dry-run)",
+      "Bash(node scripts/import-wordpress-content.mjs --slug=brocas-para-madeiras --dry-run)",
+      "Bash(node -c scripts/import-wordpress-content.mjs)",
+      "Bash(for slug:*)",
+      "Bash(do echo:*)",
+      "Bash(node scripts/import-wordpress-content.mjs --slug=$slug --dry-run)",
+      "Bash(done)",
+      "Bash(node -e \":*)",
+      "Bash(node scripts/import-wordpress-content.mjs --dry-run --delay=1000)",
+      "Bash(node scripts/import-wordpress-content.mjs --dry-run --delay=100)",
+      "Bash(node scripts/import-wordpress-content.mjs --slug=inversor-para-solda)",
+      "Bash(ls -la public/blog/inversor-para-solda*)",
+      "Bash(node -e \"var d=require\\(''./public/data/blog-posts.json''\\); var p=d.posts.find\\(function\\(x\\){return x.slug===''inversor-para-solda''}\\); console.log\\(''title:'', p.title\\); console.log\\(''date:'', p.date\\); console.log\\(''image:'', p.image\\); console.log\\(''categories:'', p.categories\\); console.log\\(''content length:'', p.content.length\\); console.log\\(''content preview:'', p.content.slice\\(0,300\\)\\);\")",
+      "Bash(node scripts/import-wordpress-content.mjs --delay=1000)",
+      "Bash(node scripts/regen-blogposts-ts.mjs)",
+      "Bash(npx tsc:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s http://localhost:5173/blog/inversor-para-solda)",
+      "Bash(curl -s http://localhost:5173/)"
+    ]
+  }
+}
