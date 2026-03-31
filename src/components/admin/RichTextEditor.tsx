@@ -1,7 +1,7 @@
 import { EditorContent, useEditor } from "@tiptap/react";
 import { Node } from "@tiptap/core";
 import Color from "@tiptap/extension-color";
-import ImageExt from "@tiptap/extension-image";
+import ResizableImageExt from "./extensions/ResizableImage";
 import Highlight from "@tiptap/extension-highlight";
 import LinkExt from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
@@ -13,6 +13,7 @@ import Underline from "@tiptap/extension-underline";
 import StarterKit from "@tiptap/starter-kit";
 import {
   AlignCenter,
+  AlignJustify,
   AlignLeft,
   AlignRight,
   Bold,
@@ -268,12 +269,11 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
       Subscript,
       Superscript,
       TextAlign.configure({ types: ["heading", "paragraph"] }),
-      ImageExt.configure({
+      ResizableImageExt.configure({
         inline: false,
         HTMLAttributes: {
           class: "media-content-image",
           loading: "lazy",
-          style: "max-width:100%;height:auto",
         },
       }),
       LinkExt.configure({
@@ -583,6 +583,9 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
         </ToolbarButton>
         <ToolbarButton active={editor.isActive({ textAlign: "right" })} onClick={() => editor.chain().focus().setTextAlign("right").run()} title="Alinhar à direita">
           <AlignRight className="h-4 w-4" />
+        </ToolbarButton>
+        <ToolbarButton active={editor.isActive({ textAlign: "justify" })} onClick={() => editor.chain().focus().setTextAlign("justify").run()} title="Justificar">
+          <AlignJustify className="h-4 w-4" />
         </ToolbarButton>
 
         <Separator />
