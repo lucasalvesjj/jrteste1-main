@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-31T20:16:04.494Z",
+  "updatedAt": "2026-03-31T23:46:16.503Z",
   "items": [
     {
       "id": "0c7ffc35-d869-4855-b24d-282db446b56e",
@@ -3457,78 +3457,6 @@
       "uploadedAt": "2026-03-31T20:11:45.960Z",
       "sourceType": "post",
       "sourceId": "inversor-para-solda"
-    },
-    {
-      "id": "465fa2dc-d655-469f-ad70-84d20aa74eef",
-      "name": "seg-irrigacao.jpg",
-      "alt": "",
-      "paths": {
-        "thumbnail": "/images/seg-irrigacao.jpg",
-        "medium": "/images/seg-irrigacao.jpg",
-        "large": "/images/seg-irrigacao.jpg",
-        "original": "/images/seg-irrigacao.jpg"
-      },
-      "width": 0,
-      "height": 0,
-      "size": 69717,
-      "mimeType": "image/jpeg",
-      "uploadedAt": "2026-03-24T03:58:57.273Z",
-      "sourceType": "legacy",
-      "sourceId": ""
-    },
-    {
-      "id": "3a075e06-8a00-4f33-b1b8-79e86288f4d7",
-      "name": "seg-locacao.jpg",
-      "alt": "",
-      "paths": {
-        "thumbnail": "/images/seg-locacao.jpg",
-        "medium": "/images/seg-locacao.jpg",
-        "large": "/images/seg-locacao.jpg",
-        "original": "/images/seg-locacao.jpg"
-      },
-      "width": 0,
-      "height": 0,
-      "size": 144536,
-      "mimeType": "image/jpeg",
-      "uploadedAt": "2026-03-24T03:41:22.098Z",
-      "sourceType": "legacy",
-      "sourceId": ""
-    },
-    {
-      "id": "19fd5859-0f43-4658-b6cc-947f9db4770e",
-      "name": "seg-pocos.jpg",
-      "alt": "",
-      "paths": {
-        "thumbnail": "/images/seg-pocos.jpg",
-        "medium": "/images/seg-pocos.jpg",
-        "large": "/images/seg-pocos.jpg",
-        "original": "/images/seg-pocos.jpg"
-      },
-      "width": 0,
-      "height": 0,
-      "size": 38540,
-      "mimeType": "image/jpeg",
-      "uploadedAt": "2026-03-24T03:58:57.614Z",
-      "sourceType": "legacy",
-      "sourceId": ""
-    },
-    {
-      "id": "06f2bd30-85dc-4f31-803e-25ecd84be471",
-      "name": "seg-stihl.jpg",
-      "alt": "",
-      "paths": {
-        "thumbnail": "/images/seg-stihl.jpg",
-        "medium": "/images/seg-stihl.jpg",
-        "large": "/images/seg-stihl.jpg",
-        "original": "/images/seg-stihl.jpg"
-      },
-      "width": 0,
-      "height": 0,
-      "size": 35089,
-      "mimeType": "image/jpeg",
-      "uploadedAt": "2026-03-24T03:58:57.502Z",
-      "sourceType": "legacy",
-      "sourceId": ""
     }
   ]
 }
