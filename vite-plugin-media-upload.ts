@@ -259,6 +259,54 @@ export function mediaUploadPlugin(): Plugin {
           return;
         }
 
+        // DELETE
+        if (req.method === "DELETE" && url.startsWith("/api/media/")) {
+          const id = url.slice("/api/media/".length);
+
+          try {
+            const catalogPath = getCatalogPath(root);
+            const catalog = readCatalog(catalogPath);
+            const item = catalog.items.find((i) => i.id === id);
+
+            if (!item) {
+              res.writeHead(404, { "Content-Type": "application/json" });
+              res.end(JSON.stringify({ error: "Not found" }));
+              return;
+            }
+
+            // Remove arquivos físicos
+            for (const p of Object.values(item.paths)) {
+              const abs = path.join(root, "public", p);
+              try {
+                if (fs.existsSync(abs)) fs.unlinkSync(abs);
+              } catch {
+                // ignora erros de arquivo individual
+              }
+            }
+
+            // Remove diretório se vazio
+            try {
+              const dir = path.join(root, "public", path.dirname(Object.values(item.paths)[0]));
+              if (fs.existsSync(dir) && fs.readdirSync(dir).length === 0) {
+                fs.rmdirSync(dir);
+              }
+            } catch {
+              // ignora
+            }
+
+            catalog.items = catalog.items.filter((i) => i.id !== id);
+            writeCatalog(catalogPath, catalog);
+
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ ok: true }));
+          } catch (err: any) {
+            res.writeHead(500, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ error: err.message }));
+          }
+
+          return;
+        }
+
         next();
       });
     },
