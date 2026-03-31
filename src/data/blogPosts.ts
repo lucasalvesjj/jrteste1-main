@@ -26,27 +26,14 @@ export const blogPosts: BlogPost[] = [
     slug: "medidor-de-umidade-al-102-coffee-da-agrologic",
     title: "NOVO MEDIDOR DE UMIDADE AL-102 COFFEE DA AGROLOGIC",
     excerpt: "Conheça o Medidor de Umidade AL-102 Coffee da Agrologic: preciso e específico para o café do Brasil!",
-    image: "/blog/medidor-de-umidade-al-102-coffee-da-agrologic-featured.jpg",
-    content: `<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-1.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-2.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-3.jpg" alt="" loading="lazy" /></figure>
-<h5>O Agrologic Coffee combina a precisão dos equipamentos de bancada com a portabilidade e baterias recarregáveis.​</h5>
+    image: "/media/2026/03/0c7ffc35-d869-4855-b24d-282db446b56e/large.webp",
+    content: `<h5>O Agrologic Coffee combina a precisão dos equipamentos de bancada com a portabilidade e baterias recarregáveis.​</h5>
 <p>Possui balança incorporada no copo de medição para calcular a umidade sem pesar a amostra previamente.</p>
 <h3>Principais Características e Dados Técnicos!</h3>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-4.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-5.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-6.jpg" alt="" loading="lazy" /></figure>
 <h3>Compre o Medidor de Umidade AL-102 Coffee Agora Mesmo!</h3>
 <h3>Adquira o Medidor de Umidade AL-102 Coffee nos melhores marketplaces, e inclusive em nossa loja  on-line! Acesse clicando nos botões abaixo! Ficou alguma dúvida? Clique no ícone do WhatsApp para falar com a nossa equipe!</h3>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-7.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-8.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-9.jpg" alt="" loading="lazy" /></figure>
 <h2>REALIZE SUAS COMPRAS COM SEGURANÇA E ENTREGA GARANTIDA!​</h2>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-10.jpg" alt="" loading="lazy" /></figure>
 <h3>Veja também outros modelos!</h3>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-11.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-12.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/medidor-de-umidade-al-102-coffee-da-agrologic-13.jpg" alt="" loading="lazy" /></figure>
 <h3>CNPJ: 28.532.489/0001-61</h3>`,
     category: "irrigacao",
     tags: ["medidor de umidade","café","agrologic"],
@@ -62,17 +49,17 @@ export const blogPosts: BlogPost[] = [
     title: "Tipos de Alicates - Qual é o melhor?",
     excerpt: "Guia completo sobre tipos de alicates: qual é o melhor?. Dicas práticas e informações técnicas.",
     image: "",
-    content: `<figure><img src="/blog/tipos-de-alicates-qual-e-o-melhor-1.jpg" alt="Tipos de alicates" loading="lazy" /></figure>
+    content: `<figure><img src="/media/2026/03/c73a71f6-e609-406a-a014-f427b6f78240/large.webp" alt="Tipos de alicates" loading="lazy" /></figure>
 <p>Como já falamos anteriormente em outros artigos, os alicates são uma ferramenta de grande importância, e sua presença é essencial para o desempenho de diversas atividades.<br>Vocês sabiam que existem diversos tipos de alicates? Eles podem se diferenciar quanto a sua finalidade, sendo indicados para materiais e ações específicas.<br>Hoje em especial, iremos lhe apresentar 7 tipos de alicates diferentes! Confira!</p>
 <h2>Alicate Universal</h2>
 <p>São de uso geral, sendo o mais comum dentre todos os modelos e destinado tanto a profissionais, quanto para uso doméstico.<br>É utilizado para desempenhar diversas atividades, como: cortar, apertar objetos, dobrar fios, dentre outras funções. Praticamente une as funções dos alicates de pressão e de bico.</p>
-<figure><img src="/blog/tipos-de-alicates-qual-e-o-melhor-2.jpg" alt="alicate_universal - Tipos de alicates" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/5166b958-8df0-43a6-aa9f-fc02c0625bf8/large.webp" alt="alicate_universal - Tipos de alicates" loading="lazy" /></figure>
 <h3>Alicate Eletricista</h3>
 <p>Esta, com certeza é uma das <a href="/ferramentas-manuais-para-marcenaria/">ferramentas</a> que são essenciais para qualquer profissional que trabalhe na área elétrica. Possui em sua dimensão aberturas que possibilitam o encaixe dos fios, permitindo também descasca-los em diferentes dimensões. Talvez você já tenha feito uso de outros alicates para cortar fios, porém, por meio deste, é possível agarrar melhor o fio, e inclusive realizar cortes mais longos, sem deixar aquelas rebarbas indesejadas, tornando muito melhor o acabamento.</p>
-<figure><img src="/blog/tipos-de-alicates-qual-e-o-melhor-3.jpg" alt="alicate_eletricista - Tipos de alicates" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/e42ca361-8e25-48e9-a58f-0a9945df455a/large.webp" alt="alicate_eletricista - Tipos de alicates" loading="lazy" /></figure>
 <h4>Alicate para Anéis</h4>
 <p>Possui duas pontas bem finas que possibilitam o encaixe em anéis de retenção. O modelo do bico pode variar, sendo reto ou curvo para que seja possível acessar os anéis. Pode ser utilizado tanto para retirar, quanto para colocar anéis que se encontram externamente em <a href="/maquinas-eletricas/">máquinas</a> e equipamentos.</p>
-<figure><img src="/blog/tipos-de-alicates-qual-e-o-melhor-4.jpg" alt="alicate_para_aneis - Tipos de alicates" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/85282243-05d6-4297-9d0a-77b1744b50e4/large.webp" alt="alicate_para_aneis - Tipos de alicates" loading="lazy" /></figure>
 <h5>Alicate Tesoura</h5>
 <p>Possui também a função de corte, e por este motivo é chamado de alicate tesoura. Permite a realização de cortes rentes em cabos, como por exemplo os cabos flexíveis de cobre. Com ele também é possível cortar bitolas maiores, sem necessariamente aplicar muita força. É também utilizado para prender materiais que possuem espessuras mais finas devido ao seu bico fechado e ranhuras cruzadas que se prendem bem as chapas, fios e vedações independentemente da posição.</p>
 <h6>Alicate de Pressão</h6>
@@ -81,7 +68,7 @@ export const blogPosts: BlogPost[] = [
 <p>Também chamado de alicate bico de papagaio. Sua utilização se dá na manutenção de equipamentos, na execução de concertos, reparos, dentre outros. Este modelo é o mais utilizado em atividades da área hidráulica, em situações como: apertar e concertar canos e torneiras, torcer porcas, dentre outros.</p>
 <h6>Alicate de Bico</h6>
 <p>É utilizado para a torção de fios, arames e cabos. Está entre as ferramentas mais utilizadas em serviços mecânicos e de eletricidade. Para proporcionar melhor encaixe de porcas, canos, dentre outros, este tipo de alicate pode ser regulado. É voltado para o desempenho de trabalhos em locais mais delicados, e de difícil acesso. <br>Existem muitos outros modelos de alicates no mercado, e conhecê-los pode facilitar, e muito as nossas atividades, pois nos possibilita escolher o modelo que melhor adequa na nossas <a href="https://www.instagram.com/comercialjrltda/">necessidades</a>!</p>
-<figure><img src="/blog/tipos-de-alicates-qual-e-o-melhor-5.jpg" alt="alicate_de_bico - Tipos de alicates" loading="lazy" /></figure>`,
+<figure><img src="/media/2026/03/b80f008c-d20a-4594-be55-97915c7d9615/large.webp" alt="alicate_de_bico - Tipos de alicates" loading="lazy" /></figure>`,
     category: "ferramentas",
     tags: ["alicates","ferramentas manuais"],
     date: "2020-07-06",
@@ -95,31 +82,18 @@ export const blogPosts: BlogPost[] = [
     slug: "parafusadeira-para-marcenaria",
     title: "Parafusadeira para Marcenaria: Veja o Modelo Ideal!",
     excerpt: "Os modelos ideais de Parafusadeira para Marcenaria são os Profissionais ou até mesmo Industriais!",
-    image: "/blog/parafusadeira-para-marcenaria-featured.jpg",
-    content: `<figure><img src="/blog/parafusadeira-para-marcenaria-1.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/parafusadeira-para-marcenaria-2.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/parafusadeira-para-marcenaria-3.jpg" alt="" loading="lazy" /></figure>
-<h5>As parafusadeiras a bateria proporcionam maior mobilidade, dispensam o uso de extensões e cabos.
+    image: "/media/2026/03/8050f987-b0a7-4007-a0ad-627cd105e1da/large.webp",
+    content: `<h5>As parafusadeiras a bateria proporcionam maior mobilidade, dispensam o uso de extensões e cabos.
 Modelos a bateria de Íon-lítio (Li-íon) são mais leves, oferecem maior duração de carga, e são livres de efeito memória.
 Para montar móveis em especial, é importante que o modelo escolhido possua controle de torque e velocidade. Isso proporcionará maior precisão e não danificará as peças durante a montagem.</h5>
 <p>Para aqueles que são montadores ou pretendem trabalhar como um, e precisam de uma ferramenta que atenda a sua demanda e garanta a qualidade do trabalho, a Parafusadeira e Furadeira à bateria 20V DCD7781 da Dewalt é uma ótima opção!</p>
 <h3>Principais Características Dados Técnicos 
 Itens Inclusos!</h3>
 <p>A Parafusadeira DCD7781D2 da Dewalt foi projetada para te oferecer os melhores resultados, garantindo qualidade, precisão e durabilidade!</p>
-<figure><img src="/blog/parafusadeira-para-marcenaria-4.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/parafusadeira-para-marcenaria-5.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/parafusadeira-para-marcenaria-6.jpg" alt="" loading="lazy" /></figure>
 <h3>Compre a Parafusadeira DCD7781 da Dewalt Agora Mesmo!</h3>
 <h3>Adquira a Parafusadeira DCD7781 da Dewalt nos melhores marketplaces, e inclusive em nossa loja  on-line! Acesse clicando nos botões abaixo! Ficou alguma dúvida? Clique no ícone do WhatsApp para falar com a nossa equipe!</h3>
-<figure><img src="/blog/parafusadeira-para-marcenaria-7.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/parafusadeira-para-marcenaria-8.jpg" alt="" loading="lazy" /></figure>
 <h2>REALIZE SUAS COMPRAS COM SEGURANÇA E ENTREGA GARANTIDA!​</h2>
-<figure><img src="/blog/parafusadeira-para-marcenaria-9.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/parafusadeira-para-marcenaria-10.jpg" alt="" loading="lazy" /></figure>
 <h3>Veja também outros modelos!</h3>
-<figure><img src="/blog/parafusadeira-para-marcenaria-11.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/parafusadeira-para-marcenaria-12.jpg" alt="" loading="lazy" /></figure>
-<figure><img src="/blog/parafusadeira-para-marcenaria-13.jpg" alt="" loading="lazy" /></figure>
 <h3>CNPJ: 28.532.489/0001-61</h3>`,
     category: "maquinas",
     tags: ["parafusadeira","marcenaria"],
@@ -134,12 +108,12 @@ Itens Inclusos!</h3>
     slug: "pistolas-de-pintura",
     title: "Pistolas de Pintura: Conheça um pouco mais!",
     excerpt: "Guia completo sobre pistolas de pintura: tipos e aplicações. Dicas práticas e informações técnicas.",
-    image: "/blog/pistolas-de-pintura-featured.jpg",
-    content: `<figure><img src="/blog/pistolas-de-pintura-1.jpg" alt="Pistolas de Pintura: Conheça um pouco mais!" loading="lazy" /></figure>
+    image: "/media/2026/03/b1a69339-a812-4671-b642-84b7ada3da28/large.webp",
+    content: `<figure><img src="/media/2026/03/05995d9a-5bce-4989-bfd1-ea237f6c4bc4/large.webp" alt="Pistolas de Pintura: Conheça um pouco mais!" loading="lazy" /></figure>
 <p>Devido a sua ação pulverizadora, as pistolas de pintura são utilizadas para a realização de serviços em muitas superfícies. Muito também se deve ao fato de esta ferramenta oferecer praticidade e rapidez, e sem que o usuário tenha que usar de muita força. Com isso, consegue-se cobrir maiores áreas com tinta, em menor espaço de tempo.</p>
 <h2>Vantagens de se Utilizar uma Pistola se Pintura</h2>
 <p>– Pintura Homogênea: possibilita a aplicação de camadas de tinta de maneira mais uniforme;<br>– Acabamentos Perfeitos: permite melhor aplicação de tinta em cantos de difícil acesso;<br>– Otimização de Tempo: oferece melhores resultados em menor tempo se comparada ao método de pintura convencional;<br>– Excelente Custo/Benefício: para realizar pinturas com pistolas você precisará também de um compressor de ar, porém você economizará muito em gastos com tintas na realização dos seus trabalhos.<br>Dentre os tipos de pistolas de pintura mais utilizados nos mercado, temos as convencionais, a LVLP e a HVLP. Elas também podem ser por sucção ou por gravidade. Vamos conhecê-las um pouco melhor?</p>
-<figure><img src="/blog/pistolas-de-pintura-2.jpg" alt="Qual a melhor pistola de pintura Hvlp ou LVLP? Qual o melhor tipo de pistola de pintura? Qual a melhor pistola de pintura de parede? Qual é o melhor pulverizador para pintura? Qual o melhor tipo de pistola para pintura automotiva? Qual a melhor pistola de pintura para compressor de ar direto?" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/f540f558-564c-4488-912f-30b3666813dd/large.webp" alt="Qual a melhor pistola de pintura Hvlp ou LVLP? Qual o melhor tipo de pistola de pintura? Qual a melhor pistola de pintura de parede? Qual é o melhor pulverizador para pintura? Qual o melhor tipo de pistola para pintura automotiva? Qual a melhor pistola de pintura para compressor de ar direto?" loading="lazy" /></figure>
 <h3>Pistola por Sucção</h3>
 <p>Possui um reservatório, que fica localizado na parte inferior. Por meio da pressão de ar, a tinta que neste é colocada é puxada, e desta forma é feita a pulverização. Uma questão que deve que considerada, e que por sinal é muito interessante, é que este tipo de pistola oferece a possibilidade de adaptação de outros bicos, o que representa maior versatilidade para o usuário. <br>Dentre os bicos mais utilizados no mercado, podemos citar:<br>– Cone Completo: para o preenchimento de áreas com formato circular;<br>– Cone Oco: também pode ser utilizado para preenchimento de superfícies circulares, porém mantém o centro livre, ou seja, não o preenche;<br>– Fluxo Plano: Para preenchimento mais fino, e com maior precisão. A pulverização acontece em linhas, ao invés de em círculos.</p>
 <h4>Pistolas por Gravidade</h4>
@@ -162,8 +136,8 @@ Itens Inclusos!</h3>
     slug: "manutencao-de-maquinas-e-equipamentos",
     title: "Manutenção de Máquinas e Equipamentos - Entenda aqui!",
     excerpt: "Entenda a importância da manutenção preventiva e corretiva.",
-    image: "/blog/manutencao-de-maquinas-e-equipamentos-featured.jpg",
-    content: `<figure><img src="/blog/manutencao-de-maquinas-e-equipamentos-1.jpg" alt="manutencao de maquinas e equipamentos" loading="lazy" /></figure>
+    image: "/media/2026/03/87461ef6-604b-41bd-b041-77d0bb0fbadc/large.webp",
+    content: `<figure><img src="/media/2026/03/171dfd48-197d-4289-91cf-71aeeed8a374/large.webp" alt="manutencao de maquinas e equipamentos" loading="lazy" /></figure>
 <p>&nbsp;</p><p>A Manutenção de <a href="/maquinas-eletricas/">máquinas</a> e equipamentos contribui para a execução do trabalho com maior segurança, qualidade, produtividade, e inclusive para reduzir os custos de produção, evitando desperdícios.</p><h2>Tipos de Manutenção</h2><p>A manutenção pode se dar de 4 maneiras diferentes, sendo elas: Corretiva, Preventiva, Preditiva e Produtiva Total.</p><h3>Manutenção Corretiva</h3><p>A Manutenção Corretiva, é aquela realizada após a quebra ou apresentação de falha na máquina. Ela pode se dar de maneira planejada (quando percebe-se que há algo de errado com o desempenho da máquina), ou não planejada (quando ocorre a quebra do equipamento. Neste caso, ocorre o interrompimento do processo produtivo, podendo comprometer a qualidade do produto/serviço, e a segurança do colaborador).</p><h4>Manutenção Preventiva</h4><p>Então, a Manutenção Preventiva por sua vez, é aquela realizada com o objetivo de reduzir ou evitar possíveis falhas ou quebras no equipamento. Com isso pode-se evitar desperdícios, riscos de acidentes de trabalho, quebra do ritmo de trabalho, e até mesmo a perda da máquina, dependendo do problema apresentando. Vale lembrar também que, esta medida contribui para evitar o envelhecimento, e degeneração das máquinas.</p><h5>Manutenção Preditiva</h5><p>A Manutenção Preditiva, consiste em analisar quais as reais condições de funcionamento da máquina por meio de dados, que informem o seu desgaste ou processo de degradação nas condições em que a mesma se encontra. Sendo assim, ela visa a execução de ajustes nas máquinas/equipamentos somente quando necessário, de acordo com o informado pelo fabricante. Um acompanhamento realizado de maneira direta e constante, possibilita até mesmo a prevenção de falhas, mas é necessário um monitoramento correto do equipamento para que não haja equívocos.</p><p>Como resultado desse monitoramento, observa-se um maior intervalo de tempo entre os reparos por quebras ou falhas, um aumento de rendimento no processo produtivo.</p><p>A Manutenção Produtiva Total, consiste na preservação dos equipamentos e dos processos em condições ideais de uso durante toda a vida útil das máquina, e com isso elevar ao máximo a sua produtividade e eficiência nos trabalhos desenvolvidos.</p><h6>Este método, visa:</h6><p>– Melhor eficácia dos equipamentos;<br>– Promover a manutenção autônoma, onde não somente os técnicos conseguem fazer a manutenção das máquinas, mas também os colaboradores da empresa;<br>– Planejar a manutenção, para que esta seja constante, e aconteça em épocas em que a parada dos equipamentos não prejudiquem o andamento da produção;<br>– Manter os funcionários treinados para a realização da manutenção;<br>– Melhor gerenciamento das máquinas e equipamentos para conhecer a sua produtividade, e os seu custos para operar.</p><h6>&nbsp;</h6><h6>Conclusão</h6><p>Afinal, o tipo de manutenção que será utilizada caberá a cada empresa definir. Baseando-se nas suas necessidades produtivas e principalmente no funcionamento geral de suas máquinas e equipamentos.<br>Acima de tudo, um programa de manutenção realizado da maneira correta pode trazer uma série de benefícios. Eles vêm deste a economia de custos operacionais, até o aumento da segurança dos funcionários, e da empresa em geral, satisfação dos clientes, aumento da vida útil da máquina ou equipamentos, dentre outros.</p><p>Siga nosso Instagram: <a href="https://www.instagram.com/comercialjrltda/">@comercialjrltda.</a></p>`,
     category: "maquinas",
     tags: ["manutenção","máquinas","equipamentos"],
@@ -178,8 +152,8 @@ Itens Inclusos!</h3>
     slug: "chaves-conheca-os-modelos-e-finalidades",
     title: "Tipos de chaves: Conheça os Modelos mais Utilizados e suas Finalidades",
     excerpt: "Existe uma grande variedade de tipos e modelos de chaves no mercado, e suas aplicações são as mais diversas.",
-    image: "/blog/chaves-conheca-os-modelos-e-finalidades-featured.jpg",
-    content: `<figure><img src="/blog/chaves-conheca-os-modelos-e-finalidades-1.jpg" alt="Tipos de chaves Conheça os Modelos mais Utilizados e suas Finalidades" loading="lazy" /></figure>
+    image: "/media/2026/03/ba55d26f-535a-4a19-8711-02a0bb8c3ad7/large.webp",
+    content: `<figure><img src="/media/2026/03/dd247d81-1492-4125-9d08-5ec54cd8e141/large.webp" alt="Tipos de chaves Conheça os Modelos mais Utilizados e suas Finalidades" loading="lazy" /></figure>
 <p>Existe uma grande variedade de tipos e modelos de <a href="/chave-de-boca/">chaves</a> no mercado, e suas aplicações são as mais diversas, seja para <a href="/martelete-shr263k-potencia-e-durabilidade/">trabalhos</a> profissionais ou para simples trabalhos do cotidianos. Elas são grandes aliadas dos mais diferentes tipos de profissionais: marceneiros, carpinteiros, mecânicos, eletricistas, e muitos outros. Também são utilizadas em casa para pequenas <a href="/como-fazer-a-manutencao-de-compressores-de-ar-comprimido/">manutenções</a>, montagens e reparos.</p>
 <h2>Qual devo escolher?</h2>
 <p>Devido à grande variedade de chaves existentes, podemos ficar em dúvida sobre qual utilizar em cada situação específica. Por isso é muito importante saber qual a real função da ferramenta, para que esta possa te proporcionar um melhor desempenho, e maior durabilidade! No post de hoje, você entenderá qual a finalidade dos principais modelos de chaves existentes no mercado, e como elas devem ser utilizadas!<br>
@@ -212,9 +186,8 @@ Se você gostou do artigo de hoje, compartilhe conosco a sua opinião! Até mais
     slug: "soprador-termico-conheca-melhor-esta-ferramenta",
     title: "Soprador Térmico: Conheça Melhor Esta Ferramenta",
     excerpt: "Guia completo sobre soprador térmico: conheça melhor esta ferramenta. Dicas práticas e informações técnicas.",
-    image: "/blog/soprador-termico-conheca-melhor-esta-ferramenta-featured.jpg",
-    content: `<figure><img src="/blog/soprador-termico-conheca-melhor-esta-ferramenta-1.jpg" alt="soprador térmico dewalt" loading="lazy" /></figure>
-<p>Os sopradores térmicos, assim como algumas <a href="/ferramentas-manuais-para-marcenaria/">ferramentas</a> apresentadas em artigos anteriores, trata-se de uma ferramenta <a href="/maquinas-eletricas/">elétrica</a>, e que tem como objetivo a geração de calor, que capaz de derreter uma determinada superfície. Descrevendo o seu funcionamento de forma básica, temos que: sua resistência interna leva ao aquecimento, liberando desta forma o ar quente, e este é ejetado pelo bocal presente na parte frontal do soprador. Também é conhecido popularmente como soprador de ar quente, ou <a href="/pistolas-de-pintura/">pistola</a> de ar quente.<br>Os sopradores oferecem diferentes bocais, e que podem ser utilizados de acordo com a necessidade do usuário, conforme apresenteremos abaixo.</p>
+    image: "/media/2026/03/c2cdb4c1-355f-4cf1-b250-94b4908d7c5f/large.webp",
+    content: `<p>Os sopradores térmicos, assim como algumas <a href="/ferramentas-manuais-para-marcenaria/">ferramentas</a> apresentadas em artigos anteriores, trata-se de uma ferramenta <a href="/maquinas-eletricas/">elétrica</a>, e que tem como objetivo a geração de calor, que capaz de derreter uma determinada superfície. Descrevendo o seu funcionamento de forma básica, temos que: sua resistência interna leva ao aquecimento, liberando desta forma o ar quente, e este é ejetado pelo bocal presente na parte frontal do soprador. Também é conhecido popularmente como soprador de ar quente, ou <a href="/pistolas-de-pintura/">pistola</a> de ar quente.<br>Os sopradores oferecem diferentes bocais, e que podem ser utilizados de acordo com a necessidade do usuário, conforme apresenteremos abaixo.</p>
 <h2>Funções</h2>
 <p>Os sopradores térmicos são utilizados nos mais diversos setores, e sua aplicação se dá:<br>– Na fixação de películas em vidros;<br>– Para encolher tanto peças de pvc, quanto tubos;<br>– Na remoção de tintas, vernizes, ceras, resinas e etiquetas;<br>– No aquecimento de porcas e parafusos para facilitar a sua remoção;<br>– Na secagem de madeiras, tintas, vernizes, ceras e resinas;<br>– Na execução de dobras e soldagens em plásticos, e tubulações.<br>Aos sopradores térmicos podem ser adaptados diferentes bicos, e desta maneira tem-se diversas possibilidades de utilização.</p><p>Confira abaixo:</p>
 <h3>Bocais Redondos</h3>
@@ -241,17 +214,17 @@ Se você gostou do artigo de hoje, compartilhe conosco a sua opinião! Até mais
     slug: "as-7-ferramentas-ideais-para-seu-jardim",
     title: "As 7 Ferramentas para seu Jardim!",
     excerpt: "Descubra quais ferramentas não podem faltar no cuidado do seu jardim.",
-    image: "/blog/as-7-ferramentas-ideais-para-seu-jardim-featured.jpg",
-    content: `<figure><img src="/blog/as-7-ferramentas-ideais-para-seu-jardim-1.jpg" alt="As 7 ferramentas ideais para jardinagem" loading="lazy" /></figure>
+    image: "/media/2026/03/877e5c54-d3d8-4a8c-b250-679c987e9c21/large.webp",
+    content: `<figure><img src="/media/2026/03/fa5bd752-909a-42cc-9392-348a1aca19b1/large.webp" alt="As 7 ferramentas ideais para jardinagem" loading="lazy" /></figure>
 <p>As ferramentas ideais para seu jardim. Hoje, vamos te mostrar algumas ferramentas que são essenciais para facilitar a execução das tarefas voltadas para a jardinagem.<br>As atividades de jardinagem são de grande importância, e estão presentes na manutenção e embelezamento de vasos, canteiros, jardins, parques e praças.<br>Quando falamos de <a href="/manutencao-de-maquinas-e-equipamentos/">equipamentos</a> de jardinagem, existem alguns acessórios que são essenciais para tal, como: pás, regadores e mangueiras, ancinhos ou rastelos, carrinho de mão, borrifadores e aparadores de grama. Vamos conhecê-los um pouco melhor!</p>
-<figure><img src="/blog/as-7-ferramentas-ideais-para-seu-jardim-2.jpg" alt="As 7 ferramentas ideais para jardinagem" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/b7a88380-4ad4-41c4-9dda-4a13016dc7a6/large.webp" alt="As 7 ferramentas ideais para jardinagem" loading="lazy" /></figure>
 <h2>Pás</h2>
 <p>As pás são de grande importância para contribuir na distribuição da terra, nivelamento, misturar adubos no solo, transportar terra de um local para outro. Elas podem ser encontradas de diversos tamanhos, sendo as menores ideais para fazer covas em vasos pequenos, e em jardineiras. As de tamanho maior por sua vez, certamente são voltadas para a execução de covas grandes para plantas de maior porte.</p>
 <h3>Regadores</h3>
 <p>Os regadores e mangueiras, apesar de apresentarem a mesma função, o primeiro é voltados para espaços menores, podendo também verter líquidos suavemente com a simples troca do bico. O segundo é voltado para espaços maiores, possibilitando melhor e maior alcance de todas as plantas. É importante definir horários certo para que a planta se desenvolva de forma mais saudável. Devemos frisar também que a utilização de mangueiras em vasos menores, deve ter seu jato controlado, pois pode causar a remoção da terra e danos a planta.</p>
 <h4>Ancinho ou Rastelo</h4>
 <p>Os ancinhos ou rastelos contribuem para a manutenção do jardim em atividades de limpeza e nivelamento do solo. Também são úteis no recolhimento de folhas secas.</p>
-<figure><img src="/blog/as-7-ferramentas-ideais-para-seu-jardim-3.jpg" alt="As 7 ferramentas ideais para jardinagem" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/d83bb1f1-e270-45a4-8d07-f74de076214a/large.webp" alt="As 7 ferramentas ideais para jardinagem" loading="lazy" /></figure>
 <h5>Carrinho de Mão</h5>
 <p>Salvo dentro das <a href="/ferramentas-manuais-para-marcenaria/">ferramentas</a> para seu jardim também temos os carrinho de mão. Muitas vezes as atividades de jardinagem exigem esforços maiores no transporte de pedras, terra, plantas, adubos, e para isso a presença do carrinho de mão é de grande importância. Por meio dele pode-se transportar estes itens de forma muito mais fácil e eficiente.</p>
 <h6>Borrifadores</h6>
@@ -270,8 +243,8 @@ Se você gostou do artigo de hoje, compartilhe conosco a sua opinião! Até mais
     slug: "furar-azulejo-ceramica-e-porcelanato",
     title: "Como Furar Azulejo, Cerâmica e Porcelanato em 3 Passos!",
     excerpt: "Dicas de como fazer perfurações em azulejos, cerâmicas e porcelanato sem danificá-los.",
-    image: "/blog/furar-azulejo-ceramica-e-porcelanato-featured.jpg",
-    content: `<figure><img src="/blog/furar-azulejo-ceramica-e-porcelanato-1.jpg" alt="Como Furar Azulejo, Cerâmica e Porcelanato em 3 Passos!" loading="lazy" /></figure>
+    image: "/media/2026/03/863a2445-abfb-488a-8705-4776a97f1428/large.webp",
+    content: `<figure><img src="/media/2026/03/39be0ae1-b9a1-42b8-978e-21753330a725/large.webp" alt="Como Furar Azulejo, Cerâmica e Porcelanato em 3 Passos!" loading="lazy" /></figure>
 <p>Algumas superfícies são mais duras, de pouca aderência, e oferecem certa dificuldade para serem perfuradas. Quando falamos de azulejos, cerâmicas e porcelanato, o contexto é exatamente este, e em muitos casos o usuário acaba por ter que lidar com pisos trincados, ou até mesmo quebrados. Diante disso, no post de hoje daremos algumas dicas de como fazer perfurações nestes materiais, e que irão te ajudar a evitar possíveis danos nos mesmos! Confira abaixo!</p>
 <h2>1) Demarcar Corretamente a Região</h2>
 <p>Inicialmente, deve-se marcar a área que será perfurada, o que poderá ser feito com o auxílio de um pedaço de fita, ou por meio de uma caneta. Posteriormente, você deverá fazer uma pequena perfuração no local marcado, utilizando um prego, ou até mesmo com uma broca de ponta fina. Esses dois primeiros passos são muito importantes. Se você perfurar diretamente, sem antes fazer o pequeno furo na superfície, devido à pouca aderência a broca poderá deslizar e danificar o material, provocando quebras e rachaduras. A utilização da fita crepe também é muito interessante, pois ajudará a evitar escorregamentos durante a perfuração.</p>
@@ -294,30 +267,30 @@ Se você gostou do artigo de hoje, compartilhe conosco a sua opinião! Até mais
     slug: "as-principais-doencas-encontradas-no-solo-confira",
     title: "As Principais Doenças Encontradas no Solo - Confira!",
     excerpt: "Guia completo sobre as principais doenças encontradas no solo. Dicas práticas e informações técnicas.",
-    image: "/blog/as-principais-doencas-encontradas-no-solo-confira-featured.jpg",
-    content: `<figure><img src="/blog/as-principais-doencas-encontradas-no-solo-confira-1.jpg" alt="doenças na plantação de café" loading="lazy" /></figure>
+    image: "/media/2026/03/28a7117f-819b-4047-b6af-b6e54d2e387b/large.webp",
+    content: `<figure><img src="/media/2026/03/1cd79a0c-99a3-4044-9ea6-08c610ca0bc2/large.webp" alt="doenças na plantação de café" loading="lazy" /></figure>
 <p>Muitos são os métodos utilizados para que uma <a href="/como-comecar-plantacao-de-cafe/">plantação</a> seja produtiva. Porém, por vezes os esforços se concentram somente na planta em si, não recebendo o solo a sua devida atenção. Algumas doenças que podem atacar a cultura, podem ser provenientes terra, e são capazes de comprometer toda a produção!<br>No artigo de hoje vamos conhecer um pouco melhor as Doenças Encontradas no Solo! Apresentaremos as principais doenças, bem como algumas pragas que acontecem principalmente em plantações de milho, <a href="/principais-doencas-no-cafe-como-identifica-las/">café</a>, cana e soja.</p>
 <h2>O que são Doenças do Solo</h2>
 <p>Incialmente, vamos entender um pouco sobre a composição do solo, que é formada por minerais, incluindo limo, areia, argila, pedras, e também algumas matérias orgânicas que vão sendo depositadas sobre o solo. Quando não recebe os devidos cuidados, este ambiente pode se tornar meio de proliferação de pragas e doenças, que pode comprometer uma plantação por completa, impactando negativamente sobre o crescimento e desenvolvimento da planta. Quanto aos sintomas, eles podem se apresentar de diferentes formas, dependendo do agente causador. As doenças podem continuar presentes no solo por um longo período de tempo, sendo difícil a sua remoção, por isso a prevenção é o melhor caminho. Mas antes de tudo, vamos conhecer as doenças.<br>Falaremos delas em duas etapas: doenças originadas de fungos e pragas.</p>
 <h3>Pragas no Solo</h3>
 <p>Quando falamos de pragas, estamos nos referindo a insetos que podem ser prejudiciais a <a href="/qual-melhor-tipo-de-irrigacao-para-minha-lavoura/">lavoura</a>, tanto enquanto larvas, quanto em fase adulta. Confira abaixo!</p>
-<figure><img src="/blog/as-principais-doencas-encontradas-no-solo-confira-2.jpg" alt="pragas no solo" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/4e95772b-942b-4a33-ae61-e165e08a1bfe/large.webp" alt="pragas no solo" loading="lazy" /></figure>
 <h4>Lagarta-Elasmo ou Broca do Colo (Elasmopalpus Lignosellus)</h4>
 <p>São larvas que atingem o colo da planta, parte que se localiza próxima a superfície do solo. Em menores períodos de tempo acometem mais agressivamente as culturas de amendoim, milho feijão, soja, trigo e arroz. Atrapalha o desenvolvimento da planta, levando- a à murchar, e morrer.<br>Quando proliferação acontece com frequência, é necessária a intervenção de defensivos agrícolas nas sementes, e em períodos se seca em toda a área onde se encontre o plantio.</p>
-<figure><img src="/blog/as-principais-doencas-encontradas-no-solo-confira-3.jpg" alt="Lagarta elasmo Elasmopalpus Lignosellus doenças no solo" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/39c8268d-f4b8-427c-92e6-5ff0387af372/large.webp" alt="Lagarta elasmo Elasmopalpus Lignosellus doenças no solo" loading="lazy" /></figure>
 <p>Caracteriza-se por atacar principalmente lavouras de soja. Também é conhecido como Bicudo-da- Soja. Esta praga é um tipo de besouro. Quando alcança a sua fase adulta, sai do solo a procura de alimento. Desta forma se desenvolvem e começam a voar, alcançando rapidamente as áreas do plantio. Quanto ao seu meio de proliferação, as fêmeas depositam seus ovos na haste da planta por meio de um pequeno furo que por elas é executado. Eles se desenvolvem, dando origem as larvas. No mês de março, elas se dirigem ao solo, permanecendo até outubro no casulo, iniciando a sua transformação de larva para inseto que dura de 3 a 4 semanas. Após este período se tornam adultas. </p><p>O Tamanduá-da-soja raspa a haste da planta, fazendo com que os tecidos da mesma se enfraqueçam. Por se tratarem de tecidos de suporte, ao sofrerem a ação de chuvas e ventos, a planta pode facilmente se quebrar, podendo influenciar negativamente no potencial produtivo.</p>
-<figure><img src="/blog/as-principais-doencas-encontradas-no-solo-confira-4.jpg" alt="pragas no solo Tamanduá-da-Soja (Sternechus Subsignatus)" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/e47bfd83-32b0-43a2-8c74-92cc9a7e41e9/large.webp" alt="pragas no solo Tamanduá-da-Soja (Sternechus Subsignatus)" loading="lazy" /></figure>
 <p>Encontra-se presente no solo, e alimenta-se das raízes de diversas lavouras, como café, milho, morango, feijão, e muitas outras hortaliças em geral. Isso pode levar a planta a não se desenvolver, como também acometer a sua produção. Isso será relativo, dependendo do estágio de desenvolvimento em que a planta se encontrar.</p><p>Quando já presente em grande parte da lavoura, existe grande dificuldade em combate-la, mesmo com a intervenção de defensivos. Uma das medidas que podem ser adotadas, é à adoção do adubo verde, que consiste em cultivar plantas no solo próprias para oferecer melhores condições ao mesmo, como é o caso da crotalária. Pode ser plantada antes ou depois de um cultivo. Ao se alimentar de suas raízes, o Coró da soja morre.</p>
-<figure><img src="/blog/as-principais-doencas-encontradas-no-solo-confira-5.jpg" alt="pragas no solo Coró da Soja (Phyllophaga Cuyabana)" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/40845abc-e54a-4cff-bb46-31e8cc81cfb6/large.webp" alt="pragas no solo Coró da Soja (Phyllophaga Cuyabana)" loading="lazy" /></figure>
 <p>Apesar de atualmente já não estar presente nas lavouras com tanta frequência, como o acontecia a alguns anos atrás, este besouro pode se fazer presente em qualquer local do mundo onde exista <a href="/como-determinar-o-ponto-de-colheita-do-cafe/">plantação de café</a>. Pode atacar o grão independente do seu grau de maturação, ainda que estes se apresentem secos, o que resulta em perdas no peso e na <a href="/nunca-cubra-sua-lavoura-durante-o-inverno/">qualidade do café.</a></p>
-<figure><img src="/blog/as-principais-doencas-encontradas-no-solo-confira-6.jpg" alt="pragas no solo broca do café" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/f3afcb3f-6e3e-4fcd-a34e-0df1d5692910/large.webp" alt="pragas no solo broca do café" loading="lazy" /></figure>
 <h5>Doenças Fúngicas</h5>
 <p>Neste caso trabalharemos com os fungos como agente causador de doenças. Assim como os parasitas que utilizam de um hospedeiro como meio de sobrevivência, eles assim se comportam com as plantas, se prendendo a elas para conseguir alimento. Vejamos quais são as que acometem as principais culturas!</p>
 <p>Caracteriza-se por levar ao apodrecimento de diversas raízes de plantações de milho, algodão, amendoim, arroz, dentre muitas outras. Isso acaba por acometer o desenvolvimento da planta, sua pigmentação, levando até mesmo a necrose do tecido vegetal, atrapalhando o fluxo de seiva.</p>
 <p>Acontece preferencialmente em lavouras de soja. Localiza-se no solo, podendo ocasionar a morte de plantas que se encontrem em estágio mais jovem. Quanto aos sintomas, este fungo leva ao escurecimento das vagens, e também a sua deformação, podendo fazer com que estas venham a cair.</p>
-<figure><img src="/blog/as-principais-doencas-encontradas-no-solo-confira-7.jpg" alt="pragas no solo Antracnose (Colletotrichum Dematium Var. Truncata)" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/15a4d00d-4184-4135-9592-635aff2948d9/large.webp" alt="pragas no solo Antracnose (Colletotrichum Dematium Var. Truncata)" loading="lazy" /></figure>
 <p>Ataca na maioria dos casos plantações de cana-de-açucar. Caracteriza-se por causar aberturas naturais, ou machucados na planta, sendo este o seu meio de entrada, e colonização. Como consequência a germinação das plantas torna-se baixa, levando também a morte dos brotos.<br>Percebe-se a presença do fungo devido ao aparecimento de uma coloração de tom avermelhado, que se manifesta no interior da cana, liberando um cheiro de abacaxi, sendo também este fator responsável pela sua nomenclatura. A Podridão do abacaxi tem preferência por locais que se caracterizam pela presença de alta umidade, e por este motivo é propícia a locais de temperaturas mais baixas, solos mais argilosos e com muita umidade.<br>Estas são algumas das doenças mais recorrentes, mas é importante frisar que existem muitas outras. Vamos conhecer agora alguns meios que contribuem para a redução do impacto destes agentes nas plantações.</p>
-<figure><img src="/blog/as-principais-doencas-encontradas-no-solo-confira-8.jpg" alt="doenças na plantação Podridão do Abacaxi (Ceratocystis Paradoxa)" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/55465e04-2e15-4a40-8f8e-879eab651516/large.webp" alt="doenças na plantação Podridão do Abacaxi (Ceratocystis Paradoxa)" loading="lazy" /></figure>
 <h6>Como Prevenir e Remediar as Doenças do Solo?</h6>
 <p>Vamos conhecer alguns meio para a recuperação de culturas que já sofreram danos por meio de pragas e fungos.</p>
 <p>A rotação de culturas leva ao equilíbrio natural, contribuindo para a preservação de interação entre muitos organismos que se fazem presentes no ambiente, para a reposição de nutrientes, e fortalecimento da planta. Para simplificar o entendimento, temos que a mudança de uma cultura, faz com que doenças que se alimentavam da plantação anterior se enfraqueçam, podendo chegar até mesmo ao desaparecimento.</p>
@@ -339,8 +312,8 @@ Se você gostou do artigo de hoje, compartilhe conosco a sua opinião! Até mais
     slug: "ferramentas-manuais-para-marcenaria",
     title: "Ferramentas para Marcenaria - As melhores Ferramentas Manuais!",
     excerpt: "Conheça as ferramentas manuais indispensáveis para trabalhar com madeira.",
-    image: "/blog/ferramentas-manuais-para-marcenaria-featured.jpg",
-    content: `<figure><img src="/blog/ferramentas-manuais-para-marcenaria-1.jpg" alt="Kit marcenaria básica para iniciantes" loading="lazy" /></figure>
+    image: "/media/2026/03/240042cf-17fc-478f-96ce-9f20142b7034/large.webp",
+    content: `<figure><img src="/media/2026/03/a15e880d-da07-41ad-ae4c-f8d2b86b0b11/large.webp" alt="Kit marcenaria básica para iniciantes" loading="lazy" /></figure>
 <p>Primordialmente existem diversos tipos de <a href="/maquinas-eletricas/">máquinas</a> e <a href="/as-7-ferramentas-ideais-para-seu-jardim/">ferramentas</a> que são utilizados para a realização de trabalhos em madeira nas marcenarias. Por meio dessas ferramentas manuais, atividades que seriam manualmente trabalhosas se tornam muito mais práticas e precisas.&nbsp; Veja abaixo 10 ferramentas que devem estar presentes na sua marcenaria.</p>
 <h2>Esquadro de carpinteiro</h2>
 <p>Esta ferramenta para marcenaria é dotada de ângulos e medidas variadas. Por meio dele pode-se traçar linhas perpendiculares, inclinadas, ângulos retos, dentre outras possibilidades no desenvolvimento do projeto de móveis e outros objetos que devem ser montados e cortados com maior precisão. Os modelos podem se adaptar de acordo com o trabalho a ser desempenhado. A escala deve ser gravada, e não impressa, pois isso oferecerá uma maior durabilidade do produto.</p>
@@ -354,7 +327,7 @@ Se você gostou do artigo de hoje, compartilhe conosco a sua opinião! Até mais
 <p>Possuem mais resistência que as compostas por alumínio, e oferecem maior precisão para os seus trabalhos. São preferíveis as que possuem mais de uma medida, e com acabamento acetinado (opaco), pois proporciona menos reflexo quando utilizada em ambientes onde a luz reflete em vários pontos da régua, não dificultando a visibilidade.<br><br></p>
 <h6>Serrotes</h6>
 <p>Eventualmente são usados serrotes nas marcenarias para a realização de cortes em madeira. Geralmente são fabricado em aço flexível e formato triangular, sendo na maioria das vezes o seu cabo de madeira, porém existem no mercado diversos tamanhos e dentições de acordo com o objetivo de cada marceneiro.</p>
-<figure><img src="/blog/ferramentas-manuais-para-marcenaria-2.jpg" alt="Ferramentas" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/0a82d097-ddb3-45c0-980b-d965032048bb/large.webp" alt="Ferramentas" loading="lazy" /></figure>
 <h6>Malho de madeira</h6>
 <p>É muito utilizado para realizar entalhe com formão. Por ser feito de madeira, não estraga o cabo da ferramenta. Também pode ser usado para bater na madeira para realizar junções mais apertadas, ou ainda, incorporar cavilhas e insertos de madeira. </p>
 <h6>Riscadores</h6>
@@ -376,8 +349,8 @@ Se você gostou do artigo de hoje, compartilhe conosco a sua opinião! Até mais
     slug: "escolher-furadeiras-de-bancada",
     title: "Saiba como Escolher Furadeiras de Bancada e usá-las com Segurança",
     excerpt: "Muito utilizada por marceneiros, carpinteiros e serralheiros, as furadeiras de bancada são muito úteis para realizar perfurações verticais.",
-    image: "/blog/escolher-furadeiras-de-bancada-featured.jpg",
-    content: `<figure><img src="/blog/escolher-furadeiras-de-bancada-1.jpg" alt="Quais as vantagens de um Inversor para Solda para o seu Trabalho?" loading="lazy" /></figure>
+    image: "/media/2026/03/5031a726-3801-416f-8e0b-cdbaa95a9901/large.webp",
+    content: `<figure><img src="/media/2026/03/edc246a8-9a01-469d-8e76-7d39b277fe5e/large.webp" alt="Quais as vantagens de um Inversor para Solda para o seu Trabalho?" loading="lazy" /></figure>
 <p>Muito utilizada por <a href="/ferramentas-manuais-para-marcenaria/">marceneiros</a>, carpinteiros, e também por serralheiros, as furadeiras de bancada são muito úteis para realizar perfurações verticais em chapas compostas por metal ou por madeira. Elas não são portáteis, e contam com mesa fixa, no qual ficam acopladas.</p>
 <h2>Vantagens</h2>
 <p>Devido a isso, uma grande vantagem desta <a href="/lixadeira-orbital-dicas/">ferramenta</a> para o usuário é a estabilidade que ela oferece, provocando menores vibrações durante a perfuração, e proporcionado maior precisão.</p>
@@ -410,9 +383,8 @@ Manter a sua ferramenta limpa e lubrificada também é muito importante, e de me
     slug: "irrigacao-de-pastagem-dicas-e-recomendacoes",
     title: "Irrigaçao de Pastagem: Dicas e Recomendações",
     excerpt: "Guia completo sobre irrigação de pastagem: dicas e recomendações. Dicas práticas e informações técnicas.",
-    image: "/blog/irrigacao-de-pastagem-dicas-e-recomendacoes-featured.jpg",
-    content: `<figure><img src="/blog/irrigacao-de-pastagem-dicas-e-recomendacoes-1.jpg" alt="Irrigaçao de Pastagem: Dicas e Recomendações" loading="lazy" /></figure>
-<p>Sabemos que durante o ano o agricultor lida com épocas que são marcados pela estiagem, e manter os bons resultados durante este período é um desafio! Devido a isso, hoje vamos falar sobre a <a href="/qual-melhor-tipo-de-irrigacao-para-minha-lavoura/">irrigação</a> de pastos: um método indispensável para os setores agrícolas!<br>Deixaremos para você 4 dicas, que irão lhe auxiliar no desenvolvimento da irrigação de pastagens!<br>Continue com a gente, e confira!</p>
+    image: "/media/2026/03/0b61ec93-528c-4fe5-850a-9931d0340fc2/large.webp",
+    content: `<p>Sabemos que durante o ano o agricultor lida com épocas que são marcados pela estiagem, e manter os bons resultados durante este período é um desafio! Devido a isso, hoje vamos falar sobre a <a href="/qual-melhor-tipo-de-irrigacao-para-minha-lavoura/">irrigação</a> de pastos: um método indispensável para os setores agrícolas!<br>Deixaremos para você 4 dicas, que irão lhe auxiliar no desenvolvimento da irrigação de pastagens!<br>Continue com a gente, e confira!</p>
 <h2>1- Fazer análise do local que receberá a irrigação</h2>
 <p>Para que seja feita a irrigação de pastos em uma determinada área, é necessário desenvolver uma descrição exata das medidas, ângulos e inclinação. Esta coleta de informações do terreno é chamada de levantamento planialtimétrico. Neste contexto, observa—se também se existem poços no local para contribuir no processo.</p>
 <h2>2- Descobrir o volume de água necessário</h2>
@@ -434,13 +406,13 @@ Manter a sua ferramenta limpa e lubrificada também é muito importante, e de me
     slug: "horta-em-casa-como-cultivar",
     title: "Horta em Casa - Como cultivar em sua casa ou apartamento?",
     excerpt: "Aprenda a criar e manter uma horta produtiva em casa.",
-    image: "/blog/horta-em-casa-como-cultivar-featured.jpg",
-    content: `<figure><img src="/blog/horta-em-casa-como-cultivar-1.jpg" alt="Horta em casa - Como cultivar dentro de seu apartamento" loading="lazy" /></figure>
+    image: "/media/2026/03/1fdb0e0f-77ce-457c-8d91-b5c518858447/large.webp",
+    content: `<figure><img src="/media/2026/03/2a35f0ba-ecee-414c-899b-b71b26f14e5e/large.webp" alt="Horta em casa - Como cultivar dentro de seu apartamento" loading="lazy" /></figure>
 <p>Já pensou em fazer sua horta em casa? Então esse é o lugar certo.<br>As plantas, além de trazerem um toque especial para o ambiente, o ato de plantá-las também pode ser uma verdadeira terapia para nós. Hoje em especial vamos falar sobre as hortas caseiras! Leia nosso tutorial abaixo e dê sua opinião nos comentários!</p>
-<figure><img src="/blog/horta-em-casa-como-cultivar-2.jpg" alt="Horta em casa - Como cultivar dentro de seu apartamento" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/5192f53c-63a3-499f-85d6-000c2dd7319b/large.webp" alt="Horta em casa - Como cultivar dentro de seu apartamento" loading="lazy" /></figure>
 <h2>Considerações a serem feitas</h2>
 <p>Primeiramente é importante compreendermos que a falta de espaço não é motivo para não cultivarmos nossos alimentos em casa. Existem inúmeras possibilidades de hortaliças que podem sim ser cultivadas no aconchego de pequenos apartamentos.</p><p>Conforme as exigências de cada planta, podemos cultivar hortaliças que possuam as mesmas necessidades em um mesmo recipiente, como por exemplo, o manjericão e o coentro, sendo necessário apenas respeitas o espaço de 30cm entre as mesmas.</p><p>A maioria das plantas precisam receber no mínimo 4 horas de luz solar por dia, sendo preferencial o sol da manhã, ou da tarde. Todavia, deve-se também observar a quantidade de água e o espaço exigido pela planta para seu crescimento e desenvolvimento saudável.</p><p>Ter uma horta em casa também lhe oferece economia, pois reduzirá os seus gastos com feiras e supermercados. E, além disso, tornará o seu ambiente mais bonito e refrescante!</p>
-<figure><img src="/blog/horta-em-casa-como-cultivar-3.jpg" alt="Horta em casa - Como cultivar dentro de seu apartamento" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/bfd96b61-f23a-47f8-a4e6-fa87cbfe3913/large.webp" alt="Horta em casa - Como cultivar dentro de seu apartamento" loading="lazy" /></figure>
 <h3>Onde plantar?</h3>
 <p>As hortaliças podem ser cultivadas em vasos, embalagens recicladas, floreiras, caixas de madeira, podendo ser também desenvolvidos jardins verticais, e horizontais.</p>
 <h4>Quando e como regá-las?</h4>
@@ -467,8 +439,8 @@ Manter a sua ferramenta limpa e lubrificada também é muito importante, e de me
     slug: "inversor-para-solda",
     title: "Quais as vantagens de um Inversor para Solda para o seu Trabalho?",
     excerpt: "Saiba quais são os benefícios de utilizar a inversora para soldagem, como funciona o seu consumo de energia e sua manutenção.",
-    image: "/blog/inversor-para-solda-featured.jpg",
-    content: `<figure><img src="/blog/inversor-para-solda-1.jpg" alt="Quais as vantagens de um Inversor para Solda para o seu Trabalho?" loading="lazy" /></figure>
+    image: "/media/2026/03/3e80d229-fece-4a54-b6ea-b3e17aaee9eb/large.webp",
+    content: `<figure><img src="/media/2026/03/a94d6dd7-e738-42bd-a832-6cb5f6c3355a/large.webp" alt="Quais as vantagens de um Inversor para Solda para o seu Trabalho?" loading="lazy" /></figure>
 <p>Saiba quais são os benefícios de utilizar a inversora para <a href="/processos-de-soldagem-e-suas-aplicacoes/">soldagem</a>, como funciona o seu consumo de energia e sua <a href="/manutencao-de-maquinas-e-equipamentos/">manutenção</a>, e muito mais! Continue com a gente, e confira!</p>
 <h2>Modelos</h2>
 <p>Sabemos que a tecnologia dos inversores de solda tem sido cada vez mais aperfeiçoadas. Com isso, temos apreciado no mercado modelos mais compactos, capazes de oferecer melhores resultados em todas as etapas de uso. Com esta evolução, eles tem se tornado cada vez mais leves, eficientes, versáteis e silenciosos, permitindo até mesmo soldagens com mais de um tipo de eletrodo.</p>
@@ -502,12 +474,12 @@ Gostou do artigo de hoje? Deixe o seu comentário! Até mais!</p>`,
     slug: "torno-de-bancada-o-que-e-para-que-serve",
     title: "Torno de Bancada: O que é? Para que serve?",
     excerpt: "Guia completo sobre torno de bancada: o que é e para que serve?. Dicas práticas e informações técnicas.",
-    image: "/blog/torno-de-bancada-o-que-e-para-que-serve-featured.jpg",
-    content: `<figure><img src="/blog/torno-de-bancada-o-que-e-para-que-serve-1.jpg" alt="torno de bancada" loading="lazy" /></figure>
+    image: "/media/2026/03/fd169ac2-9e4c-4424-b03c-ff76a1abf4b1/large.webp",
+    content: `<figure><img src="/media/2026/03/0729ed92-4974-4b8b-a236-ca534ede1d34/large.webp" alt="torno de bancada" loading="lazy" /></figure>
 <p>Também conhecidos como morsa, os tornos de bancada são utilizados para prender objetos durante o período em que se realiza trabalhos no mesmo, sendo muito utilizado em <a href="/oficina-em-casa-como-fazer-a-sua/">oficinas</a>, serralherias, construção civil e <a href="/ferramentas-manuais-para-marcenaria/">marcenarias</a>. São usados também para manter uma peça fixa enquanto executa-se atividades de acabamento, como cortar e lixar por exemplo. Seus mordentes, ou partes que mantém ou objetos fixos, podem apresentar diferentes dimensões, e estas são expressas em polegadas.</p><p>Por meio do torno de bancada, pode-se realizar cortes uniformes em peças, e moldar objetos de modo a torná-lo parte de um projeto. É utilizado no mercado pelos mais diversos usuários, partindo desde pequenos projetos em<a href="/as-10-ferramentas-para-se-ter-em-casa/"> casa</a>, estendendo-se até profissionais industriais.</p>
 <h2>Tipos De Tornos De Bancada</h2>
 <p>Os tipos de tornos se distinguem quando ao material utilizado, suas dimensões e formatos. Devido a isso, fica a critério do usuário definir o que melhor atenderá as suas exigências. Vejamos abaixo quais são eles!</p>
-<figure><img src="/blog/torno-de-bancada-o-que-e-para-que-serve-2.jpg" alt="torno de bancada" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/f121322f-797b-4e4f-8f00-2100b58aa3f9/large.webp" alt="torno de bancada" loading="lazy" /></figure>
 <h3>Tornos Para Madeira</h3>
 <p>Caracterizam-se por serem alinhados a parte que corresponde a superfície da bancada. Possuem mordentes que podem ser compostos por madeira, ou por metal, sendo necessário colocar uma proteção de madeira, para que a peça não sofra danos</p>
 <h4>Tornos Para Metal</h4>
@@ -530,8 +502,7 @@ Gostou do artigo de hoje? Deixe o seu comentário! Até mais!</p>`,
     title: "Como Começar Plantação de Café",
     excerpt: "Guia prático para iniciar sua lavoura de café.",
     image: "",
-    content: `<figure><img src="/blog/como-comecar-plantacao-de-cafe-1.jpg" alt="Como Começar Plantação de Café" loading="lazy" /></figure>
-<p>Como começar plantação de café?</p><p>O Brasil é considerado o maior produtor de café, e o segundo maior consumidor do mundo.<br><br>Seja para iniciar o dia, durante uma pausa no trabalho, ou no fim da tarde, sempre encontramos um momento para incluir um cafezinho na nossa rotina. Ele faz parte da vida dos brasileiros!<br><br>Para que chegue até nós um produto de qualidade, todos os processos devem acontecer de modo correto! Pegue já um cafezinho, e venha apreciar o conteúdo que preparamos pra você! Hoje, iremos falar passo a passo, e de modo especial sobre a etapa de plantação do café!</p>
+    content: `<p>Como começar plantação de café?</p><p>O Brasil é considerado o maior produtor de café, e o segundo maior consumidor do mundo.<br><br>Seja para iniciar o dia, durante uma pausa no trabalho, ou no fim da tarde, sempre encontramos um momento para incluir um cafezinho na nossa rotina. Ele faz parte da vida dos brasileiros!<br><br>Para que chegue até nós um produto de qualidade, todos os processos devem acontecer de modo correto! Pegue já um cafezinho, e venha apreciar o conteúdo que preparamos pra você! Hoje, iremos falar passo a passo, e de modo especial sobre a etapa de plantação do café!</p>
 <h2>Local e clima adequado</h2>
 <p>O pé de café, é uma planta dotada de grande resistência a diferentes condições climática, porém, para que seus grãos se desenvolvam com qualidade e o mesmo se mantenha saudável, alguns cuidados específicos devem ser adotados. As espécies mais comercializadas são o Arábica, e o Robusta (popularmente conhecido como Conilon).</p><p>O Café Arábica, quanto as exigências climáticas, a temperatura ideal é de 18° a 22° C, e a altitude entre 450 a 800 m. Já o Conilon, está mais propício a áreas mais quentes de 22° a 26° C, e altitude de até 450 m.</p><p>Com relação ao solo, deve ser nem muito pedregoso, nem muito arenoso, de boa drenagem e fértil.</p>
 <h3>Preparando o solo</h3>
@@ -539,7 +510,6 @@ Gostou do artigo de hoje? Deixe o seu comentário! Até mais!</p>`,
 <h4>Escolhendo a espécie de café</h4>
 <p>– Café Arábica: Suas variações possuem os sabores e aromas mais apreciados do mundo. São a base para a produção de um café mais fino, e por isso alcançam os maiores preços no mercado.</p><p>As variações do café arábica mais indicadas para plantio são: Catuaí Amarelo e Catuaí Vermelho, Icatu, Acaiá e Mundo Novo. São plantas aptas a temperaturas mais amenas, e locais de elevada altitude. Sua plantação é a base de sementes.</p><p>– Café Robusta: Se comparado ao arábica apresenta qualidade inferior, porém é de menor valor e de interesse das indústrias para a produção de café solúvel, o que tem contribuído para a sua maior aceitação no mercado.</p><p>Desta espécie, o mais utilizado é o Conilon. Esta cultivar caracteriza-se por ser preferencialmente de regiões onde a altitude é mais baixa, e as temperaturas são elevadas.</p><p>Apresentam maior resistência a períodos de seca prolongada, e a certas pragas e doenças. Sua plantação acontece por meio de mudas formadas por sementes ou clonais. Aconselha- se para a formação de lavouras a utilização de mudas clonais que propiciam maior uniformidade e produtividade.</p>
 <h4>Como acontece a formação de mudas</h4>
-<figure><img src="/blog/como-comecar-plantacao-de-cafe-2.jpg" alt="Como Começar Plantação de Café" loading="lazy" /></figure>
 <h5>Mudas de sementes</h5>
 <p>As sementes são semeadas diretamente em germinadores de areia. São colocadas duas sementes em cada germinador. Após a sua germinação mentem-se somente uma muda.</p><p>As mudas devem receber cuidados em um viveiro. Não deve haver o excesso ou falta de água na planta. O aparecimento do segundo par de folhas é o marco para que se inicie a adubação foliar nitrogenada. Este processo deve se repetir duas vezes, intercaladas por um período de vinte e um dias. De quinze em quinze dias, deve-se eliminar possíveis ervas daninhas, e realizar o controle químico de doenças e insetos.</p><p>Durante o período de desenvolvimento das mudas, elas devem ser mantidas a meia sombra, retirando-as trinta dias antes de dar início ao plantio para adaptação climática.</p><p>&nbsp;</p>
 <h6>Mudas Clonais (estacas)</h6>
@@ -561,8 +531,8 @@ Gostou do artigo de hoje? Deixe o seu comentário! Até mais!</p>`,
     slug: "nivel-a-laser",
     title: "O que é um Nível a Laser?",
     excerpt: "Muito presente nas construções, o nível a laser é uma ferramenta utilizada para medir o nivelamento por meio da projeção de um feixe de luz.",
-    image: "/blog/nivel-a-laser-featured.jpg",
-    content: `<figure><img src="/blog/nivel-a-laser-1.jpg" alt="O que é um Nível a Laser" loading="lazy" /></figure>
+    image: "/media/2026/03/251544c4-d7f3-46c0-9f9e-43e67f9ea6dd/large.webp",
+    content: `<figure><img src="/media/2026/03/a5af63b8-3aad-4c5e-aee8-4daa5d60bfed/large.webp" alt="O que é um Nível a Laser" loading="lazy" /></figure>
 <p>Muito presente nas construções, o nível a laser é uma ferramenta utilizada para medir o nivelamento, por meio da projeção de um feixe de luz ao redor ou sobre superfícies planas. Para projetos de menores dimensões, inclusive pequenos trabalhos do dia a dia, os modelos mais básicos de nível a laser atenderão tranquilamente a sua necessidade. No entanto, existem também modelos profissionais de níveis a laser, sendo estes mais utilizados em construções civis.</p>
 <h2>Qual profissional deve usar?</h2>
 <p>Eles são muito aderidos por profissionais que desenvolvem grandes projeto, que demandam maior precisão, onde pequenas variações podem causar grandes <a href="/manutencao-de-maquinas-e-equipamentos/">problemas</a>. São modelos que oferecem mais recursos ao usuário, como: ajustes manuais, mais opções de montagem, e até mesmo resistência a água.</p>
@@ -574,7 +544,7 @@ Para pendurar um quadro na parede, ou ainda para trabalhos em ambientes pequenos
 <p>É importante frisar que durante a utilização do equipamento, você nunca deverá direcionar o laser aos olhos das pessoas, sendo necessário estar atento a isso principalmente se o trabalho for feito em locais em que há grande circulação de indivíduos.<br>
 Grande parte dos modelos fabricados são a bateria, e por isso oferecem maior liberdade de movimentos aos usuário.</p>
 <p>Existem níveis a laser que se caracterizam como autonivelantes! Você sabia? Neste caso ele conta com sensores internos de autonivelamento, e que possibilitam a detecção da área nivelada. Eles se mostram mais precisos, e rápidos se comparados aos <a href="/brocas-para-madeiras/">modelos</a> manuais.</p>
-<figure><img src="/blog/nivel-a-laser-2.jpg" alt="O que é um Nível a Laser" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/cd6fa4d8-429e-44ca-98c9-2745857cbd5f/large.webp" alt="O que é um Nível a Laser" loading="lazy" /></figure>
 <h5>3 Categorias de Níveis a Laser</h5>
 <p>Os lasers podem ser de prumo, nível de linha e lasers rotativos.</p>
 <p>– Laser de Prumo: Utilizam de um ponto de referência para a <a href="/conheca-as-8-ferramentas-de-medicoes-mais-utilizadas/">medição</a>;</p>
@@ -604,12 +574,12 @@ Grande parte dos modelos fabricados são a bateria, e por isso oferecem maior li
     slug: "oficina-em-casa-como-fazer-a-sua",
     title: "Oficina em Casa - Como fazer a sua!",
     excerpt: "Monte sua oficina caseira com as ferramentas certas e organização adequada.",
-    image: "/blog/oficina-em-casa-como-fazer-a-sua-featured.jpg",
-    content: `<figure><img src="/blog/oficina-em-casa-como-fazer-a-sua-1.jpg" alt="Oficina em Casa - Como fazer a sua!" loading="lazy" /></figure>
+    image: "/media/2026/03/26c94b9f-01bb-44b9-8091-2df1893d8379/large.webp",
+    content: `<figure><img src="/media/2026/03/c3ba68c2-9885-4c92-801d-e398e9a5ae56/large.webp" alt="Oficina em Casa - Como fazer a sua!" loading="lazy" /></figure>
 <p>Ter uma oficina em casa, seja para quem trabalha no ramo, para fazer pequenos reparos, ou até mesmo para executar projetos em casa, é de grande utilidade. Se este parece ser um sonho distante, hoje nós o tornaremos mais próximo de você. <br>Segue com a gente, e veja por onde você deve começar!</p>
 <h2>Escolha do Local</h2>
 <p>Inicialmente, precisamos definir o local a ser utilizado para montagem da oficina, levando em consideração que este ambiente será propício a barulhos. Furadeiras, parafusadeiras, lixadeiras, dentre outras <a href="/as-7-ferramentas-ideais-para-seu-jardim/">ferramentas</a> emitem barulho durante a sua utilização. Devido a isso muitas pessoas dão preferência a montagem deste ambiente no quintal, na garagem, ou até mesmo em um cômodo isolado da casa.<br>As <a href="/maquinas-eletricas/">máquinas</a> que citamos acima, além de barulho, durante o seu uso também podem gerar pó, sendo este mais um motivo para criar uma ambiente separado para a sua oficina, e manter a limpeza da sua casa.</p>
-<figure><img src="/blog/oficina-em-casa-como-fazer-a-sua-2.jpg" alt="Oficina em Casa - Como fazer a sua!" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/3009bc42-e396-415d-bee4-e182a0140bf8/large.webp" alt="Oficina em Casa - Como fazer a sua!" loading="lazy" /></figure>
 <h3>Móveis para Apoio</h3>
 <p>Estantes, armários e prateleiras são essenciais para manter a organização das suas ferramentas. Uma dica para manter a organização é separar os itens da sua oficina por categoria, como ferramentas elétricas, ferramentas manuais, EPIs, dentre outras, de acordo com a sua realidade. A desorganização deste ambiente pode atrapalhar, e muito o seu desempenho.<br>Abaixo, falaremos quais são as ferramentas que não podem faltar na sua oficina.<br>Lembrando que recentemente elaboramos um post sobre as <a href="/as-10-ferramentas-para-se-ter-em-casa/">10 ferramentas essenciais para se ter em casa</a>. </p>
 <h4>Ferramentas para a sua Oficina</h4>
@@ -619,7 +589,7 @@ Grande parte dos modelos fabricados são a bateria, e por isso oferecem maior li
 <p>Apesar de sua importância muitas vezes cair no esquecimento, a lixadeira possibilita o desbaste e o acabamento de diversas peças de modo muito mais rápido, e eficaz.<br>Se a peça é de tamanho maior, e há muitas camadas a serem lixadas, a necessidade de uma lixadeira elétrica será muito maior.</p>
 <h6>Serras</h6>
 <p>Sempre surgem atividades manuais que incluem e necessidade de serrar algo. As ferramentas de cortes são as mais variadas, e podem ser escolhidas de acordo com as necessidades de cada pessoa. Por exemplo, se na maioria dos casos você trabalha com peças pequenas, algumas ferramentas mais simples como o arco de serra ou o serrote são indispensáveis. Para situações que exigem corte específico, ou envolvem trabalhos com peças grandes, é indicada a utilização de máquinas elétricas, como a serra circular, serra tico-tico, dentre outras.</p>
-<figure><img src="/blog/oficina-em-casa-como-fazer-a-sua-3.jpg" alt="Oficina em Casa - Como fazer a sua!" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/7553ac81-55e1-43c8-ab79-1f4fe4015f31/large.webp" alt="Oficina em Casa - Como fazer a sua!" loading="lazy" /></figure>
 <h6>Chaves e Alicates</h6>
 <p>São ferramentas essenciais para se ter em casa, mesmo não possuindo uma oficina.<br>Existem parafusos de diversas dimensões que exigem a utilização de chaves de diferentes tamanhos, e por isso é bom contar com modelos variados. As chaves de fenda e chave Philips são as de maior utilização. Já com relação aos alicates, o modelo universal é o mais utilizado. Mas também é interessante adquirir outros modelos, como o de bico redondo e alicate de corte.</p>
 <h6>Ferramentas Menores</h6>
@@ -639,12 +609,12 @@ Grande parte dos modelos fabricados são a bateria, e por isso oferecem maior li
     slug: "furadeiras-entenda-os-tipos-e-modos-de-utilizacao",
     title: "Furadeiras: Entenda os Tipos e Modos de Utilização",
     excerpt: "Guia completo sobre furadeiras: entenda os tipos e modos de utilização. Dicas práticas e informações técnicas.",
-    image: "/blog/furadeiras-entenda-os-tipos-e-modos-de-utilizacao-featured.jpg",
-    content: `<figure><img src="/blog/furadeiras-entenda-os-tipos-e-modos-de-utilizacao-1.jpg" alt="tipos de furadeiras" loading="lazy" /></figure>
+    image: "/media/2026/03/5cc5ad45-c702-40b4-ab29-28eb4fe4180c/large.webp",
+    content: `<figure><img src="/media/2026/03/90cab2d6-1543-46fd-ae10-1a6728f9c4b7/large.webp" alt="tipos de furadeiras" loading="lazy" /></figure>
 <p>Seja a execução de pequenos reparos, ou no desenvolvimento de projetos maiores, as furadeiras são de grande ajuda para a execução de perfurações em superfícies. As mais conhecidas no mercado são as de impacto e as portáteis, porém, existem muitos outros modelos de furadeiras, e que vão de encontro as condições de perfuração exigidas por cada superfície. Vamos conhecer um pouco melhor cada uma delas? Continue com a gente, e confira!</p>
 <h2>Tipos de furadeiras</h2>
 <p>Como já sabemos as furadeiras são utilizadas para a execução de furos, o que pode se dar nos mais variados tipos de materiais. Para tal, o motor da furadeira exerce uma rotação sobre a broca com alta velocidade, fazendo com que a perfuração aconteça. Os diferentes tipos de superfícies podem afetar o desempenho da ferramenta para realização do furo, sendo também sempre importante considerar as dimensões, e o formato para execução do mesmo. Conhecer os tipos de furadeiras é um fator que contribui para a decisão correta sobre qual a melhor máquina a ser utilizada, para alcançar o resultado desejado.</p>
-<figure><img src="/blog/furadeiras-entenda-os-tipos-e-modos-de-utilizacao-2.jpg" alt="tipos de furadeiras" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/2f829da5-d49d-4e51-b818-4e23a1c5f7fa/large.webp" alt="tipos de furadeiras" loading="lazy" /></figure>
 <h3>Furadeiras portáteis</h3>
 <p>É um dos modelos mais utilizados devido a sua versatilidade, visto que pode ser levada até o local onde o serviço será realizado. São conhecidas também popularmente como furadeiras domésticas, podendo estas serem a bateria, dispensando desta forma qualquer fio ou extensão para ser utilizada, ou elétricas, necessitando desta forma de redes de energia para seu funcionamento, sendo esta 110 ou 220v.</p>
 <h4>Furadeira de impacto</h4>
@@ -668,22 +638,22 @@ Grande parte dos modelos fabricados são a bateria, e por isso oferecem maior li
     slug: "brocas-para-madeiras",
     title: "Brocas para Madeiras: Qual Modelo Utilizar?",
     excerpt: "Conheça os principais modelos de brocas para madeira e suas funcionalidades para marceneiros e carpinteiros.",
-    image: "/blog/brocas-para-madeiras-featured.jpg",
-    content: `<figure><img src="/blog/brocas-para-madeiras-1.jpg" alt="Brocas para madeiras: qual modelo utilizar?" loading="lazy" /></figure>
+    image: "/media/2026/03/3377226a-aec7-4674-93b9-9a8a5a0e9650/large.webp",
+    content: `<figure><img src="/media/2026/03/488efafe-2952-42d1-9cb5-26253b4a21a7/large.webp" alt="Brocas para madeiras: qual modelo utilizar?" loading="lazy" /></figure>
 <p>As <a href="/brocas-para-furadeira/">brocas</a> são muito importantes para a execução de trabalhos em madeira, e devido a isso são muito utilizadas por profissionais que possuem esta matéria prima como base para a execução dos seus trabalhos, como é o caso dos carpinteiros e <a href="/ferramentas-manuais-para-marcenaria/">marceneiros</a> por exemplo. Elas também são utilizadas por hobbystas para pequenos projetos em casa. São acopladas a <a href="/furadeiras-entenda-os-tipos-e-modos-de-utilizacao/">furadeira</a>, e utilizadas para a realização de cortes em formato cilíndrico.</p>
 <p>Hoje de modo especial, falaremos a respeito das brocas para madeira. Encontramos no mercado modelos diversificados, e que podem ser escolhidos pelo usuário de acordo com o exigido pelo trabalho, bem como acabamento desejado. Veja a seguir quais são os principais modelos, e suas <a href="/tipos-de-lixadeiras/">funcionalidades</a>!</p>
 <h2>Broca de Três Pontas</h2>
 <p>São brocas constituídas de aço carbono, e por isso são mais resistentes ao calor durante o trabalho. Devido as três pontas em sua extremidade, proporciona melhor acabamento e maior firmeza. A ponta localizada no centro funciona como guia, contribuindo para que o furo seja feito com maior precisão, e no lugar certo.</p>
-<figure><img src="/blog/brocas-para-madeiras-2.jpg" alt="Broca-para-Madeira-com-3-Pontas" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/eece028c-efd7-43a3-a743-9462e138a5f2/large.webp" alt="Broca-para-Madeira-com-3-Pontas" loading="lazy" /></figure>
 <h3>Broca Serpentina</h3>
 <p>Seu formato é espiral, e sua ponta é semelhante a um <a href="/tipos-de-parafusadeiras-o-guia-completo-de-compras/">parafuso</a>. Pode ser utilizada em madeiras macias ou mais duras, bem como em madeiras úmidas. Com ela é possível realizar furos mais profundos com pouco esforço. Oferece ótimo acabamento devido as suas arestas de corte.</p>
-<figure><img src="/blog/brocas-para-madeiras-3.jpg" alt="broca serpentina" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/e3249df8-68df-415a-8d2d-eabbedf42792/large.webp" alt="broca serpentina" loading="lazy" /></figure>
 <h4>Broca chata</h4>
 <p>Assim como a broca três pontas, possui três extremidades, sendo a do centro também utilizada para posicionar, e as outras duas para abrirem o furo. No entanto não é destinada a realização de acabamentos muito finos, e sim necessariamente para perfurações de maior diâmetro.</p>
-<figure><img src="/blog/brocas-para-madeiras-4.jpg" alt="broca chata" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/6e5500a6-c1fe-4eeb-8382-896fe9e773fc/large.webp" alt="broca chata" loading="lazy" /></figure>
 <h5>Broca com escariador</h5>
 <p>Destinada a realização de chanfros ou rebaixos no furo. Esta broca, além de perfurar, ao finalizar o furo torna maior o diâmetro, e com isso a cabeça do parafuso fica embutida a madeira.</p>
-<figure><img src="/blog/brocas-para-madeiras-5.jpg" alt="Broca com escariador" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/cee8ebbd-4f76-497f-896e-0410b3689ac5/large.webp" alt="Broca com escariador" loading="lazy" /></figure>
 <p>Agora que você já sabe um pouco mais sobre as brocas mais utilizadas no mercado, basta definir qual o diâmetro correto, adquirir a sua broca e fazer o seu projeto acontecer!</p>`,
     category: "ferramentas",
     tags: ["brocas","madeira"],
@@ -698,8 +668,8 @@ Grande parte dos modelos fabricados são a bateria, e por isso oferecem maior li
     slug: "brocas-para-furadeira",
     title: "Brocas para Furadeira: Conheça aqui!",
     excerpt: "Guia completo sobre brocas para furadeira: tipos e aplicações. Dicas práticas e informações técnicas.",
-    image: "/blog/brocas-para-furadeira-featured.jpg",
-    content: `<figure><img src="/blog/brocas-para-furadeira-1.jpg" alt="tipos de brocas" loading="lazy" /></figure>
+    image: "/media/2026/03/5803f69b-7f2b-406b-b1f1-47b9f0767056/large.webp",
+    content: `<figure><img src="/media/2026/03/7e045a1d-3598-4271-be37-91847d5f0c0b/large.webp" alt="tipos de brocas" loading="lazy" /></figure>
 <p>Na maioria das vezes a compra de uma furadeira acompanha a seguinte pergunta: qual broca devo utilizar? Sabemos que no mercado existem diversos modelos, com diferentes finalidades, o que nos permite que o trabalho a ser executado tenha em seu resultado maiores níveis de <a href="/como-manter-o-bom-estado-das-ferramentas-eletricas/">eficiência</a>! Neste post vamos falar sobre quais os tipos de brocas, de acordo com os materiais utilizados! Continue com a gente, e confira.</p>
 <h2>Função da broca nas Furadeiras</h2>
 <p>As furadeiras nos permitem realizar furos em madeira, paredes, aço, dentre outros materiais em poucos minutos, e sem necessariamente ter que aplicar aquela força a mais, o que é uma verdadeira mão na roda, e a importância das brocas nesta operação é indiscutível!<br>Sabemos que durante o funcionamento de uma furadeira, o motor é o responsável por fornecer a velocidade que possibilite a utilização da mesma, e a broca é quem está efetivamente desempenhando a função parafusar, ou seja, por meio de um movimento giratório, ela está exercendo pressão sobre a superfície, fazendo com que o furo seja realizado. As brocas, para serem utilizadas são encaixadas na ponta da furadeira, denominada de mandril, e podem ser trocadas de acordo com o exigido pela superfície a ser trabalhada.</p>
@@ -711,7 +681,7 @@ Grande parte dos modelos fabricados são a bateria, e por isso oferecem maior li
 <p>Sua ponta é um pouco mais arredondada se comparada a broca para madeira, e devido ao seu pequeno relevo nas laterais, lembram a ponta de uma seta. <br>São fabricada por materiais mais duros, já que sua aplicação se dá em superfícies mais densas. Uma outra característica marcante deste tipo de broca é que o diâmetro da cabeça, em alguns casos, apresenta-se maior que o do corpo. Isso permite que durante o período em que a mesma estiver em uso, os resíduos gerados pela execução do furo sejam jogados para fora por meio do movimento gerado pela mesma.<br>Para realizar furos do tamanho correto, considere sempre o diâmetro da ponta broca, e não do corpo.</p>
 <h6>Brocas para Metal</h6>
 <p>Popularmente conhecidas como as brocas que possuem a cabeça “normal”. Apresentam ranhuras mais profundas em toda a sua dimensão. Na maioria dos casos, é feita de aço rápido, ou seja, uma liga de aço que se caracteriza como resistente à altas temperaturas.<br>Para executar furos em metais deve-se considerar mais o torque do que a velocidade, uma vez que este é quem será responsável por exercer a força necessária pera perfurar o material.</p>
-<figure><img src="/blog/brocas-para-furadeira-2.jpg" alt="" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/62edf8a8-36ba-4558-adfd-0c93897d5ec8/large.webp" alt="tipos de brocas" loading="lazy" /></figure>
 <p>Existem ainda outros tipos, como as brocas serra copo utilizadas para a execução de buracos de diversas medidas, e também as brocas de vidro, utilizadas para realizar cortes em superfícies de vidro, visto que se trata de um material mais frágil, e pode ser danificado se trabalhado com brocas não específicas.<br>E aí? <a href="https://www.instagram.com/comercialjrltda/">Gostou</a> de conhecê-las um pouco melhor? Qual é o tipo ideal para você? Deixe nos comentários!</p>`,
     category: "ferramentas",
     tags: ["brocas","furadeira"],
@@ -727,8 +697,7 @@ Grande parte dos modelos fabricados são a bateria, e por isso oferecem maior li
     title: "Como Manter o bom Estado das Ferramentas Elétricas",
     excerpt: "Dicas essenciais para conservar suas ferramentas elétricas e prolongar sua vida útil.",
     image: "",
-    content: `<figure><img src="/blog/como-manter-o-bom-estado-das-ferramentas-eletricas-1.jpg" alt="" loading="lazy" /></figure>
-<p>Para as <a href="/as-10-ferramentas-para-se-ter-em-casa/">ferramentas</a> elétricas se manterem com bom funcionamento, oferecerem segurança e produtividade por um maior período de tempo, algumas atitudes podem fazer a diferença. <br>E para lhe ajudar nesta tarefa, hoje iremos dar algumas dicas que poderão contribuir para maior vida útil, e durabilidade da sua ferramenta! <br>Vamos lá!</p>
+    content: `<p>Para as <a href="/as-10-ferramentas-para-se-ter-em-casa/">ferramentas</a> elétricas se manterem com bom funcionamento, oferecerem segurança e produtividade por um maior período de tempo, algumas atitudes podem fazer a diferença. <br>E para lhe ajudar nesta tarefa, hoje iremos dar algumas dicas que poderão contribuir para maior vida útil, e durabilidade da sua ferramenta! <br>Vamos lá!</p>
 <h2>Armazenagem</h2>
 <p>E um dos pontos que são muito importantes, e merece atenção. As ferramentas devem ser guardadas em locais secos, e livres de umidade. Pode-se inclusive utilizar a embalagem fornecida pelo fabricante, que muitas vezes são caixas plásticas, e por sua vez oferecem maior segurança, e facilidade de transporte.</p>
 <h3>Tomadas</h3>
@@ -741,7 +710,7 @@ Grande parte dos modelos fabricados são a bateria, e por isso oferecem maior li
 <p>A atenção não deve ser dada somente as ferramentas elétricas, mas também aos acessórios que fazem parte da mesma.<br>– A chave do mandril deve se manter sempre fixa à furadeira, e em bom estado, evitando deste modo problemas com a fixação das brocas;<br>– Para evitar forçar a ferramenta, aconselha-se que serras e brocas mantenham-se afiadas;<br>– Os parafusos de fixação da ferramenta podem se desgastar. Devido a isso, recomenda-se a verificação destes antes da utilização para evitar que durante o uso venham a se soltar.</p>
 <h4>Substituição de Peças</h4>
 <p>Devido ao desgaste recorrente da sua utilização, por vezes faz-se necessário a substituição de determinadas peças na ferramenta. Algumas possuem tempo estipulado pelo fabricante para troca, como parafusos de aperto, rolamentos, anéis, dentre outros.<br>Diante disso, deve- se fazer acompanhamento do manual para atentar-se a estas informações, e sempre que for realizar a manutenção, recorrer a lojas autorizadas para efetuar o serviço.</p>
-<figure><img src="/blog/como-manter-o-bom-estado-das-ferramentas-eletricas-2.jpg" alt="" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/84ecb312-821f-4f3d-afa6-b583ef6b3b57/large.webp" alt="Leia mais sobre o artigo Tipos de Parafusadeiras: O guia completo de compras!" loading="lazy" /></figure>
 <h4>Revisão</h4>
 <p>Por mais que não se utilize a ferramenta com tanta frequência, ao menos uma vez no ano recomenda-se a realização da manutenção para verificar a formação de ferrugem, ressecamentos e rachaduras de cabos e carcaças, lubrificação de peças móveis, dentre outros.<br>Deve-se buscar sempre informações nos manuais com relação aos cuidados exigidos pela mesma, visto que podem existir algumas particularidades. Realizar pequenos cuidados diários fará toda a diferença para o bom estado da sua ferramenta elétrica, garantindo também maior qualidade no trabalho desenvolvido, e a segurança do <a href="https://www.instagram.com/comercialjrltda/">operador</a>.</p>`,
     category: "ferramentas",
@@ -757,8 +726,8 @@ Grande parte dos modelos fabricados são a bateria, e por isso oferecem maior li
     slug: "ferramentas-eletricas-como-escolher",
     title: "Ferramentas Elétricas, como Escolher a Sua?",
     excerpt: "Escolher a ferramenta ideal nem sempre é uma tarefa fácil. Existem vários detalhes que devem ser observados.",
-    image: "/blog/ferramentas-eletricas-como-escolher-featured.jpg",
-    content: `<figure><img src="/blog/ferramentas-eletricas-como-escolher-1.jpg" alt="Ferramentas Elétricas, como Escolher a Sua?" loading="lazy" /></figure>
+    image: "/media/2026/03/d0f44a0d-31ad-430a-afa7-d28690b9689a/large.webp",
+    content: `<figure><img src="/media/2026/03/aa320722-6fe4-4362-b214-dec90d069ac7/large.webp" alt="Ferramentas Elétricas, como Escolher a Sua?" loading="lazy" /></figure>
 <p>Escolher a ferramenta ideal nem sempre é uma tarefa fácil. Existem vários detalhes que devem ser observados, pois cada atividade possuí exigências específicas, e a sua ferramenta deverá atender a elas para lhe oferecer um resultado satisfatório.</p>
 <p>Existem no mercado diversos modelos de <a href="/as-7-ferramentas-ideais-para-seu-jardim/">ferramentas elétricas</a>, e eles podem variar em diversos quesitos de um para o outro. Se pegarmos uma <a href="/tipos-de-parafusadeiras-o-guia-completo-de-compras/">parafusadeira</a> por exemplo, temos deste modelos mais simples para pequenas manutenções, até modelos mais potentes para uso profissional, como no caso das marcenarias. Por isso, muitas vezes o momento da escolha gera dúvidas e incertezas.</p>
 <p>Pensando nisso, hoje vamos dar algumas dicas para te ajudar nesta tarefa, e inclusive falar sobre algumas perguntas que são chaves para escolher o produto que melhor te atenderá. Confira!</p>
@@ -792,11 +761,9 @@ Esperamos que as nossas dicas tenham ajudado a descobrir qual a ferramenta ideal
     title: "O que são Ferramentas Pneumáticas",
     excerpt: "Guia completo sobre o que são ferramentas pneumáticas?. Dicas práticas e informações técnicas.",
     image: "",
-    content: `<figure><img src="/blog/o-que-sao-ferramentas-pneumaticas-1.jpg" alt="ferramentas pneumaticas" loading="lazy" /></figure>
-<p>Primeiramente, diferentemente das <a href="/as-10-ferramentas-para-se-ter-em-casa/">ferramentas</a> elétricas e a bateria que encontramos em nosso dia a dia, as ferramentas pneumáticas são movidas pela pressão do ar, e necessitam de um compressor de ar para o seu funcionamento. Assim, por meio dele, coleta-se de forma mecânica o ar advindo da natureza aumentando a sua pressão. Este processo acaba por transformar o ar em energia, e esta será enviada para <a href="/manutencao-de-maquinas-e-equipamentos/">máquina</a>, fazendo com que o funcionamento da mesma aconteça, sendo esta denominada energia pneumática.</p>
+    content: `<p>Primeiramente, diferentemente das <a href="/as-10-ferramentas-para-se-ter-em-casa/">ferramentas</a> elétricas e a bateria que encontramos em nosso dia a dia, as ferramentas pneumáticas são movidas pela pressão do ar, e necessitam de um compressor de ar para o seu funcionamento. Assim, por meio dele, coleta-se de forma mecânica o ar advindo da natureza aumentando a sua pressão. Este processo acaba por transformar o ar em energia, e esta será enviada para <a href="/manutencao-de-maquinas-e-equipamentos/">máquina</a>, fazendo com que o funcionamento da mesma aconteça, sendo esta denominada energia pneumática.</p>
 <h2>Funcionamento do Sistema Pneumático</h2>
 <p>O ar atmosférico que compõem a atmosfera terrestre, é composto por uma mistura de gases. Quando falamos de um sistema pneumático, este ar no qual nos referimos acima, por meio da compressão, proporcionará a movimentação dos cilindros e motores do maquinário, sendo estes por sua vez, controlados por válvulas que devem fornecer vazão e pressão constante para que o funcionamento aconteça. Assim, existem dois tipos de compressores: os de deslocamento positivo, e os de deslocamento dinâmicos. No primeiro caso, possuem câmaras fechadas, sendo nelas armazenadas grandes quantidades de ar. Podem ser de parafuso ou de pistão. Já no segundo caso, o ar é impulsionado por meio de uma rotatória, com isso ocorre a aceleração do ar, que é empurrado devido a uma pressão gerada pelo movimento. Eles podem ser centrífugos, ou axiais.</p>
-<figure><img src="/blog/o-que-sao-ferramentas-pneumaticas-2.jpg" alt="ferramentas pneumaticas" loading="lazy" /></figure>
 <h3>Utilização das Ferramentas Pneumáticas</h3>
 <p>As utilizações vão principalmente desde atividades domésticas, envolvendo reparos em residências, até indústrias, oficinas, marcenarias, serralherias, funilarias, metalúrgicas, proporcionando mais agilidade e facilidade nos processos de produção.</p>
 <h3>Vantagens</h3>
@@ -805,10 +772,10 @@ Esperamos que as nossas dicas tenham ajudado a descobrir qual a ferramenta ideal
 <p>– São um pouco mais caras se comparadas as ferramentas elétricas;<br>-Necessitam de alimentação externa, que no caso é gerada pelo auxílio dos compressores de ar. Esta alimentação tem que ser constante, e deve se dar de maneira estável, sendo necessário deste modo um bom equipamento de ar para tal.</p>
 <h5>Lixadeira Orbital</h5>
 <p>-Lixadeira Orbital De 5 Ou 6 Polegadas, da marca Chiaperini: É voltada para profissionais que buscam a realização de trabalhos em menor tempo, e com maior precisão. Sua aplicação se dá em atividades de acabamento em linhas de montagem, marcenarias, dentre outros. Possui sistema de aspiração de pó, velocidade regulável, e gatilho de controle preciso, sendo também leve, compacta e ergonômica!</p>
-<figure><img src="/blog/o-que-sao-ferramentas-pneumaticas-3.jpg" alt="ferramentas pneumaticas" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/d6f49abc-6ce8-4d83-9749-0f7726ce47a5/large.webp" alt="ferramentas pneumaticas" loading="lazy" /></figure>
 <h6>Retífica Pneumática</h6>
 <p>– Retífica Pneumática De 1/4 Polegada, da Chiaperini: Utilizada para acabamentos em superfícies soldadas, moldes, matrizes, e alargamento de furos. Proporciona maior precisão, e menor vibração para execução de acabamentos nos seus trabalhos.</p>
-<figure><img src="/blog/o-que-sao-ferramentas-pneumaticas-4.jpg" alt="ferramentas pneumaticas" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/c923ae19-24c6-4699-bd29-b4ff61b4a32b/large.webp" alt="ferramentas pneumaticas" loading="lazy" /></figure>
 <p>Siga nosso Instagram para ficar por dentro de novos conteúdos: <a href="https://www.instagram.com/comercialjrltda/">@comercialjrltda.</a></p>`,
     category: "ferramentas",
     tags: ["pneumáticas","ferramentas"],
@@ -824,14 +791,11 @@ Esperamos que as nossas dicas tenham ajudado a descobrir qual a ferramenta ideal
     title: "Como Determinar o Ponto de Colheita do Café",
     excerpt: "Aprenda a identificar o momento ideal para colher o café e garantir a melhor qualidade dos grãos.",
     image: "",
-    content: `<figure><img src="/blog/como-determinar-o-ponto-de-colheita-do-cafe-1.jpg" alt="Como Determinar o Ponto de Colheita do Café - 2" loading="lazy" /></figure>
-<p>Os cuidados na colheita são um dos principais fatores de interferência na qualidade do <a href="/como-comecar-plantacao-de-cafe/">café</a>. Um fator determinante para que este período seja realizado com sucesso, é que o mesmo seja realizado no período correto. Continue conosco, e entenda qual o momento ideal para iniciar a sua colheita!</p>
+    content: `<p>Os cuidados na colheita são um dos principais fatores de interferência na qualidade do <a href="/como-comecar-plantacao-de-cafe/">café</a>. Um fator determinante para que este período seja realizado com sucesso, é que o mesmo seja realizado no período correto. Continue conosco, e entenda qual o momento ideal para iniciar a sua colheita!</p>
 <h2>Porque não Iniciar a Colheita antes da Maturação</h2>
 <p>Iniciar a colheita com a presença elevada de grãos verdes no cafezal, trará prejuízos para a qualidade do café, tipo, peso, no rendimento da colheita, e também financeiramente para o produto, uma vez que isso influenciará em menores preços.</p><p>Os frutos, quando verdes possuem menor quantidade de massa que quando maduros. O período de espera para que a secagem aconteça, e o processamento, devido a fermentação e respiração dos frutos também farão com que a massa do grão venham a sofrer diminuição.</p><p>Todas as influências negativas que citamos acima, poderão ocasionar um prejuízo superior a 20%, sem contar nos damos causados ao sabor da bebida.</p>
-<figure><img src="/blog/como-determinar-o-ponto-de-colheita-do-cafe-2.jpg" alt="Como Determinar o Ponto de Colheita do Café - 2" loading="lazy" /></figure>
 <h3>Quando Iniciar a Colheita</h3>
 <p>Para determinar o ponto de colheita, é necessário dar uma volta por uma porção do terreno, e analisar qual é a planta que melhor representa a média do talhão. Plantas totalmente maduras, ou totalmente verdes não devem ser escolhidas por não representarem a média.</p><p>O ponto ideal de colheita é quando a maioria dos frutos estão cereja. Esta etapa acontece em média, 7 meses após a floração, mas pode variar de acordo com as condições climáticas.</p><p>Neste período o grão já alcançou seu desenvolvimento máximo, apresentando os elementos químicos adequados e teor de açúcar, que garantem a bebida os melhores padrões em níveis de aroma e sabor.</p><p>Recomenda-se que o início da colheita aconteça quando houver a menor quantidade possível de grãos verdes, nunca sendo acima de 25%.</p><p>A maturação do café é marcada pelo mudança que ocorre na cor da casca. Isso acontece devido ao aumento das atividades respiratórias, produção de etileno, e em seguida, a degradação da clorofila e síntese de pigmentos, como carotenoides e antocianinas responsáveis pela coloração vermelha e amarela.</p>
-<figure><img src="/blog/como-determinar-o-ponto-de-colheita-do-cafe-3.jpg" alt="Como Determinar o Ponto de Colheita do Café - 2" loading="lazy" /></figure>
 <h4>Evite a  Pós-Maturação</h4>
 <p>Assim como a colheita iniciada antes de período correto, a colheita na pós maturação também traz consequências.</p><p>Após os grãos passarem pela maturação, eles caminharão para a pós- maturação tornando-se passas ou secos, o que pode influenciar negativamente a fermentação dos frutos, podendo também fazer com que os grãos se tornem pretos ou ardidos. Também torna o ambiente propício a proliferação da broca do café, que causa a queda do fruto, diminuição do peso, e perda da qualidade do café. Lembrando que este inseto se alimenta dos grãos, podendo destruir parcialmente, ou totalmente o fruto.</p>`,
     category: "irrigacao",
@@ -847,8 +811,8 @@ Esperamos que as nossas dicas tenham ajudado a descobrir qual a ferramenta ideal
     slug: "tirar-ferrugem-das-suas-ferramentas",
     title: "5 Dicas para Tirar Ferrugem das suas Ferramentas",
     excerpt: "Com o passar do tempo as ferramentas podem sofrer oxidação. Veja 5 dicas para deixá-las com aspecto de novas!",
-    image: "/blog/tirar-ferrugem-das-suas-ferramentas-featured.jpg",
-    content: `<figure><img src="/blog/tirar-ferrugem-das-suas-ferramentas-1.jpg" alt="5 Dicas para Tirar Ferrugem das suas Ferramentas" loading="lazy" /></figure>
+    image: "/media/2026/03/9b7954fb-04e7-48d4-82c7-577e105f90e5/large.webp",
+    content: `<figure><img src="/media/2026/03/a527206b-1739-4e6f-bb31-b0e4e14921ab/large.webp" alt="5 Dicas para Tirar Ferrugem das suas Ferramentas" loading="lazy" /></figure>
 <p>Com o passar tempo as <a href="/6-dicas-organizar-suas-ferramentas/">ferramentas</a> podem sofrer oxidação, o que popularmente é conhecido como ferrugem. Nos alicates, <a href="/chave-de-boca/">chaves</a> de fenda por exemplo, não é raro vermos este fenômeno acontecer. No entanto, hoje daremos 5 dicas para te ajudar a deixar as suas ferramentas enferrujadas com aspecto de novas! Ficou curioso! Sem perder mais tempo, bora lá conferir!</p>
 <h2>Solução de Sal e Limão</h2>
 <p>Você sabia que as substâncias ácidas são ótimos agentes para dar fim aos pontos de ferrugem? Deste modo, a nossa primeira dica será utilizar limão. Você deverá cortá-lo ao meio, e em seguida esfrega-lo sobre a área afetada. Após alguns minutos se passarem, lave a sua ferramenta em água corrente, e seque-a.</p>
@@ -875,12 +839,12 @@ Esperamos que as nossas dicas tenham ajudado a descobrir qual a ferramenta ideal
     slug: "as-10-ferramentas-para-se-ter-em-casa",
     title: "As 10 Ferramentas para se ter em casa!",
     excerpt: "Guia completo sobre as 10 ferramentas para se ter em casa. Dicas práticas e informações técnicas.",
-    image: "/blog/as-10-ferramentas-para-se-ter-em-casa-featured.jpg",
-    content: `<figure><img src="/blog/as-10-ferramentas-para-se-ter-em-casa-1.jpg" alt="10 ferramentas para se ter em casa" loading="lazy" /></figure>
+    image: "/media/2026/03/e3b71829-ec10-40d3-a4e9-076b50539aa2/large.webp",
+    content: `<figure><img src="/media/2026/03/c7630dcd-4c11-4f05-8813-d60ff7e8f0ab/large.webp" alt="10 ferramentas para se ter em casa" loading="lazy" /></figure>
 <p>Algumas ferramentas são essenciais para a realização de alguns concertos e reparos em casa.</p><p>Muitas vezes trata-se de uma simples manutenção, mas podem acontecer também algumas emergências domésticas, como por exemplo a queima do chuveiro, ou instalação de algum móvel dentro de casa.</p><p>Para que você consiga resolver questões como as citadas acima, listaremos abaixo 10 ferramentas que contribuirão para tal, e não devem faltar dentro da sua casa!</p>
 <h2>Martelo</h2>
 <p>Normalmente é o primeiro item que faz parte do kit de <a href="/ferramentas-manuais-para-marcenaria/">ferramentas</a>. Além de possibilitar a fixação de pregos, como por exemplo na realização de reparos em móveis e pendurar quadros. Muitos modelos possuem uma garra na aparte oposta à cabeça, e devido a isso, também poderá ser utilizado para despregar pregos.</p>
-<figure><img src="/blog/as-10-ferramentas-para-se-ter-em-casa-2.jpg" alt="10 ferramentas para se ter em casa" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/472690ff-d389-4f1c-a1b2-cc2bbe7c19d1/large.webp" alt="10 ferramentas para se ter em casa" loading="lazy" /></figure>
 <h3>Chave de Fenda</h3>
 <p>Essencial para apertar e afrouxar parafuso, como por exemplo em portas, maçanetas, montagem de móveis, e fixação de uma grande variedade de utensílios. As chaves de fenda são comercializadas em diversos tamanhos, formas e estilos para atender as mais diversas necessidades.</p>
 <h4>Chave Phillips</h4>
@@ -889,7 +853,7 @@ Esperamos que as nossas dicas tenham ajudado a descobrir qual a ferramenta ideal
 <p>Muito conhecida, a trena é um instrumento de medição utilizado para medir alturas e distâncias, e é essencial para acertar na medida na realização de reparos e concertos. Elas devem apresentar medições claras, e suas fita devem ser resistente. A sua qualidade deve ser um fator de atenção no momento da compra, pois do contrário as medições podem ficar incorretas.</p>
 <h6>Alicates</h6>
 <p>Podem ser utilizados para segurar, puxar, dobrar, torcer dentre muitas outras possibilidades. Por meio dele, você consegue por exemplo afrouxar porcas, remover e prender os encanamentos. Uma dica que contribui para o aumento da sua durabilidade é realizar a lubrificação da articulação da ferramenta.</p>
-<figure><img src="/blog/as-10-ferramentas-para-se-ter-em-casa-3.jpg" alt="Tipos de alicates" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/e9480941-2400-435e-927c-7e6122ebace3/large.webp" alt="Tipos de alicates" loading="lazy" /></figure>
 <h6>Fita Adesiva</h6>
 <p>É formada basicamente por duas partes: uma superfície base e o adesivo. Essa base pode ser composta por polipropileno, papel, polietileno, entre outros. São muito úteis para a realização de reparos rápidos, podendo lhe poupar dinheiro em muitos casos.</p>
 <h6>Serras</h6>
@@ -914,8 +878,8 @@ Esperamos que as nossas dicas tenham ajudado a descobrir qual a ferramenta ideal
     slug: "chave-de-boca",
     title: "O que é uma Chave de Boca - Entenda Aqui!",
     excerpt: "Conheça os diferentes tipos de chaves de boca e aprenda quando utilizar cada uma.",
-    image: "/blog/chave-de-boca-featured.jpg",
-    content: `<figure><img src="/blog/chave-de-boca-1.jpg" alt="chaves de boca" loading="lazy" /></figure>
+    image: "/media/2026/03/29ff6ac2-fadd-4098-a0d8-aa513d3eea15/large.webp",
+    content: `<figure><img src="/media/2026/03/36c5d1e8-9a6f-4243-b544-238111b5565d/large.webp" alt="chaves de boca" loading="lazy" /></figure>
 <p>Apertar e desapertar porcas e parafusos é uma atividade muito comum, principalmente em manutenção mecânica.<br>Você já se perguntou como tanto para as porcas, quanto para os parafusos existem chaves que correspondem exatamente as suas dimensões? Isso acontece porque suas fabricações seguem normas mundiais de padronização! Interessante, né? <br>Hoje iremos entender um pouco melhor a respeito de uma das chaves mais utilizadas no mercado: as chaves de boca! Confira!</p>
 <h2>Chaves de boca?</h2>
 <p>As chaves de boca dominaram o mercado durante anos, sendo consideradas uma peça única, até que outros modelos surgiram, como a estria, e parafusos do tipo Chave Allen. São destinadas a parafusos sextavados, ou de seis lados. <br>Elas podem ser fabricadas com materiais desde aço carbono, sendo estas as mais simples, até cromo vanádio, consistindo em uma liga especial de aço que confere a ferramenta maior resistência a corrosão, tolerância a carga, dureza, dureza, dentre outras vantagens.<br>Apesar de sua vasta, e bem vista presença no mercado, e na rotina de muitos profissionais, a chegada da chave estria proporcionou maior empunhadura, e como consequência disso, mais facilidade, tanto para afrouxar, quanto para retirar parafusos em locais de difícil acesso.</p>
@@ -938,8 +902,8 @@ Esperamos que as nossas dicas tenham ajudado a descobrir qual a ferramenta ideal
     slug: "6-dicas-organizar-suas-ferramentas",
     title: "6 Dicas Simples para Organizar suas Ferramentas",
     excerpt: "Para te ajudar a manter o seu jogo de ferramentas completo, hoje vamos te dar dicas de como organizá-las.",
-    image: "/blog/6-dicas-organizar-suas-ferramentas-featured.jpg",
-    content: `<figure><img src="/blog/6-dicas-organizar-suas-ferramentas-1.jpg" alt="6 dicas simples para organizar suas ferramentas" loading="lazy" /></figure>
+    image: "/media/2026/03/b3fdedfb-8d17-4e80-b7f7-d77d6df4e9f0/large.webp",
+    content: `<figure><img src="/media/2026/03/7e477433-e93c-40ee-98a0-ebde1e2c46bd/large.webp" alt="6 dicas simples para organizar suas ferramentas" loading="lazy" /></figure>
 <p>Muitas vezes, temos a sensação de que quanto mais compramos <a href="/ferramentas/">ferramentas</a>, mais as perdemos nas atividades do dia a dia, não é mesmo? Esquecemos uma aqui, deixamos outra ali, e lá se vai o nosso kit se perdendo aos poucos. Para te ajudar a manter o seu jogo de ferramentas completo, hoje vamos te dar algumas <a href="/escolher-e-comprar-betoneira/">dicas</a> de como você pode organizá-las para tê-las sempre a sua disposição, e por muito mais tempo! Continue com a gente, e saiba mais!</p>
 <h2>Por que organizar o seu jogo de ferramentas?</h2>
 <p>Primeiramente vamos te mostrar quais os benefícios de manter o seu jogo de ferramentas organizado:</p>
@@ -947,7 +911,7 @@ Esperamos que as nossas dicas tenham ajudado a descobrir qual a ferramenta ideal
 <p><strong>2º</strong>– Haverá menor possibilidade de oxidação, aumentando desta forma a durabilidade;</p>
 <p><strong>3º</strong>– Você conseguirá transportá-las com maior facilidade;</p>
 <p><strong>4º</strong>– Mais profissionalismo para o seu trabalho.</p>
-<figure><img src="/blog/6-dicas-organizar-suas-ferramentas-2.jpg" alt="6 dicas simples para organizar suas ferramentas" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/a94f65cd-555d-4f72-926a-06116e7fb969/large.webp" alt="6 dicas simples para organizar suas ferramentas" loading="lazy" /></figure>
 <h6>Vamos as Dicas?</h6>
 <h3>Organize por categorias</h3>
 <p>Reúna as ferramentas que se complementam e coloque-as em um local arejado, e espaçoso. Elas poderão ser organizadas por tamanho, ou ainda por função. Elas podem ser reunidas também em categorias: <a href="/ferramentas-manuais-para-marcenaria/">manuais</a>, <a href="/como-manter-o-bom-estado-das-ferramentas-eletricas/">elétricas</a>, dentre outras. Com isso, será muito mais fácil encontrar uma ferramenta quando precisar utilizá-la.</p>
@@ -980,21 +944,21 @@ No mercado você pode encontra-las nos mais diversos modelos: maletas, mochilas,
     slug: "plainas-tipos-e-funcoes",
     title: "Plainas: Conheça seus Tipos e Funções!",
     excerpt: "Guia completo sobre plainas: tipos e funções. Dicas práticas e informações técnicas.",
-    image: "/blog/plainas-tipos-e-funcoes-featured.jpg",
-    content: `<figure><img src="/blog/plainas-tipos-e-funcoes-1.jpg" alt="plainas conheça seus tipos e funções" loading="lazy" /></figure>
+    image: "/media/2026/03/67979845-5df7-4d2e-9f37-588ffd7b5a17/large.webp",
+    content: `<figure><img src="/media/2026/03/f6744e20-84ce-4d3a-ae51-5e2f1a578764/large.webp" alt="plainas conheça seus tipos e funções" loading="lazy" /></figure>
 <p>As plainas, independentemente do seu modelo, estão diretamente ligadas a execução de trabalhos em madeira para desbastar, acabar com irregularidades e aplainar. A isso deve-se a sua grande utilização em <a href="/ferramentas-manuais-para-marcenaria/">marcenarias</a> e carpintarias.<br>No mercado encontramos algumas variedades desta ferramenta, e neste artigo falaremos um pouco sobre elas! Confira a seguir!</p>
 <h2>Um Pouco Sobre a Constituição das Plainas</h2>
 <p>As plainas podem ser feitas de madeira ou de metal. Possuem uma base plana que fornece sustentação para uma ou mais lâminas de aço ajustáveis, ficando estas marginalmente expostas se comparadas a base. Deste modo o trabalho pode ser executado na madeira para a realização de cortes.</p>
 <h3>Tipos de Plainas</h3>
-<figure><img src="/blog/plainas-tipos-e-funcoes-2.jpg" alt="" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/51378a58-3f61-4cbc-8c83-0d7fb31e444b/large.webp" alt="plainas conheça seus tipos e funções" loading="lazy" /></figure>
 <h4>Plainas Portáteis</h4>
 <p>Permitem o controle da velocidade de corte e recorte. São de menor dimensão, o que facilita o transporte até mesmo em uma caixa de ferramentas. Para serem utilizadas, é necessário aplicar um pouco mais de força uma vez que não são movidas a eletricidade. Para realizar a troca ou o ajuste da lâmina, basta apertar um botão.</p>
-<figure><img src="/blog/plainas-tipos-e-funcoes-3.jpg" alt="Plainas Conheça seus Tipos e Funcoes" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/cc8da917-041a-4bd6-b775-97002973b26f/large.webp" alt="Plainas Conheça seus Tipos e Funcoes" loading="lazy" /></figure>
 <h5>Plainas de Aparamento</h5>
 <p>Apresentam-se um pouco maiores que as portáteis, sendo utilizadas para aplainar pedaços constituídos por madeira, e que possuam menor dimensão. Também possibilitam o alisamento e o achatamento.</p>
 <h6>Plainas Elétricas</h6>
 <p>São mais precisas, oferecem maior nitidez na execução de cortes e rapidez ao usuário. Geralmente, por serem mais potentes, são mais utilizadas em indústrias, e por profissionais para a execução de serviços mais pesados.</p>
-<figure><img src="/blog/plainas-tipos-e-funcoes-4.jpg" alt="Plainas Conheça seus Tipos e Funcoes" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/a0b97339-9355-4c91-88d0-fbbe27777c67/large.webp" alt="Plainas Conheça seus Tipos e Funcoes" loading="lazy" /></figure>
 <p>Encontramos também no mercado as Plainas de Bancada, onde a peça trabalhada fica fixada em uma mesa com o auxílio de grampos ou sargentos, tornando o trabalho mais fácil. Existem também as Plainas de Superfície, caracterizadas como ferramentas que são mais utilizadas em meios industriais para a realização de trabalhos em grandes áreas, onde somente com o auxílio das lixadeiras de cinta não é possível alcançar o resultado desejado.</p>
 <p><strong>Potência:</strong> Está diretamente ligada a resistência da Plaina, e na qualidade do trabalho desenvolvido. Maior potência oferece melhor aplainamento;<br><strong>Velocidade de Rotação:</strong> Quanto maior se apresentar as rotações por minutos das lâminas, mais limpo será o corte;<br><strong>Profundidade de Aplainamento:</strong> o calço dianteiro presente na plaina permite a regulagem, que fica entre 1mm e 4mm;<br><strong>Lâminas:</strong> um número maior de lâminas, faz com que estas girem mais rápido, dando mais golpes na madeira, o que torna o corte mais refinado e suave.</p>
 <p>Sabemos que as características técnicas são extremamente importantes, porém deve-se observar também o design. Ela deve oferecer conforto e ser de fácil utilização para o usuário. As Plainas elétricas podem se apresentar um pouco mais pesadas que as tradicionais, porém, existem modelos que são um pouco mais leves, e que podem ser encontrados no mercado. Dê preferência também a empunhaduras emborrachadas, que tornam melhor a utilização da ferramenta.</p><p>Siga nossas redes sociais:</p>`,
@@ -1011,8 +975,8 @@ No mercado você pode encontra-las nos mais diversos modelos: maletas, mochilas,
     slug: "o-que-e-silagem",
     title: "O que é Silagem? Informações aqui!",
     excerpt: "Entenda o processo de silagem, seus benefícios e como implementá-lo na sua propriedade rural.",
-    image: "/blog/o-que-e-silagem-featured.jpg",
-    content: `<figure><img src="/blog/o-que-e-silagem-1.jpg" alt="o que e silagem" loading="lazy" /></figure>
+    image: "/media/2026/03/f0470ae3-cd3d-40d2-bd95-6bdd8c4406f4/large.webp",
+    content: `<figure><img src="/media/2026/03/d403fb46-e3ca-460d-8d9b-0eb82f7d3869/large.webp" alt="o que e silagem" loading="lazy" /></figure>
 <p>Silagem – Compreenda esta prática tão importante para a pecuária.<br>Deixar o gado bem alimentando é um fator de extrema importância para o produtor tanto para a pecuária leiteira, quanto para a pecuária de corte.<br>Sabemos que nem sempre as pastagens oferecem as condições ideais para proporcionar ao gado a nutrição adequada. Se essa tem sido uma realidade vivida por você, ou é um ponto que lhe desperta curiosidade, segue com a gente, e confira!</p>
 <h2>No que Consiste?</h2>
 <p>O primeiro ponto que precisamos compreender é: <br>No que consiste a silagem? Trata-se de uma prática de armazenamento da forragem. Por meio dela, a perda nutricional da torna-se bem pequena, e com isso o alimento pode ser armazenado por um maior período de tempo. Isso acorre devido a uma fermentação controlada que acontece durante o processo.</p>
@@ -1041,8 +1005,8 @@ No mercado você pode encontra-las nos mais diversos modelos: maletas, mochilas,
     slug: "plainas-desengrossadeiras-e-desempenadeiras",
     title: "Plainas Desengrossadeiras e Desempenadeiras, Conheça as Diferenças!",
     excerpt: "Apesar de seus nomes serem semelhantes, não se trata da mesma ferramenta. Vamos conhecer as diferenças!",
-    image: "/blog/plainas-desengrossadeiras-e-desempenadeiras-featured.jpg",
-    content: `<figure><img src="/blog/plainas-desengrossadeiras-e-desempenadeiras-1.jpg" alt="Plainas Desengrossadeiras e Desempenadeiras, conheça as diferenças" loading="lazy" /></figure>
+    image: "/media/2026/03/2eb41a4a-5592-44ff-807e-12b9eb010a88/large.webp",
+    content: `<figure><img src="/media/2026/03/19905b47-5ec0-47a4-86cd-f17ce60882d3/large.webp" alt="Plainas Desengrossadeiras e Desempenadeiras, conheça as diferenças" loading="lazy" /></figure>
 <p>Apesar de seus nomes serem semelhantes, não se trata da mesma <a href="/as-7-ferramentas-ideais-para-seu-jardim/">ferramenta</a>, e não possuem a mesma função, mas podemos dizer que elas se complementam. Vamos conhecer quais as <a href="/diferenca-entre-serra-marmore-e-serra-circular/">diferenças</a> entre estas duas ferramentas? Segue com a gente!</p>
 <h2>Tipos de Plainas</h2>
 <p>As <a href="/plainas-tipos-e-funcoes/">plainas</a> podem ser <a href="/maquinas-eletricas/">elétricas</a> ou <a href="/ferramentas-manuais-para-marcenaria/">manuais</a>, e foram desenvolvidas exclusivamente para desbastes em madeira, e devido a isso são amplamente utilizadas em marcenarias e carpintarias. Por meio dela pode-se reduzir as dimensões do material, até alcançar a profundidade desejada.<br>
@@ -1071,20 +1035,20 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "conheca-as-8-ferramentas-de-medicoes-mais-utilizadas",
     title: "Conheça as 8 Ferramentas de Medição mais Utilizadas",
     excerpt: "Guia completo sobre conheça as 8 ferramentas de medições mais utilizadas. Dicas práticas e informações técnicas.",
-    image: "/blog/conheca-as-8-ferramentas-de-medicoes-mais-utilizadas-featured.jpg",
-    content: `<figure><img src="/blog/conheca-as-8-ferramentas-de-medicoes-mais-utilizadas-1.jpg" alt="Conheça as 8 Ferramentas de Medições mais Utilizadas" loading="lazy" /></figure>
+    image: "/media/2026/03/4140c0a9-b284-4879-9280-2152ae3ced18/large.webp",
+    content: `<figure><img src="/media/2026/03/a8a58fba-aa26-4713-93b4-56b2fd1b3b02/large.webp" alt="Conheça as 8 Ferramentas de Medições mais Utilizadas" loading="lazy" /></figure>
 <p>As ferramentas de medição são extremamente importantes para que um trabalho seja executado em conformidade, com maior precisão. Hoje vamos conhecer 8 das ferramentas mais utilizadas no mercado para alcançar estes resultados! Continue com a gente, e confira!</p>
 <h2>Esquadro</h2>
 <p>Sabemos que um bom projeto deve ter superfícies alinhadas tanto visualmente, quando estruturalmente, e o esquadro faz parte desta história. Ele utilizado para descobrir se o encontro entre paredes por exemplo formam um ângulo de 90°, ou seja, se estas estão alinhadas, e isso se aplica a diversas superfícies em diferentes situações, como também na colocação de porcelanatos e instalação de janelas.</p>
 <h3>Trena a Laser</h3>
 <p>A <a href="/tipos-de-trena-laser-e-dicas-de-uso/">trena</a> nos permite obter com precisão as medidas de diversos espaços e superfícies. Os modelos a laser são ainda mais práticos e menos propensos a erros, contribuindo não somente para descobrir as dimensões de grandes áreas, como também o volume. Outra vantagem desta ferramenta é que, mesmo as dimensões de um local não estando ao alcance, pode-se descobrir a sua medida.</p>
-<figure><img src="/blog/conheca-as-8-ferramentas-de-medicoes-mais-utilizadas-2.jpg" alt="tipos de trena laser e dicas de uso" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/9a77c54b-0e5d-46aa-bc35-124baf9f3feb/large.webp" alt="tipos de trena laser e dicas de uso" loading="lazy" /></figure>
 <h4>Taqueômetro</h4>
 <p>Utilizado para a realização de medidas de ângulos verticais, horizontais e distâncias lineares. Sua aplicação se dá também na realização da planta topográfica, contribuído para que os executores do projeto situem de forma correta tanto a obra, quanto todos os elementos incluídos na construção, e que irão fazer parte da sua composição. Para tal, esta ferramenta deverá ficar posicionada em um local livre de obstáculos, sendo feita a mira por meio de um feixe de laser que ao refletir no prisma, retornará as informações captadas, realizando cálculos.</p>
-<figure><img src="/blog/conheca-as-8-ferramentas-de-medicoes-mais-utilizadas-3.jpg" alt="Conheça as 8 Ferramentas de Medições mais Utilizadas" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/003da95a-1579-4f8c-bbf9-faf110afed6e/large.webp" alt="Conheça as 8 Ferramentas de Medições mais Utilizadas" loading="lazy" /></figure>
 <h5>Paquímetro</h5>
 <p>Possibilita ao usuário encontrar as medidas internas, externas, de profundidade e de ressalto. Com isso pode ser utilizado para a medição de canos, furos, porcas, parafusos, dentre outros. Sua aplicação se dá com maior constância por mecânicos, e hidráulicos. Encontramos também no mercado modelos de paquímetros digitais, dotados de um visor que é responsável por fornecer as medidas.</p>
-<figure><img src="/blog/conheca-as-8-ferramentas-de-medicoes-mais-utilizadas-4.jpg" alt="Conheça as 8 Ferramentas de Medições mais Utilizadas" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/8ce75819-aab2-4d95-9378-96ecce92d632/large.webp" alt="Conheça as 8 Ferramentas de Medições mais Utilizadas" loading="lazy" /></figure>
 <h6>Suta e Transferidor</h6>
 <p>Estas duas ferramentas de medição são utilizadas em conjunto para que o usuário verifique e realize a marcação de ângulos, como também de medições. A suta é composta por uma base, e uma lâmina articulada, que devido ao seu movimento rotatório pode ser ajustada em ângulos diferentes.<br>O transferidor por sua vez, é uma régua cujo formato é circular, indicando de forma precisa tanto em centímetros, quanto em milímetros o ângulo de superfícies e de arestas.</p>
 <p>Por meio dele é possível verificar se uma superfície encontra-se totalmente reta ou nivelada, a fim de evitar possíveis ondulações. Ele pode ser de metal ou de plástico, manual ou a laser, e ainda ser encontrado em diversos tamanho.</p>
@@ -1104,18 +1068,17 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     title: "Conheça os Diferentes Tipos de Bombas D’água",
     excerpt: "Saiba quais são os principais tipos de bombas d'água e como escolher a ideal.",
     image: "",
-    content: `<figure><img src="/blog/conheca-os-diferentes-tipos-de-bombas-dagua-1.jpg" alt="Conheça os diferentes tipos de bombas d’água" loading="lazy" /></figure>
+    content: `<figure><img src="/media/2026/03/5139db4f-5abc-4fd9-b1fd-e4d912af3b08/large.webp" alt="Conheça os diferentes tipos de bombas d’água" loading="lazy" /></figure>
 <p>As bombas d’água são utilizadas para auxiliar na transferência de um determinado volume de água de um local para o outro. São interligadas a canos, sendo estes os responsáveis pela passagem da água.</p><p>No mercado, encontramos diversos modelos, o que permite atender diferentes necessidades e especificações. Porém, isso pode gerar uma certa dúvida sobre qual o modelo ideal pra você. Buscando facilitar esta escolha, hoje iremos falar sobre algumas características específicas das bombas submersas, centrífugas, autoaspirantes, periféricas e injetoras!</p>
 <h2>Submersas</h2>
 <p>Podem ser submersíveis, ou submersas:</p><p>– <b>Submersíveis</b>: Ficam na água por um período determinado, (sendo este pré-estabelecido pelo fabricante) e são retiradas após o uso, secadas e guardadas. É indicada para bombear água que contenha partículas sólidas, e outros dejetos, sendo também utilizada em situações de inundações.</p><p>– <b>Submersas</b>: Foram fabricadas para permanecer dentro d’água. São utilizadas para bombear água em estruturas subterrâneas, poços artesianos e tubulares. É destinada ao bombeamento de água limpa, abastecendo caixas de água, cisternas, dentre outros reservatórios. Os modelos de bombas submersas podem variar de acordo com a sua potência, e vazão. Alguns modelos estão propícios a profundidas de até 20 metros, conseguindo alcançar uma vazão de até 2.300 litros por hora. Seus modelos podem ser monofásicos, ou trifásicos.<br>Para que seja possível controlar o volume de água dentro do reservatório, aconselha-se a utilização de uma boia de nível.</p>
-<figure><img src="/blog/conheca-os-diferentes-tipos-de-bombas-dagua-2.jpg" alt="bomba submersa - Conheça os diferentes tipos de bombas d’água" loading="lazy" /></figure>
 <h3>Autuaspirantes</h3>
 <p>Operam em cima do solo, sendo voltadas para poços e lagos de até que possuam até 7 metros de profundidade. Conseguem transportar águas que possuam pequenas partículas sólidas. Não requer a instalação da válvula de retenção, responsável por reter a água e não permitir que a mesma retorne para o poço, uma vez que esta peça já vem acoplada ao produto. Além de transferir grandes volumes de água, este modelo oferece ótima pressão!</p><p>É fabricada com um compartimento que fica cheio de água, e consegue impedir que o ar existente dentre dos tubos dificulte a sucção.</p>
 <h4>Periférica</h4>
 <p>Como as autoaspirantes, esta também atua acima do solo, em locais de até 7 metros de profundidade. Porém necessita da instalação da válvula de retenção para que a água não retorne. Apresenta melhor desempenho com volumes menores de água e possui alta pressão.</p><p>É utilizada para transporta o líquido limpo, sem partículas ou dejetos. O investimento para adquiri-la é menor.</p>
 <h5>Centrífuga</h5>
 <p>Pode ser utilizada em regiões secas, acima do solo, e de até 7 metros de profundida. São utilizadas para realizar a transferência de um alto volume de água para reservatórios localizados em locais mais altos, como por exemplo para recalque de condomínios. Pode ser também utilizada na<a href="/qual-melhor-tipo-de-irrigacao-para-minha-lavoura/"> irrigação</a> de propriedades agrícolas.</p>
-<figure><img src="/blog/conheca-os-diferentes-tipos-de-bombas-dagua-3.jpg" alt="bomba centrifoga Conheça os diferentes tipos de bombas d’água" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/1c305a8e-03ea-4762-b397-368f9a67b0df/large.webp" alt="bomba centrifoga Conheça os diferentes tipos de bombas d’água" loading="lazy" /></figure>
 <h6>Injetora</h6>
 <p>Atuam na superfície. São bombas de alta pressão, e apresentam sucção de até 40 metros de profundidade. Tem um dispositivo que fica acoplado a tubulação que encontra-se submersa no poço, ou no reservatório. São bombas que apresentam baixa vazão, e necessitam de mais <a href="/manutencao-de-maquinas-e-equipamentos/">manutenção</a> se comparadas as bombas submersas.</p>`,
     category: "irrigacao",
@@ -1131,8 +1094,8 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "trocar-escovas-de-carvao",
     title: "Quando Trocar as Escovas de Carvão da sua Ferramenta?",
     excerpt: "As escovas de carvão são responsáveis por conduzir a energia elétrica até o motor. Saiba quando trocá-las.",
-    image: "/blog/trocar-escovas-de-carvao-featured.jpg",
-    content: `<figure><img src="/blog/trocar-escovas-de-carvao-1.jpg" alt="Quando Trocar as Escovas de Carvão da sua Ferramenta?" loading="lazy" /></figure>
+    image: "/media/2026/03/de970cf1-ced9-4c0e-9518-0691dcfa4527/large.webp",
+    content: `<figure><img src="/media/2026/03/c87378a1-3672-4781-93ea-eafe42c33330/large.webp" alt="Quando Trocar as Escovas de Carvão da sua Ferramenta?" loading="lazy" /></figure>
 <p>As escovas de carvão estão presentes em diversas <a href="/lixadeira-orbital-dicas/">ferramentas elétricas</a>, sendo responsáveis por conduzir a energia elétrica, até que esta chegue ao motor. No entanto, sabemos que o carvão é um produto mineral, e por isso, com o passar do tempo, e de acordo com a frequência de uso ele vai sofrendo naturalmente um desgaste. Nesse sentido, a energia levada até o motor perde a potência , afetando o desempenho da ferramenta, podendo causar falhas na mesma, e diminuir a sua vida útil. Desta forma, faz-se necessário realizar a troca.</p>
 <p>Mas afinal, qual seria a frequência indicada para a&nbsp; realização da troca das escovas de carvão? É exatamente sobre isso que falaremos no artigo de hoje! Continue com a gente e confira!</p>
 <h2>Quando Substituir a Escova de Carvão?</h2>
@@ -1159,9 +1122,8 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "nunca-cubra-sua-lavoura-durante-o-inverno",
     title: "Cobertura do solo Durante o Inverno – Entenda aqui!",
     excerpt: "Guia completo sobre nunca cubra sua lavoura durante o inverno. Dicas práticas e informações técnicas.",
-    image: "/blog/nunca-cubra-sua-lavoura-durante-o-inverno-featured.jpg",
-    content: `<figure><img src="/blog/nunca-cubra-sua-lavoura-durante-o-inverno-1.jpg" alt="Cobertura do solo durante o inverno" loading="lazy" /></figure>
-<p>Cobertura do solo Durante o Inverno – Entenda aqui!</p>
+    image: "/media/2026/03/13243f6e-9926-42d9-a57d-2d1ac2a61d72/large.webp",
+    content: `<p>Cobertura do solo Durante o Inverno – Entenda aqui!</p>
 <h2>Em que devo me atentar</h2>
 <p>Nas regiões cafeeiras mais meridionais do país, no Paraná, São Paulo e Minas Gerais (Sul e Triângulo), áreas sujeitas a geadas, regra essencial que deve ser rigorosamente seguida pelos produtores é manter o solo limpo nos período frio, de maio a setembro, para reduzir o risco de queimar os cafeeiros pelo gelo.</p>
 <p>A cobertura do solo na plantação de café é composta pela vegetação dos cafeeiros e pelas ervas que crescem nas ruas da lavoura. Os cafeeiros, é claro, devem ser mantidos. As ervas, por outro lado, devem ser eliminadas. As ervas que cobrem o chão, vivas ou mortas, formam uma tela que isola o solo da exposição ao sol. Assim, a terra é incapaz de armazenar calor suficiente durante o dia, para aquecer o ambiente dentro da lavoura durante a noite, reduzindo o frio e o risco de queimadura por geadas ocasionais.</p>
@@ -1169,9 +1131,8 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
 <p>Ultimamente, existem diretrizes para a adoção de sistemas permanentes de cobertura do solo, principalmente com braquiária. Na estação quente e chuvosa, tudo bem, embora essa cobertura não resulte em vantagens produtivas para os cafeeiros. No período seco e frio, o solo deve estar limpo para economizar água e armazenar calor.</p>
 <p>A cobertura do mato, mesmo limpa ou seca por herbicidas, funciona como um isolante do solo. Assim, a partir de abril / maio, uma operação deve ser realizada para expor o solo, utilizando <a href="/maquinas-eletricas/">equipamentos mecânicos</a>, como a trincha, ajustados para cortar um pouco mais fundo, podendo até coincidir com a operação de limpeza pré-colheita. Isso deve ser feito, principalmente, nas áreas mais baixas da terra, naquelas onde o ar frio se acumula mais. As lavouras mais jovens, em formação, também são uma prioridade, pois os pés de café são menores, e por isso mais próximos do solo, onde o ar frio é mais depositado.</p>
 <p>&nbsp;</p>
-<figure><img src="/blog/nunca-cubra-sua-lavoura-durante-o-inverno-2.jpg" alt="" loading="lazy" /></figure>
 <p>&nbsp;</p>
-<figure><img src="/blog/nunca-cubra-sua-lavoura-durante-o-inverno-3.jpg" alt="Cobertura do solo durante o inverno" loading="lazy" /></figure>`,
+<figure><img src="/media/2026/03/074ba51a-4813-42a4-a8b2-617832bd5057/large.webp" alt="Cobertura do solo durante o inverno" loading="lazy" /></figure>`,
     category: "irrigacao",
     tags: ["lavoura","inverno","café"],
     date: "2020-05-28",
@@ -1185,8 +1146,8 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "conheca-os-diferentes-tipos-de-discos-de-corte",
     title: "Conheça os Diferentes Tipos de Discos de Corte",
     excerpt: "Entenda as diferenças entre os tipos de discos de corte e saiba qual usar para cada material.",
-    image: "/blog/conheca-os-diferentes-tipos-de-discos-de-corte-featured.jpg",
-    content: `<figure><img src="/blog/conheca-os-diferentes-tipos-de-discos-de-corte-1.jpg" alt="tipos de discos de cortes" loading="lazy" /></figure>
+    image: "/media/2026/03/43096eed-de52-41ab-866f-a0fe3a33cf5d/large.webp",
+    content: `<figure><img src="/media/2026/03/feb13317-f80b-44f9-a167-52f85fc3dbbe/large.webp" alt="tipos de discos de cortes" loading="lazy" /></figure>
 <p>Encontramos no mercado diferentes tipos de discos de corte. Os mesmos são utilizados juntamente com esmerilhadeiras, serras mármores e circulares, policortes, dentre outras <a href="/maquinas-eletricas/">máquinas</a>.</p><p>Os trabalhos de cortes podem se dar em diferentes tipos de materiais, como metais, madeira, granitos, cerâmicas, e etc, e são fabricados por meio de abrasivos. As variedades de discos permitem que o usuário encontre o que melhor satisfaça as exigências do material utilizado, e desta forma alcance o resultado esperado.<br>Hoje entenderemos melhor quais são os tipos de discos, e suas finalidades!</p>
 <h2>Disco de Corte para Aço</h2>
 <p>São constituídos de grãos de óxido de alumínio, sendo capazes de realizar cortes com alta performance em barras de aço carbono, e cantoneiras, por exemplo. Podem ser utilizados em máquinas portáteis e estacionárias, o que proporciona mais produtividade, ótima resistência, e rendimento.</p><p>São indicados para serralherias, para aplicações leves de uso geral, e em segmentos onde são exigidos alto custo-benefício e desempenho.</p>
@@ -1211,21 +1172,21 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "principais-pragas-do-cafe-arabica",
     title: "Quais são as Principais Pragas do Café Arábica?",
     excerpt: "Guia completo sobre principais pragas do café arábica. Dicas práticas e informações técnicas.",
-    image: "/blog/principais-pragas-do-cafe-arabica-featured.jpg",
-    content: `<figure><img src="/blog/principais-pragas-do-cafe-arabica-1.jpg" alt="" loading="lazy" /></figure>
+    image: "/media/2026/03/8368c12a-fbee-45d1-8c28-840c71f835c4/large.webp",
+    content: `<figure><img src="/media/2026/03/991c7e5f-70de-404e-962a-68c4c6924862/large.webp" alt="Leia mais sobre o artigo Como Começar Plantação de Café" loading="lazy" /></figure>
 <p>Conforme abordamos em artigos anteriores, a presença de pragas e doenças no cafeeiro pode ser muito prejudicial para a saúde da planta, oferecendo prejuízos para a mesma, e consequentemente também para os lucros do cafeicultor.<br>No artigo hoje vamos falar especificamente sobre algumas <a href="/as-principais-doencas-encontradas-no-solo-confira/">pragas</a> que podem atacar a cultura de <a href="/como-comecar-plantacao-de-cafe/">café</a> arábica! Continue com a gente, e confira.</p>
 <h2>Broca-do-Café (Hypothenemus hampei)</h2>
 <p>São besouros que atacam, e se alimentam exclusivamente da cultura cafeeira, e por isso caracteriza-se como monófagos. Os machos apresentam-se menores que as fêmeas e diferentemente delas, eles não voam. Quanto a sua reprodução, as fêmeas depositam ovos dentro dos orifícios que por elas mesmas é executado. Após alguns dias, estes ovos eclodem, dando origem as larvas, que são as maiores responsáveis pela danificação do café. Isso porque elas se alimentam dos grãos, trazendo consequências significativas para a qualidade do mesmo, e também reduzindo o seu peso, ocasionando a diminuição do lucro do cafeicultor no momento da venda.<br>As perfurações feitas pelas brocas no grão do café, também se tornar porta de entrada para o ataque de outras pragas, trazendo ainda mais malefícios para o mesmo.<br>Algumas atitudes, como evitar deixar grãos para trás nas entressafras, contribui para um controle cultural deste inseto. Para controle biológico, existem fungos que podem ser utilizados, como por exemplo o&nbsp;Beauveria bassiana, que coloniza as brocas. Quanto as intervenções químicas, temos grupos químicos, como Clorantraniliprole, Abamectina e Espinosade.</p>
-<figure><img src="/blog/principais-pragas-do-cafe-arabica-2.jpg" alt="" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/5204b19c-ccbc-4fd5-98ab-fb936af7d999/large.webp" alt="Leia mais sobre o artigo Como Começar Plantação de Café" loading="lazy" /></figure>
 <h3>Bicho Mineiro (Leucoptera coffeella)</h3>
 <p>Apresenta-se como uma pequena mariposa de cor branco-prateada. É dotada de hábitos noturnos, e por esse motivo se mantém escondida entre as folhas durante o dia. <br>Quando não é feito o controle desta praga, temos uma intensa desfolha o que traz consequências significativas para o potencial produtivo do cafeeiro. O ciclo do Bicho- Mineiro pode variar de 19 a 67 dias, podendo ser reduzido se sujeito a condições climáticas caracterizadas pela alta temperatura e baixa umidade. A mariposa põem sete ovos, e os deposita individualmente em folhas distintas. A lagarta acaba por penetrar a folha, alojando-se entre duas epidermes onde se alimentam e constroem minas, sendo esta a origem de sua denominação como Bicho mineiro. Este comportamento leva a destruição do parênquima paliçádico, principal responsável pela realização da fotossíntese, o que acarreta a desfolhagem.<br>Com relação ao controle cultural, são necessários tratos culturais adequados. Isso proporciona maior enfolhamento das plantas. Para controle biológicos utiliza-se insetos predadores do Bicho mineiro. A exemplo podemos citar as vespas, que penetram as minas e se alimentam das larvas. Quanto ao controle químico, faz-se uso dos grupos químicos, como diamidas, espinosinas, piretróide.</p>
-<figure><img src="/blog/principais-pragas-do-cafe-arabica-3.jpg" alt="" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/29ca0731-eb83-4fa0-96d0-65cad5a74efe/large.webp" alt="Leia mais sobre o artigo Paquímetro: O que é? Para que serve?" loading="lazy" /></figure>
 <h4>Cigarra (Quesada gigas, Fidicinoides sp. e Carineta sp)</h4>
 <p>São insetos hemíperos, ou seja, atacam diferentes culturas, alimentando- se de seiva. <br>Quando presentes na plantação, essas pragas executam furos no solo, feitos próximos ao pé de café. A presença das enxúvias e o som de cigarras machos cantando também são sinais de que este inseto está na plantação.<br>Conforme descrevemos acima, as cigarras não incidem exclusivamente sobre a cultura cafeeira, porém a presença destas nesta cultura pode ser prejudicial uma vez que as ninfas sugam a raiz do cafeeiro, o que leva ao depauperamento, a queda de folhas e a clorose (produção insuficiente de clorofila), resultando em prejuízos a granação. Em casos mais graves pode levar até mesmo a morte da planta.<br>O controle na maioria dos casos é feito por meio de inseticidas de diferentes grupos, como carbamato ou neonicotinóide.</p>
-<figure><img src="/blog/principais-pragas-do-cafe-arabica-4.jpg" alt="" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/ab7dbf53-3edc-4a52-a980-f197e32a3aaf/large.webp" alt="Leia mais sobre o artigo Paquímetro: O que é? Para que serve?" loading="lazy" /></figure>
 <h5>Ácaro Vermelho (Oligonychus ilicis) e Ácaro da Leprose (Brevipalpus phoenicis)</h5>
 <p>Encontrado na face superior das plantas, o ácaro-vermelho gera a perda do brilho das folhas deixando -as com uma coloração bronzeada. Com isso, tem-se uma menor produção de clorofila, podendo levar a minimização da produção. <br>É propício a períodos mais secos e devido a isso, sua exposição a chuvas prolongadas pode levar a diminuição de sua população. Com isso, por vezes não é necessário realizar o controle químico.<br>O Ácaro da Leprose, também conhecido como ácaro da mancha-anular, é transmissor do vírus da mancha anular. Resulta na desfolha das plantas, bem como na redução da taxa fotossintética e da produtividade. Com relação aos sintomas, quando nos referimos as folhas temos a presença de manchas cloróticas, que se apresentam em forma de anéis que se estendem até grande parte do limbo ou ao longo das nervuras. <br>Nos frutos é característico o aparecimento de manchas amareladas em forma de anéis ou irregularidades deprimidas. <br>Para o seu controle químico, são utilizados acaricidas, como: Hexythiazox, Spirodiclofen e Cyflumetofen.</p>
-<figure><img src="/blog/principais-pragas-do-cafe-arabica-5.jpg" alt="" loading="lazy" /></figure>`,
+<figure><img src="/media/2026/03/13cc417f-473a-4e8d-94fa-b45dafe28404/large.webp" alt="Quais são as Principais Pragas do Café Arábica?" loading="lazy" /></figure>`,
     category: "irrigacao",
     tags: ["pragas","café","arábica"],
     date: "2020-09-09",
@@ -1239,7 +1200,7 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "tipos-de-parafusadeiras-o-guia-completo-de-compras",
     title: "Tipos de Parafusadeiras: O guia completo de compras!",
     excerpt: "Guia completo sobre tipos de parafusadeiras: o guia completo de compras. Dicas práticas e informações técnicas.",
-    image: "/blog/tipos-de-parafusadeiras-o-guia-completo-de-compras-featured.jpg",
+    image: "/media/2026/03/bd3ec115-e586-49e6-990b-7a8ef352e228/large.webp",
     content: `<p></p><p>&nbsp;</p><p>Seja para atividades de <a href="/manutencao-de-maquinas-e-equipamentos/">manutenção</a> ou para a execução de reparos e projetos em casa, as parafusadeiras são extremamente úteis, como por exemplo para a montagem de móveis. Não são voltadas somente para profissionais, mas para qualquer pessoa que execute serviços onde faça-se necessário o seu uso.<br>Hoje vamos conhecer um pouco melhor esta ferramenta, seus tipos e funções! Bora conferir?</p><h2>Principais Funções das Parafusadeiras</h2><p>Como indicado pelo seu próprio nome, as parafusadeiras tem como função básica parafusar parafusos, podendo ser utilizadas para a montagem de móveis, como exposto acima, para o aperto de parafusos e para pendurar cortinas por exemplo. Isso pode se dar nas mais variadas superfícies, como madeira, plástico, alvenaria e metal.<br>Para seu <a href="/maquinas-eletricas/">funcionamento</a>, temos que, por meio da energia elétrica uma força de rotação é gerada, fazendo com que seja possível tanto apertar quanto desapertar parafusos.</p><h3>Tipos de Parafusadeiras</h3><p>Podem ser classificadas basicamente como domésticas e profissionais.</p><h4>Parafusadeiras Profissionais</h4><p>Voltadas para profissionais que executam diariamente por exemplo serviços de montagem. São de impacto, e oferecem controle rápido e preciso durante a realização do serviço.<br>São parafusadeiras de melhor performance, torque maior, e tamanho compacto. Os modelos sem fio, oferecem baterias de longa duração, e sistema de configuração mais completo.<br>Lembrando que nada impede que esta ferramenta seja utilizada por usuários padrões, porém este modelo é de maior valor e oferece mais funções que contribuem para a execução de projetos mais complexos.</p><h5>Parafusadeira Doméstica</h5><p>Voltadas para uso ocasional. Geralmente são colocadas em uso para montagem de um móvel que foi adquirido, e para pequenos concertos e reparos. Costumam ter fio, ser de modelo mais simples, e por vezes oferecer funções extras, como desapertar parafusos e a capacidade de se curvar. Normalmente possui menor potência e velocidade.</p><h6>Parafusadeira Portátil</h6><p>Caracteriza-se por se apresentar mais simples, e por sua leveza. Seu carregamento pode se dá via USB. Suas configurações são mínimas, e são excelentes para o desenvolvimento de pequenos trabalhos.</p><b>Potência dos Modelos</b><p>Muitas questões podem intervir na potência de uma parafusadeira, estando muitas vezes atrelada ao preço, como também a sua categoria: profissional ou doméstica. Quanto mais potente se apresentar, maior será a sua capacidade de executar furos em materiais de maior densidade.<br>A medida da potência das parafusadeiras é em volts. As de uso doméstico podem variar de 9,6 a 12 volts. As profissionais podem apresentar até 18 V, oferecendo aplicabilidade a praticamente qualquer tipo de superfície. Os modelos de 20v são extremamente potentes, podendo ser utilizadas até mesmo nas madeiras mais duras.</p><b>Funções Extras de uma Parafusadeira</b><b>Controle do Torque</b><p>O torque é o responsável pela ação parafusar/desparafusar, dispensando a necessidade de girar as mãos para tal. Caracteriza-se pela força de rotação que é aplicada na ponta da furadeira. Quando é possível controlar o torque, pode-se determinar a força a ser aplicada para inserir o parafuso, evitando danos a superfície e ao parafuso em si.</p><b>Ação Reversa</b><p>Para fixarmos um parafuso em uma determinada superfície, a rotação acontece em uma direção específica, e para que não seja necessário utilizar da força em situações em que faz-se necessária a sua remoção, contamos com a função reversa. Com isso, o giro pode acontecer dos dois lados, oferecendo a possibilidade tanto de inserir, quanto de retirar o parafuso.</p><b>Impacto</b><p>As parafusadeiras de impacto, caracterizam-se como profissionais e oferecem a função martelar para a execução de trabalhos em superfícies mais duras. Para utiliza-la basta apertar um botão presente no corpo da ferramenta.</p><b>Luz auxiliar</b><p>A luz auxiliar contribui para a execução de trabalhos em ambientes onde há presença de pouca luz, como por exemplo em baixo de uma mesa.</p><b>Parafusadeira com Bateria ou com Fio?</b><p>A escolha da parafusadeira vai depender da que melhor se adequa a sua necessidade.<br>Os modelos com fio necessitam de uma tomada e de um local livre de impedimentos para estendê-los. Se estes aspectos não são um problema para você, está é uma boa opção.<br>Por outro lado, se o local de trabalho é de difícil locomoção e acesso, os modelos a bateria serão uma melhor opção por serem transportados com maior facilidade.</p><p></p><b>Como escolher a melhor parafusadeira?</b><p>Primeiramente é importante definir qual será a finalidade de uso da ferramenta: se fará parte do seu dia a dia em sua profissão, ou se será para um hobby. Isso lhe ajudará a descobrir qual será a potência ideal para você. Também é importante observar se a ferramenta é 110V, 220V ou bivolt.<br>Quanto as funções extras que a parafusadeira lhe oferecerá, também é um ponto a ser analisado. Se ela será utilizada para realizar perfurações em diferentes superfícies, é interessante optar por um modelo que permita variar o torque.<br>Por último, deve-se definir quanto você está disposto a pagar na compra da sua ferramenta, pois é importante escolher um produto que atenda às suas necessidades, mas que também esteja dentro do seu orçamento.</p>`,
     category: "maquinas",
     tags: ["parafusadeira","compra"],
@@ -1254,9 +1215,8 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "principais-doencas-no-cafe-como-identifica-las",
     title: "Identifique as Principais Doenças no Café",
     excerpt: "Aprenda a identificar as principais doenças que afetam o cafeeiro e saiba como preveni-las.",
-    image: "/blog/principais-doencas-no-cafe-como-identifica-las-featured.jpg",
-    content: `<figure><img src="/blog/principais-doencas-no-cafe-como-identifica-las-1.jpg" alt="principais doenças no café" loading="lazy" /></figure>
-<p>Ter uma lavoura saudável, que proporcione alta produção é o sonho de todo cafeicultor. No entanto, o ataque de doenças pode impactar negativamente sobre a qualidade do cafeeiro, ocasionando o enfraquecimento da planta, diminuição da produção, dentre muitas outras consequências. No post de hoje vamos falar sobre quais são as doenças mais recorrentes da cultura cafeeira, e seus sintomas! Continue com a gente, e confira!</p>
+    image: "/media/2026/03/b7ea47ff-eb06-462b-b067-1ac38870bb4e/large.webp",
+    content: `<p>Ter uma lavoura saudável, que proporcione alta produção é o sonho de todo cafeicultor. No entanto, o ataque de doenças pode impactar negativamente sobre a qualidade do cafeeiro, ocasionando o enfraquecimento da planta, diminuição da produção, dentre muitas outras consequências. No post de hoje vamos falar sobre quais são as doenças mais recorrentes da cultura cafeeira, e seus sintomas! Continue com a gente, e confira!</p>
 <h2>Ferrugem do Cafeeiro (HEMILEIA VASTATRIX)</h2>
 <p>Os primeiros sinais desta doença são manchas pequenas, cloróticas, e translúcidas. Elas aparecem na face inferior das folhas na cor amarelo alaranjada. Sobre esta mancha começa a aparecer uma massa pulverulenta de uredósporos. Pode ocorrer também a necrose, ou seja, a morte de células do tecido foliar.</p><p>Um fator no qual devemos nos atentar é que, quando esta doença torna-se visível aos olhos humanos, a planta já sofreu prejuízos com a mesma. Isso acontece porque a esporulação aparece em sua fase reprodutiva, o que indica que ela ocorre quando o tecido está colonizado, e como consequência a planta já sofreu percas em seu desenvolvimento e crescimento.</p>
 <h3>Cercospora (CERCOSPORA COFFEICOLA)</h3>
@@ -1265,7 +1225,7 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
 <p>Trata- se de uma doença fúngica, e que pode afetar o pé de café quando ainda se trata de uma muda, ou em sua fase adulta.</p><p>Gera manchas irregulares na folha, caracterizadas por sua coloração escura. Geralmente começam nas bordas da folha, podendo ocasionar curvatura. Com relação aos ramos observa-se a presença de lesões escuras e deprimidas, chegando até mesmo a abranger todo o diâmetro do ramo, ocasionando a seca do ponteiro ou da extremidade.</p><p>Os danos gerados por esta doença envolvem a queda de botões florais e de chumbinhos, desfolha, mumificação, levando a perdas na produção.</p>
 <h5>Mancha Aureolada (PSEUDOMONAS SYRIGAE)</h5>
 <p>Originada pela bactéria Pseudomonas syringae pv. Garcae, esta doença tem se destacado nos últimos anos como uma das mais recorrentes na cafeicultura brasileira. Caracteriza-se pela presença de manchas de cores pardas, envolvidas por um grande halo amarelado.</p><p>Sua incidência se dá nos ramos e folhas, nos frutos novos e rosetas, tanto no campo, quanto em viveiros. Quando nos ramos, está doença o compromete por inteiro, deixando-os com uma coloração escura. Posteriormente afeta as folhas, desenvolvendo manchas nas mesmas conforme citamos acima, o que acarreta a queda das folhas.</p><p>Quando incide sobre os órgãos florais do cafeeiro leva a queda de frutos chumbinhos, e de flores, ocasionando menor produção. A presença desta doença pode levar a morte da planta em um período de até 1 ano, sendo esta em muitos casos confundida com outras doenças.</p>
-<figure><img src="/blog/principais-doencas-no-cafe-como-identifica-las-2.jpg" alt="doenças no café" loading="lazy" /></figure>`,
+`,
     category: "irrigacao",
     tags: ["café","doenças","agricultura"],
     date: "2020-07-17",
@@ -1279,8 +1239,8 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "tipos-de-politriz-o-guia-completo-para-escolher",
     title: "Tipos de Politriz: O guia completo de qual escolher!",
     excerpt: "Guia completo sobre tipos de politriz: o guia completo para escolher. Dicas práticas e informações técnicas.",
-    image: "/blog/tipos-de-politriz-o-guia-completo-para-escolher-featured.jpg",
-    content: `<figure><img src="/blog/tipos-de-politriz-o-guia-completo-para-escolher-1.jpg" alt="Tipos de politriz: para que servem, como funcionam e qual escolher" loading="lazy" /></figure>
+    image: "/media/2026/03/1cb7f61a-c911-4c0d-9a2a-db1f3d302c5c/large.webp",
+    content: `<figure><img src="/media/2026/03/8c7bd314-bda4-46bb-b32a-b6f3a10ad511/large.webp" alt="Tipos de politriz: para que servem, como funcionam e qual escolher" loading="lazy" /></figure>
 <p>Sabemos que o acabamento é uma etapa extremamente importante para finalização de qualquer projeto. Ele está ligado não somente a beleza, interferindo também na qualidade e funcionalidade. No artigo de hoje, falaremos sobre a politriz! Uma <a href="/conheca-as-8-ferramentas-de-medicoes-mais-utilizadas/">ferramenta</a> que está diretamente ligada a execução de acabamentos! Você entenderá as suas funções, os modelos existentes, bem como seus diferenciais! Continue com a gente, e confira!</p>
 <h2>O que é uma Politriz?</h2>
 <p>A politriz, também conhecida como polideira, ou polidora é uma <a href="/maquinas-eletricas/">ferramenta elétrica</a> voltada para a execução de acabamentos. Possui um disco giratório que caracteriza-se por sua baixa rotação, e é por meio dele que acontece o polimento das mais diversas superfícies. Esta característica também proporciona o alcance das camadas mais profundas de uma determinada superfície, oferecendo deste modo ótimos resultados.<br>A baixa rotação também contribui para o melhor desenvolvimento de trabalhos mais delicados, fazendo com que o usuário tenha mais concentração e garanta maior qualidade ao serviço desenvolvido.<br>As politrizes também oferecem boa mobilidade para o operador devido as suas empunhaduras que podem ser verticais ou horizontais.</p>
@@ -1307,8 +1267,8 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "tipos-de-talhas",
     title: "Conheça os Tipos de Talhas e suas Aplicações",
     excerpt: "Conheça os principais tipos de talhas e suas aplicações na indústria e construção civil.",
-    image: "/blog/tipos-de-talhas-featured.jpg",
-    content: `<figure><img src="/blog/tipos-de-talhas-1.jpg" alt="Conheça os Tipos de Talhas e suas aplicações - Talhas Elétricas e Manuais" loading="lazy" /></figure>
+    image: "/media/2026/03/9b26e032-327d-4d0b-b1c4-3104f921ec77/large.webp",
+    content: `<figure><img src="/media/2026/03/dfcd2d01-9b42-4119-940f-84bd396fe824/large.webp" alt="Conheça os Tipos de Talhas e suas aplicações - Talhas Elétricas e Manuais" loading="lazy" /></figure>
 <p>Tanto em oficinas, quanto em setores industriais por exemplo, a importância das talhas é indiscutível. Isso porque, elas auxiliam no levantamento de grandes cargas com maior segurança e precisão, o que somente por meio da força humana, não seria possível, ou no mínimo bem trabalhoso.</p><p>Existem as talhas <a href="/ferramentas-manuais-para-marcenaria/">manuais</a>, <a href="/o-que-sao-ferramentas-pneumaticas/">pneumáticas</a>, e <a href="/maquinas-eletricas/">elétricas</a>. Hoje vamos conhecer um pouco mais sobre elas! Confira a <a href="https://www.instagram.com/comercialjrltda/">seguir</a>!</p>
 <h2>Talhas Manuais</h2>
 <p>Para aciona-la o usuário deve puxar uma corrente no qual seus elos são contínuos. Seu comprimento, equivale ao dobro da altura da operação com relação a localização do equipamento.</p><p>Quando a corrente é puxada pelo operador, faz com que seja acionada uma roda na talha, sendo que este eixo está ligado a um sistema de redução composto por outras rodas dentadas, controlado a quantidade certa destas para erguer a carga desejada. Além de ser mais em conta se comparada a outros modelos, como o elétrico por exemplo, exigem pouca manutenção periódica.</p><p>As talhas manuais podem ser de corrente, ou de alavanca.</p>
@@ -1333,8 +1293,8 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "o-que-e-uma-esmerilhadeira-quais-sao-suas-funcoes",
     title: "O que é uma Esmerilhadeira? Quais são suas funções?",
     excerpt: "Guia completo sobre o que é uma esmerilhadeira? quais são suas funções?. Dicas práticas e informações técnicas.",
-    image: "/blog/o-que-e-uma-esmerilhadeira-quais-sao-suas-funcoes-featured.jpg",
-    content: `<figure><img src="/blog/o-que-e-uma-esmerilhadeira-quais-sao-suas-funcoes-1.jpg" alt="O que é uma Esmerilhadeira? Quais são suas funções?" loading="lazy" /></figure>
+    image: "/media/2026/03/79e47ccf-159f-485b-be6a-a934cd928c35/large.webp",
+    content: `<figure><img src="/media/2026/03/9943033b-2a19-430a-b7bd-19ea8b6ffb54/large.webp" alt="O que é uma Esmerilhadeira? Quais são suas funções?" loading="lazy" /></figure>
 <p>Destinadas a execução de desbastes e acabamentos tanto por profissionais, quanto para a realização de pequenos projetos em casa, as <a href="https://loja.comercialjrltda.com.br/cat/produtos/esmerilhadeiras/">esmerilhadeiras</a> caracterizam-se como ferramentas elétricas, podendo ser utilizadas para a execução de trabalhos em concreto, aço, ferro, metal, mármores, incluindo muitas outras superfícies.</p><p>Devido a sua leveza, e por ser uma ferramenta portátil, pode ser utilizada para a execução de trabalhos nos mais diversos locais. No desenvolvimento de projetos em concreto por exemplo, esta <a href="/as-10-ferramentas-para-se-ter-em-casa/">ferramenta</a> se destaca na execução de desbastes.</p>
 <h2>Onde Podem ser Aplicadas</h2>
 <p>As esmerilhadeiras, devido a sua utilização nos diversos materiais, são adotadas para o desenvolvimento de trabalhos nos mais diversos meios, como:</p><p>– Lanternagem;</p><p>– Metalúrgicas</p><p>– Serralheria;</p><p>– Fundições;</p><p>– Caldeirarias.</p><p>São ainda utilizadas pelos departamentos de manutenção industrial.</p>
@@ -1361,14 +1321,14 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "para-que-serve-uma-tupia-e-como-utiliza-la-corretamente",
     title: "Para que Serve uma Tupia e Como Utilizá-la Corretamente",
     excerpt: "Descubra as aplicações da tupia na marcenaria e aprenda técnicas para utilizá-la com segurança.",
-    image: "/blog/para-que-serve-uma-tupia-e-como-utiliza-la-corretamente-featured.jpg",
-    content: `<figure><img src="/blog/para-que-serve-uma-tupia-e-como-utiliza-la-corretamente-1.jpg" alt="Para que Serve uma Tupia e Como Utilizá-la Corretamente" loading="lazy" /></figure>
+    image: "/media/2026/03/1fb80e67-707e-443a-a279-0c484526dd82/large.webp",
+    content: `<figure><img src="/media/2026/03/2666b4bc-77c6-4464-b137-3bb91d11cbc6/large.webp" alt="Para que Serve uma Tupia e Como Utilizá-la Corretamente" loading="lazy" /></figure>
 <p>Sabemos que em qualquer construção que seja revestida em madeira, o acabamento é um ponto de extrema importância, e que visualmente faz toda a diferença, conferindo a peço maior elegância, e contribuindo para torna-la única. Para alcançar este resultado, a utilização de algumas <a href="/as-10-ferramentas-para-se-ter-em-casa/">ferramentas</a> torna-se essencial, e a tupia é uma delas. Neste post, vamos conhece-la um pouco melhor! <a href="https://www.facebook.com/ComercialJRCastelo/">Segue</a> com a gente!</p>
 <h2>No que Consiste uma Tupia</h2>
 <p>Muito querida e utilizada pelos marceneiros, a tupia é uma ferramenta elétrica voltada para a realização de acabamentos de trabalhos em madeira, como molduras, encaixes, entalhes, chanfros, detalhes de forma arredondada, desenhos, dentre outros! Ou seja, a tupia contribui para atribuir a peça aquele diferencial!<br>Existem 3 tipos de tupias: laminadora, de coluna, e de mesa.</p>
 <h3>Tupia Laminadora</h3>
 <p>Também conhecida como tupia para laminados. É utilizada para refilar laminados. Sua aplicação se dá no acabamento para entalhes, molduras, chanfros, dentre outros.</p>
-<figure><img src="/blog/para-que-serve-uma-tupia-e-como-utiliza-la-corretamente-2.jpg" alt="Para que Serve uma Tupia e Como Utilizá-la Corretamente" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/51be71e7-0173-4351-83ec-51c11cbb3541/large.webp" alt="Para que Serve uma Tupia e Como Utilizá-la Corretamente" loading="lazy" /></figure>
 <h4>Tupia de Coluna</h4>
 <p>O usuário deve fazer uso das duas mãos para operá-la. A ferramenta deverá ser levada até a madeira a ser trabalhada, e a fresa deverá ser guiada de acordo com a demanda do projeto. Sua regulagem é precisa, oferecendo maior segurança ao uso.</p>
 <h5>Tupia de Mesa</h5>
@@ -1390,13 +1350,13 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "conheca-as-diferencas-entre-marteletes-e-furadeiras-de-impacto",
     title: "Conheça as diferenças entre Marteletes e Furadeiras de Impacto",
     excerpt: "Guia completo sobre conheça as diferenças entre marteletes e furadeiras de impacto. Dicas práticas e informações técnicas.",
-    image: "/blog/conheca-as-diferencas-entre-marteletes-e-furadeiras-de-impacto-featured.jpg",
-    content: `<figure><img src="/blog/conheca-as-diferencas-entre-marteletes-e-furadeiras-de-impacto-1.jpg" alt="Conheça as diferenças entre Marteletes e Furadeiras de Impacto" loading="lazy" /></figure>
+    image: "/media/2026/03/02dbd3d1-e527-4dd5-8787-0c6d886603d9/large.webp",
+    content: `<figure><img src="/media/2026/03/d7b99022-c60d-4c2b-b7ff-c10c04fd2e06/large.webp" alt="Conheça as diferenças entre Marteletes e Furadeiras de Impacto" loading="lazy" /></figure>
 <p>Algumas ferramentas apresentam semelhanças entre si, e isso por vezes, nos geram certa confusão para compreendermos qual é a diferença entre elas.</p><p>No artigo de hoje vamos falar sobre as <a href="https://loja.comercialjrltda.com.br/cat/produtos/furadeiras/">furadeiras de impacto</a> e os <a href="https://loja.comercialjrltda.com.br/cat/produtos/marteletes/">marteletes</a>, e entender melhor o que torna estas ferramentas desiguais, e suas funções. Continue com a gente, e confira!</p>
 <p>As furadeiras de impacto são utilizadas para a execução de serviços em superfícies mais duras, para a realização de&nbsp; <a href="/manutencao-de-maquinas-e-equipamentos/">reparos</a> e projetos em casa.</p><p>Algumas furadeiras são do tipo martelete, e por isso, podem ser utilizadas tanto como <a href="/furadeiras-entenda-os-tipos-e-modos-de-utilizacao/">furadeira</a>, bem como martelete (realizando movimentos circulares, e desferindo pequenas batidas no material durante a perfuração). Desta forma, permitem a execução de furos em materiais mais densos.</p><p>Algumas furadeiras desta categoria possuem uma chave, o que permite aplicar, ou não a função impacto. São destinadas em muitos casos ao desenvolvimento de projetos em alvenarias.</p>
-<figure><img src="/blog/conheca-as-diferencas-entre-marteletes-e-furadeiras-de-impacto-2.jpg" alt="Conheça as diferenças entre Marteletes e Furadeiras de Impacto" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/ce081eef-b9f5-4147-ab1b-2e55ffe4a8ef/large.webp" alt="Conheça as diferenças entre Marteletes e Furadeiras de Impacto" loading="lazy" /></figure>
 <p>Normalmente é conhecido no mercado como martelo rompedor. É&nbsp; procurado para compra de acordo com a sua capacidade de trabalho em quilos: Martelete de 5 Kg, de 8Kg, de 10Kg, de 20Kg e assim por diante.</p><p>Podemos encontrar também esta ferramenta pelo nome de martelo perfurador. Isso porque, modelos menores (de 2 a 5KG), oferecem também a função de perfuração. Estes, costumam vir acompanhados de alguns acessórios, como brocas, ponteiras, talhadeiras, dependendo da sua destinação de uso.</p><p>&nbsp;Quanto a sua aplicação, destinam-se&nbsp; a execução de serviços em superfícies mais duras. Se aplicam a construções e reformas.&nbsp; Envolvem por exemplo, a demolição de colunas, quebra de pisos e a perfuração de concreto asfáltico. Com isso, temos que a principal diferença entre estas ferramentas está no joule em que possuem.</p><p>Por fim, concluímos que os marteletes executam furos assim como as furadeiras de impacto. No entanto, são dotados de maior força, e por isso oferecem melhor desempenho na perfuração. São utilizados com maior frequência em trabalhos mais pesados, como por exemplo para a quebra de pisos. As furadeiras estão mais presentes na realização de trabalhos em superfícies de menor rigidez, e por isso exigem menos joules para que a perfuração aconteça.</p>
-<figure><img src="/blog/conheca-as-diferencas-entre-marteletes-e-furadeiras-de-impacto-3.jpg" alt="Conheça as diferenças entre Marteletes e Furadeiras de Impacto" loading="lazy" /></figure>`,
+<figure><img src="/media/2026/03/4b9e4225-1585-40cb-aba6-fe1158e5ebed/large.webp" alt="Conheça as diferenças entre Marteletes e Furadeiras de Impacto" loading="lazy" /></figure>`,
     category: "maquinas",
     tags: ["martelete","furadeira de impacto"],
     date: "2020-09-30",
@@ -1410,12 +1370,10 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "paquimetro-o-que-e-para-que-serve",
     title: "Paquímetro: O que é? Para que serve?",
     excerpt: "Entenda o funcionamento do paquímetro e aprenda a utilizá-lo para medições precisas.",
-    image: "/blog/paquimetro-o-que-e-para-que-serve-featured.jpg",
-    content: `<figure><img src="/blog/paquimetro-o-que-e-para-que-serve-1.jpg" alt="Paquímetro: O que é? Para que serve?" loading="lazy" /></figure>
-<p>&nbsp;Por meio dele podemos encontrar o valor correspondente a distância entre dois lados opostos de um objeto de forma simétrica. Continue com a gente, e entenda quais as suas funções, tipos existentes, e como utilizá-lo! Confira abaixo!</p>
+    image: "/media/2026/03/5022be72-dcd6-4319-b9db-6b9a9f15b1ac/large.webp",
+    content: `<p>&nbsp;Por meio dele podemos encontrar o valor correspondente a distância entre dois lados opostos de um objeto de forma simétrica. Continue com a gente, e entenda quais as suas funções, tipos existentes, e como utilizá-lo! Confira abaixo!</p>
 <h2>Entenda Melhor No Que Consiste Um Paquímetro</h2>
 <p>Conforme descrevemos acima, o paquímetro é um instrumento de medição utilizado por muitos profissionais para precisamente descobrir as medidas de um objeto. Consiste em um régua graduada, na maioria das vezes em centímetros ou em polegadas, composta por um encosto fixo, por onde se move o cursor. Possui também dois bicos para medição, estando um afixado a escala, e o outro ao cursor.</p>
-<figure><img src="/blog/paquimetro-o-que-e-para-que-serve-2.jpg" alt="Paquímetro: O que é? Para que serve?" loading="lazy" /></figure>
 <h3>Função</h3>
 <p>É muito utilizado para a execução de medições em objetos e peças de menores dimensões, como porcas e tubos por exemplo.<br>Seja ele um marceneiro, mecânico, eletricista, dentre outros, o paquímetro faz parte da vida de todo tipo de profissional, que busque precisão na identificação das medidas de um objetos de menor tamanho. Permite a identificação de medidas internas, externas, de profundidade, e também de ressaltos.</p>
 <h4>Tipos De Paquímetro</h4>
@@ -1443,29 +1401,27 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "tipos-de-motosserra-qual-e-o-ideal",
     title: "Tipos de Motosserras: Qual é o Ideal?",
     excerpt: "Saiba como escolher a motosserra ideal para cada tipo de trabalho.",
-    image: "/blog/tipos-de-motosserra-qual-e-o-ideal-featured.jpg",
-    content: `<figure><img src="/blog/tipos-de-motosserra-qual-e-o-ideal-1.jpg" alt="Tipos de motosserra: Qual é o ideal?" loading="lazy" /></figure>
+    image: "/media/2026/03/c74f534e-f66a-405c-9916-c3b8d88940b9/large.webp",
+    content: `<figure><img src="/media/2026/03/ffb492f2-a3a9-4113-a218-86103931f042/large.webp" alt="Tipos de motosserra: Qual é o ideal?" loading="lazy" /></figure>
 <p>A escolha da <a href="/ferramentas-manuais-para-marcenaria/">ferramenta</a> adequada para que o trabalho seja executado com maior agilidade e praticidade, com toda certeza é um fator de extrema importância! Existem diferentes tipos de motosserras no mercado, o que por vezes pode dificultar um pouco a escolha de qual modelo utilizar. Hoje abordaremos os tipos de motosserras, bem como, seus diferenciais! Vamos conferir?</p><p>Primeiramente vamos conhecer as motosserras quando ao seu meio de funcionamento. Elas podem ser a gasolina, elétrica ou a bateria.</p>
 <h2>Motosserras a Gasolina (Combustão)</h2>
 <p>Além de oferecerem liberdade para trabalhar ao ar livre, uma vez que não necessitam de rede elétrica, podem ser abastecidas em diferentes locais. Quando nos referimos a motosserras a combustão, estamos falando de <a href="/maquinas-eletricas/">máquinas</a> que podem apresentar diferentes faixas de potências, dimensões, e conjunto de corte. Encontramos diversos modelos, que atendem desde o uso ocasional até usuários que desenvolvem atividades de reflorestamento.</p>
-<figure><img src="/blog/tipos-de-motosserra-qual-e-o-ideal-2.jpg" alt="tipos de motosserras árvores" loading="lazy" /></figure>
 <h3>Motosserra Elétrica</h3>
 <p>São voltadas para uso ocasional, e para atividades de jardinagem. Além de serem mais silenciosas, leves, e fáceis de operar, não emitem gases poluentes. Basta contar com o auxílio de uma tomada para utilizá-la. Desta forma teremos um trabalho contínuo, e desempenhado com grande praticidade.</p>
 <h4>Motosserra a Bateria</h4>
 <p>Já para atividades que envolvam reparos, e restaurações em ambientes fechados e interiores, como também trabalhos desenvolvidos em residências, escolas, hospitais ou qualquer outro local que seja sensível a emissão de sons, as motosserras a bateria são ideais. Oferecem liberdade para movimentos, baixo ruído, e não emitem gases poluentes.<br>Conheça abaixo, alguns modelos de motosserras da Stihl, classificados de acordo com as atividades a serem desenvolvidas.</p>
-<figure><img src="/blog/tipos-de-motosserra-qual-e-o-ideal-3.jpg" alt="tipos de motosserras a Bateria" loading="lazy" /></figure>
 <h5>Motosserras Para Uso Ocasional</h5>
 <p>Foram desenvolvidas para oferecer maior agilidade para as atividades de uso ocasional, para a realização de <a href="/as-7-ferramentas-ideais-para-seu-jardim/">jardinagem</a>, manutenções e até mesmo atividades de cunho artístico. Oferecem praticidade quanto a sua utilização, exigem menor esforço, e maior qualidade de trabalho.<br>Modelos: MS 170, MS 180, MS 180 C-BE, MSA 120 C-B, MSA 140 C-B e MSE 141 C-Q.</p>
 <h6>Motosserra Para Uso Agropecuário</h6>
 <p>São voltadas para o homem do campo, e oferecem maior robustez e praticidade. É utilizada para a construção de cercas e galpões, por exemplo. Suas características se adequam as necessidades do setor rural.<br>Modelos: MSA 160 T, MSA 160 C-B, MSA 200 C, MSA 220 C-B, MS 210, MS 194 T, MS 230, MS 250, MS 260, MS 310, MS 361, MS 362 C-M e MS 382.</p>
 <p>Modelos: MS 260, MS 361, MS 362 C-M, MS 382, MS 460, MS 462, MS 651 e MS 661.</p>
-<figure><img src="/blog/tipos-de-motosserra-qual-e-o-ideal-4.jpg" alt="tipos de motosserras para o Mercado Florestal" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/2ed520e8-f504-4f19-bb75-651e1df2792d/large.webp" alt="tipos de motosserras para o Mercado Florestal" loading="lazy" /></figure>
 <p>Oferecem maior resistência, grande praticidade e menores custos de utilização. São muito utilizadas para a manutenção de patrimônios públicos, e de praças, paisagismo e jardinagem de modo geral.<br>Modelos: MS 210, MS 230, MS 250, MS 194 T, MSA 220 C-B, MSA 160 C-B, MSA 160 T e MSA 200 C.</p>
-<figure><img src="/blog/tipos-de-motosserra-qual-e-o-ideal-5.jpg" alt="tipos de motosserras Motosserras Para Conservação e Jardinagem Profissional - ms 250 stihl" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/e4571523-fa00-4a0b-a0c0-61f8593fc6e4/large.webp" alt="tipos de motosserras Motosserras Para Conservação e Jardinagem Profissional - ms 250 stihl" loading="lazy" /></figure>
 <p>Preparada para atender a todas exigências do mercado de construção civil, oferecem a seus usuários qualidade, agilidade e economia para ajuda-los a se destacarem ainda mais no mercado.<br>Modelos: MS 230, MS 250, MS 310, MSA 220 C-B, MSA 160 C-B , MSA 200 C e MSE 170 C-BQ.</p>
-<figure><img src="/blog/tipos-de-motosserra-qual-e-o-ideal-6.jpg" alt="tipos de motosserras - MSA 200 C stihl para construção civil" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/73f4e7b6-d6bc-4c38-a9cd-ad020a46d95a/large.webp" alt="tipos de motosserras - MSA 200 C stihl para construção civil" loading="lazy" /></figure>
 <p>Deve-se sempre levar em consideração a dimensão da madeira a ser cortada. Se considerarmos por exemplo, um sabre de 30cm, o mesmo tem capacidade para cortar praticamente 2X o seu comprimento.<br>Outra questão que deve ser observada, e que por sinal é um dos pontos mais importantes, é a relação peso-potência. O modelo escolhido deve atender a potência necessária para o bom desempenho do trabalho, mas também ter um peso que seja confortável para o usuário durante a utilização.<br>Questões referentes a facilidade de manuseio da ferramenta também devem ser levadas em consideração. Os comandos devem ser acessíveis ao usuário.</p>
-<figure><img src="/blog/tipos-de-motosserra-qual-e-o-ideal-7.jpg" alt="" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/41534c4a-d8c9-4c4e-85a3-aba9cf5a7efc/large.webp" alt="Tipos de motosserra: Qual é o ideal?" loading="lazy" /></figure>
 <p>Por fim, mas com certeza não menos importante, o seu trabalho além de contar com uma boa motosserra, deve ser executado com segurança. Faça uso dos equipamento de IPI, como calças e botas que ofereçam proteção anti-corte, óculos, protetores auditivos, dentre outros.</p><p>Siga nosso Instagram: <a href="https://www.instagram.com/comercialjrltda/">@comercialjrltda</a></p>`,
     category: "maquinas",
     tags: ["motosserra","corte","madeira"],
@@ -1484,19 +1440,19 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     content: `<p>Quer saber qual é o melhor tipo de irrigação para usar em sua plantação ou lavoura? Confere aí!</p>
 <p>Mais de 6.5 milhões de hectares são irrigados &nbsp;no Brasil e ainda temos potencial para ampliar essa área em mais de 10 vezes.</p>
 <p>Atualmente o destaque tem crescido muito para a quantidade de pequenos e médios produtores rurais interessados nas técnicas de irrigação e o desejo de saber qual é o melhor técnica.&nbsp;Mas afinal, <strong>qual é melhor tipo de irrigação?</strong></p>
-<figure><img src="/blog/qual-melhor-tipo-de-irrigacao-para-minha-lavoura-1.jpg" alt="O melhor tipo de irrigação para sua lavoura." loading="lazy" /></figure>
+<figure><img src="/media/2026/03/2acec224-d88d-48fb-8d87-8b2cfa72cfd6/large.webp" alt="O melhor tipo de irrigação para sua lavoura." loading="lazy" /></figure>
 <h2>Sistemas de Irrigação</h2>
 <p>A resposta correta é que não existe um sistema ideal de cultivo. Tudo depende de onde e como a irrigação deve se comportar.</p>
 <p>O sistema de irrigação depende, basicamente, da cultura, do solo e do tamanho e topografia da área. A capacitação tecnológica e a disponibilidade de recurso financeiro do produtor também podem influenciar a decisão sobre qual sistema de irrigação utilizar em uma determinada cultura”. Entretanto, para facilitar a busca pelo método mais adequado, é possível estabelecer alguns caminhos básicos. Um sistema de irrigação depende de vários fatores como por exemplo:&nbsp;</p>
 <ul><li>1) Tipo de cultura;</li><li>2) Tipo de solo;</li><li>3) Tamanho da área a ser irrigada;</li><li>4) Topografia da área a ser irrigada;</li><li>5) Disponibilidade de recurso financeiro;</li><li>6) Capacitação tecnológica;</li></ul>
 <p>Veja abaixo as principais técnicas. Ou se preferir&nbsp;&nbsp;ligue agora ou nos envie um WhatsApp clicando&nbsp;no ícone abaixo.</p>
-<figure><img src="/blog/qual-melhor-tipo-de-irrigacao-para-minha-lavoura-2.jpg" alt="irrigação aspersão" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/7c1aad70-4510-46af-893f-d6ad06e12672/large.webp" alt="irrigação aspersão" loading="lazy" /></figure>
 <p>Culturas anuais como feijão, milho, cenoura e batata podem ser irrigadas por aspersão. “Em áreas pequenas pode ser utilizado o sistema por aspersão convencional, em que tubos são distribuídos na área cultivada e a água é aplicada por aspersores instalados em um espaçamento que varia de acordo com as suas características de pressão de trabalho, vazão e raio de alcance do jato de água”, diz Bassoi. Já em áreas maiores, é possível utilizar o sistema de irrigação por pivô central ou lateral móvel, que se baseia no deslocamento automatizado de uma torre com aspersores para a aplicação de água em uma área circular ou retangular.</p>
 <p>Normalmente aplicada em plantações de cana de açúcar e citros, a irrigação por autopropelido tem o deslocamento de um aspersor por meio de um acionamento hidráulico, que puxa a mangueira a qual o “canhão” está conectado ao longo da área.</p>
 <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; ”</strong><i>O sistema de irrigação depende da cultura, do solo e do tamanho e topografia da área”.</i></p>
 <h4>Irrigação por Gotejamento</h4>
 <p>Outro sistema é o de irrigação localizada, também chamado de microaspersão ou gotejamento, muito comum em culturas perenes. Nele a água não é aplicada em toda a superfície do solo, mas em parte dele, ao redor ou próximo à planta. “Para o tomateiro industrial são mais frequentes a irrigação por gotejamento e por pivô central em áreas mais extensas, enquanto que para a produção de tomate in natura a irrigação por superfície se destaca.”</p>
-<figure><img src="/blog/qual-melhor-tipo-de-irrigacao-para-minha-lavoura-3.jpg" alt="agricultor por superfície" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/4ddd67f9-bbb1-4791-89be-860918887c6e/large.webp" alt="agricultor por superfície" loading="lazy" /></figure>
 <h5>Por Superfície (Aspersão)</h5>
 <p>A maior parte do arroz irrigado no Brasil utiliza a irrigação por superfície, mas em terras altas utiliza-se aspersão. O pesquisador ressalta, no entanto, que os cultivares de arroz para a irrigação por superfície são diferentes dos indicados para a irrigação por aspersão. A melancia é outro exemplo de cultura que pode ser irrigada tanto por superfície como por aspersão. Na dúvida sobre o correto manejo de irrigação, o mais indicado é buscar orientação profissional em consultorias e instituições de pesquisa.</p>
 <p>Afinal, qual é o melhor tipo de irrigação? <br>Como descrito acima, o melhor sistema de irrigação vai depender do que você precisa, quanto quer pagar, topografia da área, tipo de solo, entre outros. Assim se não tem a experiência necessária para definir seu tipo de aspersão, recomendamos entrar em contato com nossa equipe de vendas que tem a melhor solução para seu negócio. <a href="/contato/">Clique aqui</a> e veja nossas formas de contato.</p>`,
@@ -1513,7 +1469,7 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "significado-das-cores-dos-capacetes-de-seguranca",
     title: "Entenda qual o significado das cores dos capacetes de segurança!",
     excerpt: "Guia completo sobre significado das cores dos capacetes de segurança. Dicas práticas e informações técnicas.",
-    image: "/blog/significado-das-cores-dos-capacetes-de-seguranca-featured.jpg",
+    image: "/media/2026/03/4fc7b5b0-1043-47fd-a673-b9fe0640e3c8/large.webp",
     content: `<p></p><p>Os capacetes de <a href="/conheca-os-principais-tipos-de-protetores-auriculares/">segurança</a> se caracterizam como um EPI (Equipamento de Proteção Individual), auxiliando na proteção da cabeça em situações de quedas de objetos, choques elétricos, queimaduras, dentre outros. Além disso, facilitam a identificação da área de atuação dos trabalhadores mesmo a longa distância.<br>No entanto, antes de falarmos sobre os diferentes tipos de cores de capacetes de segurança, e quais as profissões que são atribuídas a cada uma delas na maioria dos casos, vamos falar resumidamente sobre os tipos de capacetes.</p><h2>Capacete com Aba Total</h2><p>É indicado para colaboradores que operam com exposição ao sol quente, a riscos de escorrimento de algum líquido e choques elétricos. Possui uma aba que circunda toda extensão do capacete, oferecendo maior proteção ao usuário.</p><h3>Capacete com Aba Frontal</h3><p>É muito utilizado por profissionais que atuam em construções civis. Nesse sentido, a aba está presente somente na região frontal, contribuindo para a proteção contra a queda de objetos, e também para a diminuição de riscos de choques elétricos.</p><h4>Capacete com Aba Frontal e Viseira</h4><p>Como o próprio nome já diz, este tipo de capacete além de possuir aba frontal, conta também com uma viseira. Desse modo, sua maior utilização se dá em locais que ofereçam riscos de explosões ao colaborador, proporcionando maior segurança contra queimaduras e possíveis partículas que possam atingir a face do mesmo.</p><h5>Capacete sem Aba</h5><p>Voltado para a proteção dos mais diversos tipos de impactos na cabeça. É de menor valor aquisitivo, e formato mais compacto.<br>Vale lembrar que os capacetes de segurança, podem ter variações quanto ao seu modelo para melhor atenderem necessidades específicas, como por exemplo, serem dotados de um suporte para lanternas. Valorize sempre os aspectos referentes a qualidade do produto para realização da compra. Com efeito, isso influenciará no grau de segurança em que o equipamento será capaz de oferecer durante a execução do serviço.</p><h6>Cores dos Capacetes de Segurança</h6><p>A escolha da cor que representará uma determinada função em uma obra, não segue necessariamente uma regra de normatização. Embora, a CIPA estabeleça quais cores devem ser utilizadas na construção civil, não define um padrão a ser seguido. Diante disso, caberá a cada instituição fazer esta determinação, de acordo com o que melhor a atenda.<br>Contudo, com o passar dos anos, principalmente dentro das obras, um padrão comum de cores foi sendo estabelecido para cada função.</p><p><strong>Você pode se perguntar:</strong> Qual é o sentindo disso? Além de proporcionar o reconhecimento do colaborador a longa distância, facilitam o controle e a segurança no ambiente de trabalho. E não para por aí: as cores dos capacetes também podem ser utilizadas para padronizar uma hierarquia dentro do canteiro de obra, proporcionando um melhor fluxo de pessoas.<br>Confira abaixo o padrão de cores/ cargos não oficial, mas que é adotado e reproduzido pela maioria das empresas:</p><h6>Capacete Branco ou Cinza</h6><p>Geralmente utilizado por profissionais que atuam na área de gestão, bem como na administração da obra. Do mesmo modo, são também utilizados por engenheiros, técnicos, mestres de obra, encarregados e estagiários;</p><h6>Capacete Azul</h6><p>Utilizado com grande frequência por pedreiros;</p><h6>Capacete Verde</h6><p>Utilizados na maioria dos casos por serventes e operários;</p><h6>Capacete Vermelho</h6><p>Utilizados por bombeiros hidráulicos, e em alguns casos, também pelos carpinteiros;</p><h6>Capacete laranja</h6><p>Comumente são aderidos pelos eletricistas;</p><h6>Capacete Preto</h6><p>Empregado tanto por profissionais da segurança do trabalho, bem como por operadores de máquina.</p><h6>Capacete Amarelo</h6><p>Geralmente utilizado por visitantes.</p><p>Sobretudo, se você utiliza algumas das cores acima em áreas diferentes das que citamos aqui, ou conhece alguém que o faça, compartilhe conosco a sua experiência! Deixe nos comentários!</p>`,
     category: "ferramentas",
     tags: ["EPI","segurança","capacetes"],
@@ -1528,11 +1484,11 @@ Por fim, ressaltamos que o uso de EPI’s é essencial: óculos, mascaras de pro
     slug: "conheca-os-principais-tipos-de-protetores-auriculares",
     title: "Conheça os Principais Tipos de Protetores Auriculares -",
     excerpt: "Guia completo sobre conheça os principais tipos de protetores auriculares. Dicas práticas e informações técnicas.",
-    image: "/blog/conheca-os-principais-tipos-de-protetores-auriculares-featured.jpg",
-    content: `<figure><img src="/blog/conheca-os-principais-tipos-de-protetores-auriculares-1.jpg" alt="" loading="lazy" /></figure>
+    image: "/media/2026/03/436972a0-6f7a-4db8-9ea8-7eb86b5d8f55/large.webp",
+    content: `<figure><img src="/media/2026/03/655c603d-13aa-409e-a850-c3de8ac8f92c/large.webp" alt="Leia mais sobre o artigo Manutenção de compressores de ar comprimido – Como fazer?" loading="lazy" /></figure>
 <p>Primeiramente, sabemos que o ato do trabalhar por muitas horas seguidas em ambientes onde há a presença de ruídos pode ser muito prejudicial para a audição, e devido a isso, é de grande importância a utilização dos protetores auriculares. Neste sentido, eles se classificam como um Equipamento de Proteção Individual (EPI). Devem ser utilizados mediante o conhecimento e aprovação das áreas de Segurança e Medicina do Trabalho. O uso de protetores contribui para a diminuição de ruídos que sejam perigosos a saúde auditiva, bem como de outros sons indesejados.<br>
 Encontramos diferentes tipos de protetores auriculares no mercado, e hoje, vamos falar um pouco melhor sobre eles. Continue com a gente, e confira!</p>
-<figure><img src="/blog/conheca-os-principais-tipos-de-protetores-auriculares-2.jpg" alt="" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/2de2c412-4160-466f-a841-d2a057ca3c89/large.webp" alt="Leia mais sobre o artigo Manutenção de compressores de ar comprimido – Como fazer?" loading="lazy" /></figure>
 <p>&nbsp;</p>
 <h2>Protetor de Inserção Moldável</h2>
 <p>Os protetores deste modelo são compostos por espuma, e seu formato é cônico. Possuem uma base plana, e topo superior arredondado. Por serem moldáveis, oferecem a vantagem de adaptação a diferentes canais auditivos. Este modelo é descartável, sendo muito utilizado por visitantes em inspeções, por exemplo.<br>
@@ -1541,11 +1497,11 @@ Contudo, para sua utilização, o usuário deverá apertá-lo com os dedos, e em
 <h3>Protetores de Inserção Pré-moldado</h3>
 <p>São constituídos por silicone ou polímeros, e apresentam formato cônico. Possuem três flanges de dimensões variáveis. Podem ser higienizados e reutilizados de acordo com as indicações do fabricante.<br>
 É importante observar o correto ajuste dos protetores auriculares no ouvido para que seu uso seja eficiente. Além disso, antes de inseri-lo, atente-se também a higienização das mãos para evitar possíveis contaminações ao canal auditivo.</p>
-<figure><img src="/blog/conheca-os-principais-tipos-de-protetores-auriculares-3.jpg" alt="" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/0adf7f1e-b5c4-4bcd-97a1-bfac006de5e8/large.webp" alt="Conheça os Principais Tipos de Protetores Auriculares -" loading="lazy" /></figure>
 <h4>Protetor Tipo Concha</h4>
 <p>Formado por duas conchas de plástico, ou de ABS envolvido por borracha, com laterais almofadadas, este modelo oferece maior conforto ao usuário. As conchas podem ser limpas e higienizadas. As almofadas e espumas devem ser apenas arejadas com jatos de ar comprimido, eliminando o excesso de resíduos. No entanto, também é possível realizar trocas, utilizando o kit de reposição correspondente ao modelo.<br>
 Alguns protetores do tipo concha adaptam-se a outros equipamentos de EPI (como óculos e capacete). Todavia, vale lembrar também que os protetores podem ser diferentes quanto a sua capacidade de bloqueio de ruídos de acordo com a sua marca e modelo.</p>
-<figure><img src="/blog/conheca-os-principais-tipos-de-protetores-auriculares-4.jpg" alt="" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/a42773b9-fb0b-4aab-88c7-7958b1856d85/large.webp" alt="" loading="lazy" /></figure>
 <h5>Cuidados com o Protetor Auricular</h5>
 <p>Após serem utilizados, os protetores auriculares devem ser higienizados com água ou pano úmido, não restando sinais de sujeira, e em seguida serem secados a sombra, pois se deixados ao sol, poderão sofrer ressecamento. É aconselhado o uso de sabão neutro para a execução da limpeza.<br>
 Por fim, esclarecemos que a escolha do protetor auditivo que melhor atenda ao usuário, deverá basear-se na realidade por ele vivida, considerando o nível de exposição sonora.<br>
@@ -1563,14 +1519,14 @@ Gostou de saber um pouco mais sobre os tipos de protetores auditivos? Deixe nos 
     slug: "fazer-sua-horta-vertical",
     title: "Aprenda a Fazer a sua Horta Vertical",
     excerpt: "Guia completo sobre como fazer sua horta vertical. Dicas práticas e informações técnicas.",
-    image: "/blog/fazer-sua-horta-vertical-featured.jpg",
-    content: `<figure><img src="/blog/fazer-sua-horta-vertical-1.jpg" alt="Aprenda a Fazer a sua Horta Vertical" loading="lazy" /></figure>
+    image: "/media/2026/03/1637f50e-3d0d-4913-ae45-21d99e876dcc/large.webp",
+    content: `<figure><img src="/media/2026/03/ba6cfd68-e271-4cb2-97a6-825588da34ed/large.webp" alt="Aprenda a Fazer a sua Horta Vertical" loading="lazy" /></figure>
 <p>A ideia de ter uma <a href="/horta-em-casa-como-cultivar/">horta</a> em casa pode parecer algo trabalhoso, que exige muitos materiais e grande espaço. No entanto, hoje vamos te mostrar que é sim possível ter pouco espaço e colher as suas verduras e hortaliças em casa! Continue com a gente, e confira.</p>
 <h2>A escolha do Lugar</h2>
 <p>Sabemos que para se desenvolver de maneira saudável, as plantas precisam de boa iluminação, e esta é a primeira consideração a ser feita antes de montar a sua horta vertical. O ideal é que elas recebam ao menos 3 horas de luz solar direta por dia, principalmente pela manhã, ou a tarde. Assim, após a escolha do melhor lugar, observe-o e imagine como irá organizar este espaço: palhetes, vasos, tábuas de madeira e canos de PVC, são algumas opções para compor o seu ambiente.</p>
 <h3>A Escolha dos Vasos</h3>
 <p>Os modelos de vasos mais encontrados, e utilizados, são os de cerâmica, fibra de coco e de plástico. Todavia, uma outra opção, e que por sinal também é bem interessante é o reaproveitamento de garrafas pet e de caixas de leite. Ademais, pode-se ainda utilizar canos de PVC para tal.</p>
-<figure><img src="/blog/fazer-sua-horta-vertical-2.jpg" alt="Aprenda a Fazer a sua Horta Vertical" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/a754f4e8-7439-4a97-a5e6-72224962ba45/large.webp" alt="Aprenda a Fazer a sua Horta Vertical" loading="lazy" /></figure>
 <h4>Materiais para Execução da sua Horta Vertical</h4>
 <p>Os materiais a serem utilizados, em parte, dependerão das suas determinações quanto aos tipos de recipientes escolhidos por exemplo. No entanto, alguns itens são indispensáveis.</p>
 <p>– <strong>Furadeira</strong>: Será utilizada para fazer furos na parede, onde a horta será instalada. Sobretudo, você precisará também de buchas e de parafusos;</p>
@@ -1609,8 +1565,8 @@ Gostou do artigo de hoje? Se você já possui uma horta vertical, ou ficou com a
     slug: "como-fazer-a-manutencao-de-compressores-de-ar-comprimido",
     title: "Manutenção de compressores de ar comprimido - Como fazer? -",
     excerpt: "Aprenda as melhores práticas para manter seu compressor funcionando com eficiência e prolongar sua vida útil.",
-    image: "/blog/como-fazer-a-manutencao-de-compressores-de-ar-comprimido-featured.jpg",
-    content: `<figure><img src="/blog/como-fazer-a-manutencao-de-compressores-de-ar-comprimido-1.jpg" alt="compressores de ar comprimido" loading="lazy" /></figure>
+    image: "/media/2026/03/5d0dc8fd-103b-4d7f-aa45-d759cf5f7b57/large.webp",
+    content: `<figure><img src="/media/2026/03/63d934bf-b021-4866-9a03-36715c9b618f/large.webp" alt="compressores de ar comprimido" loading="lazy" /></figure>
 <p>Conforme já abordamos em artigos anteriores, a <a href="/manutencao-de-maquinas-e-equipamentos/">manutenção das máquinas</a> é de grande importância, e exerce influência não só em seu desempenho, como também em sua vida útil e na segurança do operador. Hoje vamos abordar a <a href="/como-fazer-a-manutencao-de-compressores-de-ar-comprimido/">manutenção</a> preventiva e corretiva especificamente em compressores de ar! Continue com a gente, e confira!</p>
 <h2>Manutenção Preventiva e Corretiva</h2>
 <p>Inicialmente vamos relembrar um pouco sobre o que seria as manutenções preventivas e corretivas. A manutenção Preventiva é aquela realizada com o objetivo de prevenir ou evitar possíveis falhas, ou quebras no equipamento. Isso significa que elas são realizadas antes de a máquina apresentar algum problema, e para corrigir situações que possam vir a resultar em danificações na mesma.</p><p>Já a manutenção Corretiva por sua vez, é aquela que é executada após o aparecimento de danos na ferramenta. Ela pode ser planejada, sendo feita após o surgimento de problemas, ou não planejada, consistindo na correção de quebras já ocorridas.</p>
@@ -1637,17 +1593,17 @@ Gostou do artigo de hoje? Se você já possui uma horta vertical, ou ficou com a
     slug: "diferencas-entre-esmerilhadeira-lixadeira-e-politriz",
     title: "Diferenças entre Esmerilhadeira, Lixadeira e Politriz?",
     excerpt: "Guia completo sobre diferenças entre esmerilhadeira, lixadeira e politriz. Dicas práticas e informações técnicas.",
-    image: "/blog/diferencas-entre-esmerilhadeira-lixadeira-e-politriz-featured.jpg",
-    content: `<figure><img src="/blog/diferencas-entre-esmerilhadeira-lixadeira-e-politriz-1.jpg" alt="Diferenças entre Esmerilhadeira, Lixadeira e Politriz?" loading="lazy" /></figure>
+    image: "/media/2026/03/87b89061-d079-4d4e-a778-ee73c481f884/large.webp",
+    content: `<figure><img src="/media/2026/03/7380d1f7-4100-499d-99da-43ace38ac3c1/large.webp" alt="Diferenças entre Esmerilhadeira, Lixadeira e Politriz?" loading="lazy" /></figure>
 <p>Diferenças entre <a href="https://loja.comercialjrltda.com.br/cat/produtos/esmerilhadeiras/">Esmerilhadeira</a>, Lixadeira e Politriz?<br>Destinadas a execução de desbastes e acabamentos tanto por profissionais, quanto para a realização de pequenos projetos em casa, as esmerilhadeiras caracterizam-se como <a href="https://loja.comercialjrltda.com.br/">ferramentas elétricas</a>, podendo ser utilizadas para a execução de trabalhos em concreto, aço, ferro, metal, mármores, incluindo muitas outras superfícies.<br>Devido a sua leveza, e por ser uma ferramenta portátil, pode ser utilizada para a execução de trabalhos nos mais diversos locais. No desenvolvimento de projetos em concreto por exemplo, esta ferramenta se destaca na execução de desbastes.</p>
-<figure><img src="/blog/diferencas-entre-esmerilhadeira-lixadeira-e-politriz-2.jpg" alt="Qual a Diferença entre Esmerilhadeira, Lixadeira e Politriz?" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/d33aa8ed-2e61-47c4-900b-da6a166b0655/large.webp" alt="Qual a Diferença entre Esmerilhadeira, Lixadeira e Politriz?" loading="lazy" /></figure>
 <h2>Esmerilhadeiras</h2>
 <p>São voltadas para a execução de cortes e desbastes principalmente em superfícies metálicas. Oferecem grande potência e precisão, e podem ser encontradas em diferentes tamanhos, sendo estes expressos em polegadas: 4.1/2”, 5”, 7” e 9, e estas por vezes influenciam a capacidade de rotações por minuto desta <a href="/ferramentas-manuais-para-marcenaria/">ferramenta</a>. A tabela abaixo nos mostra basicamente qual a capacidade de rotações por minuto de uma <a href="https://loja.comercialjrltda.com.br/cat/esmerilhadeiras/">esmerilhadeira</a> de acordo a sua polegada.</p><table><tbody><tr><td><p><span>POLEGADAS</span></p></td><td><p><span>RPM (ROTAÇÕES POR MINUTO)</span></p></td></tr><tr><td><p><span>4 a 6 polegadas</span></p></td><td><p><span>9.500 até 12.000</span></p></td></tr><tr><td><p><span>7 polegadas</span></p></td><td><p><span>9.000</span></p></td></tr><tr><td><p><span>9 polegadas</span></p></td><td><p><span>6.500</span></p></td></tr></tbody></table><p>Algumas marcas mais conhecidas no mercado, oferecem a possibilidade de controle de velocidade, o que proporciona a realização dos trabalhos por um maior período de tempo.<br>Para profissionais que utilizam desta ferramenta com maior constância, dependendo da superfície a ser trabalhada, vale a pena investir em esmerilhadeiras menores por serem mais leves, diferentemente das versões maiores que se apresentam com maior peso. Porém, como conforme descrevemos, isso dependerá do material a ser trabalhado.</p>
 <h3>Politriz</h3>
 <p>Pode ser encontrada nos tamanhos de 5 a 7 polegadas, com menores rotações, que variam de 300 a 6.000, e devido a isso, é destinada a realização do polimento de carros, chapas de inox, incluindo outros materiais que exijam maior delicadeza durante a execução do serviço, e que podem ser facilmente danificados quando expostos a uma maior RPM. Algumas politrizes possuem a função de variação da velocidade, e por isso podem ser adaptadas para serem utilizadas como uma lixadeira.</p>
 <h4>Lixadeira</h4>
 <p>Operam também com baixa rotação, podendo seus modelos variarem de 400 a 6.600 RPM. Basicamente, a sua função envolve o <a href="https://loja.comercialjrltda.com.br/cat/lixadeiras">lixamento</a> de superfícies, tais como: metais, madeiras, plásticos e fibras. E devido a isso, a sua grande utilização em construções civis, nas funilarias e por profissionais da área de pintura. A sua baixa RPM, também oferece menor risco de as peças serem queimadas durante a execução do serviço.</p><p>De forma resumida, confira na tabela abaixo as diferenças básicas entre estas ferramentas:</p><table><tbody><tr><td>&nbsp;</td><td><p><span>POLITRIZ</span></p></td><td><p><span>LIXADEIRA</span></p></td><td><p><span>ESMERILHADEIRA</span></p></td></tr><tr><td><p><span>Uso</span></p></td><td><p><span>Polimento e lixamento </span></p></td><td><p><span>Lixamento de materiais como madeira, aço, dentre outros. </span></p></td><td><p><span>Corte em diversos materiais, e execução de desbastes em superfícies mais rígidas</span></p></td></tr><tr><td><p><span>Velocidade</span></p></td><td><p><span>Baixa</span></p></td><td><p><span>Média</span></p></td><td><p><span>Alta</span></p></td></tr><tr><td><p><span>Tamanho</span></p></td><td><p><span>5 a 7 polegadas</span></p></td><td><p><span>7 polegadas</span></p></td><td><p><span>4 a 9 polegadas</span></p></td></tr><tr><td><p><span>Controle Da Velocidade</span></p></td><td><p><span>Possui</span></p></td><td><p><span>Não possui</span></p></td><td><p><span>Possui</span></p></td></tr><tr><td><p><span>RPM</span></p></td><td><p><span>600 a 3.300</span></p></td><td><p><span>4.000 a 6.600</span></p></td><td><p><span>6.500 a 12.000</span></p></td></tr></tbody></table>
-<figure><img src="/blog/diferencas-entre-esmerilhadeira-lixadeira-e-politriz-3.jpg" alt="Lixadeira" loading="lazy" /></figure>`,
+<figure><img src="/media/2026/03/2c27383b-feae-463f-adb5-f055cc7c85c5/large.webp" alt="Lixadeira" loading="lazy" /></figure>`,
     category: "maquinas",
     tags: ["esmerilhadeira","lixadeira","politriz"],
     date: "2020-09-22",
@@ -1662,9 +1618,8 @@ Gostou do artigo de hoje? Se você já possui uma horta vertical, ou ficou com a
     title: "Tipos de Serras Copo e como utilizá-las",
     excerpt: "Conheça os diferentes tipos de serras copo disponíveis no mercado e aprenda a escolher a ideal para cada material.",
     image: "",
-    content: `<figure><img src="/blog/tipos-de-serras-copo-e-como-utiliza-las-1.jpg" alt="Tipos de Serras Copo e como utilizá-las" loading="lazy" /></figure>
-<p>Assim como as <a href="/brocas-para-furadeira/">brocas</a>, as serras copo são utilizadas com o auxílio de uma <a href="/furadeiras-entenda-os-tipos-e-modos-de-utilizacao/">furadeira</a>, porém, diferentemente destas, permite a realização de furos de maior diâmetro. Pode ser aplicada nos mais diversos tipos de materiais em marcenarias, construção civil, serralherias, elétrica, dentre outros.<br>Materiais diferentes possuem exigências diferentes, e a isso deve-se a importância de conhecer os diferentes tipos de serras copo, sem falar que isso também influenciará na vida útil da <a href="/as-10-ferramentas-para-se-ter-em-casa/">ferramenta</a>, e na qualidade do trabalho executado.<br>Vamos conhecê-las? Confira abaixo!</p>
-<figure><img src="/blog/tipos-de-serras-copo-e-como-utiliza-las-2.jpg" alt="Tipos de Serras Copo e como utilizá-las" loading="lazy" /></figure>
+    content: `<p>Assim como as <a href="/brocas-para-furadeira/">brocas</a>, as serras copo são utilizadas com o auxílio de uma <a href="/furadeiras-entenda-os-tipos-e-modos-de-utilizacao/">furadeira</a>, porém, diferentemente destas, permite a realização de furos de maior diâmetro. Pode ser aplicada nos mais diversos tipos de materiais em marcenarias, construção civil, serralherias, elétrica, dentre outros.<br>Materiais diferentes possuem exigências diferentes, e a isso deve-se a importância de conhecer os diferentes tipos de serras copo, sem falar que isso também influenciará na vida útil da <a href="/as-10-ferramentas-para-se-ter-em-casa/">ferramenta</a>, e na qualidade do trabalho executado.<br>Vamos conhecê-las? Confira abaixo!</p>
+<figure><img src="/media/2026/03/7ff0b309-df93-4f2b-b375-6cac7755248e/large.webp" alt="Tipos de Serras Copo e como utilizá-las" loading="lazy" /></figure>
 <h2>Serra Copo Bi-metal</h2>
 <p>São utilizadas para a realização de furos em superfícies metálicas e de aço inoxidável, como por exemplo chapas e perfis.</p>
 <h2>Serra Copo Multi (Videa)</h2>
@@ -1694,15 +1649,14 @@ Gostou do artigo de hoje? Se você já possui uma horta vertical, ou ficou com a
     slug: "maquinas-eletricas",
     title: "O que são Máquinas Elétricas - Entenda aqui!",
     excerpt: "Guia completo sobre máquinas elétricas: guia completo. Dicas práticas e informações técnicas.",
-    image: "/blog/maquinas-eletricas-featured.jpg",
-    content: `<figure><img src="/blog/maquinas-eletricas-1.jpg" alt="o quem são máquinas elétricas" loading="lazy" /></figure>
-<h2>Definição</h2>
+    image: "/media/2026/03/bb0b5b81-c284-4e5d-afd8-1a7aae9e2cac/large.webp",
+    content: `<h2>Definição</h2>
 <p><a href="/manutencao-de-maquinas-e-equipamentos/">Máquinas</a> elétricas rotativas são aquelas movidas a energia elétrica. Existem diversos tipos de máquinas elétricas no mercado certamente com diferentes propósitos, sendo algumas chamadas de <a href="/como-manter-o-bom-estado-das-ferramentas-eletricas/">ferramentas</a> elétricas devido a sua função de <a href="/tipos-de-motosserra-qual-e-o-ideal/">cortar</a>, serrar, furar, lixar, entre diversas outras possibilidades. Entenda aqui a importância das máquinas elétricas e veja exemplos.</p>
 <h3>Gerador Elétrico</h3>
 <p>Algumas máquinas existem para gerar energia elétrica. Estas por sua vez são os geradores que alimentam outras máquinas na ausência de tomadas de <a href="/como-manter-o-bom-estado-das-ferramentas-eletricas/">eletricidade</a>. Elas consistem em um dispositivo capaz de converter energia mecânica em elétrica, ou vice-versa. Nas máquinas elétricas estão presentes os transformadores. <br><b>Seriam eles os responsáveis por converter energia mecânica e elétrica?</b> <br>A resposta é não. Eles convertem a corrente alternada de um nível de tensão para outro.</p><p>A conversão de energia mecânica em elétrica acontece por meio de uma máquina elétrica denominada Gerador Elétrico. Os geradores operam por meio do princípio da Indução Eletromagnética, onde entende-se que: Toda vez que um condutor move-se em um campo magnético, uma força eletromotriz é induzida dentro do condutor. A este fenômeno denomina-se ação do gerador.<br>Basicamente, temos que: um gerador consiste em um estator e um rotor. Por meio de uma turbina, ou motor primário a energia mecânica é fornecida a um rotor de um gerador.</p>
 <h4>Motor Elétrico</h4>
 <p>A conversão da energia elétrica em mecânica se dá por meio do motor elétrico. Se um condutor de corrente é colocado em um campo magnético, o condutor experimenta uma força mecânica e esse é o princípio por trás da ação do motor.<br>Assim como os geradores, os motores são formados pelo rotor e estator. Muitos modelos de motores necessitam do fornecimento de energia elétrica para o enrolamento de rotor e do estator.<br>Outros modelos de motores por sua vez, como o de imã fixo, e o de indução, a alimentação pode ser necessária para apenas um rolamento. O rotor entra em movimento por meio da força eletromagnética entre os dois enrolamentos.</p>
-<figure><img src="/blog/maquinas-eletricas-2.jpg" alt="O que são máquinas elétricas?" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/1adc05cf-8536-4dcc-bcba-450f52ffa056/large.webp" alt="O que são máquinas elétricas?" loading="lazy" /></figure>
 <h5>Máquinas Elétricas de Corrente Alternada (CA)</h5>
 <p>Fornecem energia para diversos tipos de sistema, que vão deste de pequenos servomecanismos, até máquinas maiores industriais. Tem como componentes principais um estator, e um rotor. O estator consiste basicamente em um anel de metal com fendas.<br>É utilizado para prender as bobinas de fio isolado em um núcleo de aço. Por meio destes fios passa a corrente alternada para dar origem a um campo magnético rotativo.</p>
 <h6>Máquinas Elétricas de Corrente Contínua (CC)</h6>
@@ -1725,26 +1679,26 @@ Gostou do artigo de hoje? Se você já possui uma horta vertical, ou ficou com a
     slug: "fitas-adesivas-entenda-seus-tipos-e-aplicacoes",
     title: "Fitas Adesivas: Entenda seus Tipos e Aplicações",
     excerpt: "Descubra os diferentes tipos de fitas adesivas e suas aplicações específicas na indústria e no dia a dia.",
-    image: "/blog/fitas-adesivas-entenda-seus-tipos-e-aplicacoes-featured.jpg",
-    content: `<figure><img src="/blog/fitas-adesivas-entenda-seus-tipos-e-aplicacoes-1.jpg" alt="tipos de fitas" loading="lazy" /></figure>
+    image: "/media/2026/03/519d6a7e-6112-458f-b4ce-1575a83b1d64/large.webp",
+    content: `<figure><img src="/media/2026/03/1e9bcfa0-1a6d-4fef-9ad9-fa89b8110546/large.webp" alt="tipos de fitas" loading="lazy" /></figure>
 <p>Muito presente em caixas de <a href="/as-10-ferramentas-para-se-ter-em-casa/">ferramentas</a>, as fitas adesivas são muito utilizadas tanto para pequenos <a href="/manutencao-de-maquinas-e-equipamentos/">reparos</a>, quanto para aqueles momentos de emergência, para quebrar um galho, sendo por este motivo consideradas úteis para qualquer pessoa.<br>Vamos conhecer um pouco mais sobre as suas aplicações? Confira abaixo!</p>
 <h2>Fita Isolante</h2>
 <p>É muito utilizada para o isolamento de fios desencapados em conexões e materiais elétricos.<br>É aplicada também para a realização de reparos na energia elétrica, impedindo que ocorram choques e curto-circuito.</p>
-<figure><img src="/blog/fitas-adesivas-entenda-seus-tipos-e-aplicacoes-2.jpg" alt="tipos de fitas - fita isolante" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/e371a647-3aa3-4e7d-9d7a-6c2d1b81e50e/large.webp" alt="tipos de fitas - fita isolante" loading="lazy" /></figure>
 <h3>Fita Crepe</h3>
 <p>É a fita adesiva mais utilizada para a realização de reparos em casa, como por exemplo na execução de pinturas em paredes, portas, janelas, dentro outros. Também é muito utilizada por profissionais que fazem artesanato, auxiliando em montagens, e cartonagem, em indústrias automotivas, e em decorações de festas, para envolver e fixar diversos materiais.</p>
-<figure><img src="/blog/fitas-adesivas-entenda-seus-tipos-e-aplicacoes-3.jpg" alt="tipos de fitas - fita crepe" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/6812afe6-9539-4b68-94ad-7f7caf0b8d30/large.webp" alt="tipos de fitas - fita crepe" loading="lazy" /></figure>
 <h4>Fita Silver Tape</h4>
 <p>Podemos dizer que ela é vista como aquela que resolve qualquer tipo de problema, e isso se deve ao fato de que a mesma possui resistência à água, e a abrasividade. É também reconhecida por sua força e durabilidade. O seu núcleo é composto por uma malha de algodão. Externamente é formada por polietileno, o que permite a sua fixação em lugares irregulares. Em seu adesivo encontramos borracha natural, o que proporciona maior duração a sua adesão.</p>
-<figure><img src="/blog/fitas-adesivas-entenda-seus-tipos-e-aplicacoes-4.jpg" alt="tipos de fitas - fita silver tape" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/43aa7888-05ae-4b50-bbcf-b937cb0a3528/large.webp" alt="tipos de fitas - fita silver tape" loading="lazy" /></figure>
 <h5>Fita Antiderrapante</h5>
 <p>Sua aplicação se dá em rampas, escadas, ou qualquer superfície que se caracterize como escorregadia. Com isso, evita-se acidentes provocados por escorregões, e que por vezes podem ser catastróficos.</p>
-<figure><img src="/blog/fitas-adesivas-entenda-seus-tipos-e-aplicacoes-5.jpg" alt="tipos de fitas - fita antiderrapante" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/e83dd343-7dec-459a-900b-9f4e59fe88f5/large.webp" alt="tipos de fitas - fita antiderrapante" loading="lazy" /></figure>
 <h6>Fita Dupla Face</h6>
 <p>Este tipo de fita é aquele que nunca pode faltar para profissionais dos ramos de artesanato, e decoração. É muito utilizada também pelas crianças no ambiente escolar para a execução de trabalhos em sala de aula.<br>Por meio dela, pode-se montar diversas superfícies, fixar, emendar, e laminar. O seu grande diferencial, como o seu próprio nome indica, é que ambas as suas faces são adesivas.</p>
-<figure><img src="/blog/fitas-adesivas-entenda-seus-tipos-e-aplicacoes-6.jpg" alt="tipos de fitas - fita dupla face" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/a90d4455-ef9f-487e-b813-cd13d7ea6df1/large.webp" alt="tipos de fitas - fita dupla face" loading="lazy" /></figure>
 <p>É versátil, e muito utilizada pelos mais diversos usuários, inclusive para o empacotamento de produtos. Devido a sua transparência, oferece descrição quanto a sua presença em superfícies, aumentando ainda mais a sua aplicação nos mais diversos cenários.</p>
-<figure><img src="/blog/fitas-adesivas-entenda-seus-tipos-e-aplicacoes-7.jpg" alt="tipos de fitas - fita transparente" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/d06caa19-4e22-4751-8910-f9f26f49458c/large.webp" alt="tipos de fitas - fita transparente" loading="lazy" /></figure>
 <p>Siga e compartilhe nosso Instagram: <a href="https://www.instagram.com/comercialjrltda/">@comercialjrltda</a></p>`,
     category: "ferramentas",
     tags: ["fitas adesivas","materiais","ferramentas"],
@@ -1759,8 +1713,8 @@ Gostou do artigo de hoje? Se você já possui uma horta vertical, ou ficou com a
     slug: "epoca-ideal-para-a-irrigacao-do-cafezal",
     title: "Determinando a época ideal para a irrigação do cafezal?",
     excerpt: "Guia completo sobre época ideal para a irrigação do cafezal. Dicas práticas e informações técnicas.",
-    image: "/blog/epoca-ideal-para-a-irrigacao-do-cafezal-featured.jpg",
-    content: `<figure><img src="/blog/epoca-ideal-para-a-irrigacao-do-cafezal-1.jpg" alt="Determinando a época ideal para a irrigação do cafezal e a quantidade de água utilizada?" loading="lazy" /></figure>
+    image: "/media/2026/03/99c369d2-9522-4130-bbd0-3c59b4b240df/large.webp",
+    content: `<figure><img src="/media/2026/03/7fbe3b26-a513-4835-99ce-e2709fb303b3/large.webp" alt="Determinando a época ideal para a irrigação do cafezal e a quantidade de água utilizada?" loading="lazy" /></figure>
 <p>Inúmeras áreas <a href="/fazer-sua-horta-vertical/">agrícolas</a> do nosso país são <a href="/qual-melhor-tipo-de-irrigacao-para-minha-lavoura/">irrigadas</a>, e para que os resultados sejam positivos, o projeto de irrigação deve se bem dimensionado, e o manejo eficiente, unindo a produtividade e a correta utilização de água e energia.</p>
 <p>Para determinar a melhor época para a <a href="/epoca-ideal-para-a-irrigacao-do-cafezal/">irrigação</a>, e a quantidade de água a ser utilizada pode ser feito o monitoramento da planta, do solo ou do clima. Vamos entender como isso funciona? Segue com a gente!</p>
 <h2>Monitoramento da Planta</h2>
@@ -1789,8 +1743,8 @@ Pra obter-se a evapotranspiração podem ser feitas medições diretas em campo,
     slug: "tipos-de-lixadeiras",
     title: "Tipos de Lixadeiras: Conheça os Tipos e Funcionalidades",
     excerpt: "Guia completo sobre tipos de lixadeiras: como escolher. Dicas práticas e informações técnicas.",
-    image: "/blog/tipos-de-lixadeiras-featured.jpg",
-    content: `<figure><img src="/blog/tipos-de-lixadeiras-1.jpg" alt="" loading="lazy" /></figure>
+    image: "/media/2026/03/a93a5eb2-7707-4549-9954-f63b0e133b98/large.webp",
+    content: `<figure><img src="/media/2026/03/b565f5a5-5efd-4e4d-a448-1770fa24517a/large.webp" alt="Leia mais sobre o artigo Ferramentas Elétricas, como Escolher a Sua?" loading="lazy" /></figure>
 <p>Dentre ferramentas elétricas mais utilizadas no mercado, podemos citar as <a href="https://loja.comercialjrltda.com.br/cat/produtos/lixadeiras/">lixadeiras</a>. Elas são verdadeiras aliadas quando o assunto é desbaste e acabamento de superfícies. No entanto, existem diferente modelos desta ferramenta no mercado, sendo cada qual voltada para objetivos, e superfícies específicas. Continue com a gente, e saiba quem são elas e suas principais especificidades!</p>
 <h2>Lixadeira de Parede</h2>
 <p>Geralmente, são destinadas ao desbaste de paredes, preparando-a para receber a pintura. Nesse sentido, com ela é possível eliminar as irregularidades da superfície a ser trabalhada. Costumam contar com um cabo telescópico, que possibilita alcançar locais de difícil acesso. Dessa forma, ela se destaca por oferecer ao usuário maior agilidade, conforto e gerando menos sujeira. É também utilizada para a realização de acabamentos no teto.</p>
@@ -1820,12 +1774,12 @@ Por fim, o que achou do artigo de hoje? Você já conhecia todos estes modelos? 
     slug: "escolha-a-serra-tico-tico-ideal",
     title: "Aprenda a Escolher a Serra Tico-Tico Ideal para Você",
     excerpt: "Guia completo sobre escolha a serra tico-tico ideal. Dicas práticas e informações técnicas.",
-    image: "/blog/escolha-a-serra-tico-tico-ideal-featured.jpg",
-    content: `<figure><img src="/blog/escolha-a-serra-tico-tico-ideal-1.jpg" alt="" loading="lazy" /></figure>
+    image: "/media/2026/03/69d15fe5-e6a3-47c6-8fc0-e7ad24627b4b/large.webp",
+    content: `<figure><img src="/media/2026/03/32423dc2-aa8a-429a-a54e-8b3d66325895/large.webp" alt="O que Observar antes de Adquirir a sua Serra Tico-Tico Para trabalhos profissionais, as serra tico-tico mais indicadas são os modelos mais completos e que oferecem maior potência, uma vez que a ferramenta será utilizada com maior frequência. Para pequenos projetos em casa modelos mais simples, e portáteis são uma boa opção. Além de escolher qual será o melhor modelo, é também importante atentar-se a lâmina a ser utilizada. Para trabalhar com madeira por exemplo, as lâminas mais largas são ótimas aliadas se a intenção é realizar cortes mais longos. Para cortes mais curtos ou curvos, os modelos mais estreitos são os indicados. Além disso, o espaçamento dos dentes também deve ser considerado: -Dentes maiores e mais espaçados, são indicados para cortar pedaços de madeira com maiores dimensões. - Dentes menores e mais próximos entre si, conseguem entregar um acabamento mais liso, e são indicados para materiais de menor espessura. Sempre observe questões como: velocidade, potência, ergonomia e quais atributos extras a ferramenta lhe oferece na hora de escolher a serra tico-tico ideal para você." loading="lazy" /></figure>
 <p>As <a href="https://loja.comercialjrltda.com.br/cat/produtos/serras/">serras</a> tico-tico, além de se destacarem por sua grande precisão para corte de peças detalhadas e curvas, são rápidas e eficientes. No entanto, também é conhecida no mercado como serra de recorte, sendo característico o seu movimento “vai” e “vem” durante a execução do trabalho.</p>
 <h2>Tipos de Serras Tico-Tico</h2>
 <p>Existem duas categorias de serras <a href="https://loja.comercialjrltda.com.br/cat/produtos/serras/">tico-tico</a> no mercado, que se mostram como as principais: as de bancada, e as manuais. Quando falamos das serra manuais, estamos nos referindo a uma ferramenta que se destaca por oferecer maior liberdade de movimentos ao usuário por ser solta, porém exigirá maior controle para chegar ao resultado esperado. As de bancada são fixas. Devido a isso, exigem menos esforço manual, e oferecem maior estabilidade. Porém, não é possível transportá-la até o local no qual o trabalho será desenvolvido, diferentemente dos modelos manuais.</p>
-<figure><img src="/blog/escolha-a-serra-tico-tico-ideal-2.jpg" alt="O que Observar antes de Adquirir a sua Serra Tico-Tico Para trabalhos profissionais, as serra tico-tico mais indicadas são os modelos mais completos e que oferecem maior potência, uma vez que a ferramenta será utilizada com maior frequência. Para pequenos projetos em casa modelos mais simples, e portáteis são uma boa opção. Além de escolher qual será o melhor modelo, é também importante atentar-se a lâmina a ser utilizada. Para trabalhar com madeira por exemplo, as lâminas mais largas são ótimas aliadas se a intenção é realizar cortes mais longos. Para cortes mais curtos ou curvos, os modelos mais estreitos são os indicados. Além disso, o espaçamento dos dentes também deve ser considerado: -Dentes maiores e mais espaçados, são indicados para cortar pedaços de madeira com maiores dimensões. - Dentes menores e mais próximos entre si, conseguem entregar um acabamento mais liso, e são indicados para materiais de menor espessura. Sempre observe questões como: velocidade, potência, ergonomia e quais atributos extras a ferramenta lhe oferece na hora de escolher a serra tico-tico ideal para você." loading="lazy" /></figure>
+<figure><img src="/media/2026/03/28f8f471-ba66-401f-af59-3327ae025810/large.webp" alt="O que Observar antes de Adquirir a sua Serra Tico-Tico Para trabalhos profissionais, as serra tico-tico mais indicadas são os modelos mais completos e que oferecem maior potência, uma vez que a ferramenta será utilizada com maior frequência. Para pequenos projetos em casa modelos mais simples, e portáteis são uma boa opção. Além de escolher qual será o melhor modelo, é também importante atentar-se a lâmina a ser utilizada. Para trabalhar com madeira por exemplo, as lâminas mais largas são ótimas aliadas se a intenção é realizar cortes mais longos. Para cortes mais curtos ou curvos, os modelos mais estreitos são os indicados. Além disso, o espaçamento dos dentes também deve ser considerado: -Dentes maiores e mais espaçados, são indicados para cortar pedaços de madeira com maiores dimensões. - Dentes menores e mais próximos entre si, conseguem entregar um acabamento mais liso, e são indicados para materiais de menor espessura. Sempre observe questões como: velocidade, potência, ergonomia e quais atributos extras a ferramenta lhe oferece na hora de escolher a serra tico-tico ideal para você." loading="lazy" /></figure>
 <h3>O que Observar antes de Adquirir a sua Serra Tico-Tico</h3>
 <p>Para trabalhos profissionais, as serra tico-tico mais indicadas são os modelos mais completos e que oferecem maior potência, uma vez que a ferramenta será utilizada com maior frequência.<br>
 Para pequenos projetos em casa modelos mais simples, e portáteis são uma boa opção.</p>
@@ -1853,8 +1807,8 @@ Gostou da saber mais sobre as serras tico-tico? Deixe nos comentários!</p>`,
     slug: "tipos-de-protecoes-respiratorias",
     title: "PFF1, PFF2 ou PFF3? Veja como Escolher a sua Proteção Respiratória",
     excerpt: "Guia completo sobre tipos de proteções respiratórias. Dicas práticas e informações técnicas.",
-    image: "/blog/tipos-de-protecoes-respiratorias-featured.jpg",
-    content: `<figure><img src="/blog/tipos-de-protecoes-respiratorias-1.jpg" alt="PFF1, PFF2 ou PFF3 Veja como Escolher a sua Proteção Respiratória" loading="lazy" /></figure>
+    image: "/media/2026/03/ef634bf0-cf3a-420d-84cf-1b494cf27de9/large.webp",
+    content: `<figure><img src="/media/2026/03/2cf497e7-dfac-4036-b919-7a148a899397/large.webp" alt="PFF1, PFF2 ou PFF3 Veja como Escolher a sua Proteção Respiratória" loading="lazy" /></figure>
 <h2>Quais são os Tipos de Proteções Respiratórias e onde Usar?</h2>
 <p>As máscaras respiratórias são muito utilizadas em ambientes propícios a poeira, névoas geradas por dedetização, vapores que advém de produtos químicos, tintas, vírus e bactérias em ambientes hospitalares. Utilizá-las corretamente diminui a exposição do usuário diante de situações como as expostas acima, aumentando a sua proteção. Elas atuam como um filtro por onde passa o ar antes que ele entre em contato com as nossas vias respiratórias, e para que elas cumpram o seu papel devemos observar se de fato se encaixam corretamente ao rosto, e caso necessário ajustes devem ser feitos.</p>
 <h3>Diferentes Classificações</h3>
@@ -1863,7 +1817,7 @@ P1, P2 ou P3</p>
 <p>São filtros utilizados em respiradores onde se é possível fazer a troca do filtro, bem como a sua manutenção. Tanto os cartuchos quanto os filtros ficam ligados a peça facial, sendo necessária a sua substituição quando acontecer o entupimento pelo excesso de partículas contaminadas. Isso dependerá do tipo de contaminante, nível de concentração e a frequência respiratória. A higienização deve ser feita diariamente.</p>
 <h4>PFF1, PFF2 ou PFF3</h4>
 <p>São descartáveis e não possuem manutenção, constituindo-se a peça facial no filtro propriamente dito. A necessidade de troca é determinada pela presença de danos como rasgos, ou por excesso de sujeira e entupimento. Encontramos muitos modelos no mercado que possuem válvulas, facilitando a respiração, proporcionando maior conforto e durabilidade a peça.</p>
-<figure><img src="/blog/tipos-de-protecoes-respiratorias-2.jpg" alt="PFF1, PFF2 ou PFF3 Veja como Escolher a sua Proteção Respiratória 2" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/3eca08c5-a642-4326-9ef2-e3ff59b7bbfc/large.webp" alt="PFF1, PFF2 ou PFF3 Veja como Escolher a sua Proteção Respiratória 2" loading="lazy" /></figure>
 <h5>Classificação dos filtros quanto ao tipo de contaminante</h5>
 <p>PFF1 e P1: Seu uso é indicado para ambientes onde há presença de poeira e névoas atóxicas. Permitem uma <a href="/5-dicas-escolher-melhor-furadeira/">penetração</a> máxima de 20%.<br>
 PFF2 e P2: Protege contra partículas finas e névoas tóxicas. Muito utilizada também por profissionais da área da saúde para a prevenção de vírus e bactérias. Permitem uma penetração máxima de 6% do contaminante.<br>
@@ -1892,8 +1846,8 @@ PFF3 e P3: São indicadas para proteção contra partículas extremamente finas 
     slug: "escolher-e-comprar-betoneira",
     title: "Dicas de como escolher e comprar a Betoneira Ideal",
     excerpt: "Guia completo sobre como escolher e comprar betoneira. Dicas práticas e informações técnicas.",
-    image: "/blog/escolher-e-comprar-betoneira-featured.jpg",
-    content: `<figure><img src="/blog/escolher-e-comprar-betoneira-1.jpg" alt="Dicas de como escolher e comprar a Betoneira Ideal" loading="lazy" /></figure>
+    image: "/media/2026/03/af851923-76e2-4904-8937-f0a9b6d8f999/large.webp",
+    content: `<figure><img src="/media/2026/03/fa0bce99-4e00-4a21-9522-124f60275952/large.webp" alt="Dicas de como escolher e comprar a Betoneira Ideal" loading="lazy" /></figure>
 <p>As betoneiras são muito presentes em construções civis e a sua relevância neste cenário é indiscutível. Elas são responsáveis por misturar cimento e argamassa, e por tornarem mais ágeis a produtividade, garantirem a produção de um concreto de maior qualidade proporcionarem menor desgaste da mão-de-obra e menos desperdício da matéria-prima, levando a um melhor custo-benefício.</p>
 <h2>O que observar antes de escolher a sua betoneira?</h2>
 <h3>Verifique a Rede Elétrica de Instalação</h3>
@@ -1930,8 +1884,8 @@ Compartilhe conosco!</p>`,
     slug: "excesso-de-calor-na-producao-cafeeira-entenda-as-consequencias",
     title: "Excesso de calor na produção cafeeira: Entenda as consequências!",
     excerpt: "Guia completo sobre excesso de calor na produção cafeeira. Dicas práticas e informações técnicas.",
-    image: "/blog/excesso-de-calor-na-producao-cafeeira-entenda-as-consequencias-featured.jpg",
-    content: `<figure><img src="/blog/excesso-de-calor-na-producao-cafeeira-entenda-as-consequencias-1.jpg" alt="Excesso de calor na produção cafeeira: Entenda quais são as consequências!" loading="lazy" /></figure>
+    image: "/media/2026/03/4b5e314d-2667-4875-9d8c-474593f6c8a8/large.webp",
+    content: `<figure><img src="/media/2026/03/e27955bb-45e4-4809-8a87-55532b80915a/large.webp" alt="Excesso de calor na produção cafeeira: Entenda quais são as consequências!" loading="lazy" /></figure>
 <p>Os anos que são marcados por períodos de seca podem afetar negativamente a produção do café com relação ao vigamento dos frutos e desenvolvimento do café. No entanto, quando posteriormente a este período temos verões com volumosas chuvas, podemos ter um cenário ideal para reverter esta situação em um excedente hídrico no solo, capaz de recuperar o desenvolvimento da planta pelo crescimento de novas folhas e nós. Elas se tornam mais sadias, vigorosas e trazem ao produtor uma nova e mais positiva expectativa com relação à safra.</p>
 <p>Vamos ver logo a seguir como os períodos de seca e calor excessivo se comportam nas plantações cafeeiras, tanto na planta adulta quanto na recém-plantada! Segue com a gente!</p>
 <h2>Lavouras Adultas</h2>
@@ -1954,8 +1908,8 @@ Compartilhe conosco!</p>`,
     slug: "processos-de-soldagem-e-suas-aplicacoes",
     title: "Conheça os Processos de Soldagem e suas Aplicações",
     excerpt: "Guia completo sobre processos de soldagem e suas aplicações. Dicas práticas e informações técnicas.",
-    image: "/blog/processos-de-soldagem-e-suas-aplicacoes-featured.jpg",
-    content: `<figure><img src="/blog/processos-de-soldagem-e-suas-aplicacoes-1.jpg" alt="Conheça os Processos de Soldagem e suas Aplicações" loading="lazy" /></figure>
+    image: "/media/2026/03/3a04a034-3ae6-44e1-befe-0019589ede09/large.webp",
+    content: `<figure><img src="/media/2026/03/e1d7bb94-da0b-4971-b896-cde11585c970/large.webp" alt="Conheça os Processos de Soldagem e suas Aplicações" loading="lazy" /></figure>
 <p>A soldagem é muito utilizada para unir pedaços de metal, e é capaz de fazer de peças separadas uma só. O que leva a esse resultado, e a fusão que acontece praticamente de forma instantânea, e logo depois uma solidificação quando exposto a condições de calor.<br>
 O processo de soldagem pode ser utilizado tanto para fabricação quando para a reparação de peças metálicas, e oferece certa variedade quanto aos tipos existentes e suas aplicações. No artigo de hoje iremos falar um pouco sobre cada um deles! Continue com a gente e confira!</p>
 <h2>Arco Elétrico</h2>
@@ -1988,8 +1942,8 @@ Além dos processos de soldagem por arco <a href="/como-manter-o-bom-estado-das-
     slug: "escolha-do-cortador-de-grama-ideal",
     title: "A escolha do Cortador de Grama Ideal para você!",
     excerpt: "Guia completo sobre escolha do cortador de grama ideal. Dicas práticas e informações técnicas.",
-    image: "/blog/escolha-do-cortador-de-grama-ideal-featured.jpg",
-    content: `<figure><img src="/blog/escolha-do-cortador-de-grama-ideal-1.jpg" alt="Como Escolher o cortador de Grama Ideal" loading="lazy" /></figure>
+    image: "/media/2026/03/0b33dda3-5ebb-48c0-bd09-ef9498acf690/large.webp",
+    content: `<figure><img src="/media/2026/03/483a4afa-5a47-457b-9dd4-b497f81066bb/large.webp" alt="Como Escolher o cortador de Grama Ideal" loading="lazy" /></figure>
 <p>Cultivar plantas e jardins, além de ser uma atividade prazerosa pode ser terapêutica. Elas tornam o ambiente mais bonito e aconchegante. Para a manutenção das áreas verdes existem diversos equipamentos que podem ser utilizados, e que inclusive tornam esta tarefa muito mais prática e simples. No artigo de hoje, falaremos em específico sobre aqueles equipamentos que nos ajudam a manter a grama aparada e com aquele aspecto de bem cuidada: os cortadores de grama! Existem no mercado diferentes modelos, variações de cortadores, e hoje vamos te ajudar a escolher o <a href="/escolha-a-serra-tico-tico-ideal/">ideal </a>para o seu tipo terreno!</p>
 <h2>Como Escolher o cortador de Grama Ideal</h2>
 <p>Para que você possa escolher o cortador de grama ideal, primeiramente deverá considerar as dimensões do terreno e sua inclinação, quais as plantas e tipo de grama que fazem parte do local, se existem fontes de alimentação e o seu tempo a disposição para a tarefa. Vamos as <a href="/maquinas/">máquinas</a>!</p>
@@ -2018,8 +1972,8 @@ As roçadeiras elétricas são mais para uso ocasional, mais leves e silenciosas
     slug: "martelete-shr263k-potencia-e-durabilidade",
     title: "Martelete SHR263K: Potência e Durabilidade para Trabalhos em Concreto!",
     excerpt: "Guia completo sobre martelete shr263k: potência e durabilidade. Dicas práticas e informações técnicas.",
-    image: "/blog/martelete-shr263k-potencia-e-durabilidade-featured.jpg",
-    content: `<figure><img src="/blog/martelete-shr263k-potencia-e-durabilidade-1.jpg" alt="Martelete SHR263K: Potência e Durabilidade para Trabalhos em Concreto!" loading="lazy" /></figure>
+    image: "/media/2026/03/594cc5dc-8400-485b-a71a-adbfc2d9d8ff/large.webp",
+    content: `<figure><img src="/media/2026/03/028d924e-84e7-494d-b224-289411b6b28d/large.webp" alt="Martelete SHR263K: Potência e Durabilidade para Trabalhos em Concreto!" loading="lazy" /></figure>
 <p>O martelete SHR263K é especificamente para trabalhos em concreto! São 800W de potência no motor, 3,4 joules de energia máxima de impacto para a execução de todo o tipo de trabalho em concreto: perfurações, fixações de buchas, instalações de portas, janelas, escadas, e móveis planejados.</p>
 <h2>Qualidade</h2>
 <p>Oferece ótimo custo-benefício ao usuário em questões de durabilidade, desempenho, agilidade e produtividade! E não para por aí! Ele conta ainda com 3 modos de trabalho: perfuração, <a href="/conheca-as-diferencas-entre-marteletes-e-furadeiras-de-impacto/">furadeira de impacto</a> e martelo!</p>
@@ -2027,7 +1981,7 @@ As roçadeiras elétricas são mais para uso ocasional, mais leves e silenciosas
 <p>– <strong>Furadeira de Impacto</strong>: Para perfurar em concreto e alvenaria. Quanto a rotação da <a href="/brocas-para-furadeira/">broca</a>, a posição de repouso é usada somente para girar o cinzel plano na posição desejada;</p>
 <p>– <strong>Martelo</strong>: Para aplicações leves de esburacamento, cinzelamento e demolição. Nesta modalidade também é possível utilizar a <a href="/as-10-ferramentas-para-se-ter-em-casa/">ferramenta</a> para liberar brocas que tenham ficado presas.</p>
 <p>Internamente, o martelete SHR263K possui peças que foram desenvolvidas para garantir menos vibrações durante o trabalho, e devido a sua empunhadura emborrachada a sua utilização se torna mais confortável, oferecendo maior comodidade ao usuário! Ele possui também gatilho eletrônico com velocidade variável e reversível, trava para uso contínuo, e embreagem para evitar que paradas súbitas aconteçam durante o uso!</p>
-<figure><img src="/blog/martelete-shr263k-potencia-e-durabilidade-2.jpg" alt="Martelete SHR263K: Potência e Durabilidade para Trabalhos em Concreto!" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/ad51f350-724a-4b69-b012-0ac2cb400210/large.webp" alt="Martelete SHR263K: Potência e Durabilidade para Trabalhos em Concreto!" loading="lazy" /></figure>
 <h3>A quem se destina?</h3>
 <p>Atende aos profissionais das mais diversas áreas: encanadores, eletricistas, autônomos que atuem na área de <a href="/como-fazer-a-manutencao-de-compressores-de-ar-comprimido/">manutenção</a> em geral. Também é amplamente utilizado nas construções civis, destacando-se por sua resistência e fácil utilização!</p>
 <h4>Dicas de uso</h4>
@@ -2050,8 +2004,7 @@ As roçadeiras elétricas são mais para uso ocasional, mais leves e silenciosas
     title: "Lixadeira Orbital – 10 Dicas de Uso Eficiente da Ferramenta",
     excerpt: "Guia completo sobre lixadeira orbital: dicas de uso. Dicas práticas e informações técnicas.",
     image: "",
-    content: `<figure><img src="/blog/lixadeira-orbital-dicas-1.jpg" alt="Lixadeira Orbital – 10 Dicas de Uso Eficiente da Ferramenta" loading="lazy" /></figure>
-<p>As <a href="/tipos-de-lixadeiras/">lixadeiras</a> orbitais, apesar de muito populares em diversos segmentos, são muito utilizadas por mecânicos e também por profissionais da construção civil para a unificação de superfícies, removendo imperfeições e o acúmulo de materiais desnecessários. É chamada de orbital porque realiza somente movimentos circulares, que por sinal proporcionam um acabamento leve e suave.</p>
+    content: `<p>As <a href="/tipos-de-lixadeiras/">lixadeiras</a> orbitais, apesar de muito populares em diversos segmentos, são muito utilizadas por mecânicos e também por profissionais da construção civil para a unificação de superfícies, removendo imperfeições e o acúmulo de materiais desnecessários. É chamada de orbital porque realiza somente movimentos circulares, que por sinal proporcionam um acabamento leve e suave.</p>
 <h2>Lixadeira Orbital para Projetos Diferenciados</h2>
 <p>Para projetos planos e que exijam um acabamento fino, como ocorre nas <a href="/ferramentas-manuais-para-marcenaria/">marcenarias</a>, o ideal é utilizar uma lixadeira orbital. Ela também oferece ótimos resultados ao ser utilizada em materiais como aço e metal, conferindo a peça trabalhada maior qualidade.</p>
 <h3>Como utilizar a sua lixadeira orbital de modo eficiente?</h3>
@@ -2087,18 +2040,18 @@ As roçadeiras elétricas são mais para uso ocasional, mais leves e silenciosas
     slug: "diferenca-entre-serra-marmore-e-serra-circular",
     title: "Diferença entre Serra Mármore e Serra Circular",
     excerpt: "Guia completo sobre diferença entre serra mármore e serra circular. Dicas práticas e informações técnicas.",
-    image: "/blog/diferenca-entre-serra-marmore-e-serra-circular-featured.jpg",
-    content: `<figure><img src="/blog/diferenca-entre-serra-marmore-e-serra-circular-1.jpg" alt="Diferença entre Serra Mármore e Serra Circular" loading="lazy" /></figure>
+    image: "/media/2026/03/b2407148-6e2d-4678-ab60-a455001dfba6/large.webp",
+    content: `<figure><img src="/media/2026/03/2e539dea-1c31-4d82-ab7c-46c654a03812/large.webp" alt="Diferença entre Serra Mármore e Serra Circular" loading="lazy" /></figure>
 <p>As Serras Mármore e Circular são <a href="/lixadeira-orbital-dicas/">ferramentas</a> que fisicamente possuem grande semelhança entre si, no entanto no que diz respeito as suas aplicações elas são sim diferentes, e é exatamente sobre isso que vamos falar hoje!</p>
 <p>Quando falamos que é somente em aspectos físicos que essas ferramentas se parecem, estamos apresentando um fato, isso porque utilizar uma no lugar da outra além danificar a ferramenta, não proporcionará o desenvolvimento de um bom trabalho e poderá ser um risco a segurança do usuário. Vamos então conhecê-las melhor para compreender está questão!</p>
 <h2>Serra Mármore</h2>
 <p>As <a href="/escolha-a-serra-tico-tico-ideal/">Serras</a> Mármores, além de trabalharem com alta <a href="/maquinas-eletricas/">rotação</a>, utilizam de discos menores e diamantados, e sua aplicação se dá em materiais mais rígidos. Inicialmente, era muito utilizada em construções para trabalhos em mármore, proporcionando ótimos resultados com acabamentos refinados.<br>
 Com a utilização do disco diamantado em alta rotação pode-se <a href="/conheca-os-diferentes-tipos-de-discos-de-corte/">cortar</a> pedras, porcelanato, basalto, mármores, paredes de alvenaria e telhados.<br>
 A serra mármore também é popularmente muito conhecida como Makita. Isso se deve ao fato de que em nosso país, ela foi uma das primeiras fabricantes dessa <a href="/conheca-as-8-ferramentas-de-medicoes-mais-utilizadas/">ferramenta</a>, e acabou se popularizando.</p>
-<figure><img src="/blog/diferenca-entre-serra-marmore-e-serra-circular-2.jpg" alt="Diferença entre Serra Mármore e Serra Circular" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/9cc34708-0090-4689-a6af-fc24021269c5/large.webp" alt="Diferença entre Serra Mármore e Serra Circular" loading="lazy" /></figure>
 <h3>Serra Circular</h3>
 <p>Diferentemente da ferramenta anterior, este tipo de serra possui baixa rotação e maior disco de corte formado por Widea (um metal mais duro) e é utilizada para cortar madeira. As serras circulares também possuem proteção móvel do disco de corte. Deste modo, ela se abre para realização do corte, e após a conclusão do trabalho se fecha automaticamente. Esta ferramenta é ideal para cortes retos, e sua nomenclatura se deve ao disco de corte que ela possui. Existem diferentes tipos de serras circulares no mercado: de bancada(que é fixa a uma mesa), <a href="/ferramentas-manuais-para-marcenaria/">manual</a> e portátil, serra esquadria (para cortes longitudinais e transversais), dentre outros.</p>
-<figure><img src="/blog/diferenca-entre-serra-marmore-e-serra-circular-3.jpg" alt="Diferença entre Serra Mármore e Serra Circular" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/98b55ccf-28bd-429f-ba8d-9f710da7041c/large.webp" alt="Diferença entre Serra Mármore e Serra Circular" loading="lazy" /></figure>
 <h4>Dicas de Segurança para Utilização</h4>
 <p>No caso da serra mármore, sabemos que ela necessita de água para realização do corte e se tratando de uma ferramenta <a href="/como-manter-o-bom-estado-das-ferramentas-eletricas/">elétrica</a>, deve-se ter cuidado pois a água conduz eletricidade, e não deve ficar em <a href="/contato/">contato</a> com partes elétricas do motor. O registro de água deverá ser fechado assim que o trabalho for concluído. Também é indicado o uso de luvas, e roupas adequadas para maior segurança do usuário. Durante a utilização, pó e fragmentos são produzidos, por isso os óculos de proteção também devem ser utilizados. Sempre respeite o recomendado pelo fabricante utilizando a ferramentas nos materiais para o qual ela foi projetada, e com o disco de corte correto.</p>
 <p>Já com relação as serras circulares, antes de utilizá-las verifique se a proteção da lâmina está ok. A profundidade da lâmina deverá ser ajustada para no máximo 1/4 de polegada a mais do que a espessura da madeira. Observe se na superfície a ser cortada não existem pregos, e se for o caso eles deverão ser evitados durante o corte.</p>
@@ -2117,8 +2070,8 @@ A serra mármore também é popularmente muito conhecida como Makita. Isso se de
     slug: "5-dicas-escolher-melhor-furadeira",
     title: "Confira 5 Dicas de como Escolher Melhor a sua Furadeira",
     excerpt: "Guia completo sobre 5 dicas para escolher a melhor furadeira. Dicas práticas e informações técnicas.",
-    image: "/blog/5-dicas-escolher-melhor-furadeira-featured.jpg",
-    content: `<figure><img src="/blog/5-dicas-escolher-melhor-furadeira-1.jpg" alt="" loading="lazy" /></figure>
+    image: "/media/2026/03/ace0a543-30a5-41a0-80ca-ba1d777d4e48/large.webp",
+    content: `<figure><img src="/media/2026/03/05d8e895-2acf-4f79-b3b0-04ecf15fa27f/large.webp" alt="Leia mais sobre o artigo Conheça as 8 Ferramentas de Medição mais Utilizadas" loading="lazy" /></figure>
 <p>Seja para a execução de reparos em casa ou projetos profissionais, as furadeiras são de grande utilidade. No entanto, a escolha do modelo que melhor o atenda deverá ser determinado levando-se em consideração algumas variáveis, e no artigo de hoje nós mostraremos a você quais são elas. Siga com a gente, e confira!</p>
 <h2>Tipo de Superfície</h2>
 <p>Este o ponto que o ajudará a descobrir se a sua furadeira deverá ser com ou sem impacto. No primeiro caso, trata-se de um modelo voltado para trabalhos em alvenaria, sendo voltada para paredes de tijolos e de concreto. Ao ser colocada em ação, ao mesmo tempo em que a broca é rotacionada, são aplicados golpes contra a superfície, contribuindo para a redução da resistência do material trabalhado. Em contrapartida, as que não possuem impacto por sua vez, são mais destinadas a serviços em superfícies como madeira, aço, acrílico, plástico e ferro.</p>
@@ -2148,9 +2101,9 @@ Ainda está confuso sobre qual o modelo ideal para você? Envie-nos a suas dúvi
     slug: "como-saber-se-o-motor-da-furadeira-esta-sendo-forcado",
     title: "Como saber se o Motor da Furadeira está sendo Forçado?",
     excerpt: "Guia completo sobre como saber se o motor da furadeira está sendo forçado. Dicas práticas e informações técnicas.",
-    image: "/blog/como-saber-se-o-motor-da-furadeira-esta-sendo-forcado-featured.jpg",
+    image: "/media/2026/03/30abca1f-5995-4d21-bb85-7f939e3727d7/large.webp",
     content: `<p>&nbsp;</p>
-<figure><img src="/blog/como-saber-se-o-motor-da-furadeira-esta-sendo-forcado-1.jpg" alt="Como saber se o motor da furadeira está sendo forçado?" loading="lazy" /></figure>
+<figure><img src="/media/2026/03/241893b6-b087-49b9-9c5c-670bf379996c/large.webp" alt="Como saber se o motor da furadeira está sendo forçado?" loading="lazy" /></figure>
 <p>As <a href="/5-dicas-escolher-melhor-furadeira/">furadeiras</a> são utilizadas nos mais diversos ramos e são extremamente úteis tanto em grandes projetos, quanto para pequenos trabalhos em <a href="/as-10-ferramentas-para-se-ter-em-casa/">casa</a>. No entanto a utilização excessiva, ou de forma indevida pode danificar a sua <a href="/conheca-as-8-ferramentas-de-medicoes-mais-utilizadas/">ferramenta</a> reduzindo a sua vida útil. Devido a isso, hoje vamos te mostrar 6 sintomas que podem ser apresentados pela sua furadeira, e que indicam que o motor pode estar sendo forçado, e necessitando de <a href="/como-fazer-a-manutencao-de-compressores-de-ar-comprimido/">manutenção</a>! Bora conferir?</p>
 <h2>Potência Enfraquecida</h2>
 <p>Se ao ligar a sua <a href="/5-dicas-escolher-melhor-furadeira/">furadeira</a> a potência estiver muito baixa, tornando a perfuração um desafio, a sua ferramenta pode estar com as escovas de carbono antigas ou gastas. Isso acontece porque são elas as responsáveis por transferir a corrente <a href="/maquinas-eletricas/">elétrica</a> da fonte para o motor. A boa notícia é que elas podem ser trocadas, e depois disso a sua furadeira estará potente e eficiente novamente.</p>
@@ -2181,8 +2134,8 @@ Ainda está confuso sobre qual o modelo ideal para você? Envie-nos a suas dúvi
     slug: "rocadeira-precisa-assistencia-tecnica",
     title: "Como saber se a Roçadeira precisa ser levada a uma Assistência Técnica",
     excerpt: "Guia completo sobre roçadeira precisa de assistência técnica?. Dicas práticas e informações técnicas.",
-    image: "/blog/rocadeira-precisa-assistencia-tecnica-featured.jpg",
-    content: `<figure><img src="/blog/rocadeira-precisa-assistencia-tecnica-1.jpg" alt="Como saber se a Roçadeira precisa ser levada a uma Assistência Técnica" loading="lazy" /></figure>
+    image: "/media/2026/03/bf3d044e-a4a5-4a3c-b46c-6b00ece9e373/large.webp",
+    content: `<figure><img src="/media/2026/03/4cdc8171-e5c6-48e3-b0f4-21a40920dccf/large.webp" alt="Como saber se a Roçadeira precisa ser levada a uma Assistência Técnica" loading="lazy" /></figure>
 <p>As roçadeiras são extremamente úteis para <a href="/como-fazer-a-manutencao-de-compressores-de-ar-comprimido/">manutenção</a> de gramados, jardins e quintais. No entanto, operar a sua <a href="/lixadeira-orbital-dicas/">ferramenta</a> da maneira errada, além de trazer diversos problemas para o seu funcionamento, poderá reduzir significativamente a sua vida útil. No post de hoje, listaremos para você algumas atitudes incorretas, e que se caracterizam como mal uso da sua roçadeira, e como resultado podem danificar a sua <a href="/conheca-as-8-ferramentas-de-medicoes-mais-utilizadas/">ferramenta</a>. Confira abaixo!</p>
 <h2>Atitudes que prejudicam a sua roçadeira</h2>
 <p>– Fazer a mistura de diferentes óleos;</p>
@@ -2222,8 +2175,8 @@ Ainda está confuso sobre qual o modelo ideal para você? Envie-nos a suas dúvi
     slug: "tipos-de-trena-laser-e-dicas-de-uso",
     title: "Tipos de Trena Laser e Dicas de Uso",
     excerpt: "Guia completo sobre tipos de trena laser e dicas de uso. Dicas práticas e informações técnicas.",
-    image: "/blog/tipos-de-trena-laser-e-dicas-de-uso-featured.jpg",
-    content: `<figure><img src="/blog/tipos-de-trena-laser-e-dicas-de-uso-1.jpg" alt="tipos de trena laser e dicas de uso" loading="lazy" /></figure>
+    image: "/media/2026/03/9b2a88bf-3ae6-45bb-ae88-dc7c75605b6e/large.webp",
+    content: `<figure><img src="/media/2026/03/d0fd8eae-6491-4ede-9db1-9a38cfbd7836/large.webp" alt="tipos de trena laser e dicas de uso" loading="lazy" /></figure>
 <p>As trenas são importantes instrumentos de medição utilizados para a execução de diversos projetos tanto domésticos, quanto profissionais. Por meio dela encontra-se a medida de distâncias e de alturas. Alguns modelos apresentam medidas em cm e mm, e em polegadas (também chamada de medida britânica).</p><p>Apesar de ser aparentemente simples, antes de efetuar a compra deste instrumento, é importante observar as características do serviço a ser executado para compreender as suas exigências, e qual a trena ideal a ser utilizada. Para compreendermos melhor os modelos existentes e suas características vamos falar das trenas em 3 grupos: trena longa, curta e trena a laser! Continue com a gente, e confira!</p>
 <h2>Trena Longa</h2>
 <p>Podemos encontra-la com 15m, 20m, 30m, 50 m, chegando até a 100m. É composta por fibra de vidro, e sua aplicação se dá na medição de longas distâncias, como terrenos e áreas referentes a construções por exemplo.</p><p>Sua grande exposição a questões ambientais, como poeira, sol e chuva, exige que se tenha um pouco mais de atenção no ato da compra com relação a resistência do material, para que possa oferecer maior <a href="/como-fazer-a-manutencao-de-compressores-de-ar-comprimido/">durabilidade</a>!</p>

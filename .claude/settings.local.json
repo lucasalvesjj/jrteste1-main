@@ -21,7 +21,16 @@
       "Bash(npx tsc:*)",
       "mcp__Claude_Preview__preview_start",
       "Bash(curl -s http://localhost:5173/blog/inversor-para-solda)",
-      "Bash(curl -s http://localhost:5173/)"
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(xargs grep:*)",
+      "Bash(node scripts/optimize-blog-images.mjs --slug=inversor-para-solda --dry-run)",
+      "Bash(node scripts/optimize-blog-images.mjs --slug=inversor-para-solda)",
+      "Bash(node scripts/optimize-blog-images.mjs)",
+      "Bash(node -e \"var d=require\\(''./public/data/media-library.json''\\); console.log\\(d.items.length\\);\")",
+      "Bash(node scripts/import-alt-texts.mjs --dry-run)",
+      "Bash(node scripts/import-alt-texts.mjs)",
+      "Bash(node -e \"var c=require\\(''./public/data/media-library.json''\\); console.log\\(c.items.length, ''itens''\\);\")",
+      "Bash(node -e \"var d=require\\(''./public/data/blog-posts.json''\\); var withImg=d.posts.filter\\(function\\(p\\){return p.image&&p.image.length>5}\\); console.log\\(withImg.length+''/''+d.posts.length+'' com imagem destacada''\\); var refs=0; d.posts.forEach\\(function\\(p\\){var r=/\\\\/media\\\\//g; while\\(r.exec\\(p.content\\)\\)refs++;}\\); console.log\\(refs+'' imagens /media/ no content''\\);\")"
     ]
   }
 }
