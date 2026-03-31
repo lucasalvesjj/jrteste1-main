@@ -1,7 +1,25 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-26T18:34:36.446Z",
+  "updatedAt": "2026-03-31T12:56:34.229Z",
   "items": [
+    {
+      "id": "8d96bb09-472e-443e-abcc-f9f149d3ccb8",
+      "name": "Comercial JR favicon .png",
+      "alt": "",
+      "paths": {
+        "thumbnail": "/media/2026/03/8d96bb09-472e-443e-abcc-f9f149d3ccb8/thumbnail.webp",
+        "medium": "/media/2026/03/8d96bb09-472e-443e-abcc-f9f149d3ccb8/medium.webp",
+        "large": "/media/2026/03/8d96bb09-472e-443e-abcc-f9f149d3ccb8/large.webp",
+        "original": "/media/2026/03/8d96bb09-472e-443e-abcc-f9f149d3ccb8/original.jpg"
+      },
+      "width": 150,
+      "height": 150,
+      "size": 16737,
+      "mimeType": "image/jpeg",
+      "uploadedAt": "2026-03-31T12:56:34.228Z",
+      "sourceType": "upload",
+      "sourceId": ""
+    },
     {
       "id": "014a58f1-4791-4ade-abec-b67c294669c6",
       "name": "image.png",
