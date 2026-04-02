@@ -101,7 +101,7 @@ const Segmentos = () => (
     </section>
 
     <section className="container-custom pt-10 pb-2">
-      <BrandSlider brands={allBrands} title="Marcas que representamos" />
+      <BrandSlider brands={allBrands} title="Marcas que representamos" speed={0.75} reverse />
     </section>
 
     <section className="section-padding">

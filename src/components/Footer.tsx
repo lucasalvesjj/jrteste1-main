@@ -24,7 +24,17 @@ const Footer = () => {
               width="48"
               height="48"
             />
-            <p className="text-sm leading-relaxed text-primary-foreground/80 line-clamp-4">{company.description}</p>
+            <div
+              className="max-h-28 overflow-y-auto"
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+                WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+                maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+              }}
+            >
+              <p className="text-sm leading-relaxed text-primary-foreground/80 pr-1">{company.description}</p>
+            </div>
           </div>
 
           <div>

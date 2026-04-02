@@ -65,12 +65,12 @@ const BrandLogo = ({ name }: { name: string }) => {
 
 /* ─── BrandSlider — carrossel horizontal infinito via JS ─────── */
 interface Brand { name: string; logo?: string; }
-interface BrandSliderProps { brands: Brand[]; title?: string; }
+interface BrandSliderProps { brands: Brand[]; title?: string; speed?: number; reverse?: boolean; }
 
-const SPEED = 0.75; // pixels por frame (~45 px/s a 60 fps) — 2.5× mais rápido
+const DEFAULT_SPEED = 0.3; // pixels por frame (~18 px/s a 60 fps)
 const GAP = 48;    // espaçamento entre logos em px
 
-const BrandSlider = ({ brands, title = "Marcas que trabalhamos" }: BrandSliderProps) => {
+const BrandSlider = ({ brands, title = "Marcas que trabalhamos", speed, reverse }: BrandSliderProps) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const offsetRef = useRef(0);
   const rafRef = useRef(0);
@@ -79,13 +79,19 @@ const BrandSlider = ({ brands, title = "Marcas que trabalhamos" }: BrandSliderPr
   // Duplica marcas para preencher o loop
   const items = [...brands, ...brands];
 
+  const speedRef = useRef(speed ?? DEFAULT_SPEED);
+  const reverseRef = useRef(reverse ?? false);
+  speedRef.current = speed ?? DEFAULT_SPEED;
+  reverseRef.current = reverse ?? false;
+
   const tick = useCallback(() => {
     const track = trackRef.current;
     if (track && !pausedRef.current) {
-      // Desktop (>=1024px): scroll para direita; mobile: scroll para esquerda
-      const isDesktop = window.innerWidth >= 1024;
+      const s = speedRef.current;
+      // Se reverse=true e desktop (>=1024px): scroll para direita; senão: scroll para esquerda
+      const isDesktop = reverseRef.current && window.innerWidth >= 1024;
       const direction = isDesktop ? 1 : -1;
-      offsetRef.current += SPEED * direction;
+      offsetRef.current += s * direction;
       // Largura de 1 conjunto (metade do track, já que duplicamos)
       const halfWidth = track.scrollWidth / 2;
       if (direction < 0 && Math.abs(offsetRef.current) >= halfWidth) {
@@ -115,7 +121,6 @@ const BrandSlider = ({ brands, title = "Marcas que trabalhamos" }: BrandSliderPr
       <div
         style={{
           overflow: "hidden", position: "relative",
-          borderRadius: 12,
           background: "hsl(var(--background))",
           padding: "24px 0",
         }}
