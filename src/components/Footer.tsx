@@ -24,7 +24,12 @@ const Footer = () => {
               width="48"
               height="48"
             />
-            <p className="text-sm leading-relaxed text-primary-foreground/80">{company.description}</p>
+            <div className="relative max-h-28 w-full">
+              <div className="max-h-28 overflow-y-auto" style={{ scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}>
+                <p className="text-sm leading-relaxed text-primary-foreground/80 pr-1">{company.description}</p>
+              </div>
+              <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-primary dark:from-[hsl(240_50%_12%)] to-transparent" />
+            </div>
           </div>
 
           <div>

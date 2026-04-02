@@ -5,97 +5,76 @@ import SEOHead from "@/components/SEOHead";
 import SchemaOrg from "@/components/SchemaOrg";
 import BrandSlider from "@/components/BrandSlider";
 import OptimizedImage from "@/components/OptimizedImage";
-
-const ALL_BRANDS = [
-  { name: "Bosch",        logo: "/brands/bosch.svg" },
-  { name: "Tigre",        logo: "/brands/tigre.svg" },
-  { name: "DeWalt",       logo: "/brands/dewalt.svg" },
-  { name: "Amanco",       logo: "/brands/amanco.svg" },
-  { name: "STIHL",        logo: "/brands/stihl.svg" },
-  { name: "WEG",          logo: "/brands/weg.svg" },
-  { name: "Gedore",       logo: "/brands/gedore.svg" },
-  { name: "Makita",       logo: "/brands/makita.svg" },
-  { name: "Hunter",       logo: "/brands/hunter.svg" },
-  { name: "Stanley",      logo: "/brands/stanley.svg" },
-  { name: "Schneider",    logo: "/brands/schneider.svg" },
-  { name: "Foxlux",       logo: "/brands/foxlux.svg" },
-  { name: "Black+Decker", logo: "/brands/blackdecker.svg" },
-  { name: "Bermad",       logo: "/brands/bermad.svg" },
-  { name: "MTX",          logo: "/brands/mtx.svg" },
-  { name: "Lepono",       logo: "/brands/lepono.svg" },
-  { name: "Senninger",    logo: "/brands/senninger.svg" },
-  { name: "APEX",         logo: "/brands/apex.svg" },
-  { name: "Anauger",      logo: "/brands/anauger.svg" },
-];
+import { allBrands } from "@/data/company";
 
 const segments = [
-  {
+  /* 1 */ {
     title: "Irrigação Agrícola",
     href: "/segmentos/irrigacao",
     icon: Droplets,
     color: "text-blue-500",
-    image: "/images/seg-irrigacao.jpg",
-    imageAlt: "Sistema de irrigação agrícola",
+    image: "/media/2026/04/b06fdcc3-978d-466b-b297-6377a8fb4e5b/large.webp",
+    imageAlt: "Sistema de irrigação agrícola por aspersão e gotejamento para lavouras - Comercial JR Castelo ES",
     description: "Sistemas completos de irrigação para lavouras de café, pastagem, horticultura e jardinagem. Aspersão, gotejamento, microaspersão e mais.",
     features: ["Irrigação por aspersão e gotejamento", "Bombas d'água", "Tubulações e conexões", "Aspersores Hunter e Senninger"],
   },
-  {
-    title: "Ferramentas Manuais",
-    href: "/segmentos/ferramentas",
-    icon: Wrench,
-    color: "text-orange-500",
-    image: "/blog/chaves-modelos.jpg",
-    imageAlt: "Ferramentas manuais profissionais",
-    description: "Ferramentas manuais profissionais para marcenaria, serralheria, construção civil e uso rural. Marcas Gedore, MTX, Foxlux e mais.",
-    features: ["Chaves, alicates e soquetes", "Serras e formões", "Martelos e marretas", "Instrumentos de medição"],
-  },
-  {
-    title: "Máquinas Elétricas",
-    href: "/segmentos/maquinas",
-    icon: Zap,
-    color: "text-yellow-500",
-    image: "/blog/ferramentas-eletricas.jpg",
-    imageAlt: "Máquinas elétricas profissionais",
-    description: "Furadeiras, marteletes, esmerilhadeiras, serras, compressores, politrizes e muito mais. As melhores marcas do mercado.",
-    features: ["Furadeiras e parafusadeiras", "Esmerilhadeiras e serras", "Compressores de ar", "Lixadeiras e politrizes"],
-  },
-  {
+  /* 2 */ {
     title: "Bombas e Motores",
     href: "/segmentos/bombas-e-motores",
     icon: Gauge,
     color: "text-cyan-600 dark:text-cyan-400",
-    image: "/images/seg-bombas.jpg",
-    imageAlt: "Bombas e motores elétricos",
+    image: "/media/2026/04/e739945b-7f2f-40da-9d44-27309c43edaf/large.webp",
+    imageAlt: "Bombas centrífugas e motores elétricos para irrigação e abastecimento - Comercial JR Castelo ES",
     description: "Bombas centrífugas, submersas, periféricas e motores elétricos monofásicos e trifásicos para irrigação, abastecimento e indústria.",
     features: ["Bombas centrífugas e submersas", "Motobombas a gasolina", "Motores mono e trifásicos", "Marcas WEG, Schneider, Lepono"],
   },
-  {
-    title: "Locação de Equipamentos",
-    href: "/segmentos/locacao",
-    icon: Package,
-    color: "text-purple-500",
-    image: "/images/seg-locacao.jpg",
-    imageAlt: "Equipamentos para locação em obras",
-    description: "Aluguel de máquinas e equipamentos leves e médios para obras, reformas e serviços rurais. Retire na loja em Castelo – ES.",
-    features: ["Compressor e martelo rompedor", "Compactador e vibrador", "Perfurador de solo", "Locação por dia, semana ou mês"],
-  },
-  {
+  /* 3 – alfabético a partir daqui */ {
     title: "Assistência Técnica STIHL",
     href: "/segmentos/assistencia-stihl",
     icon: ShieldCheck,
     color: "text-green-600 dark:text-green-400",
-    image: "/images/seg-stihl.jpg",
-    imageAlt: "Assistência técnica STIHL autorizada",
+    image: "/media/2026/04/65d0c2ec-54b6-4e44-a992-054e46f401a0/large.webp",
+    imageAlt: "Assistência técnica autorizada STIHL - manutenção com peças originais e garantia de fábrica - Comercial JR",
     description: "Revenda e assistência técnica autorizada STIHL. Manutenção com técnicos certificados, peças originais e garantia de fábrica.",
     features: ["Revenda autorizada STIHL", "Manutenção preventiva e corretiva", "Motores 2 tempos e linha Makita", "Peças e acessórios originais"],
   },
-  {
+  /* 4 */ {
+    title: "Ferramentas Manuais",
+    href: "/segmentos/ferramentas",
+    icon: Wrench,
+    color: "text-orange-500",
+    image: "/media/2026/04/ab470b90-9fed-4160-8f3a-a8c209588bf9/large.webp",
+    imageAlt: "Ferramentas manuais profissionais Gedore, MTX e Foxlux para construção e serralheria - Comercial JR",
+    description: "Ferramentas manuais profissionais para marcenaria, serralheria, construção civil e uso rural. Marcas Gedore, MTX, Foxlux e mais.",
+    features: ["Chaves, alicates e soquetes", "Serras e formões", "Martelos e marretas", "Instrumentos de medição"],
+  },
+  /* 5 */ {
+    title: "Locação de Equipamentos",
+    href: "/segmentos/locacao",
+    icon: Package,
+    color: "text-purple-500",
+    image: "/media/2026/04/30e714ee-83b7-4476-a17f-9b93a5679a3f/large.webp",
+    imageAlt: "Equipamentos para locação em obras e reformas - compactador, martelo rompedor e perfurador - Comercial JR",
+    description: "Aluguel de máquinas e equipamentos leves e médios para obras, reformas e serviços rurais. Retire na loja em Castelo – ES.",
+    features: ["Compressor e martelo rompedor", "Compactador e vibrador", "Perfurador de solo", "Locação por dia, semana ou mês"],
+  },
+  /* 6 */ {
+    title: "Máquinas Elétricas",
+    href: "/segmentos/maquinas",
+    icon: Zap,
+    color: "text-yellow-500",
+    image: "/media/2026/04/97751b68-291e-49ec-bbbc-a8047e12db5c/large.webp",
+    imageAlt: "Máquinas elétricas profissionais - furadeiras, esmerilhadeiras e serras DeWalt e Bosch - Comercial JR",
+    description: "Furadeiras, marteletes, esmerilhadeiras, serras, compressores, politrizes e muito mais. As melhores marcas do mercado.",
+    features: ["Furadeiras e parafusadeiras", "Esmerilhadeiras e serras", "Compressores de ar", "Lixadeiras e politrizes"],
+  },
+  /* 7 */ {
     title: "Poços Artesianos",
     href: "/segmentos/pocos-artesianos",
     icon: Layers,
     color: "text-teal-600 dark:text-teal-400",
-    image: "/images/seg-pocos.jpg",
-    imageAlt: "Soluções para poços artesianos",
+    image: "/media/2026/04/a163b809-e005-46eb-b2f6-d6ffb08989bd/large.webp",
+    imageAlt: "Soluções para poços artesianos - bombas submersas e painéis de controle - Comercial JR Castelo ES",
     description: "Soluções completas para poços artesianos: bombas submersas, motores, painéis de controle e acessórios com orientação técnica.",
     features: ["Bombas submersas e motores", "Painéis de proteção", "Tubulações e válvulas", "Orientação técnica especializada"],
   },
@@ -122,7 +101,7 @@ const Segmentos = () => (
     </section>
 
     <section className="container-custom pt-10 pb-2">
-      <BrandSlider brands={ALL_BRANDS} title="Marcas que representamos" />
+      <BrandSlider brands={allBrands} title="Marcas que representamos" />
     </section>
 
     <section className="section-padding">

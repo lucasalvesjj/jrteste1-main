@@ -30,7 +30,12 @@
       "Bash(node scripts/import-alt-texts.mjs --dry-run)",
       "Bash(node scripts/import-alt-texts.mjs)",
       "Bash(node -e \"var c=require\\(''./public/data/media-library.json''\\); console.log\\(c.items.length, ''itens''\\);\")",
-      "Bash(node -e \"var d=require\\(''./public/data/blog-posts.json''\\); var withImg=d.posts.filter\\(function\\(p\\){return p.image&&p.image.length>5}\\); console.log\\(withImg.length+''/''+d.posts.length+'' com imagem destacada''\\); var refs=0; d.posts.forEach\\(function\\(p\\){var r=/\\\\/media\\\\//g; while\\(r.exec\\(p.content\\)\\)refs++;}\\); console.log\\(refs+'' imagens /media/ no content''\\);\")"
+      "Bash(node -e \"var d=require\\(''./public/data/blog-posts.json''\\); var withImg=d.posts.filter\\(function\\(p\\){return p.image&&p.image.length>5}\\); console.log\\(withImg.length+''/''+d.posts.length+'' com imagem destacada''\\); var refs=0; d.posts.forEach\\(function\\(p\\){var r=/\\\\/media\\\\//g; while\\(r.exec\\(p.content\\)\\)refs++;}\\); console.log\\(refs+'' imagens /media/ no content''\\);\")",
+      "Bash(node -e \"require\\(''sharp''\\); console.log\\(''sharp OK''\\)\")",
+      "Bash(node scripts/process-segment-images.mjs)",
+      "Bash(npx vite:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(netstat -ano)"
     ]
   }
 }

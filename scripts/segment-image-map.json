@@ -1,0 +1,51 @@
+[
+  {
+    "segment": "Bombas e Motores",
+    "id": "e739945b-7f2f-40da-9d44-27309c43edaf",
+    "sourceId": "bombas-e-motores",
+    "largePath": "/media/2026/04/e739945b-7f2f-40da-9d44-27309c43edaf/large.webp",
+    "alt": "Bombas centrífugas e motores elétricos para irrigação e abastecimento - Comercial JR Castelo ES"
+  },
+  {
+    "segment": "Locação de Equipamentos",
+    "id": "30e714ee-83b7-4476-a17f-9b93a5679a3f",
+    "sourceId": "locacao",
+    "largePath": "/media/2026/04/30e714ee-83b7-4476-a17f-9b93a5679a3f/large.webp",
+    "alt": "Equipamentos para locação em obras e reformas - compactador, martelo rompedor e perfurador - Comercial JR"
+  },
+  {
+    "segment": "Poços Artesianos",
+    "id": "a163b809-e005-46eb-b2f6-d6ffb08989bd",
+    "sourceId": "pocos-artesianos",
+    "largePath": "/media/2026/04/a163b809-e005-46eb-b2f6-d6ffb08989bd/large.webp",
+    "alt": "Soluções para poços artesianos - bombas submersas e painéis de controle - Comercial JR Castelo ES"
+  },
+  {
+    "segment": "Ferramentas Manuais",
+    "id": "ab470b90-9fed-4160-8f3a-a8c209588bf9",
+    "sourceId": "ferramentas",
+    "largePath": "/media/2026/04/ab470b90-9fed-4160-8f3a-a8c209588bf9/large.webp",
+    "alt": "Ferramentas manuais profissionais Gedore, MTX e Foxlux para construção e serralheria - Comercial JR"
+  },
+  {
+    "segment": "Máquinas Elétricas",
+    "id": "97751b68-291e-49ec-bbbc-a8047e12db5c",
+    "sourceId": "maquinas",
+    "largePath": "/media/2026/04/97751b68-291e-49ec-bbbc-a8047e12db5c/large.webp",
+    "alt": "Máquinas elétricas profissionais - furadeiras, esmerilhadeiras e serras DeWalt e Bosch - Comercial JR"
+  },
+  {
+    "segment": "Irrigação Agrícola",
+    "id": "b06fdcc3-978d-466b-b297-6377a8fb4e5b",
+    "sourceId": "irrigacao",
+    "largePath": "/media/2026/04/b06fdcc3-978d-466b-b297-6377a8fb4e5b/large.webp",
+    "alt": "Sistema de irrigação agrícola por aspersão e gotejamento para lavouras - Comercial JR Castelo ES"
+  },
+  {
+    "segment": "Assistência Técnica STIHL",
+    "id": "65d0c2ec-54b6-4e44-a992-054e46f401a0",
+    "sourceId": "assistencia-stihl",
+    "largePath": "/media/2026/04/65d0c2ec-54b6-4e44-a992-054e46f401a0/large.webp",
+    "alt": "Assistência técnica autorizada STIHL - manutenção com peças originais e garantia de fábrica - Comercial JR"
+  }
+]

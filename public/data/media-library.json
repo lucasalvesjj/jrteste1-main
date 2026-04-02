@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-31T23:46:16.503Z",
+  "updatedAt": "2026-04-02T00:40:23.087Z",
   "items": [
     {
       "id": "0c7ffc35-d869-4855-b24d-282db446b56e",
@@ -3457,6 +3457,132 @@
       "uploadedAt": "2026-03-31T20:11:45.960Z",
       "sourceType": "post",
       "sourceId": "inversor-para-solda"
+    },
+    {
+      "id": "e739945b-7f2f-40da-9d44-27309c43edaf",
+      "name": "Bombas e Motores-2.png",
+      "alt": "Bombas centrífugas e motores elétricos para irrigação e abastecimento - Comercial JR Castelo ES",
+      "paths": {
+        "thumbnail": "/media/2026/04/e739945b-7f2f-40da-9d44-27309c43edaf/thumbnail.webp",
+        "medium": "/media/2026/04/e739945b-7f2f-40da-9d44-27309c43edaf/medium.webp",
+        "large": "/media/2026/04/e739945b-7f2f-40da-9d44-27309c43edaf/large.webp",
+        "original": "/media/2026/04/e739945b-7f2f-40da-9d44-27309c43edaf/original.png"
+      },
+      "width": 1550,
+      "height": 1014,
+      "size": 2527879,
+      "mimeType": "image/png",
+      "uploadedAt": "2026-04-02T00:40:21.428Z",
+      "sourceType": "page",
+      "sourceId": "bombas-e-motores"
+    },
+    {
+      "id": "30e714ee-83b7-4476-a17f-9b93a5679a3f",
+      "name": "Locação de Máquinas-1.png",
+      "alt": "Equipamentos para locação em obras e reformas - compactador, martelo rompedor e perfurador - Comercial JR",
+      "paths": {
+        "thumbnail": "/media/2026/04/30e714ee-83b7-4476-a17f-9b93a5679a3f/thumbnail.webp",
+        "medium": "/media/2026/04/30e714ee-83b7-4476-a17f-9b93a5679a3f/medium.webp",
+        "large": "/media/2026/04/30e714ee-83b7-4476-a17f-9b93a5679a3f/large.webp",
+        "original": "/media/2026/04/30e714ee-83b7-4476-a17f-9b93a5679a3f/original.png"
+      },
+      "width": 1550,
+      "height": 1014,
+      "size": 2175363,
+      "mimeType": "image/png",
+      "uploadedAt": "2026-04-02T00:40:21.747Z",
+      "sourceType": "page",
+      "sourceId": "locacao"
+    },
+    {
+      "id": "a163b809-e005-46eb-b2f6-d6ffb08989bd",
+      "name": "Poco Artesiano-2.png",
+      "alt": "Soluções para poços artesianos - bombas submersas e painéis de controle - Comercial JR Castelo ES",
+      "paths": {
+        "thumbnail": "/media/2026/04/a163b809-e005-46eb-b2f6-d6ffb08989bd/thumbnail.webp",
+        "medium": "/media/2026/04/a163b809-e005-46eb-b2f6-d6ffb08989bd/medium.webp",
+        "large": "/media/2026/04/a163b809-e005-46eb-b2f6-d6ffb08989bd/large.webp",
+        "original": "/media/2026/04/a163b809-e005-46eb-b2f6-d6ffb08989bd/original.png"
+      },
+      "width": 1536,
+      "height": 1024,
+      "size": 2943264,
+      "mimeType": "image/png",
+      "uploadedAt": "2026-04-02T00:40:22.075Z",
+      "sourceType": "page",
+      "sourceId": "pocos-artesianos"
+    },
+    {
+      "id": "ab470b90-9fed-4160-8f3a-a8c209588bf9",
+      "name": "Ferramentas Manuais-3.png",
+      "alt": "Ferramentas manuais profissionais Gedore, MTX e Foxlux para construção e serralheria - Comercial JR",
+      "paths": {
+        "thumbnail": "/media/2026/04/ab470b90-9fed-4160-8f3a-a8c209588bf9/thumbnail.webp",
+        "medium": "/media/2026/04/ab470b90-9fed-4160-8f3a-a8c209588bf9/medium.webp",
+        "large": "/media/2026/04/ab470b90-9fed-4160-8f3a-a8c209588bf9/large.webp",
+        "original": "/media/2026/04/ab470b90-9fed-4160-8f3a-a8c209588bf9/original.png"
+      },
+      "width": 1536,
+      "height": 1024,
+      "size": 2427876,
+      "mimeType": "image/png",
+      "uploadedAt": "2026-04-02T00:40:22.355Z",
+      "sourceType": "page",
+      "sourceId": "ferramentas"
+    },
+    {
+      "id": "97751b68-291e-49ec-bbbc-a8047e12db5c",
+      "name": "Máquinas Elétricas-3.png",
+      "alt": "Máquinas elétricas profissionais - furadeiras, esmerilhadeiras e serras DeWalt e Bosch - Comercial JR",
+      "paths": {
+        "thumbnail": "/media/2026/04/97751b68-291e-49ec-bbbc-a8047e12db5c/thumbnail.webp",
+        "medium": "/media/2026/04/97751b68-291e-49ec-bbbc-a8047e12db5c/medium.webp",
+        "large": "/media/2026/04/97751b68-291e-49ec-bbbc-a8047e12db5c/large.webp",
+        "original": "/media/2026/04/97751b68-291e-49ec-bbbc-a8047e12db5c/original.png"
+      },
+      "width": 1536,
+      "height": 1024,
+      "size": 2427758,
+      "mimeType": "image/png",
+      "uploadedAt": "2026-04-02T00:40:22.659Z",
+      "sourceType": "page",
+      "sourceId": "maquinas"
+    },
+    {
+      "id": "b06fdcc3-978d-466b-b297-6377a8fb4e5b",
+      "name": "Irrigação Agrícola-1.png",
+      "alt": "Sistema de irrigação agrícola por aspersão e gotejamento para lavouras - Comercial JR Castelo ES",
+      "paths": {
+        "thumbnail": "/media/2026/04/b06fdcc3-978d-466b-b297-6377a8fb4e5b/thumbnail.webp",
+        "medium": "/media/2026/04/b06fdcc3-978d-466b-b297-6377a8fb4e5b/medium.webp",
+        "large": "/media/2026/04/b06fdcc3-978d-466b-b297-6377a8fb4e5b/large.webp",
+        "original": "/media/2026/04/b06fdcc3-978d-466b-b297-6377a8fb4e5b/original.png"
+      },
+      "width": 1536,
+      "height": 1024,
+      "size": 3165707,
+      "mimeType": "image/png",
+      "uploadedAt": "2026-04-02T00:40:22.998Z",
+      "sourceType": "page",
+      "sourceId": "irrigacao"
+    },
+    {
+      "id": "65d0c2ec-54b6-4e44-a992-054e46f401a0",
+      "name": "Assistência Técnica Stihl-1.png",
+      "alt": "Assistência técnica autorizada STIHL - manutenção com peças originais e garantia de fábrica - Comercial JR",
+      "paths": {
+        "thumbnail": "/media/2026/04/65d0c2ec-54b6-4e44-a992-054e46f401a0/thumbnail.webp",
+        "medium": "/media/2026/04/65d0c2ec-54b6-4e44-a992-054e46f401a0/medium.webp",
+        "large": "/media/2026/04/65d0c2ec-54b6-4e44-a992-054e46f401a0/large.webp",
+        "original": "/media/2026/04/65d0c2ec-54b6-4e44-a992-054e46f401a0/original.png"
+      },
+      "width": 960,
+      "height": 477,
+      "size": 9900,
+      "mimeType": "image/png",
+      "uploadedAt": "2026-04-02T00:40:23.086Z",
+      "sourceType": "page",
+      "sourceId": "assistencia-stihl"
     }
   ]
 }

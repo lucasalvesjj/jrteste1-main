@@ -29,7 +29,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
-import { company } from "@/data/company";
+import BrandSlider from "@/components/BrandSlider";
+import { company, allBrands } from "@/data/company";
 import { useBlogStore } from "@/stores/blogStore";
 import { isPostVisibleInAnyCategory } from "@/lib/blogCategories";
 
@@ -93,7 +94,7 @@ const segmentos = [
   },
 ];
 
-const AUTOPLAY_MS = 5000;
+const AUTOPLAY_MS = 3500;
 
 /* ── Componente do carrossel de segmentos ── */
 const SegmentosCarousel = () => {
@@ -361,6 +362,11 @@ const Index = () => {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Marcas que representamos */}
+      <section className="container-custom pt-10 pb-2">
+        <BrandSlider brands={allBrands} title="Marcas que representamos" />
       </section>
 
       {/* Sobre + stats secundários */}

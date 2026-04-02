@@ -67,7 +67,7 @@ const BrandLogo = ({ name }: { name: string }) => {
 interface Brand { name: string; logo?: string; }
 interface BrandSliderProps { brands: Brand[]; title?: string; }
 
-const SPEED = 0.3; // pixels por frame (~18 px/s a 60 fps)
+const SPEED = 0.75; // pixels por frame (~45 px/s a 60 fps) — 2.5× mais rápido
 const GAP = 48;    // espaçamento entre logos em px
 
 const BrandSlider = ({ brands, title = "Marcas que trabalhamos" }: BrandSliderProps) => {
