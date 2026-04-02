@@ -390,16 +390,16 @@ const Index = () => {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4">
               {[
                 { icon: Package, value: `${company.stats.products.toLocaleString("pt-BR")}+`, label: "Produtos" },
                 { icon: Users, value: `${company.stats.clients.toLocaleString("pt-BR")}+`, label: "Clientes" },
                 { icon: Award, value: `${company.stats.years}+`, label: "Anos" },
               ].map((stat) => (
-                <div key={stat.label} className="rounded-xl bg-accent p-5 text-center">
-                  <stat.icon className="mx-auto mb-2 h-8 w-8 text-primary" />
-                  <div className="font-heading text-2xl font-black text-primary">{stat.value}</div>
-                  <div className="text-xs font-medium text-muted-foreground">{stat.label}</div>
+                <div key={stat.label} className="rounded-xl bg-accent p-3 text-center sm:p-5">
+                  <stat.icon className="mx-auto mb-2 h-6 w-6 text-primary sm:h-8 sm:w-8" />
+                  <div className="font-heading text-lg font-black text-primary sm:text-2xl">{stat.value}</div>
+                  <div className="text-[10px] font-medium text-muted-foreground sm:text-xs">{stat.label}</div>
                 </div>
               ))}
             </div>

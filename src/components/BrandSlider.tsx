@@ -82,11 +82,16 @@ const BrandSlider = ({ brands, title = "Marcas que trabalhamos" }: BrandSliderPr
   const tick = useCallback(() => {
     const track = trackRef.current;
     if (track && !pausedRef.current) {
-      offsetRef.current -= SPEED;
+      // Desktop (>=1024px): scroll para direita; mobile: scroll para esquerda
+      const isDesktop = window.innerWidth >= 1024;
+      const direction = isDesktop ? 1 : -1;
+      offsetRef.current += SPEED * direction;
       // Largura de 1 conjunto (metade do track, já que duplicamos)
       const halfWidth = track.scrollWidth / 2;
-      if (Math.abs(offsetRef.current) >= halfWidth) {
+      if (direction < 0 && Math.abs(offsetRef.current) >= halfWidth) {
         offsetRef.current += halfWidth;
+      } else if (direction > 0 && offsetRef.current >= 0) {
+        offsetRef.current -= halfWidth;
       }
       track.style.transform = `translateX(${offsetRef.current}px)`;
     }
@@ -101,13 +106,7 @@ const BrandSlider = ({ brands, title = "Marcas que trabalhamos" }: BrandSliderPr
   return (
     <div style={{ marginTop: 40 }}>
       {title && (
-        <h3
-          style={{
-            marginBottom: 20, textAlign: "center",
-            fontFamily: "var(--font-heading)", fontSize: 18,
-            fontWeight: 700, color: "hsl(var(--foreground))",
-          }}
-        >
+        <h3 className="mb-5 text-center font-heading text-2xl font-bold text-foreground md:text-3xl">
           {title}
         </h3>
       )}
@@ -116,9 +115,8 @@ const BrandSlider = ({ brands, title = "Marcas que trabalhamos" }: BrandSliderPr
       <div
         style={{
           overflow: "hidden", position: "relative",
-          borderRadius: 12, border: "1px solid hsl(var(--border))",
+          borderRadius: 12,
           background: "hsl(var(--background))",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
           padding: "24px 0",
         }}
         onMouseEnter={() => { pausedRef.current = true; }}
