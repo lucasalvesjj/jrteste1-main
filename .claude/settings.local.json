@@ -35,7 +35,10 @@
       "Bash(node scripts/process-segment-images.mjs)",
       "Bash(npx vite:*)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
-      "Bash(netstat -ano)"
+      "Bash(netstat -ano)",
+      "Bash(find 'C:\\\\Users\\\\lucas\\\\Downloads\\\\jr1-main 2203\\\\jrteste1-main' -type f -name AdminSeoEditor*)",
+      "Bash(find '/c/Users/lucas/Downloads/jr1-main 2203/jrteste1-main/src' -name *.ts -type f)",
+      "Bash(grep -r \"api/redirect\\\\|/api/track\" 'C:\\\\Users\\\\lucas\\\\Downloads\\\\jr1-main 2203\\\\jrteste1-main' --include=*.ts --include=*.tsx)"
     ]
   }
 }

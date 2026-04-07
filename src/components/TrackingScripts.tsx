@@ -12,8 +12,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
-import { getTrackingCodes } from "./admin/AdminSeoEditor";
 import type { TrackingCode } from "./admin/AdminSeoEditor";
+
+const TRACKING_JSON_PATH = "/data/tracking-codes.json";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -59,11 +60,16 @@ export default function TrackingScripts() {
   const location = useLocation();
   const pathname = location.pathname;
 
-  // Re-lê do localStorage a cada navegação (SPA)
+  // Re-lê do JSON publicado a cada navegação (SPA)
   const [codes, setCodes] = useState<TrackingCode[]>([]);
 
   useEffect(() => {
-    setCodes(getTrackingCodes());
+    fetch(TRACKING_JSON_PATH, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : []))
+      .then((data: unknown) => {
+        setCodes(Array.isArray(data) ? (data as TrackingCode[]) : []);
+      })
+      .catch(() => setCodes([]));
   }, [pathname]);
 
   const active = useMemo(() => {

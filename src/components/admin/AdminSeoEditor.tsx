@@ -32,9 +32,16 @@ export function getTrackingCodes(): TrackingCode[] {
 
 export function saveTrackingCodes(codes: TrackingCode[]): void {
   localStorage.setItem(TRACKING_STORAGE_KEY, JSON.stringify(codes));
+  if (import.meta.env.DEV) {
+    fetch("/api/tracking-codes", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(codes),
+    }).catch((err) => console.warn("[tracking-sync] disk sync failed:", err));
+  }
 }
 
-function newTrackingCode(existingCount: number): TrackingCode {
+export function newTrackingCode(existingCount: number): TrackingCode {
   return {
     id: `tc-${Date.now()}`, name: "", code: "",
     position: "head", scope: "global",

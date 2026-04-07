@@ -57,6 +57,7 @@ import JRLoader from "@/components/JRLoader";
 import {
   getTrackingCodes,
   saveTrackingCodes,
+  newTrackingCode,
   type TrackingCode,
   type TrackingPosition,
   type TrackingScope,
@@ -378,26 +379,38 @@ function PublicationModal({
 const inputClsAdmin  = "w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm";
 const selectClsAdmin = "w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm";
 
-function newCode(count: number): TrackingCode {
-  return { id: `tc-${Date.now()}`, name: "", code: "", position: "head", scope: "global", includedPaths: [], excludedPaths: [], enabled: true, order: count };
-}
-
 function CodesModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [tracking, setTracking] = useState<TrackingCode[]>(() => getTrackingCodes());
   const [savedStr, setSavedStr] = useState(() => JSON.stringify(getTrackingCodes()));
   const [expanded, setExpanded] = useState<string | null>(null);
   const [pathInputs, setPathInputs] = useState<Record<string, { inc: string; exc: string }>>({});
 
+  useEffect(() => {
+    if (isOpen) {
+      const fresh = getTrackingCodes();
+      setTracking(fresh);
+      setSavedStr(JSON.stringify(fresh));
+      setExpanded(null);
+      setPathInputs({});
+    }
+  }, [isOpen]);
+
   const dirty = JSON.stringify(tracking) !== savedStr;
   const posLabel: Record<TrackingPosition, string> = { head: "<head>", body_start: "<body> início", body_end: "<body> fim" };
 
-  const add    = () => { const c = newCode(tracking.length); setTracking((t) => [...t, c]); setExpanded(c.id); };
+  const add    = () => { const c = newTrackingCode(tracking.length); setTracking((t) => [...t, c]); setExpanded(c.id); };
   const upd    = (id: string, patch: Partial<TrackingCode>) => setTracking((t) => t.map((c) => c.id === id ? { ...c, ...patch } : c));
   const rem    = (id: string) => { if (!window.confirm("Remover?")) return; setTracking((t) => t.filter((c) => c.id !== id)); };
   const mv     = (from: number, to: number) => setTracking((t) => { const n=[...t]; const [item]=n.splice(from,1); n.splice(to,0,item); return n.map((c,i)=>({...c,order:i})); });
   const addP   = (id: string, field: "includedPaths"|"excludedPaths", val: string) => { const v=val.trim(); if(!v) return; upd(id,{[field]:[...(tracking.find(c=>c.id===id)?.[field]??[]),v]}); setPathInputs(p=>({...p,[id]:{...p[id],[field==="includedPaths"?"inc":"exc"]:""}})); };
   const remP   = (id: string, field: "includedPaths"|"excludedPaths", idx: number) => upd(id,{[field]:(tracking.find(c=>c.id===id)?.[field]??[]).filter((_,i)=>i!==idx)});
-  const doSave = () => { saveTrackingCodes(tracking); setSavedStr(JSON.stringify(tracking)); toast.success("Tracking codes salvos"); };
+  const doSave = () => {
+    const incomplete = tracking.filter(c => !c.name.trim() || !c.code.trim());
+    if (incomplete.length > 0) toast.warning(`${incomplete.length} código(s) sem nome ou script preenchido`);
+    saveTrackingCodes(tracking);
+    setSavedStr(JSON.stringify(tracking));
+    toast.success("Tracking codes salvos");
+  };
   const discard= () => { const fresh=getTrackingCodes(); setTracking(fresh); setSavedStr(JSON.stringify(fresh)); };
 
   if (!isOpen) return null;
@@ -433,7 +446,7 @@ function CodesModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                   <button onClick={()=>setExpanded(expanded===tc.id?null:tc.id)} className="flex flex-1 items-center gap-2 text-left min-w-0">
                     <Code className="h-3.5 w-3.5 flex-shrink-0 text-muted-foreground"/>
                     <span className="truncate text-sm font-semibold text-foreground">{tc.name||<span className="italic text-muted-foreground">Sem nome</span>}</span>
-                    <span className="ml-auto flex-shrink-0 rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">{posLabel[tc.position]}</span>
+                    <span className="ml-auto flex-shrink-0 rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">{posLabel[tc.position] ?? tc.position}</span>
                     <span className={`flex-shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium ${tc.scope==="global"?"bg-green-500/10 text-green-600":"bg-blue-500/10 text-blue-600"}`}>{tc.scope==="global"?"Global":"Específico"}</span>
                   </button>
                   <div className="flex flex-shrink-0 flex-col">
