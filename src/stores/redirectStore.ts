@@ -16,6 +16,7 @@ interface RedirectStore {
   rules: RedirectRule[];
   notFoundLog: NotFoundLogEntry[];
   groups: string[];
+  hydrated: boolean;
   initialized: boolean;
   loading: boolean;
   source: RedirectSource;
@@ -76,6 +77,7 @@ export const useRedirectStore = create<RedirectStore>()(
       rules: [],
       notFoundLog: [],
       groups: ["blog", "paginas-legado"],
+      hydrated: false,
       initialized: false,
       loading: false,
       source: "fallback-empty",
@@ -83,16 +85,23 @@ export const useRedirectStore = create<RedirectStore>()(
 
       init: async () => {
         if (get().initialized) return;
-        set({ loading: true });
 
-        // Preservar rascunhos locais do localStorage
+        // Preservar rascunhos locais do localStorage (já hidratados)
         const current = get();
         if (current.source === "local-draft" && current.rules.length > 0) {
           set({ initialized: true, loading: false });
           return;
         }
 
+        set({ loading: true });
         const loaded = await loadPublishedRedirects();
+
+        // Re-verificar após await — hidratação pode ter completado durante o fetch
+        if (get().initialized) {
+          set({ loading: false });
+          return;
+        }
+
         set({
           rules: loaded.rules,
           notFoundLog: loaded.notFoundLog,
@@ -258,6 +267,9 @@ export const useRedirectStore = create<RedirectStore>()(
     }),
     {
       name: "comercial-jr-redirects-working-copy",
+      onRehydrateStorage: () => (state) => {
+        if (state) state.hydrated = true;
+      },
       merge: (persistedState, currentState) => {
         const normalized = normalizePersistedState(
           (persistedState as Partial<Pick<RedirectStore, "rules" | "notFoundLog" | "groups" | "initialized" | "source" | "lastLoadedAt">>) || undefined

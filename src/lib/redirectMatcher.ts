@@ -15,7 +15,9 @@ export const findMatchingRule = (
 
     if (rule.isRegex) {
       try {
-        const regex = new RegExp(`^${rule.sourceUrl}$`, "i");
+        // Garantir barra inicial no padrão regex para match consistente
+        const source = rule.sourceUrl.startsWith("/") ? rule.sourceUrl : `/${rule.sourceUrl}`;
+        const regex = new RegExp(`^${source}$`, "i");
         if (regex.test(normalizedPath)) return rule;
       } catch {
         // Regex inválido — ignora silenciosamente
@@ -40,15 +42,17 @@ export const resolveTargetUrl = (
   if (!rule.isRegex || rule.type === 410) return rule.targetUrl;
 
   try {
-    const regex = new RegExp(`^${rule.sourceUrl}$`, "i");
+    const source = rule.sourceUrl.startsWith("/") ? rule.sourceUrl : `/${rule.sourceUrl}`;
+    const regex = new RegExp(`^${source}$`, "i");
     return normalizePath(pathname).replace(regex, rule.targetUrl);
   } catch {
     return rule.targetUrl;
   }
 };
 
-/** Normaliza path removendo trailing slash (exceto root) e convertendo para lowercase */
+/** Normaliza path garantindo barra inicial, removendo trailing slash e convertendo para lowercase */
 const normalizePath = (path: string): string => {
-  const trimmed = path.length > 1 && path.endsWith("/") ? path.slice(0, -1) : path;
-  return trimmed.toLowerCase();
+  let p = path.startsWith("/") ? path : `/${path}`;
+  if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
+  return p.toLowerCase();
 };

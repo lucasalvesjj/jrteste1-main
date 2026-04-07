@@ -10,17 +10,26 @@ import { resolveTargetUrl } from "@/lib/redirectMatcher";
 const RedirectGuard = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const hydrated = useRedirectStore((s) => s.hydrated);
   const initialized = useRedirectStore((s) => s.initialized);
   const findMatch = useRedirectStore((s) => s.findMatch);
   const incrementHit = useRedirectStore((s) => s.incrementHit);
   const init = useRedirectStore((s) => s.init);
+  const rulesVersion = useRedirectStore((s) => s.rules.length);
   const processedRef = useRef<string | null>(null);
 
-  // Inicializa o store uma vez
-  useEffect(() => { init(); }, [init]);
+  // Inicializa o store somente após hidratação do localStorage
+  useEffect(() => {
+    if (hydrated) init();
+  }, [hydrated, init]);
+
+  // Invalida cache do processedRef quando regras mudam
+  useEffect(() => {
+    processedRef.current = null;
+  }, [rulesVersion]);
 
   useEffect(() => {
-    if (!initialized) return;
+    if (!hydrated || !initialized) return;
 
     // Evita loops: não processa /gone nem URLs do admin
     if (location.pathname === "/gone" || location.pathname.startsWith("/admin")) return;
@@ -42,7 +51,7 @@ const RedirectGuard = () => {
         navigate(target, { replace: true });
       }
     }
-  }, [location.pathname, initialized, findMatch, incrementHit, navigate]);
+  }, [location.pathname, hydrated, initialized, findMatch, incrementHit, navigate, rulesVersion]);
 
   // Limpa ref quando muda de path (para permitir reprocessar em navegação futura)
   useEffect(() => {
