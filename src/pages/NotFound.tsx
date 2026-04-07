@@ -1,9 +1,19 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import { useRedirectStore } from "@/stores/redirectStore";
 
-const NotFound = () => (
-  <Layout>
+const NotFound = () => {
+  const location = useLocation();
+  const log404 = useRedirectStore((s) => s.log404);
+
+  useEffect(() => {
+    log404(location.pathname, document.referrer, navigator.userAgent);
+  }, [location.pathname, log404]);
+
+  return (
+    <Layout>
     <SEOHead title="Página não encontrada" robots="noindex,nofollow" />
     <div className="section-padding text-center min-h-[60vh] flex flex-col items-center justify-center">
       <span className="text-8xl mb-4">🔧</span>
@@ -19,6 +29,7 @@ const NotFound = () => (
       </div>
     </div>
   </Layout>
-);
+  );
+};
 
 export default NotFound;

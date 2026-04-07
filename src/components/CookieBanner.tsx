@@ -20,7 +20,7 @@ const CookieBanner = ({ appReady }: { appReady: boolean }) => {
     setVisible(false);
   };
 
-  if (!visible || pathname === "/admin") return null;
+  if (!visible || pathname.startsWith("/admin")) return null;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-primary shadow-lg">

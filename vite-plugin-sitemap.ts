@@ -61,10 +61,25 @@ function buildUrlEntry(
   ].join("\n");
 }
 
-function buildPageSitemap(today: string): string {
-  const entries = STATIC_PAGES.map((page) =>
+function buildPageSitemap(today: string, excludedUrls?: Set<string>, redirectTargets?: { loc: string; changefreq: string; priority: string }[]): string {
+  const pages = excludedUrls
+    ? STATIC_PAGES.filter((page) => !excludedUrls.has(page.loc) && !excludedUrls.has(page.loc.replace(/\/$/, "")))
+    : STATIC_PAGES;
+  const entries = pages.map((page) =>
     buildUrlEntry(`${SITE_URL}${page.loc}`, today, page.changefreq, page.priority)
   );
+
+  // Adicionar URLs de destino de 301 que não estão já no sitemap
+  if (redirectTargets) {
+    const existingLocs = new Set(pages.map((p) => p.loc));
+    for (const target of redirectTargets) {
+      if (!existingLocs.has(target.loc)) {
+        entries.push(buildUrlEntry(`${SITE_URL}${target.loc}`, today, target.changefreq, target.priority));
+        existingLocs.add(target.loc);
+      }
+    }
+  }
+
   return [buildXmlHeader(), ...entries, "</urlset>"].join("\n");
 }
 interface BlogPostJson {
@@ -75,6 +90,74 @@ interface BlogPostJson {
 
 interface BlogCatalog {
   posts: BlogPostJson[];
+}
+
+interface RedirectRuleJson {
+  sourceUrl: string;
+  targetUrl: string;
+  type: number;
+  isRegex: boolean;
+  enabled: boolean;
+}
+
+interface RedirectCatalog {
+  rules: RedirectRuleJson[];
+}
+
+function readRedirectRules(outDir: string): RedirectRuleJson[] {
+  const candidates = [
+    path.join(outDir, "data", "redirects.json"),
+    path.join(process.cwd(), "public", "data", "redirects.json"),
+  ];
+
+  for (const filePath of candidates) {
+    if (fs.existsSync(filePath)) {
+      try {
+        const raw = fs.readFileSync(filePath, "utf-8");
+        const parsed = JSON.parse(raw) as RedirectCatalog;
+        if (Array.isArray(parsed.rules)) return parsed.rules;
+      } catch {
+        // continua
+      }
+    }
+  }
+  return [];
+}
+
+/** Coleta URLs que devem ser excluídas do sitemap (410s e fontes de redirect) */
+function getExcludedUrls(outDir: string): Set<string> {
+  const rules = readRedirectRules(outDir);
+  const excluded = new Set<string>();
+
+  for (const rule of rules) {
+    if (!rule.enabled || rule.isRegex) continue; // regex não pode ser comparado como URL literal
+    // Normaliza: adiciona / no in��cio e final para comparação
+    const source = rule.sourceUrl.startsWith("/") ? rule.sourceUrl : `/${rule.sourceUrl}`;
+    const withTrailing = source.endsWith("/") ? source : `${source}/`;
+    const withoutTrailing = withTrailing.slice(0, -1);
+    excluded.add(withTrailing);
+    excluded.add(withoutTrailing);
+  }
+
+  return excluded;
+}
+
+/** Coleta URLs de destino internas de regras 301 para inclusão no sitemap */
+function getRedirectTargetUrls(outDir: string): { loc: string; changefreq: string; priority: string }[] {
+  const rules = readRedirectRules(outDir);
+  const targets: { loc: string; changefreq: string; priority: string }[] = [];
+
+  for (const rule of rules) {
+    if (!rule.enabled || rule.isRegex || rule.type !== 301) continue;
+    const target = rule.targetUrl;
+    // Só URLs internas (não absolutas externas)
+    if (!target || target.startsWith("http")) continue;
+    const normalized = target.startsWith("/") ? target : `/${target}`;
+    const withTrailing = normalized.endsWith("/") ? normalized : `${normalized}/`;
+    targets.push({ loc: withTrailing, changefreq: "weekly", priority: "0.6" });
+  }
+
+  return targets;
 }
 
 function readBlogPosts(outDir: string): BlogPostJson[] {
@@ -99,8 +182,15 @@ function readBlogPosts(outDir: string): BlogPostJson[] {
   return [];
 }
 
-function buildPostSitemap(posts: BlogPostJson[], today: string): string {
-  const published = posts.filter((p) => p.status === "published");
+function buildPostSitemap(posts: BlogPostJson[], today: string, excludedUrls?: Set<string>): string {
+  let published = posts.filter((p) => p.status === "published");
+
+  if (excludedUrls) {
+    published = published.filter((post) => {
+      const url = `/${post.slug}/`;
+      return !excludedUrls.has(url) && !excludedUrls.has(`/${post.slug}`);
+    });
+  }
 
   const entries = published.map((post) => {
     const lastmod = post.date ? post.date.slice(0, 10) : today;
@@ -143,19 +233,31 @@ export function sitemapPlugin(): Plugin {
     closeBundle() {
       const today = new Date().toISOString().slice(0, 10);
 
+      // ── URLs excluídas por regras de redirect/410 ──
+      const excludedUrls = getExcludedUrls(resolvedOutDir);
+      if (excludedUrls.size > 0) {
+        console.log(`[sitemap] ${excludedUrls.size / 2} URLs excluídas por regras de redirect/410`);
+      }
+
+      // ── URLs de destino de 301 para inclusão ──
+      const redirectTargets = getRedirectTargetUrls(resolvedOutDir);
+      if (redirectTargets.length > 0) {
+        console.log(`[sitemap] ${redirectTargets.length} URLs de destino de 301 adicionadas ao sitemap`);
+      }
+
       // ── page-sitemap.xml ──
-      const pageSitemap = buildPageSitemap(today);
+      const pageSitemap = buildPageSitemap(today, excludedUrls, redirectTargets);
       const pagePath = path.join(resolvedOutDir, "page-sitemap.xml");
       fs.writeFileSync(pagePath, pageSitemap, "utf-8");
-      console.log(`[sitemap] ✅ page-sitemap.xml gerado (${STATIC_PAGES.length} URLs)`);
+      console.log(`[sitemap] page-sitemap.xml gerado (${STATIC_PAGES.length} URLs)`);
 
       // ── post-sitemap.xml ──
       const posts = readBlogPosts(resolvedOutDir);
-      const postSitemap = buildPostSitemap(posts, today);
+      const postSitemap = buildPostSitemap(posts, today, excludedUrls);
       const postPath = path.join(resolvedOutDir, "post-sitemap.xml");
       fs.writeFileSync(postPath, postSitemap, "utf-8");
       const published = posts.filter((p) => p.status === "published").length;
-      console.log(`[sitemap] ✅ post-sitemap.xml gerado (${published} posts publicados)`);
+      console.log(`[sitemap] post-sitemap.xml gerado (${published} posts publicados)`);
 
       // ── sitemap-index.xml ──
       const indexSitemap = buildSitemapIndex(today);

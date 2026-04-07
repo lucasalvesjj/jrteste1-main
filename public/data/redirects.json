@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "exportedAt": "2026-04-07T01:08:40.298Z",
+  "rules": [
+    {
+      "id": "f0464a84-7c83-4d62-996d-c6f042029003",
+      "sourceUrl": "teste",
+      "targetUrl": "",
+      "type": 410,
+      "isRegex": false,
+      "group": "",
+      "enabled": true,
+      "hits": 0,
+      "lastHitAt": null,
+      "note": "",
+      "createdAt": "2026-04-06T19:39:31.133Z",
+      "updatedAt": "2026-04-07T01:08:05.154Z"
+    },
+    {
+      "id": "cd8e11ec-6b77-4ebf-8137-59e515612a86",
+      "sourceUrl": "/pagina-removida",
+      "targetUrl": "",
+      "type": 410,
+      "isRegex": false,
+      "group": "",
+      "enabled": true,
+      "hits": 55,
+      "lastHitAt": "2026-04-07T01:08:21.248Z",
+      "note": "",
+      "createdAt": "2026-04-06T19:19:58.535Z",
+      "updatedAt": "2026-04-06T19:19:58.535Z"
+    },
+    {
+      "id": "035629ed-83ff-4442-b703-cba07098f81c",
+      "sourceUrl": "/post-antigo-teste",
+      "targetUrl": "/post-novo-teste",
+      "type": 301,
+      "isRegex": false,
+      "group": "",
+      "enabled": true,
+      "hits": 54,
+      "lastHitAt": "2026-04-07T01:08:10.726Z",
+      "note": "",
+      "createdAt": "2026-04-06T18:24:31.872Z",
+      "updatedAt": "2026-04-06T18:24:31.872Z"
+    },
+    {
+      "id": "c0e3f34d-a04d-46f1-9439-f0d585978871",
+      "sourceUrl": "/teste-302",
+      "targetUrl": "/blog",
+      "type": 302,
+      "isRegex": false,
+      "group": "teste",
+      "enabled": true,
+      "hits": 2,
+      "lastHitAt": "2026-04-07T01:08:31.057Z",
+      "note": "teste 302",
+      "createdAt": "2026-04-06T19:26:35.343Z",
+      "updatedAt": "2026-04-06T19:26:35.343Z"
+    },
+    {
+      "id": "078155d8-ed64-4eb6-8db2-8aa3a37c9ba6",
+      "sourceUrl": "/teste-307",
+      "targetUrl": "/contato",
+      "type": 307,
+      "isRegex": false,
+      "group": "teste",
+      "enabled": true,
+      "hits": 2,
+      "lastHitAt": "2026-04-07T01:08:39.994Z",
+      "note": "teste 307",
+      "createdAt": "2026-04-06T19:26:35.343Z",
+      "updatedAt": "2026-04-06T19:26:35.343Z"
+    }
+  ],
+  "notFoundLog": [
+    {
+      "id": "c037c697-e430-466a-996d-acf93452a239",
+      "url": "/teste",
+      "referrer": "",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/1.569.0 Chrome/144.0.7559.236 Electron/40.8.5 Safari/537.36 MSIX",
+      "timestamp": "2026-04-06T19:40:02.408Z",
+      "count": 34,
+      "resolved": false
+    },
+    {
+      "id": "c84681f5-ce33-4e64-9d7d-4df83b0ebd82",
+      "url": "/post-novo-teste",
+      "referrer": "",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/1.569.0 Chrome/144.0.7559.236 Electron/40.8.5 Safari/537.36 MSIX",
+      "timestamp": "2026-04-07T01:08:10.796Z",
+      "count": 2,
+      "resolved": false
+    },
+    {
+      "id": "ec03df7d-06df-47ee-9ca0-296ced336cbc",
+      "url": "/url-que-nao-existe-teste",
+      "referrer": "",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/1.569.0 Chrome/144.0.7559.236 Electron/40.8.5 Safari/537.36 MSIX",
+      "timestamp": "2026-04-06T18:32:58.703Z",
+      "count": 1,
+      "resolved": false
+    }
+  ],
+  "groups": [
+    "blog",
+    "paginas-legado"
+  ]
+}

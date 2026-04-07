@@ -34,6 +34,7 @@ import {
   KeyRound,
   ExternalLink,
   AlertTriangle,
+  ArrowLeftRight,
 } from "lucide-react";
 import {
   loadGitHubConfig,
@@ -46,6 +47,7 @@ import {
 } from "@/lib/githubPublish";
 import { toast } from "sonner";
 import { useBlogStore } from "@/stores/blogStore";
+import { useRedirectStore } from "@/stores/redirectStore";
 import type { BlogPost, BlogCategory } from "@/data/blogTypes";
 import { BLOG_DATA_PATH, parseBlogImport } from "@/lib/blogContent";
 import { getCategoryLabel, getCategoryTone, getPostCategories } from "@/lib/blogCategories";
@@ -624,6 +626,8 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
     toggleCategoryVisibility,
   } = useBlogStore();
 
+  const redirectStore = useRedirectStore();
+
   const [view, setView] = useState<"list" | "edit" | "seo-global">(
     () => (sessionStorage.getItem("admin-view") as "list" | "edit" | "seo-global") || "list"
   );
@@ -865,8 +869,41 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
         addPost(post);
         toast.success("Post criado com sucesso");
       } else if (editingSlug) {
+        const slugChanged = editingSlug !== post.slug;
         updatePost(editingSlug, post);
         toast.success("Post atualizado com sucesso");
+
+        // Auto-redirect: oferece criar 301 quando o slug muda
+        if (slugChanged) {
+          toast("URL do post foi alterada", {
+            description: `/${editingSlug} → /${post.slug}`,
+            action: {
+              label: "Criar Redirect 301",
+              onClick: () => {
+                try {
+                  redirectStore.addRule({
+                    id: crypto.randomUUID(),
+                    sourceUrl: `/${editingSlug}`,
+                    targetUrl: `/${post.slug}`,
+                    type: 301,
+                    isRegex: false,
+                    group: "blog",
+                    enabled: true,
+                    hits: 0,
+                    lastHitAt: null,
+                    note: `Auto-redirect: slug alterado de "${editingSlug}" para "${post.slug}"`,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString(),
+                  });
+                  toast.success("Redirect 301 criado automaticamente");
+                } catch {
+                  toast.error("Não foi possível criar o redirect (URL já existe)");
+                }
+              },
+            },
+            duration: 10000,
+          });
+        }
       }
     } catch {
       toast.error("Não foi possível salvar. Esta URL já existe em outro post.");
@@ -977,6 +1014,10 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
             <Link to="/admin/media" className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground">
               <ImageIcon className="h-4 w-4" />
               Mídia
+            </Link>
+            <Link to="/admin/redirects" className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground">
+              <ArrowLeftRight className="h-4 w-4" />
+              Redirects
             </Link>
             <button
               onClick={() => setCategoriesModalOpen(true)}

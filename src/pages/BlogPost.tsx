@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { Calendar, Tag, ArrowLeft } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -11,14 +11,52 @@ import JRLoader from "@/components/JRLoader";
 import { useMediaStore } from "@/stores/mediaStore";
 import { enrichContentImages } from "@/lib/contentImages";
 import { useMediaItem } from "@/hooks/useMediaItem";
+import { useRedirectStore } from "@/stores/redirectStore";
+
+/** Fallback quando o slug não corresponde a nenhum post — loga 404 e exibe página NotFound */
+const PostNotFound = () => {
+  const location = useLocation();
+  const log404 = useRedirectStore((s) => s.log404);
+
+  useEffect(() => {
+    log404(location.pathname, document.referrer, navigator.userAgent);
+  }, [location.pathname, log404]);
+
+  return (
+    <Layout>
+      <SEOHead title="Página não encontrada" robots="noindex,nofollow" />
+      <div className="section-padding text-center min-h-[60vh] flex flex-col items-center justify-center">
+        <span className="text-8xl mb-4">🔧</span>
+        <h1 className="font-heading text-5xl font-black text-foreground mb-4">404</h1>
+        <p className="text-xl text-muted-foreground mb-8">Ops! Página não encontrada.</p>
+        <div className="flex gap-4">
+          <Link to="/" className="bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
+            Voltar ao Início
+          </Link>
+          <Link to="/blog" className="border border-border text-foreground font-semibold px-6 py-3 rounded-lg hover:bg-accent transition-colors">
+            Ver Blog
+          </Link>
+        </div>
+      </div>
+    </Layout>
+  );
+};
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+  const location = useLocation();
   const init = useBlogStore((state) => state.init);
   const categoriesList = useBlogStore((state) => state.categories);
   const getPost = useBlogStore((state) => state.getPost);
   const getRelated = useBlogStore((state) => state.getRelated);
   const loading = useBlogStore((state) => state.loading);
+  const blogInitialized = useBlogStore((state) => state.initialized);
+
+  const redirectInit = useRedirectStore((s) => s.init);
+  const redirectInitialized = useRedirectStore((s) => s.initialized);
+  const redirectFindMatch = useRedirectStore((s) => s.findMatch);
+  const redirectIncrementHit = useRedirectStore((s) => s.incrementHit);
 
   // Catálogo de mídias para enriquecer <img> no HTML do post
   const mediaItems = useMediaStore((s) => s.items);
@@ -27,11 +65,31 @@ const BlogPostPage = () => {
 
   useEffect(() => {
     void init();
+    void redirectInit();
     // Carrega o catálogo de mídias apenas uma vez (se ainda não carregado)
     if (mediaState === "idle") loadMedia();
-  }, [init, loadMedia, mediaState]);
+  }, [init, loadMedia, mediaState, redirectInit]);
 
   const post = getPost(slug || "");
+
+  // Quando o post não existe e o blog já inicializou, verifica regras de redirect
+  useEffect(() => {
+    if (loading || !blogInitialized || post || !redirectInitialized) return;
+
+    const rule = redirectFindMatch(location.pathname);
+    if (!rule) return;
+
+    redirectIncrementHit(rule.id);
+
+    if (rule.type === 410) {
+      navigate("/gone", { replace: true, state: { originalUrl: location.pathname } });
+    } else {
+      const target = rule.targetUrl;
+      if (target && target !== location.pathname) {
+        navigate(target, { replace: true });
+      }
+    }
+  }, [loading, blogInitialized, post, redirectInitialized, redirectFindMatch, redirectIncrementHit, location.pathname, navigate]);
 
   if (loading && !post) {
     return (
@@ -42,16 +100,26 @@ const BlogPostPage = () => {
     );
   }
 
+  if (!post && blogInitialized) {
+    // Verifica se existe regra de redirect — se sim, o useEffect acima já redireciona
+    const rule = redirectFindMatch(location.pathname);
+    if (rule) {
+      return (
+        <Layout>
+          <SEOHead title="Redirecionando..." />
+          <JRLoader size="md" label="Redirecionando..." />
+        </Layout>
+      );
+    }
+
+    return <PostNotFound />;
+  }
+
   if (!post) {
     return (
       <Layout>
-        <SEOHead title="Post não encontrado" />
-        <div className="section-padding text-center">
-          <h1 className="mb-4 font-heading text-3xl font-bold text-foreground">Post não encontrado</h1>
-          <Link to="/blog" className="font-semibold text-primary">
-            ← Voltar ao Blog
-          </Link>
-        </div>
+        <SEOHead title="Carregando post" />
+        <JRLoader size="md" label="Carregando post..." />
       </Layout>
     );
   }

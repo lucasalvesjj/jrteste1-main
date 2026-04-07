@@ -6,6 +6,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ScrollToTop from "./components/ScrollToTop";
+import RedirectGuard from "./components/RedirectGuard";
 import CookieBanner from "./components/CookieBanner";
 import TrackingScripts from "./components/TrackingScripts";
 import JRLoader from "./components/JRLoader";
@@ -26,7 +27,9 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const AdminPage = lazy(() => import("./pages/Admin"));
 const AdminMediaPage = lazy(() => import("./pages/AdminMedia"));
+const AdminRedirectsPage = lazy(() => import("./pages/AdminRedirects"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
+const Gone = lazy(() => import("./pages/Gone"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const RouteFallback = () => <JRLoader size="lg" label="Carregando página..." />;
@@ -49,6 +52,7 @@ const App = () => {
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
+            <RedirectGuard />
             <TrackingScripts />
             <Suspense fallback={<RouteFallback />}>
               <AppReadyTrigger onReady={handleAppReady} />
@@ -69,6 +73,8 @@ const App = () => {
                 <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/admin/media" element={<AdminMediaPage />} />
+                <Route path="/admin/redirects" element={<AdminRedirectsPage />} />
+                <Route path="/gone" element={<Gone />} />
                 <Route path="/:slug" element={<BlogPost />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
