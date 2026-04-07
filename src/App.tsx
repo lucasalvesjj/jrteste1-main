@@ -10,6 +10,7 @@ import RedirectGuard from "./components/RedirectGuard";
 import CookieBanner from "./components/CookieBanner";
 import TrackingScripts from "./components/TrackingScripts";
 import JRLoader from "./components/JRLoader";
+import { syncSeoSettingsFromFile } from "@/hooks/useSeoSettings";
 
 const Index = lazy(() => import("./pages/Index"));
 const Segmentos = lazy(() => import("./pages/Segmentos"));
@@ -43,6 +44,10 @@ const AppReadyTrigger = ({ onReady }: { onReady: () => void }) => {
 const App = () => {
   const [appReady, setAppReady] = useState(false);
   const handleAppReady = useCallback(() => setAppReady(true), []);
+
+  useEffect(() => {
+    void syncSeoSettingsFromFile();
+  }, []);
 
   return (
     <HelmetProvider>

@@ -1,0 +1,15 @@
+{
+  "homeTitle": "Comercial JR LTDA - Máquinas, Ferramentas e Irrigação",
+  "homeDescription": "Referência em máquinas, ferramentas e irrigação no Espírito Santo. Mais de 18.000 produtos e 41 anos de tradição.",
+  "companyName": "Comercial JR LTDA",
+  "defaultImage": "/og-image.jpg",
+  "googleVerification": "da794cd9937527d01",
+  "defaultRobots": "index,follow",
+  "nofollowExternal": true,
+  "nofollowInternal": false,
+  "ogLocale": "pt_BR",
+  "referrerPolicy": "no-referrer-when-downgrade",
+  "themeColor": "#1a3c6e",
+  "dnsPrefetch": "//fonts.googleapis.com, //fonts.gstatic.com",
+  "preconnect": "https://fonts.googleapis.com, https://fonts.gstatic.com"
+}

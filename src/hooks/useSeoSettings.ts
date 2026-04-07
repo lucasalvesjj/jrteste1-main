@@ -1,7 +1,8 @@
 // Hook centralizado para configurações globais de SEO
 // Lê e salva no localStorage; consumido por SEOHead e AdminSeoEditor
 
-export const SEO_STORAGE_KEY = "comercial-jr-global-seo-v2";
+export const SEO_STORAGE_KEY = "comercial-jr-global-seo";
+const SEO_STORAGE_KEY_V2_LEGACY = "comercial-jr-global-seo-v2";
 
 export interface SeoSettings {
   // Básico
@@ -68,11 +69,56 @@ export const defaultSeoSettings: SeoSettings = {
 
 export function loadSeoSettings(): SeoSettings {
   try {
+    // Migração: limpa chave antiga -v2 se existir
+    if (localStorage.getItem(SEO_STORAGE_KEY_V2_LEGACY)) {
+      localStorage.removeItem(SEO_STORAGE_KEY_V2_LEGACY);
+    }
     const stored = localStorage.getItem(SEO_STORAGE_KEY);
     if (!stored) return { ...defaultSeoSettings };
-    return { ...defaultSeoSettings, ...JSON.parse(stored) };
+    const parsed = JSON.parse(stored) as Record<string, unknown>;
+
+    // Mapeia campos do AdminSeoEditor (GlobalSeo) para SeoSettings
+    const mapped: Partial<SeoSettings> = {};
+    if (typeof parsed.nofollowExternal === "boolean") {
+      mapped.externalLinksNofollow = parsed.nofollowExternal;
+    }
+    if (typeof parsed.nofollowInternal === "boolean") {
+      // nofollowInternal: true  → internalLinksFollow: false
+      mapped.internalLinksFollow = !parsed.nofollowInternal;
+    }
+    if (typeof parsed.defaultImage === "string") {
+      mapped.ogImage = parsed.defaultImage;
+    }
+    if (typeof parsed.googleVerification === "string") {
+      mapped.googleSiteVerification = parsed.googleVerification;
+    }
+    if (typeof parsed.defaultRobots === "string") {
+      mapped.robotsDefault = parsed.defaultRobots;
+    }
+
+    return { ...defaultSeoSettings, ...parsed, ...mapped };
   } catch {
     return { ...defaultSeoSettings };
+  }
+}
+
+/**
+ * Busca as configurações SEO do arquivo publicado e atualiza o localStorage.
+ * Deve ser chamada uma vez no startup do app para garantir que outros browsers
+ * reflitam o que foi publicado no GitHub.
+ */
+export async function syncSeoSettingsFromFile(): Promise<void> {
+  try {
+    const res = await fetch("/data/seo-settings.json", { cache: "no-store" });
+    if (!res.ok) return;
+    const data = await res.json() as Record<string, unknown>;
+    if (typeof data !== "object" || data === null) return;
+    localStorage.setItem(SEO_STORAGE_KEY, JSON.stringify({
+      ...defaultSeoSettings,
+      ...data,
+    }));
+  } catch {
+    // silencia erros de rede — fallback para localStorage existente
   }
 }
 

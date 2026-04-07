@@ -18,6 +18,7 @@ import type {
 } from "@/data/mediaTypes";
 import { localDevAdapter } from "@/lib/adapters/localDevAdapter";
 import { manualAdapter } from "@/lib/adapters/manualAdapter";
+import { loadGitHubConfig, publishToGitHub } from "@/lib/githubPublish";
 
 // ──────────────────────────────────────────────
 // Seleção do adapter ativo
@@ -147,11 +148,11 @@ export async function getAdapterName(): Promise<string> {
 
 /**
  * Atualiza o campo `alt` de uma mídia no catálogo.
- * Lê o JSON local, faz o patch e grava de volta.
- * Em produção (ManualAdapter) persiste no localStorage como fallback.
+ * 1. Persiste no localStorage como fallback universal.
+ * 2. Tenta publicar o catalog atualizado no GitHub (fire-and-forget).
  */
 export async function updateMediaAlt(id: string, alt: string): Promise<void> {
-  // Fallback universal: persiste no localStorage sob a chave "media-alt-overrides"
+  // 1. Fallback universal: persiste no localStorage
   try {
     const raw = localStorage.getItem("media-alt-overrides") || "{}";
     const overrides = JSON.parse(raw) as Record<string, string>;
@@ -159,6 +160,25 @@ export async function updateMediaAlt(id: string, alt: string): Promise<void> {
     localStorage.setItem("media-alt-overrides", JSON.stringify(overrides));
   } catch {
     // silencia erros de localStorage
+  }
+
+  // 2. Publicar catalog atualizado no GitHub (se config disponível)
+  const config = loadGitHubConfig();
+  if (!config) return;
+
+  try {
+    const res = await fetch("/data/media-library.json", { cache: "no-store" });
+    if (!res.ok) return;
+    const catalog = await res.json() as MediaItem[];
+    const updated = catalog.map((item) =>
+      item.id === id ? { ...item, alt } : item
+    );
+    await publishToGitHub(JSON.stringify(updated, null, 2), {
+      ...config,
+      filePath: "public/data/media-library.json",
+    });
+  } catch {
+    // silencia — localStorage já garante persistência local
   }
 }
 

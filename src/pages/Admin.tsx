@@ -384,6 +384,7 @@ function CodesModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
   const [savedStr, setSavedStr] = useState(() => JSON.stringify(getTrackingCodes()));
   const [expanded, setExpanded] = useState<string | null>(null);
   const [pathInputs, setPathInputs] = useState<Record<string, { inc: string; exc: string }>>({});
+  const [publishingTracking, setPublishingTracking] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -412,6 +413,23 @@ function CodesModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
     toast.success("Tracking codes salvos");
   };
   const discard= () => { const fresh=getTrackingCodes(); setTracking(fresh); setSavedStr(JSON.stringify(fresh)); };
+
+  const handlePublishTracking = async () => {
+    const config = loadGitHubConfig();
+    if (!config) { toast.error("Configure o GitHub primeiro em Admin > Blog"); return; }
+    if (dirty) { toast.warning("Salve as alterações antes de publicar"); return; }
+    setPublishingTracking(true);
+    try {
+      const json = JSON.stringify(getTrackingCodes(), null, 2);
+      const result = await publishToGitHub(json, { ...config, filePath: "public/data/tracking-codes.json" });
+      if (result.ok) toast.success("Tracking codes publicados no GitHub!");
+      else toast.error(result.error ?? "Erro ao publicar");
+    } catch {
+      toast.error("Erro ao publicar no GitHub");
+    } finally {
+      setPublishingTracking(false);
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -497,6 +515,14 @@ function CodesModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
           <div>{dirty&&<span className="text-xs text-amber-600 font-medium">● Alterações não salvas</span>}</div>
           <div className="flex gap-2">
             {dirty&&<button onClick={discard} className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted-foreground hover:bg-muted">Descartar</button>}
+            <button
+              onClick={handlePublishTracking}
+              disabled={publishingTracking || dirty}
+              className="flex items-center gap-1.5 rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground hover:bg-muted disabled:opacity-50"
+            >
+              <Github className="h-4 w-4" />
+              {publishingTracking ? "Publicando…" : "Publicar no GitHub"}
+            </button>
             <button onClick={()=>{if(dirty)doSave();onClose();}} className={`flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold hover:opacity-90 ${dirty?"bg-secondary text-secondary-foreground":"border border-border text-foreground hover:bg-muted"}`}>
               {dirty?<><Save className="h-4 w-4"/>Salvar e fechar</>:"Fechar"}
             </button>

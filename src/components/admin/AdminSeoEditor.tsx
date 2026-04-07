@@ -1,6 +1,10 @@
 import { useCallback, useRef, useState } from "react";
-import { ArrowLeft, Check, Save } from "lucide-react";
+import { ArrowLeft, Check, Github, Save } from "lucide-react";
 import { toast } from "sonner";
+import {
+  loadGitHubConfig,
+  publishToGitHub,
+} from "@/lib/githubPublish";
 
 // ── Tracking Code ─────────────────────────────────────────────────────────
 
@@ -245,6 +249,25 @@ const AdminSeoEditor = ({ onBack }: { onBack: () => void }) => {
 
   const anyDirty = identity.dirty || gsc.dirty || robots.dirty || og.dirty || referrer.dirty || pwa.dirty || perf.dirty;
 
+  const [publishingSeo, setPublishingSeo] = useState(false);
+
+  const handlePublishSeo = async () => {
+    const config = loadGitHubConfig();
+    if (!config) { toast.error("Configure o GitHub primeiro em Admin > Blog"); return; }
+    if (anyDirty) { toast.warning("Salve todas as seções antes de publicar"); return; }
+    setPublishingSeo(true);
+    try {
+      const json = JSON.stringify(loadSeo(), null, 2);
+      const result = await publishToGitHub(json, { ...config, filePath: "public/data/seo-settings.json" });
+      if (result.ok) toast.success("Configurações SEO publicadas no GitHub!");
+      else toast.error(result.error ?? "Erro ao publicar");
+    } catch {
+      toast.error("Erro ao publicar no GitHub");
+    } finally {
+      setPublishingSeo(false);
+    }
+  };
+
   return (
     <div className="dark admin-dark min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 bg-primary text-primary-foreground shadow-md">
@@ -262,6 +285,14 @@ const AdminSeoEditor = ({ onBack }: { onBack: () => void }) => {
               <Check className="h-3 w-3" /> Tudo salvo
             </span>
           )}
+          <button
+            onClick={handlePublishSeo}
+            disabled={publishingSeo || anyDirty}
+            className="flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-opacity hover:bg-white/20 disabled:opacity-50"
+          >
+            <Github className="h-3.5 w-3.5" />
+            {publishingSeo ? "Publicando…" : "Publicar no GitHub"}
+          </button>
         </div>
       </header>
 
