@@ -5,12 +5,13 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
 import OptimizedImage from "@/components/OptimizedImage";
-import { useBlogStore } from "@/stores/blogStore";
+import { usePublishedBlog, getPostBySlug, getRelatedPosts } from "@/hooks/usePublishedBlog";
 import { getCategoryLabel, getPostCategories } from "@/lib/blogCategories";
 import JRLoader from "@/components/JRLoader";
 import { useMediaStore } from "@/stores/mediaStore";
 import { enrichContentImages } from "@/lib/contentImages";
 import { useMediaItem } from "@/hooks/useMediaItem";
+import { usePublishedRedirects } from "@/hooks/usePublishedRedirects";
 import { useRedirectStore } from "@/stores/redirectStore";
 
 /** Fallback quando o slug não corresponde a nenhum post — loga 404 e exibe página NotFound */
@@ -46,16 +47,10 @@ const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const location = useLocation();
-  const init = useBlogStore((state) => state.init);
-  const categoriesList = useBlogStore((state) => state.categories);
-  const getPost = useBlogStore((state) => state.getPost);
-  const getRelated = useBlogStore((state) => state.getRelated);
-  const loading = useBlogStore((state) => state.loading);
-  const blogInitialized = useBlogStore((state) => state.initialized);
+  const { posts, categories: categoriesList, loading } = usePublishedBlog();
+  const blogInitialized = !loading && posts.length >= 0;
 
-  const redirectInit = useRedirectStore((s) => s.init);
-  const redirectInitialized = useRedirectStore((s) => s.initialized);
-  const redirectFindMatch = useRedirectStore((s) => s.findMatch);
+  const { findMatch: redirectFindMatch, initialized: redirectInitialized } = usePublishedRedirects();
   const redirectIncrementHit = useRedirectStore((s) => s.incrementHit);
 
   // Catálogo de mídias para enriquecer <img> no HTML do post
@@ -64,13 +59,11 @@ const BlogPostPage = () => {
   const mediaState = useMediaStore((s) => s.loadState);
 
   useEffect(() => {
-    void init();
-    void redirectInit();
     // Carrega o catálogo de mídias apenas uma vez (se ainda não carregado)
     if (mediaState === "idle") loadMedia();
-  }, [init, loadMedia, mediaState, redirectInit]);
+  }, [loadMedia, mediaState]);
 
-  const post = getPost(slug || "");
+  const post = getPostBySlug(posts, slug || "");
 
   // Quando o post não existe e o blog já inicializou, verifica regras de redirect
   useEffect(() => {
@@ -124,7 +117,7 @@ const BlogPostPage = () => {
     );
   }
 
-  const related = getRelated(post);
+  const related = getRelatedPosts(posts, post);
   const categories = getPostCategories(post);
 
   // Lookup do MediaItem da imagem hero — fornece blurDataUrl, width e height
@@ -282,7 +275,7 @@ const BlogPostPage = () => {
             <h2 className="mb-8 font-heading text-2xl font-bold text-foreground">Posts Relacionados</h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {related.map((relatedPost) => (
-                <BlogCard key={relatedPost.slug} post={relatedPost} />
+                <BlogCard key={relatedPost.slug} post={relatedPost} categories={categoriesList} />
               ))}
             </div>
           </div>

@@ -1,35 +1,26 @@
 import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useRedirectStore } from "@/stores/redirectStore";
+import { usePublishedRedirects } from "@/hooks/usePublishedRedirects";
 import { resolveTargetUrl } from "@/lib/redirectMatcher";
 
 /**
  * Componente que intercepta navegação e aplica regras de redirect/410.
+ * Lê apenas do JSON publicado (/data/redirects.json) — sem localStorage.
  * Deve ser posicionado dentro do BrowserRouter, antes do Routes.
  */
 const RedirectGuard = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const hydrated = useRedirectStore((s) => s.hydrated);
-  const initialized = useRedirectStore((s) => s.initialized);
-  const findMatch = useRedirectStore((s) => s.findMatch);
-  const incrementHit = useRedirectStore((s) => s.incrementHit);
-  const init = useRedirectStore((s) => s.init);
-  const rulesVersion = useRedirectStore((s) => s.rules.length);
+  const { rules, initialized, findMatch } = usePublishedRedirects();
   const processedRef = useRef<string | null>(null);
-
-  // Inicializa o store somente após hidratação do localStorage
-  useEffect(() => {
-    if (hydrated) init();
-  }, [hydrated, init]);
 
   // Invalida cache do processedRef quando regras mudam
   useEffect(() => {
     processedRef.current = null;
-  }, [rulesVersion]);
+  }, [rules.length]);
 
   useEffect(() => {
-    if (!hydrated || !initialized) return;
+    if (!initialized) return;
 
     // Evita loops: não processa /gone nem URLs do admin
     if (location.pathname === "/gone" || location.pathname.startsWith("/admin")) return;
@@ -41,7 +32,6 @@ const RedirectGuard = () => {
     if (!rule) return;
 
     processedRef.current = location.pathname;
-    incrementHit(rule.id);
 
     if (rule.type === 410) {
       navigate("/gone", { replace: true, state: { originalUrl: location.pathname } });
@@ -51,7 +41,7 @@ const RedirectGuard = () => {
         navigate(target, { replace: true });
       }
     }
-  }, [location.pathname, hydrated, initialized, findMatch, incrementHit, navigate, rulesVersion]);
+  }, [location.pathname, initialized, findMatch, navigate, rules.length]);
 
   // Limpa ref quando muda de path (para permitir reprocessar em navegação futura)
   useEffect(() => {

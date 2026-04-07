@@ -1,19 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { company } from "@/data/company";
-
-// ── GlobalSEO helpers (lê do localStorage) ──────────────────────────────────
-const SEO_STORAGE_KEY = "comercial-jr-global-seo";
-
-function getGlobalSeoValue<K extends string>(key: K, fallback: string): string {
-  try {
-    const raw = localStorage.getItem(SEO_STORAGE_KEY);
-    if (!raw) return fallback;
-    const parsed = JSON.parse(raw) as Record<string, unknown>;
-    return typeof parsed[key] === "string" ? (parsed[key] as string) : fallback;
-  } catch {
-    return fallback;
-  }
-}
+import { usePublishedSeoContext } from "@/contexts/PublishedSeoContext";
 
 // ── Tipos ────────────────────────────────────────────────────────────────────
 interface ArticleMeta {
@@ -46,28 +33,27 @@ const SEOHead = ({
   robots,
   article,
 }: SEOHeadProps) => {
+  const seo = usePublishedSeoContext();
+
   const fullTitle = title ? `${title} | ${company.shortName}` : company.seo.title;
   const desc      = description || company.seo.description;
   const url       = canonical ? `${company.siteUrl}${canonical}` : company.siteUrl;
-  // Homepage: usa defaultImage do admin; posts: imagem do post; outras páginas estáticas: og-image.jpg
+  // Homepage: usa defaultImage publicada; posts: imagem do post; outras páginas estáticas: og-image.jpg
   const isHomepage = !canonical || canonical === "/";
-  const adminDefaultImage = isHomepage
-    ? getGlobalSeoValue("defaultImage", company.seo.image)
-    : null;
-  const resolvedImage = ogImage ?? adminDefaultImage ?? "/og-image.jpg";
+  const publishedDefaultImage = isHomepage ? (seo.ogImage || company.seo.image) : null;
+  const resolvedImage = ogImage ?? publishedDefaultImage ?? "/og-image.jpg";
   const image = resolvedImage.startsWith("http")
     ? resolvedImage
     : `${company.siteUrl}${resolvedImage}`;
 
-  // Valores globais do admin (localStorage)
-  const googleVerification = getGlobalSeoValue("googleVerification", "da794cd9937527d01");
-  const themeColor         = getGlobalSeoValue("themeColor", "#1a3c6e");
-  const ogLocale           = getGlobalSeoValue("ogLocale", "pt_BR");
-  const referrerPolicy     = getGlobalSeoValue("referrerPolicy", "no-referrer-when-downgrade");
+  // Valores globais do JSON publicado (sem localStorage)
+  const googleVerification = seo.googleSiteVerification || "da794cd9937527d01";
+  const themeColor         = seo.themeColor || "#1a3c6e";
+  const ogLocale           = seo.ogLocale || "pt_BR";
+  const referrerPolicy     = seo.referrerPolicy || "no-referrer-when-downgrade";
 
   // Robots: prop explícita tem prioridade; senão usa o padrão global ou index,follow
-  const robotsContent = robots
-    ?? getGlobalSeoValue("defaultRobots", "index,follow");
+  const robotsContent = robots ?? (seo.robotsDefault || "index,follow");
 
   return (
     <Helmet>

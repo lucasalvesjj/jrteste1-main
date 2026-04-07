@@ -31,8 +31,7 @@ import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
 import BrandSlider from "@/components/BrandSlider";
 import { company, allBrands } from "@/data/company";
-import { useBlogStore } from "@/stores/blogStore";
-import { isPostVisibleInAnyCategory } from "@/lib/blogCategories";
+import { usePublishedBlog, getPublishedPosts } from "@/hooks/usePublishedBlog";
 
 /* ── Dados dos 7 segmentos ── */
 const segmentos = [
@@ -224,19 +223,9 @@ const fadeIn = {
 };
 
 const Index = () => {
-  const init = useBlogStore((state) => state.init);
-  const posts = useBlogStore((state) => state.posts);
-  const categories = useBlogStore((state) => state.categories);
+  const { posts, categories } = usePublishedBlog();
 
-  useEffect(() => {
-    init();
-  }, [init]);
-
-  const recentPosts = posts
-    .filter((post) => post.status === "published")
-    .filter((post) => isPostVisibleInAnyCategory(post, categories))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+  const recentPosts = getPublishedPosts(posts, categories).slice(0, 3);
 
   const whatsappUrl = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent("Olá! Vim pelo site e gostaria de um atendimento da Comercial JR.")}`;
 
@@ -668,7 +657,7 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {recentPosts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
+              <BlogCard key={post.slug} post={post} categories={categories} />
             ))}
           </div>
           <div className="mt-8 text-center">

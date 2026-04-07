@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ShoppingCart, Wrench, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
@@ -6,7 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import SchemaOrg from "@/components/SchemaOrg";
 import BlogCard from "@/components/BlogCard";
 import BrandSlider from "@/components/BrandSlider";
-import { useBlogStore } from "@/stores/blogStore";
+import { usePublishedBlog } from "@/hooks/usePublishedBlog";
 
 const BRANDS = [
   { name: "Gedore",       logo: "/brands/gedore.svg" },
@@ -36,9 +36,7 @@ const APLICACOES = [
 ];
 
 const FerramentasPage = () => {
-  const init = useBlogStore((state) => state.init);
-  const posts = useBlogStore((state) => state.posts);
-  useEffect(() => { void init(); }, [init]);
+  const { posts, categories } = usePublishedBlog();
 
   const categoryPosts = useMemo(
     () => posts.filter((p) => p.status === "published" && p.categories.includes("ferramentas")).slice(0, 3),
@@ -162,7 +160,7 @@ const FerramentasPage = () => {
           <div className="container-custom">
             <h2 className="mb-8 font-heading text-2xl font-bold text-foreground">Artigos sobre Ferramentas</h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {categoryPosts.map((post) => <BlogCard key={post.slug} post={post} />)}
+              {categoryPosts.map((post) => <BlogCard key={post.slug} post={post} categories={categories} />)}
             </div>
             <div className="mt-8 text-center">
               <Link to="/blog" className="inline-flex items-center gap-1 text-sm font-semibold text-primary">

@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ShoppingCart, Gauge, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
@@ -6,7 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import SchemaOrg from "@/components/SchemaOrg";
 import BlogCard from "@/components/BlogCard";
 import BrandSlider from "@/components/BrandSlider";
-import { useBlogStore } from "@/stores/blogStore";
+import { usePublishedBlog } from "@/hooks/usePublishedBlog";
 
 const BRANDS = [
   { name: "WEG",        logo: "/brands/weg.svg" },
@@ -35,9 +35,7 @@ const APLICACOES = [
 ];
 
 const BombasMotoresPage = () => {
-  const init = useBlogStore((state) => state.init);
-  const posts = useBlogStore((state) => state.posts);
-  useEffect(() => { void init(); }, [init]);
+  const { posts, categories } = usePublishedBlog();
 
   const categoryPosts = useMemo(
     () => posts.filter((p) => p.status === "published" && p.categories.includes("bombas-motores")).slice(0, 3),
@@ -163,7 +161,7 @@ const BombasMotoresPage = () => {
           <div className="container-custom">
             <h2 className="mb-8 font-heading text-2xl font-bold text-foreground">Artigos sobre Bombas e Motores</h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {categoryPosts.map((post) => <BlogCard key={post.slug} post={post} />)}
+              {categoryPosts.map((post) => <BlogCard key={post.slug} post={post} categories={categories} />)}
             </div>
           </div>
         </section>

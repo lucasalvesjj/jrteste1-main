@@ -10,7 +10,7 @@ import RedirectGuard from "./components/RedirectGuard";
 import CookieBanner from "./components/CookieBanner";
 import TrackingScripts from "./components/TrackingScripts";
 import JRLoader from "./components/JRLoader";
-import { syncSeoSettingsFromFile } from "@/hooks/useSeoSettings";
+import { PublishedSeoProvider } from "@/contexts/PublishedSeoContext";
 
 const Index = lazy(() => import("./pages/Index"));
 const Segmentos = lazy(() => import("./pages/Segmentos"));
@@ -45,10 +45,6 @@ const App = () => {
   const [appReady, setAppReady] = useState(false);
   const handleAppReady = useCallback(() => setAppReady(true), []);
 
-  useEffect(() => {
-    void syncSeoSettingsFromFile();
-  }, []);
-
   return (
     <HelmetProvider>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem storageKey="jr-theme">
@@ -56,6 +52,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <PublishedSeoProvider>
             <ScrollToTop />
             <RedirectGuard />
             <TrackingScripts />
@@ -85,6 +82,7 @@ const App = () => {
               </Routes>
             </Suspense>
             <CookieBanner appReady={appReady} />
+            </PublishedSeoProvider>
           </BrowserRouter>
         </TooltipProvider>
       </ThemeProvider>

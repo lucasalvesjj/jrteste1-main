@@ -1,13 +1,1 @@
-[
-  {
-    "id": "tc-1775566336267",
-    "name": "Google Analytics GA4",
-    "code": "<script>console.log(\"GA4 test\")</script>",
-    "position": "head",
-    "scope": "global",
-    "includedPaths": [],
-    "excludedPaths": [],
-    "enabled": true,
-    "order": 0
-  }
-]
+[]

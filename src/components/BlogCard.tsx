@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 import { Calendar } from "lucide-react";
-import type { BlogPost } from "@/data/blogTypes";
+import type { BlogPost, BlogCategory } from "@/data/blogTypes";
 import { getCategoryEmoji, getCategoryLabel, getCategoryTone, getPostCategories, getPrimaryCategory } from "@/lib/blogCategories";
-import { useBlogStore } from "@/stores/blogStore";
 import OptimizedImage from "@/components/OptimizedImage";
 
 interface BlogCardProps {
   post: BlogPost;
+  categories: BlogCategory[];
 }
 
-const BlogCard = ({ post }: BlogCardProps) => {
-  const availableCategories = useBlogStore((state) => state.categories);
+const BlogCard = ({ post, categories: availableCategories }: BlogCardProps) => {
   const categories = getPostCategories(post);
   const primaryCategory = getPrimaryCategory(post);
 
