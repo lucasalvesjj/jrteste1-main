@@ -35,6 +35,8 @@ import {
   ExternalLink,
   AlertTriangle,
   ArrowLeftRight,
+  Code,
+  Save,
 } from "lucide-react";
 import {
   loadGitHubConfig,
