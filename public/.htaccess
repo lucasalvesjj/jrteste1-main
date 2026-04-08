@@ -1,20 +1,105 @@
 RewriteEngine On
+RewriteBase /
 
-# Bloqueia /admin em produção (retorna 404)
+# ============================================================
+# HTTPS Redirect (defense-in-depth, Cloudflare ja faz)
+# ============================================================
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# ============================================================
+# www -> non-www (evita conteudo duplicado)
+# ============================================================
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# ============================================================
+# Bloqueia /admin em producao (retorna 404)
+# ============================================================
 RewriteRule ^admin(/.*)?$ - [R=404,L]
 
 # --- REDIRECT RULES PLACEHOLDER ---
 
+# ============================================================
 # SPA Fallback
+# ============================================================
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
 
+# ============================================================
 # Security Headers
+# ============================================================
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "DENY"
   Header set X-XSS-Protection "1; mode=block"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com https://script.hotjar.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https://*.hotjar.com https://*.hotjar.io; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"
+</IfModule>
+
+# ============================================================
+# Compressao GZIP (fallback do Cloudflare Brotli)
+# ============================================================
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ============================================================
+# Cache via mod_expires
+# ============================================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML -- sempre fresco (SPA entry point)
+  ExpiresByType text/html "access plus 0 seconds"
+
+  # JS/CSS com hash Vite -- cache agressivo (1 ano)
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+
+  # Imagens -- cache longo (1 ano, media usa UUID no path)
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  # JSON (dados do blog, SEO) -- cache curto com revalidacao
+  ExpiresByType application/json "access plus 1 minute"
+
+  # XML (sitemaps) -- cache medio
+  ExpiresByType application/xml "access plus 1 hour"
+  ExpiresByType text/xml "access plus 1 hour"
+</IfModule>
+
+# ============================================================
+# Cache-Control Headers por tipo de arquivo
+# ============================================================
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(webp|jpg|jpeg|png|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.json$">
+    Header set Cache-Control "public, max-age=60, stale-while-revalidate=300"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.xml$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
 </IfModule>
