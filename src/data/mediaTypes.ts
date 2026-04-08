@@ -194,7 +194,6 @@ export const CATALOG_CACHE_CONTROL = "public, max-age=60, stale-while-revalidate
  * Adapters disponíveis:
  * - LocalDevAdapter:  Vite Plugin (npm run dev)
  * - ManualAdapter:    Fallback para produção estática
- * - SupabaseAdapter:  Storage externo (opcional)
  */
 export interface MediaStorageAdapter {
   /** Identificador legível do adapter (ex: "local-dev", "manual", "supabase") */

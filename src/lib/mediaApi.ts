@@ -7,8 +7,7 @@
 //
 // Seleção automática:
 //  1. import.meta.env.DEV          → LocalDevAdapter  (Vite Plugin)
-//  2. VITE_SUPABASE_URL definida   → SupabaseAdapter   (dinâmico)
-//  3. fallback                     → ManualAdapter     (sempre funciona)
+//  2. fallback                     → ManualAdapter     (sempre funciona)
 // ──────────────────────────────────────────────
 
 import type {
@@ -28,8 +27,6 @@ let _activeAdapter: MediaStorageAdapter | null = null;
 
 /**
  * Resolve o adapter ativo baseado no ambiente.
- * Carrega adapters externos (Supabase) via dynamic import para
- * não poluir o bundle quando não estão em uso.
  */
 async function resolveAdapter(): Promise<MediaStorageAdapter> {
   if (_activeAdapter) return _activeAdapter;
@@ -41,22 +38,7 @@ async function resolveAdapter(): Promise<MediaStorageAdapter> {
     return _activeAdapter;
   }
 
-  // 2. Se Supabase está configurado, carregar dinamicamente
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-  if (supabaseUrl) {
-    try {
-      const { supabaseAdapter } = await import("@/lib/adapters/supabaseAdapter");
-      if (supabaseAdapter.isAvailable()) {
-        _activeAdapter = supabaseAdapter;
-        console.info("[MediaAPI] Adapter selecionado: supabase");
-        return _activeAdapter;
-      }
-    } catch (err) {
-      console.warn("[MediaAPI] Supabase adapter não carregou:", err);
-    }
-  }
-
-  // 3. Fallback: modo manual (sempre funciona)
+  // 2. Fallback: modo manual (sempre funciona)
   _activeAdapter = manualAdapter;
 
   // ── Aviso crítico: manual em DEV indica falha no Vite Plugin ──

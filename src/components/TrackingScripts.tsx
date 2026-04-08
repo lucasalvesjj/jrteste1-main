@@ -12,7 +12,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
-import type { TrackingCode } from "./admin/AdminSeoEditor";
+import type { TrackingCode } from "@/types/tracking";
 
 const TRACKING_JSON_PATH = "/data/tracking-codes.json";
 

@@ -26,9 +26,15 @@ const NossaMissao = lazy(() => import("./pages/NossaMissao"));
 const Contato = lazy(() => import("./pages/Contato"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
-const AdminPage = lazy(() => import("./pages/Admin"));
-const AdminMediaPage = lazy(() => import("./pages/AdminMedia"));
-const AdminRedirectsPage = lazy(() => import("./pages/AdminRedirects"));
+const AdminPage = import.meta.env.DEV
+  ? lazy(() => import("./pages/Admin"))
+  : null;
+const AdminMediaPage = import.meta.env.DEV
+  ? lazy(() => import("./pages/AdminMedia"))
+  : null;
+const AdminRedirectsPage = import.meta.env.DEV
+  ? lazy(() => import("./pages/AdminRedirects"))
+  : null;
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const Gone = lazy(() => import("./pages/Gone"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -73,9 +79,15 @@ const App = () => {
                 <Route path="/contato" element={<Contato />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
-                <Route path="/admin" element={<AdminPage />} />
-                <Route path="/admin/media" element={<AdminMediaPage />} />
-                <Route path="/admin/redirects" element={<AdminRedirectsPage />} />
+                {import.meta.env.DEV && AdminPage && (
+                  <Route path="/admin" element={<AdminPage />} />
+                )}
+                {import.meta.env.DEV && AdminMediaPage && (
+                  <Route path="/admin/media" element={<AdminMediaPage />} />
+                )}
+                {import.meta.env.DEV && AdminRedirectsPage && (
+                  <Route path="/admin/redirects" element={<AdminRedirectsPage />} />
+                )}
                 <Route path="/gone" element={<Gone />} />
                 <Route path="/:slug" element={<BlogPost />} />
                 <Route path="*" element={<NotFound />} />
