@@ -54,9 +54,10 @@ interface MediaCatalog {
 
 // ── Constantes ──
 const VARIANT_CONFIG = {
-  thumbnail: { width: 300, quality: 70 },
-  medium: { width: 800, quality: 80 },
-  large: { width: 1920, quality: 85 },
+  thumbnail: { width: 300,  quality: 65, effort: 6 },
+  medium:    { width: 800,  quality: 72, effort: 6 },
+  hero:      { width: 1400, quality: 75, effort: 6 },
+  large:     { width: 1920, quality: 75, effort: 6 },
 } as const;
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
@@ -215,9 +216,16 @@ export function mediaUploadPlugin(): Plugin {
             const metadata = await sharpLib(buffer).metadata();
 
             for (const [name, cfg] of Object.entries(VARIANT_CONFIG)) {
-              await sharpLib(buffer)
-                .resize(cfg.width)
-                .webp({ quality: cfg.quality })
+              const pipeline = sharpLib(buffer)
+                .resize(cfg.width, null, { withoutEnlargement: true });
+
+              // Flatten apenas para imagens com canal alpha (PNG c/ transparência)
+              if (metadata.hasAlpha) {
+                pipeline.flatten({ background: '#ffffff' });
+              }
+
+              await pipeline
+                .webp({ quality: cfg.quality, effort: cfg.effort })
                 .toFile(path.join(dir, `${name}.webp`));
             }
 
@@ -231,6 +239,7 @@ export function mediaUploadPlugin(): Plugin {
               paths: {
                 thumbnail: `/${relDir}/thumbnail.webp`,
                 medium: `/${relDir}/medium.webp`,
+                hero: `/${relDir}/hero.webp`,
                 large: `/${relDir}/large.webp`,
                 original: `/${relDir}/original.jpg`,
               },

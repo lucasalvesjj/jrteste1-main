@@ -142,7 +142,7 @@ export const parseBlogImport = (raw: string): ParsedBlogImport => {
 };
 
 export const fetchPublishedPosts = async (): Promise<ParsedBlogImport> => {
-  const response = await fetch(BLOG_DATA_PATH, { cache: "no-store" });
+  const response = await fetch(BLOG_DATA_PATH, { cache: "default" });
 
   if (!response.ok) {
     throw new Error(`http-${response.status}`);

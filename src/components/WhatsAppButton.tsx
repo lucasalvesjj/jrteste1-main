@@ -9,7 +9,7 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 rounded-full p-4 shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-500/30"
-      style={{ backgroundColor: "#25D366" }}
+      style={{ backgroundColor: "#1B7D40" }}
       aria-label="Fale conosco pelo WhatsApp"
     >
       <svg

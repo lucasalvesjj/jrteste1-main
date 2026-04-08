@@ -56,10 +56,10 @@ export type ImageSizePreset = keyof typeof SIZES_PRESETS;
 // ──────────────────────────────────────────────
 
 /** Regex para detectar paths da Media Library: /media/{year}/{month}/{uuid}/{variant}.webp */
-const MEDIA_LIBRARY_PATH_RE = /^\/media\/\d{4}\/\d{2}\/[a-f0-9-]+\/(thumbnail|medium|large|original)\.\w+$/;
+const MEDIA_LIBRARY_PATH_RE = /^\/media\/\d{4}\/\d{2}\/[a-f0-9-]+\/(thumbnail|medium|hero|large|original)\.\w+$/;
 
 /** Variantes ordenadas por largura para srcSet */
-const SRCSET_VARIANTS = ["thumbnail", "medium", "large"] as const;
+const SRCSET_VARIANTS = ["thumbnail", "medium", "hero", "large"] as const;
 
 /**
  * Verifica se um src é um path da Media Library.

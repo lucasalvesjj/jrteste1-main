@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="mb-4 font-heading text-sm font-bold uppercase tracking-wider">Navegação</h4>
+            <p className="mb-4 font-heading text-sm font-bold uppercase tracking-wider">Navegação</p>
             <ul className="space-y-2">
               {[
                 { label: "Início", href: "/" },
@@ -57,7 +57,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="mb-4 font-heading text-sm font-bold uppercase tracking-wider">Segmentos</h4>
+            <p className="mb-4 font-heading text-sm font-bold uppercase tracking-wider">Segmentos</p>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
               {[
                 { label: "Assist. STIHL", href: "/segmentos/assistencia-stihl" },
@@ -83,7 +83,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="mb-4 font-heading text-sm font-bold uppercase tracking-wider">Contato</h4>
+            <p className="mb-4 font-heading text-sm font-bold uppercase tracking-wider">Contato</p>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm text-primary-foreground/70">
                 <Phone className="h-4 w-4 shrink-0" />

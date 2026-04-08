@@ -102,11 +102,7 @@ const SEOHead = ({
         </>
       )}
 
-      {/* ── Performance: prefetch / preconnect ── */}
-      <link rel="dns-prefetch"  href="//fonts.googleapis.com" />
-      <link rel="dns-prefetch"  href="//fonts.gstatic.com" />
-      <link rel="preconnect"    href="https://fonts.googleapis.com" />
-      <link rel="preconnect"    href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      {/* Preconnect/dns-prefetch removidos — já declarados no index.html */}
     </Helmet>
   );
 };

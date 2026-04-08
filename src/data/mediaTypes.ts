@@ -7,11 +7,13 @@
  * Cada upload gera 4 arquivos físicos.
  */
 export interface MediaPaths {
-  /** ~300px largura, qualidade 0.7 — usado em grids e cards */
+  /** ~300px largura, qualidade 0.65 — usado em grids e cards */
   thumbnail: string;
-  /** ~800px largura, qualidade 0.8 — usado no corpo de posts */
+  /** ~800px largura, qualidade 0.72 — usado no corpo de posts */
   medium: string;
-  /** ~1920px largura, qualidade 0.85 — usado como imagem destacada */
+  /** ~1400px largura, qualidade 0.75 — usado em hero sections */
+  hero: string;
+  /** ~1920px largura, qualidade 0.75 — usado como imagem destacada full-width */
   large: string;
   /** Arquivo original sem modificação (backup) */
   original: string;
@@ -140,14 +142,16 @@ export const MAX_FILE_SIZE = 10 * 1024 * 1024;
 export const VARIANT_WIDTHS = {
   thumbnail: 300,
   medium: 800,
+  hero: 1400,
   large: 1920,
 } as const;
 
 /** Qualidade WebP por variante (0-1) */
 export const VARIANT_QUALITY = {
-  thumbnail: 0.7,
-  medium: 0.8,
-  large: 0.85,
+  thumbnail: 0.65,
+  medium: 0.72,
+  hero: 0.75,
+  large: 0.75,
 } as const;
 
 /** Caminho base das mídias no /public */

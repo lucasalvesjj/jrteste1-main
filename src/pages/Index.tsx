@@ -238,13 +238,14 @@ const Index = () => {
       <section className="relative overflow-hidden text-primary-foreground">
         {/* Imagem de fundo (srcset da galeria de mídia) */}
         <img
-          src="/media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/large.webp"
-          srcSet="/media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/thumbnail.webp 300w, /media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/medium.webp 800w, /media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/large.webp 1536w"
+          src="/media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/hero.webp"
+          srcSet="/media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/thumbnail.webp 300w, /media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/medium.webp 800w, /media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/hero.webp 1400w, /media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/large.webp 1920w"
           sizes="100vw"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
           loading="eager"
           decoding="sync"
+          fetchPriority="high"
         />
         {/* Filtro sobre a imagem — azul no light, cinza escuro no dark */}
         <div className="absolute inset-0 bg-[#1a237e]/80 dark:bg-[#111111]/85" />
@@ -645,7 +646,7 @@ const Index = () => {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
+                className="mt-auto inline-flex items-center gap-2 rounded-lg bg-[#1B7D40] px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-90"
               >
                 <MessageCircle className="h-4 w-4" />
                 Chamar no WhatsApp
