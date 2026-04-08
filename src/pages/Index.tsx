@@ -30,6 +30,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
 import BrandSlider from "@/components/BrandSlider";
+
 import { company, allBrands } from "@/data/company";
 import { usePublishedBlog, getPublishedPosts } from "@/hooks/usePublishedBlog";
 
@@ -235,10 +236,15 @@ const Index = () => {
 
       {/* Hero */}
       <section className="relative overflow-hidden text-primary-foreground">
-        {/* Imagem de fundo */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/hero-bg.webp')" }}
+        {/* Imagem de fundo (srcset da galeria de mídia) */}
+        <img
+          src="/media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/large.webp"
+          srcSet="/media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/thumbnail.webp 300w, /media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/medium.webp 800w, /media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/large.webp 1536w"
+          sizes="100vw"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+          decoding="sync"
         />
         {/* Filtro sobre a imagem — azul no light, cinza escuro no dark */}
         <div className="absolute inset-0 bg-[#1a237e]/80 dark:bg-[#111111]/85" />

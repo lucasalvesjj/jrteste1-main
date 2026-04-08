@@ -15,14 +15,14 @@ const Header = () => {
       <div className="container-custom flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center">
           <img
-            src="/logo.webp"
+            src="/media/2026/04/cc5711fa-2a6b-4a35-915c-df07466853ba/thumbnail.webp"
             alt="Comercial JR"
             className="h-6 md:h-8 w-auto dark:brightness-0 dark:invert"
             loading="eager"
             fetchPriority="high"
             decoding="sync"
-            width="160"
-            height="32"
+            width="454"
+            height="49"
           />
         </Link>
 

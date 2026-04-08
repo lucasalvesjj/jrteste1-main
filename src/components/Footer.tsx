@@ -16,13 +16,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-x-12 gap-y-8 md:grid-cols-2 lg:grid-cols-[1.2fr_auto_auto_auto]">
           <div className="flex flex-col items-start justify-center">
             <img
-              src="/favicon.webp"
+              src="/media/2026/04/25dac413-fc25-4f0c-a05c-f1d765c512b5/thumbnail.webp"
               alt="Comercial JR"
               className="h-12 w-12 rounded-full mb-4"
               loading="lazy"
               decoding="async"
-              width="48"
-              height="48"
+              width="150"
+              height="150"
             />
             <div
               className="max-h-28 overflow-y-auto"
@@ -120,7 +120,7 @@ const Footer = () => {
 
         <div className="mt-10 border-t border-primary-foreground/20 pt-6 flex flex-col items-center gap-2 text-center text-xs text-primary-foreground/50 sm:flex-row sm:justify-between">
           <span className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0">
-            <span>© {new Date().getFullYear()} <img src="/favicon.webp" alt="Comercial JR" className="inline h-5 w-5 rounded-full mx-1 align-middle" loading="lazy" decoding="async" width="20" height="20" />. Todos os direitos reservados.</span>
+            <span>© {new Date().getFullYear()} <img src="/media/2026/04/25dac413-fc25-4f0c-a05c-f1d765c512b5/thumbnail.webp" alt="Comercial JR" className="inline h-5 w-5 rounded-full mx-1 align-middle" loading="lazy" decoding="async" width="150" height="150" />. Todos os direitos reservados.</span>
             <span className="sm:before:content-['·'] sm:before:mx-2">CNPJ 28.532.489/0001-61</span>
           </span>
           <Link

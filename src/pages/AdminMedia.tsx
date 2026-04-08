@@ -3,6 +3,7 @@
 // Rota: /admin/media
 // ──────────────────────────────────────────────
 
+import "@/styles/admin-dark.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";

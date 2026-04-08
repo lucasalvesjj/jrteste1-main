@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-02T00:40:23.087Z",
+  "updatedAt": "2026-04-08T11:28:25.164Z",
   "items": [
     {
       "id": "0c7ffc35-d869-4855-b24d-282db446b56e",
@@ -3583,6 +3583,63 @@
       "uploadedAt": "2026-04-02T00:40:23.086Z",
       "sourceType": "page",
       "sourceId": "assistencia-stihl"
+    },
+    {
+      "id": "ece96451-a739-4117-bf7f-87bb9d7b2260",
+      "name": "hero-bg.webp",
+      "alt": "Loja Comercial JR - Máquinas, ferramentas e irrigação",
+      "paths": {
+        "thumbnail": "/media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/thumbnail.webp",
+        "medium": "/media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/medium.webp",
+        "large": "/media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/large.webp",
+        "original": "/media/2026/04/ece96451-a739-4117-bf7f-87bb9d7b2260/original.webp"
+      },
+      "width": 1536,
+      "height": 1024,
+      "size": 469436,
+      "mimeType": "image/webp",
+      "uploadedAt": "2026-04-08T11:28:25.108Z",
+      "sourceType": "page",
+      "sourceId": "index",
+      "blurDataUrl": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwBACdASoUAA0APzmGuVOvKSWisAgB4CcJYgCdACBiYXqd3+B9Fgy6fuwAyxKA2mWXx6eDUcEC7oxxz9s8zzwB85PzweyRzLzsQC831FCI/VKa28LdTyizHd0Cg8lG6YpR/UTjVQnyrIG/ynBP86LAAAA="
+    },
+    {
+      "id": "cc5711fa-2a6b-4a35-915c-df07466853ba",
+      "name": "logo.webp",
+      "alt": "Comercial JR",
+      "paths": {
+        "thumbnail": "/media/2026/04/cc5711fa-2a6b-4a35-915c-df07466853ba/thumbnail.webp",
+        "medium": "/media/2026/04/cc5711fa-2a6b-4a35-915c-df07466853ba/medium.webp",
+        "large": "/media/2026/04/cc5711fa-2a6b-4a35-915c-df07466853ba/large.webp",
+        "original": "/media/2026/04/cc5711fa-2a6b-4a35-915c-df07466853ba/original.webp"
+      },
+      "width": 454,
+      "height": 49,
+      "size": 4726,
+      "mimeType": "image/webp",
+      "uploadedAt": "2026-04-08T11:28:25.134Z",
+      "sourceType": "page",
+      "sourceId": "layout-header",
+      "blurDataUrl": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4WAoAAAAQAAAAEwAAAQAAQUxQSCkAAAAALbSMnXs1R0A0Pj07PDIuJAoBQUZTqGeggWqnqrCumLF1laChF1C3lQBWUDggLAAAAPACAJ0BKhQAAgA/OYa5U68pJaKwCAHgJwljAMKALSQAAP7u/5Ox7XO1mAAA"
+    },
+    {
+      "id": "25dac413-fc25-4f0c-a05c-f1d765c512b5",
+      "name": "favicon.webp",
+      "alt": "Comercial JR",
+      "paths": {
+        "thumbnail": "/media/2026/04/25dac413-fc25-4f0c-a05c-f1d765c512b5/thumbnail.webp",
+        "medium": "/media/2026/04/25dac413-fc25-4f0c-a05c-f1d765c512b5/medium.webp",
+        "large": "/media/2026/04/25dac413-fc25-4f0c-a05c-f1d765c512b5/large.webp",
+        "original": "/media/2026/04/25dac413-fc25-4f0c-a05c-f1d765c512b5/original.webp"
+      },
+      "width": 150,
+      "height": 150,
+      "size": 26934,
+      "mimeType": "image/webp",
+      "uploadedAt": "2026-04-08T11:28:25.164Z",
+      "sourceType": "page",
+      "sourceId": "layout-footer",
+      "blurDataUrl": "data:image/webp;base64,UklGRkgBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSIYAAAABcFvbthLd/0ti3K0XMhYZPbCIRupxtxzCoQt9D+eXEBETgKLo23vXOzhDiWrtRFxKt26FHnDNyBAFnbg2mQC0gBtGA4gTN37JPjXjuc0K13sVd1eF7yk5qHg4KrYjUrCSt2Y/iW7YJJ4AMKgeWQAgzKhObIkCMHhV/SaolvP1/e8/diuJIlZQOCCcAAAA0AQAnQEqFAAUAD85ksBZrymmo6gIAeAnCUAAfJAZoTq0h8XuAS30SWcOrfh08gAA/p7oOBx/naoV5nUct8/9yVvu8whhr3oRVbRDbJB7lbv1kPsdH63AesOrUX0reLpvMR4wxkC/E8Ku1/6JyHUaLksJgD1uAk1rfQQ20ZgbAkMFS0Cd3eNvgNXUjkcSpvJi4aSjK2jO33Y7/IAA"
     }
   ]
 }
