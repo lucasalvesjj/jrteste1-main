@@ -1,32 +1,30 @@
 /* Admin dark — preto absoluto (dev-only theme) */
-@layer base {
-  .admin-dark {
-    --background: 0 0% 0%;
-    --foreground: 220 15% 90%;
+.admin-dark {
+  --background: 0 0% 0%;
+  --foreground: 220 15% 90%;
 
-    --card: 0 0% 5%;
-    --card-foreground: 220 15% 90%;
+  --card: 0 0% 5%;
+  --card-foreground: 220 15% 90%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 220 15% 90%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 220 15% 90%;
 
-    --primary: 240 55% 55%;
-    --primary-foreground: 0 0% 100%;
+  --primary: 240 55% 55%;
+  --primary-foreground: 0 0% 100%;
 
-    --secondary: 35 95% 55%;
-    --secondary-foreground: 0 0% 100%;
+  --secondary: 35 95% 55%;
+  --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 10%;
-    --muted-foreground: 220 15% 65%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 220 15% 65%;
 
-    --accent: 240 40% 15%;
-    --accent-foreground: 220 15% 90%;
+  --accent: 240 40% 15%;
+  --accent-foreground: 220 15% 90%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 240 55% 55%;
-  }
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 240 55% 55%;
 }
