@@ -40,7 +40,8 @@
       "Bash(find '/c/Users/lucas/Downloads/jr1-main 2203/jrteste1-main/src' -name *.ts -type f)",
       "Bash(grep -r \"api/redirect\\\\|/api/track\" 'C:\\\\Users\\\\lucas\\\\Downloads\\\\jr1-main 2203\\\\jrteste1-main' --include=*.ts --include=*.tsx)",
       "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\(''''scripts'''',{}\\)\\)\")",
-      "Bash(py -c ':*)"
+      "Bash(py -c ':*)",
+      "Bash(gh api:*)"
     ]
   }
 }

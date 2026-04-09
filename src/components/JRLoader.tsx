@@ -79,7 +79,7 @@ const JRLoader = ({ size = "lg", label = "Carregando..." }: JRLoaderProps) => {
           </motion.svg>
 
           {/* Logo com efeito de rotação 3D (moeda) + shimmer */}
-          <div className="relative z-10 overflow-hidden rounded-full">
+          <div className="relative z-10 overflow-hidden rounded-full" style={{ perspective: 800 }}>
             <motion.img
               src="/favicon.webp"
               alt="Comercial JR"
