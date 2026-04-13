@@ -9,5 +9,38 @@
     "excludedPaths": [],
     "enabled": true,
     "order": 0
+  },
+  {
+    "id": "tc-1776113910168",
+    "name": "Popup Para a Loja online",
+    "code": "<script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=54cc26ec75902' async='true'></script>",
+    "position": "head",
+    "scope": "global",
+    "includedPaths": [],
+    "excludedPaths": [],
+    "enabled": false,
+    "order": 1
+  },
+  {
+    "id": "tc-1776114001984",
+    "name": "GA novo e loja",
+    "code": "<!-- Global site tag (gtag.js) - Google Analytics -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-168017462-2\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'UA-168017462-2');\n</script>",
+    "position": "head",
+    "scope": "global",
+    "includedPaths": [],
+    "excludedPaths": [],
+    "enabled": true,
+    "order": 2
+  },
+  {
+    "id": "tc-1776114032305",
+    "name": "Pixel Facebook",
+    "code": "<!-- Facebook Pixel Code -->\n<script>\n  !function(f,b,e,v,n,t,s)\n  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?\n  n.callMethod.apply(n,arguments):n.queue.push(arguments)};\n  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\n  n.queue=[];t=b.createElement(e);t.async=!0;\n  t.src=v;s=b.getElementsByTagName(e)[0];\n  s.parentNode.insertBefore(t,s)}(window, document,'script',\n  'https://connect.facebook.net/en_US/fbevents.js');\n  fbq('init', '698703420919056');\n  fbq('track', 'PageView');\n</script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\"\n  src=\"https://www.facebook.com/tr?id=698703420919056&ev=PageView&noscript=1\"\n/></noscript>\n<!-- End Facebook Pixel Code -->",
+    "position": "head",
+    "scope": "global",
+    "includedPaths": [],
+    "excludedPaths": [],
+    "enabled": true,
+    "order": 3
   }
 ]

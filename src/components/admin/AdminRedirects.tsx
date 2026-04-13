@@ -452,7 +452,15 @@ const AdminRedirects = () => {
   const store = useRedirectStore();
   const notFoundCount = store.notFoundLog.filter((e) => !e.resolved).length;
 
-  useEffect(() => { store.init(); }, [store]);
+  useEffect(() => { useRedirectStore.getState().init(); }, []);
+
+  if (!store.initialized) {
+    return (
+      <div className="flex items-center justify-center py-20">
+        <div className="text-sm text-muted-foreground">Carregando redirecionamentos...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">

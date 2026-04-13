@@ -58,6 +58,7 @@ import JRLoader from "@/components/JRLoader";
 import {
   getTrackingCodes,
   saveTrackingCodes,
+  loadTrackingCodesFromDisk,
   newTrackingCode,
   type TrackingCode,
   type TrackingPosition,
@@ -381,19 +382,20 @@ const inputClsAdmin  = "w-full rounded-lg border border-input bg-background px-4
 const selectClsAdmin = "w-full rounded-lg border border-input bg-background px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm";
 
 function CodesModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-  const [tracking, setTracking] = useState<TrackingCode[]>(() => getTrackingCodes());
-  const [savedStr, setSavedStr] = useState(() => JSON.stringify(getTrackingCodes()));
+  const [tracking, setTracking] = useState<TrackingCode[]>([]);
+  const [savedStr, setSavedStr] = useState("[]");
   const [expanded, setExpanded] = useState<string | null>(null);
   const [pathInputs, setPathInputs] = useState<Record<string, { inc: string; exc: string }>>({});
   const [publishingTracking, setPublishingTracking] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
-      const fresh = getTrackingCodes();
-      setTracking(fresh);
-      setSavedStr(JSON.stringify(fresh));
-      setExpanded(null);
-      setPathInputs({});
+      loadTrackingCodesFromDisk().then((fresh) => {
+        setTracking(fresh);
+        setSavedStr(JSON.stringify(fresh));
+        setExpanded(null);
+        setPathInputs({});
+      });
     }
   }, [isOpen]);
 

@@ -84,7 +84,7 @@ export const useRedirectStore = create<RedirectStore>()(
       lastLoadedAt: undefined,
 
       init: async () => {
-        if (get().initialized) return;
+        if (get().initialized || get().loading) return;
 
         // Preservar rascunhos locais do localStorage (já hidratados)
         const current = get();

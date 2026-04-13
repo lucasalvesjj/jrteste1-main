@@ -25,7 +25,6 @@ const AdminRedirectsPage = () => {
   );
   const [password, setPassword] = useState("");
   const [publishing, setPublishing] = useState(false);
-  const store = useRedirectStore();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,7 +50,7 @@ const AdminRedirectsPage = () => {
 
     setPublishing(true);
     try {
-      const data = store.exportFile();
+      const data = useRedirectStore.getState().exportFile();
       const json = JSON.stringify(data, null, 2);
       const result = await publishToGitHub(json, {
         ...config,

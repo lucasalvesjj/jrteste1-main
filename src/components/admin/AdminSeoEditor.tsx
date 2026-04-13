@@ -33,6 +33,24 @@ export function saveTrackingCodes(codes: TrackingCode[]): void {
   }
 }
 
+/** Carrega tracking codes: tenta localStorage, senao busca do JSON publicado */
+export async function loadTrackingCodesFromDisk(): Promise<TrackingCode[]> {
+  const local = getTrackingCodes();
+  if (local.length > 0) return local;
+
+  try {
+    const url = import.meta.env.DEV ? "/api/tracking-codes" : "/data/tracking-codes.json";
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) return [];
+    const data: unknown = await res.json();
+    if (!Array.isArray(data)) return [];
+    localStorage.setItem(TRACKING_STORAGE_KEY, JSON.stringify(data));
+    return data as TrackingCode[];
+  } catch {
+    return [];
+  }
+}
+
 export function newTrackingCode(existingCount: number): TrackingCode {
   return {
     id: `tc-${Date.now()}`, name: "", code: "",
