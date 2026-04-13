@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "exportedAt": "2026-04-09T00:31:14.382Z",
+  "exportedAt": "2026-04-12T18:38:44.477Z",
   "rules": [],
   "notFoundLog": [
     {
-      "id": "e0cf32df-2cae-419e-b592-aa3f8d0b6c30",
-      "url": "/uma-pagina-que-nao-existe-para-testar-loader",
+      "id": "ce621597-90a1-4d8f-915e-85914bded462",
+      "url": "/blog/parafusadeira-para-marcenaria",
       "referrer": "http://localhost:8080/",
-      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/1.1348.0 Chrome/144.0.7559.236 Electron/40.8.5 Safari/537.36 MSIX",
-      "timestamp": "2026-04-09T00:31:14.078Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/1.1617.0 Chrome/144.0.7559.236 Electron/40.8.5 Safari/537.36 MSIX",
+      "timestamp": "2026-04-12T18:38:44.172Z",
       "count": 1,
       "resolved": false
     }

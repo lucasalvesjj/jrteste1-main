@@ -4,13 +4,11 @@ import { Calendar, Tag, ArrowLeft } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
-import OptimizedImage from "@/components/OptimizedImage";
 import { usePublishedBlog, getPostBySlug, getRelatedPosts } from "@/hooks/usePublishedBlog";
 import { getCategoryLabel, getPostCategories } from "@/lib/blogCategories";
 import JRLoader from "@/components/JRLoader";
 import { useMediaStore } from "@/stores/mediaStore";
 import { enrichContentImages } from "@/lib/contentImages";
-import { useMediaItem } from "@/hooks/useMediaItem";
 import { usePublishedRedirects } from "@/hooks/usePublishedRedirects";
 import { useRedirectStore } from "@/stores/redirectStore";
 
@@ -64,6 +62,14 @@ const BlogPostPage = () => {
   }, [loadMedia, mediaState]);
 
   const post = getPostBySlug(posts, slug || "");
+
+  const isHtml = (content: string) => /<[a-z][\s\S]*>/i.test(content);
+
+  // Enriquece o HTML com srcset/loading nas <img> da Media Library
+  const enrichedContent = useMemo(
+    () => (post && isHtml(post.content) ? enrichContentImages(post.content, mediaItems) : (post?.content ?? "")),
+    [post?.content, mediaItems]
+  );
 
   // Quando o post não existe e o blog já inicializou, verifica regras de redirect
   useEffect(() => {
@@ -119,19 +125,6 @@ const BlogPostPage = () => {
 
   const related = getRelatedPosts(posts, post);
   const categories = getPostCategories(post);
-
-  // Lookup do MediaItem da imagem hero — fornece blurDataUrl, width e height
-  // para o OptimizedImage, evitando CLS e ativando o placeholder blur.
-  // Retorna null se a imagem não estiver no catálogo (ex: path estático legado).
-  const heroMediaItem = useMediaItem(post.image);
-
-  const isHtml = (content: string) => /<[a-z][\s\S]*>/i.test(content);
-
-  // Enriquece o HTML com srcset/loading nas <img> da Media Library
-  const enrichedContent = useMemo(
-    () => (isHtml(post.content) ? enrichContentImages(post.content, mediaItems) : post.content),
-    [post.content, mediaItems]
-  );
 
   const renderContent = (content: string) => {
     if (isHtml(content)) {
@@ -242,20 +235,6 @@ const BlogPostPage = () => {
 
         <section className="section-padding">
           <div className="container-custom mx-auto max-w-3xl">
-            {post.image && (
-              <OptimizedImage
-                src={post.image}
-                alt={post.imageAlt || post.title}
-                title={post.title}
-                className="mb-8 h-64 w-full rounded-xl md:h-96"
-                preset="hero"
-                loading="lazy"
-                decoding="async"
-                width={heroMediaItem?.width}
-                height={heroMediaItem?.height}
-                blurDataUrl={heroMediaItem?.blurDataUrl}
-              />
-            )}
             {renderContent(post.content)}
             <div className="mt-8 flex flex-wrap gap-2 border-t border-border pt-6">
               <Tag className="h-4 w-4 text-muted-foreground" />

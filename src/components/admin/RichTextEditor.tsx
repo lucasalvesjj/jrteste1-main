@@ -258,6 +258,8 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
     [uploadItem, isManual]
   );
 
+  const [, forceUpdate] = useState(0);
+
   const editor = useEditor({
     extensions: [
       StarterKit.configure({ heading: { levels: [1, 2, 3] } }),
@@ -289,6 +291,7 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
     ],
     content,
     onUpdate: ({ editor }) => onChange(editor.getHTML()),
+    onSelectionUpdate: () => forceUpdate((n) => n + 1),
     editorProps: {
       attributes: {
         class: "prose prose-sm max-w-none min-h-[320px] p-4 focus:outline-none",
