@@ -130,6 +130,9 @@ export function htaccessPlugin(): Plugin {
         ].join("\n");
       }
 
+      // Normaliza line endings para LF (evita CRLF misto no Windows)
+      output = output.replace(/\r\n/g, "\n");
+
       const outputPath = path.join(resolvedOutDir, ".htaccess");
       fs.writeFileSync(outputPath, output, "utf-8");
 

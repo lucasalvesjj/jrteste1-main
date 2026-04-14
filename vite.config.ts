@@ -7,6 +7,7 @@ import { redirectSyncPlugin } from "./vite-plugin-redirect-sync";
 import { trackingSyncPlugin } from "./vite-plugin-tracking-sync";
 import { sitemapPlugin } from "./vite-plugin-sitemap";
 import { htaccessPlugin } from "./vite-plugin-htaccess";
+import { cloudflareRedirectsPlugin } from "./vite-plugin-cloudflare-redirects";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -29,6 +30,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && trackingSyncPlugin(),
     sitemapPlugin(),
     htaccessPlugin(),
+    cloudflareRedirectsPlugin(),
   ].filter(Boolean),
   build: {
     rollupOptions: {

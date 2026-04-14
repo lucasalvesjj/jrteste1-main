@@ -1,12 +1,15 @@
 /**
  * TrackingScripts.tsx
- * Lê os tracking codes do localStorage e injeta os scripts
+ * Lê os tracking codes do JSON publicado e injeta os scripts
  * nas posições corretas (head via Helmet, body via dangerouslySetInnerHTML).
  *
  * Respeita:
  *  - tc.enabled        → só injeta se ativo
  *  - tc.scope/paths    → filtra por pathname atual
  *  - tc.position       → head | body_start | body_end
+ *
+ * Cada tracking code pode conter múltiplos blocos <script> (ex: GA4
+ * tem um script externo + inline de configuração). Todos são injetados.
  */
 
 import { useEffect, useMemo, useState } from "react";
@@ -23,35 +26,41 @@ function shouldInject(tc: TrackingCode, pathname: string): boolean {
   if (!tc.enabled) return false;
 
   if (tc.scope === "specific") {
-    // Inclui apenas as páginas listadas
     return tc.includedPaths.some((p) => pathname === p || pathname.startsWith(p));
   }
 
-  // Global: injeta em tudo exceto páginas excluídas
   return !tc.excludedPaths.some((p) => pathname === p || pathname.startsWith(p));
 }
 
-/** Sanitiza o código para injeção via dangerouslySetInnerHTML (body) */
-function extractInlineScript(code: string): string {
-  // Remove tags <script ...> e </script> externas para innerHTML
-  return code
-    .replace(/<script[^>]*>/gi, "")
-    .replace(/<\/script>/gi, "")
-    .trim();
+interface ScriptBlock {
+  type: "external" | "inline";
+  src?: string;
+  content?: string;
+  async?: boolean;
+  defer?: boolean;
 }
 
-/** Detecta se o código é um <script src=...> externo */
-function extractScriptSrc(code: string): string | null {
-  const match = code.match(/<script[^>]+src=["']([^"']+)["']/i);
-  return match?.[1] ?? null;
-}
-
-/** Detecta atributos do script tag (async, defer, etc) */
-function isAsync(code: string): boolean {
-  return /\basync\b/i.test(code);
-}
-function isDefer(code: string): boolean {
-  return /\bdefer\b/i.test(code);
+/** Extrai TODOS os blocos <script> de um tracking code HTML */
+function parseScriptBlocks(code: string): ScriptBlock[] {
+  const blocks: ScriptBlock[] = [];
+  const regex = /<script([^>]*)>([\s\S]*?)<\/script>/gi;
+  let match;
+  while ((match = regex.exec(code)) !== null) {
+    const attrs = match[1];
+    const content = match[2].trim();
+    const srcMatch = attrs.match(/src=["']([^"']+)["']/i);
+    if (srcMatch) {
+      blocks.push({
+        type: "external",
+        src: srcMatch[1],
+        async: /\basync\b/i.test(attrs),
+        defer: /\bdefer\b/i.test(attrs),
+      });
+    } else if (content) {
+      blocks.push({ type: "inline", content });
+    }
+  }
+  return blocks;
 }
 
 // ── Componente principal ──────────────────────────────────────────────────────
@@ -89,24 +98,19 @@ export default function TrackingScripts() {
       {/* ── HEAD scripts via react-helmet-async ── */}
       {headCodes.length > 0 && (
         <Helmet>
-          {headCodes.map((tc) => {
-            const src = extractScriptSrc(tc.code);
-            if (src) {
-              // Script externo com src=
-              return (
+          {headCodes.flatMap((tc) => {
+            const blocks = parseScriptBlocks(tc.code);
+            return blocks.map((block, i) =>
+              block.type === "external" ? (
                 <script
-                  key={tc.id}
-                  src={src}
-                  async={isAsync(tc.code) || undefined}
-                  defer={isDefer(tc.code) || undefined}
+                  key={`${tc.id}-${i}`}
+                  src={block.src}
+                  async={block.async || undefined}
+                  defer={block.defer || undefined}
                 />
-              );
-            }
-            // Script inline
-            return (
-              <script key={tc.id}>
-                {extractInlineScript(tc.code)}
-              </script>
+              ) : (
+                <script key={`${tc.id}-${i}`}>{block.content}</script>
+              )
             );
           })}
         </Helmet>

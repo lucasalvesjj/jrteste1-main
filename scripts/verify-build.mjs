@@ -163,13 +163,18 @@ export function verifyBuild() {
     return { passed: hasDisallow, detail: hasDisallow ? "Contem Disallow: /admin" : "Faltando Disallow: /admin" };
   });
 
-  // 8. .htaccess funcional
-  check(8, "CRITICO", ".htaccess com SPA fallback", () => {
+  // 8. SPA fallback configurado (.htaccess + CF Pages _redirects)
+  check(8, "CRITICO", "SPA fallback configurado", () => {
     const htPath = path.join(DIST, ".htaccess");
-    if (!fs.existsSync(htPath)) return { passed: false, detail: "Arquivo nao encontrado" };
-    const content = fs.readFileSync(htPath, "utf-8");
-    const hasFallback = content.includes("SPA Fallback");
-    return { passed: hasFallback, detail: hasFallback ? "SPA Fallback presente" : "Faltando SPA Fallback" };
+    const redirectsPath = path.join(DIST, "_redirects");
+    const hasHt = fs.existsSync(htPath) &&
+      fs.readFileSync(htPath, "utf-8").includes("SPA Fallback");
+    const hasCF = fs.existsSync(redirectsPath) &&
+      fs.readFileSync(redirectsPath, "utf-8").includes("/index.html  200");
+    return {
+      passed: hasHt && hasCF,
+      detail: `.htaccess: ${hasHt ? "OK" : "FALTA"}, _redirects: ${hasCF ? "OK" : "FALTA"}`,
+    };
   });
 
   // 9. Favicon
@@ -226,22 +231,32 @@ export function verifyBuild() {
     }
   });
 
-  // 15. HSTS no .htaccess
-  check(15, "ALTO", "HSTS configurado no .htaccess", () => {
-    const htPath = path.join(DIST, ".htaccess");
-    if (!fs.existsSync(htPath)) return { passed: false, detail: ".htaccess nao encontrado" };
-    const content = fs.readFileSync(htPath, "utf-8");
-    const hasHSTS = content.includes("Strict-Transport-Security");
-    return { passed: hasHSTS, detail: hasHSTS ? "HSTS presente" : "HSTS ausente" };
+  // 15. HSTS configurado (.htaccess + CF Pages _headers)
+  check(15, "ALTO", "HSTS configurado", () => {
+    const htContent = fs.existsSync(path.join(DIST, ".htaccess"))
+      ? fs.readFileSync(path.join(DIST, ".htaccess"), "utf-8") : "";
+    const cfContent = fs.existsSync(path.join(DIST, "_headers"))
+      ? fs.readFileSync(path.join(DIST, "_headers"), "utf-8") : "";
+    const htOk = htContent.includes("Strict-Transport-Security");
+    const cfOk = cfContent.includes("Strict-Transport-Security");
+    return {
+      passed: htOk && cfOk,
+      detail: `.htaccess: ${htOk ? "OK" : "FALTA"}, _headers: ${cfOk ? "OK" : "FALTA"}`,
+    };
   });
 
-  // 16. CSP no .htaccess
-  check(16, "ALTO", "CSP configurado no .htaccess", () => {
-    const htPath = path.join(DIST, ".htaccess");
-    if (!fs.existsSync(htPath)) return { passed: false, detail: ".htaccess nao encontrado" };
-    const content = fs.readFileSync(htPath, "utf-8");
-    const hasCSP = content.includes("Content-Security-Policy");
-    return { passed: hasCSP, detail: hasCSP ? "CSP presente" : "CSP ausente" };
+  // 16. CSP configurado (.htaccess + CF Pages _headers)
+  check(16, "ALTO", "CSP configurado", () => {
+    const htContent = fs.existsSync(path.join(DIST, ".htaccess"))
+      ? fs.readFileSync(path.join(DIST, ".htaccess"), "utf-8") : "";
+    const cfContent = fs.existsSync(path.join(DIST, "_headers"))
+      ? fs.readFileSync(path.join(DIST, "_headers"), "utf-8") : "";
+    const htOk = htContent.includes("Content-Security-Policy");
+    const cfOk = cfContent.includes("Content-Security-Policy");
+    return {
+      passed: htOk && cfOk,
+      detail: `.htaccess: ${htOk ? "OK" : "FALTA"}, _headers: ${cfOk ? "OK" : "FALTA"}`,
+    };
   });
 
   // Resumo

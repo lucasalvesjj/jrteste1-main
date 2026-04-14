@@ -29,7 +29,7 @@
     "scope": "global",
     "includedPaths": [],
     "excludedPaths": [],
-    "enabled": true,
+    "enabled": false,
     "order": 2
   },
   {
