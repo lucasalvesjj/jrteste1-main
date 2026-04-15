@@ -194,19 +194,23 @@ img[data-align="center"] { display: block; float: none; margin: 0 auto; }
 
 /* Responsivo: em telas < 880px, posts publicados empilham imagem + texto */
 @media (max-width: 879px) {
-  .prose:not(.ProseMirror) img[data-align="left"],
-  .prose:not(.ProseMirror) img[data-align="right"] {
+  /* Todas as imagens do post: largura 100% no mobile */
+  .prose:not(.ProseMirror) img {
     float: none !important;
     display: block !important;
     margin: 0 auto 16px auto !important;
-    width: auto !important;
+    width: 100% !important;
     max-width: 100% !important;
+    height: auto !important;
   }
+  /* Wrappers de alinhamento: remover float no mobile */
   .prose:not(.ProseMirror) [data-align="left"],
-  .prose:not(.ProseMirror) [data-align="right"] {
+  .prose:not(.ProseMirror) [data-align="right"],
+  .prose:not(.ProseMirror) [data-align="center"] {
     float: none !important;
     display: block !important;
     margin: 0 auto 16px auto !important;
+    width: 100% !important;
   }
 }
 
