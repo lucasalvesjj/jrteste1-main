@@ -1,16 +1,46 @@
 {
   "version": 1,
-  "exportedAt": "2026-04-13T20:57:53.774Z",
-  "rules": [],
+  "exportedAt": "2026-04-15T11:23:56.355Z",
+  "rules": [
+    {
+      "id": "fed9a8c2-ab21-4aaa-a05f-0ff71be3112b",
+      "sourceUrl": "parafusadeira-para-marcenaria/",
+      "targetUrl": "",
+      "type": 410,
+      "isRegex": false,
+      "group": "",
+      "enabled": true,
+      "hits": 0,
+      "lastHitAt": null,
+      "note": "",
+      "createdAt": "2026-04-15T11:23:56.054Z",
+      "updatedAt": "2026-04-15T11:23:56.054Z"
+    },
+    {
+      "id": "5f5447d8-5f53-4183-b9f4-afd618980c8e",
+      "sourceUrl": "medidor-de-umidade-al-102-coffee-da-agrologic/",
+      "targetUrl": "",
+      "type": 410,
+      "isRegex": false,
+      "group": "",
+      "enabled": true,
+      "hits": 0,
+      "lastHitAt": null,
+      "note": "",
+      "createdAt": "2026-04-15T11:21:28.862Z",
+      "updatedAt": "2026-04-15T11:21:28.862Z"
+    }
+  ],
   "notFoundLog": [
     {
-      "id": "ce621597-90a1-4d8f-915e-85914bded462",
-      "url": "/blog/parafusadeira-para-marcenaria",
-      "referrer": "http://localhost:8080/",
-      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/1.1617.0 Chrome/144.0.7559.236 Electron/40.8.5 Safari/537.36 MSIX",
-      "timestamp": "2026-04-12T18:38:44.172Z",
+      "id": "fa9886c4-f10b-470a-ba4c-a1e316924073",
+      "url": "/calamare",
+      "referrer": "",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+      "timestamp": "2026-04-15T11:22:32.013Z",
       "count": 1,
-      "resolved": false
+      "resolved": true,
+      "resolvedWithRuleId": "ee0d1bb4-f099-4ebe-936d-710f46b21e9f"
     }
   ],
   "groups": [

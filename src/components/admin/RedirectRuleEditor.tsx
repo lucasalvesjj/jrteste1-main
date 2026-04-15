@@ -63,7 +63,7 @@ const RedirectRuleEditor = ({ rule, groups, onSave, onCancel }: Props) => {
 
     const now = new Date().toISOString();
     const saved: RedirectRule = {
-      id: rule?.id ?? crypto.randomUUID(),
+      id: rule?.id || crypto.randomUUID(),
       sourceUrl: form.sourceUrl.trim(),
       targetUrl: form.type === 410 ? "" : form.targetUrl.trim(),
       type: form.type,
@@ -73,7 +73,7 @@ const RedirectRuleEditor = ({ rule, groups, onSave, onCancel }: Props) => {
       hits: rule?.hits ?? 0,
       lastHitAt: rule?.lastHitAt ?? null,
       note: form.note.trim(),
-      createdAt: rule?.createdAt ?? now,
+      createdAt: rule?.createdAt || now,
       updatedAt: now,
     };
 

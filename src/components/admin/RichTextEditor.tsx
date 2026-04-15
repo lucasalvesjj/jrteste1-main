@@ -1,4 +1,5 @@
 import { EditorContent, useEditor } from "@tiptap/react";
+import { BubbleMenu } from "@tiptap/react/menus";
 import { Node } from "@tiptap/core";
 import Color from "@tiptap/extension-color";
 import ResizableImageExt from "./extensions/ResizableImage";
@@ -29,6 +30,7 @@ import {
   Italic,
   Link as LinkIcon,
   List,
+  Pencil,
   ListOrdered,
   Minus,
   Pilcrow,
@@ -142,6 +144,7 @@ const EditorInputPanel = ({
   placeholder,
   multiline = false,
   helper,
+  extra,
 }: {
   title: string;
   value: string;
@@ -152,6 +155,7 @@ const EditorInputPanel = ({
   placeholder: string;
   multiline?: boolean;
   helper?: string;
+  extra?: React.ReactNode;
 }) => (
   <div className="border-b border-border bg-card p-3">
     <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{title}</div>
@@ -173,6 +177,7 @@ const EditorInputPanel = ({
       />
     )}
     {helper && <p className="mt-2 text-xs text-muted-foreground">{helper}</p>}
+    {extra}
     <div className="mt-3 flex flex-wrap gap-2">
       <button
         type="button"
@@ -204,6 +209,8 @@ const MediaLibraryLoadingOverlay = () => (
 const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
   const [activePanel, setActivePanel] = useState<"link" | "paste" | "plain-paste" | null>(null);
   const [linkValue, setLinkValue] = useState("");
+  const [nofollowChecked, setNofollowChecked] = useState(false);
+  const [editingExistingLink, setEditingExistingLink] = useState(false);
   const [pasteValue, setPasteValue] = useState("");
 
   // ── Upload via galeria (vetores drag e paste) ──
@@ -354,7 +361,12 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
 
   const openLinkPanel = useCallback(() => {
     if (!editor) return;
-    setLinkValue(editor.getAttributes("link").href || "");
+    const attrs = editor.getAttributes("link");
+    const isEditing = editor.isActive("link");
+    setEditingExistingLink(isEditing);
+    setLinkValue(attrs.href || "");
+    const currentRel: string = attrs.rel || "";
+    setNofollowChecked(currentRel.includes("nofollow"));
     setActivePanel("link");
   }, [editor]);
 
@@ -387,16 +399,29 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
     if (!linkValue.trim()) {
       editor.chain().focus().extendMarkRange("link").unsetLink().run();
     } else {
-      editor.chain().focus().extendMarkRange("link").setLink({ href: linkValue.trim() }).run();
+      const rel = nofollowChecked
+        ? "noopener noreferrer nofollow"
+        : "noopener noreferrer";
+
+      if (editingExistingLink) {
+        // Edição: restringir ao range do link existente
+        editor.chain().focus().extendMarkRange("link").setLink({ href: linkValue.trim(), rel }).run();
+      } else {
+        // Criação: aplicar à seleção atual
+        editor.chain().focus().setLink({ href: linkValue.trim(), rel }).run();
+      }
     }
 
+    setEditingExistingLink(false);
     setActivePanel(null);
-  }, [editor, linkValue]);
+  }, [editor, linkValue, nofollowChecked, editingExistingLink]);
 
   const removeLink = useCallback(() => {
     if (!editor) return;
     editor.chain().focus().extendMarkRange("link").unsetLink().run();
     setLinkValue("");
+    setNofollowChecked(false);
+    setEditingExistingLink(false);
     setActivePanel(null);
   }, [editor]);
 
@@ -483,9 +508,23 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
           value={linkValue}
           onChange={setLinkValue}
           onConfirm={applyLink}
-          onCancel={() => setActivePanel(null)}
+          onCancel={() => { setActivePanel(null); setNofollowChecked(false); setEditingExistingLink(false); }}
           confirmLabel="Aplicar link"
           placeholder="https://exemplo.com.br"
+          helper="Sem marcar, o link segue a regra global de Indexação Padrão (SEO)."
+          extra={
+            <label className="mt-2 flex items-center gap-2 text-sm text-foreground cursor-pointer">
+              <input
+                type="checkbox"
+                checked={nofollowChecked}
+                onChange={(e) => setNofollowChecked(e.target.checked)}
+                className="h-4 w-4 rounded border-input"
+              />
+              <span>
+                Marcar como <code className="font-mono text-xs bg-muted px-1 rounded">nofollow</code>
+              </span>
+            </label>
+          }
         />
       )}
 
@@ -672,6 +711,60 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
           <span>`FolderOpen`: inserir imagem da biblioteca</span>
         </div>
       </div>
+
+      <BubbleMenu
+        editor={editor}
+        options={{ placement: "bottom-start" }}
+        shouldShow={({ editor, state }) => {
+          const { from, to } = state.selection;
+          const hasSelection = from !== to;
+          return editor.isActive("link") || hasSelection;
+        }}
+      >
+        {editor.isActive("link") ? (
+          <div className="flex items-center gap-1.5 rounded-lg border border-border bg-card px-2 py-1.5 shadow-lg">
+            <span
+              className="max-w-[200px] truncate text-xs text-primary underline cursor-default select-all"
+              title={editor.getAttributes("link").href}
+            >
+              {editor.getAttributes("link").href}
+            </span>
+            {(editor.getAttributes("link").rel || "").includes("nofollow") && (
+              <span className="rounded bg-muted px-1 py-0.5 text-[10px] font-mono text-muted-foreground">
+                nofollow
+              </span>
+            )}
+            <button
+              type="button"
+              onClick={openLinkPanel}
+              className="rounded p-1 text-muted-foreground hover:bg-accent hover:text-foreground"
+              title="Editar link"
+            >
+              <Pencil className="h-3.5 w-3.5" />
+            </button>
+            <button
+              type="button"
+              onClick={removeLink}
+              className="rounded p-1 text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
+              title="Remover link"
+            >
+              <Unlink className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        ) : (
+          <div className="flex items-center gap-1.5 rounded-lg border border-border bg-card px-2 py-1.5 shadow-lg">
+            <button
+              type="button"
+              onClick={openLinkPanel}
+              className="flex items-center gap-1.5 rounded px-2 py-1 text-xs font-medium text-muted-foreground hover:bg-accent hover:text-foreground"
+              title="Inserir link"
+            >
+              <LinkIcon className="h-3.5 w-3.5" />
+              Inserir link
+            </button>
+          </div>
+        )}
+      </BubbleMenu>
 
       <EditorContent editor={editor} />
 

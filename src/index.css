@@ -184,6 +184,24 @@ img[data-align="left"]   { float: left;  display: block; margin: 0 16px 8px 0; }
 img[data-align="right"]  { float: right; display: block; margin: 0 0 8px 16px; }
 img[data-align="center"] { display: block; float: none; margin: 0 auto; }
 
+/* Responsivo: em telas < 880px, posts publicados empilham imagem + texto */
+@media (max-width: 879px) {
+  .prose:not(.ProseMirror) img[data-align="left"],
+  .prose:not(.ProseMirror) img[data-align="right"] {
+    float: none !important;
+    display: block !important;
+    margin: 0 auto 16px auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+  .prose:not(.ProseMirror) [data-align="left"],
+  .prose:not(.ProseMirror) [data-align="right"] {
+    float: none !important;
+    display: block !important;
+    margin: 0 auto 16px auto !important;
+  }
+}
+
 /* Justificar texto como padrão no editor */
 .ProseMirror p,
 .ProseMirror h1,
