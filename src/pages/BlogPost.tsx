@@ -135,19 +135,11 @@ const BlogPostPage = () => {
       <div className="prose prose-lg max-w-none">
         {content.split("\n").map((line, index) => {
           if (line.startsWith("### ")) {
-            return (
-              <h3 key={index} className="mb-2 mt-6 font-heading text-lg font-bold text-foreground">
-                {line.slice(4)}
-              </h3>
-            );
+            return <h3 key={index}>{line.slice(4)}</h3>;
           }
 
           if (line.startsWith("## ")) {
-            return (
-              <h2 key={index} className="mb-3 mt-8 font-heading text-xl font-bold text-foreground">
-                {line.slice(3)}
-              </h2>
-            );
+            return <h2 key={index}>{line.slice(3)}</h2>;
           }
 
           if (line.startsWith("- **")) {

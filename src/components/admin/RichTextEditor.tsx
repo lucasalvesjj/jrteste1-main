@@ -326,6 +326,16 @@ const RichTextEditor = ({ content, onChange, error }: RichTextEditorProps) => {
         if (file) void uploadAndInsert(file);
         return true;
       },
+      // ── Vetor 3: Bloquear navegação ao clicar em link ──
+      // openOnClick:false do TipTap v3 não previne o comportamento nativo do <a>.
+      handleClick(_view, _pos, event) {
+        const target = event.target as HTMLElement;
+        if (target.tagName === "A" || target.closest("a")) {
+          event.preventDefault();
+          return true;
+        }
+        return false;
+      },
     },
   });
 
