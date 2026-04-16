@@ -1,28 +1,37 @@
 {
   "version": 1,
-  "exportedAt": "2026-04-15T20:24:58.891Z",
-  "rules": [],
-  "notFoundLog": [
+  "exportedAt": "2026-04-16T11:35:03.518Z",
+  "rules": [
     {
-      "id": "79de8930-e87d-4eb1-95e8-95e258d589ff",
-      "url": "/tipos-de-chaves-conheca-os-modelos-mais-utilizados-e-suas-finalidades/",
-      "referrer": "http://localhost:8080/blog",
-      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/1.2581.0 Chrome/146.0.7680.179 Electron/41.2.0 Safari/537.36 MSIX",
-      "timestamp": "2026-04-15T20:24:57.987Z",
-      "count": 1,
-      "resolved": false
+      "id": "fed9a8c2-ab21-4aaa-a05f-0ff71be3112b",
+      "sourceUrl": "/parafusadeira-para-marcenaria/",
+      "targetUrl": "",
+      "type": 410,
+      "isRegex": false,
+      "group": "",
+      "enabled": true,
+      "hits": 0,
+      "lastHitAt": null,
+      "note": "",
+      "createdAt": "2026-04-15T11:23:56.054Z",
+      "updatedAt": "2026-04-16T11:34:24.201Z"
     },
     {
-      "id": "c9107284-7e5c-4692-886b-6f6dd7f050d9",
-      "url": "/admin/posts",
-      "referrer": "http://localhost:8080/",
-      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/1.2278.0 Chrome/146.0.7680.179 Electron/41.2.0 Safari/537.36 MSIX",
-      "timestamp": "2026-04-14T17:25:54.095Z",
-      "count": 2,
-      "resolved": true,
-      "resolvedWithRuleId": "21c9daff-2556-4ad6-a8fb-cb371b94c014"
+      "id": "5f5447d8-5f53-4183-b9f4-afd618980c8e",
+      "sourceUrl": "/medidor-de-umidade-al-102-coffee-da-agrologic/",
+      "targetUrl": "",
+      "type": 410,
+      "isRegex": false,
+      "group": "",
+      "enabled": true,
+      "hits": 0,
+      "lastHitAt": null,
+      "note": "",
+      "createdAt": "2026-04-15T11:21:28.862Z",
+      "updatedAt": "2026-04-16T11:34:17.303Z"
     }
   ],
+  "notFoundLog": [],
   "groups": [
     "blog",
     "paginas-legado"
