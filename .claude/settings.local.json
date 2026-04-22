@@ -42,7 +42,9 @@
       "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\(''''scripts'''',{}\\)\\)\")",
       "Bash(py -c ':*)",
       "Bash(gh api:*)",
-      "Bash(node -e \"console.log\\(crypto.randomUUID\\(\\)\\)\")"
+      "Bash(node -e \"console.log\\(crypto.randomUUID\\(\\)\\)\")",
+      "Bash(mkdir -p /c/Users/lucas/.claude/plans)",
+      "Read(//c/Users/lucas/.claude/plans//**)"
     ]
   }
 }

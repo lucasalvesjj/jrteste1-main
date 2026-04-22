@@ -146,6 +146,13 @@
   margin-bottom: 1.0667em;
 }
 
+/* Listas em posts com imagem flutuante: cria BFC para que o <ul>/<ol>
+   (incluindo o padding com os marcadores) fique ao lado do float em vez
+   de sobrepô-lo. */
+.prose :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  display: flow-root;
+}
+
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
