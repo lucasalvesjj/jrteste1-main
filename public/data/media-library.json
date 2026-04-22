@@ -1,7 +1,45 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-08T11:28:25.164Z",
+  "updatedAt": "2026-04-22T01:02:55.701Z",
   "items": [
+    {
+      "id": "3f817dd1-9b0c-4dfe-8ca4-98c0ff569794",
+      "name": "Comparação direta serra mármore vs serra circular.png",
+      "alt": "",
+      "paths": {
+        "thumbnail": "/media/2026/04/3f817dd1-9b0c-4dfe-8ca4-98c0ff569794/thumbnail.webp",
+        "medium": "/media/2026/04/3f817dd1-9b0c-4dfe-8ca4-98c0ff569794/medium.webp",
+        "hero": "/media/2026/04/3f817dd1-9b0c-4dfe-8ca4-98c0ff569794/hero.webp",
+        "large": "/media/2026/04/3f817dd1-9b0c-4dfe-8ca4-98c0ff569794/large.webp",
+        "original": "/media/2026/04/3f817dd1-9b0c-4dfe-8ca4-98c0ff569794/original.jpg"
+      },
+      "width": 1536,
+      "height": 1024,
+      "size": 566041,
+      "mimeType": "image/jpeg",
+      "uploadedAt": "2026-04-22T01:02:55.700Z",
+      "sourceType": "upload",
+      "sourceId": ""
+    },
+    {
+      "id": "5453e6bd-6043-40cd-98da-298905d5b974",
+      "name": "Comparação direta desempenadeira vs desengrossadeira.png",
+      "alt": "",
+      "paths": {
+        "thumbnail": "/media/2026/04/5453e6bd-6043-40cd-98da-298905d5b974/thumbnail.webp",
+        "medium": "/media/2026/04/5453e6bd-6043-40cd-98da-298905d5b974/medium.webp",
+        "hero": "/media/2026/04/5453e6bd-6043-40cd-98da-298905d5b974/hero.webp",
+        "large": "/media/2026/04/5453e6bd-6043-40cd-98da-298905d5b974/large.webp",
+        "original": "/media/2026/04/5453e6bd-6043-40cd-98da-298905d5b974/original.jpg"
+      },
+      "width": 1672,
+      "height": 941,
+      "size": 523911,
+      "mimeType": "image/jpeg",
+      "uploadedAt": "2026-04-22T00:56:16.658Z",
+      "sourceType": "upload",
+      "sourceId": ""
+    },
     {
       "id": "0c7ffc35-d869-4855-b24d-282db446b56e",
       "name": "medidor-de-umidade-al-102-coffee-da-agrologic-featured.jpg",
