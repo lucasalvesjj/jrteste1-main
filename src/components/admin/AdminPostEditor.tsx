@@ -3,6 +3,7 @@ import { AlertTriangle, ArrowLeft, Eye, History, Image as ImageIcon, Info, Rotat
 import { toast } from "sonner";
 import type { BlogCategory, BlogPost } from "@/data/blogTypes";
 import { getCategoryLabel } from "@/lib/blogCategories";
+import { injectHeadingIds } from "@/lib/headingIds";
 import OptimizedImage from "@/components/OptimizedImage";
 import { useAdapterInfo } from "@/hooks/useAdapterInfo";
 import ManualAdapterBanner from "@/components/admin/ManualAdapterBanner";
@@ -232,7 +233,8 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
 
     persistDraftVersion("Versão antes de salvar");
     const now = new Date().toISOString().slice(0, 10);
-    onSave({ ...form, tags, seo, updatedAt: isNew ? undefined : now }, isNew);
+    const contentWithIds = injectHeadingIds(form.content);
+    onSave({ ...form, tags, seo, content: contentWithIds, updatedAt: isNew ? undefined : now }, isNew);
   };
 
   const updateField = (field: keyof BlogPost, value: string | string[]) => {

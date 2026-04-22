@@ -44,7 +44,10 @@
       "Bash(gh api:*)",
       "Bash(node -e \"console.log\\(crypto.randomUUID\\(\\)\\)\")",
       "Bash(mkdir -p /c/Users/lucas/.claude/plans)",
-      "Read(//c/Users/lucas/.claude/plans//**)"
+      "Read(//c/Users/lucas/.claude/plans//**)",
+      "Bash(node scripts/add-heading-ids.mjs)",
+      "Bash(node -e ' *)",
+      "Bash(npm run *)"
     ]
   }
 }

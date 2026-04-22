@@ -9,6 +9,9 @@ import { getCategoryLabel, getPostCategories } from "@/lib/blogCategories";
 import JRLoader from "@/components/JRLoader";
 import { useMediaStore } from "@/stores/mediaStore";
 import { enrichContentImages } from "@/lib/contentImages";
+import { injectHeadingIds, extractHeadings } from "@/lib/headingIds";
+import type { TocHeading } from "@/lib/headingIds";
+import TableOfContents from "@/components/TableOfContents";
 import { usePublishedRedirects } from "@/hooks/usePublishedRedirects";
 import { useRedirectStore } from "@/stores/redirectStore";
 
@@ -65,11 +68,13 @@ const BlogPostPage = () => {
 
   const isHtml = (content: string) => /<[a-z][\s\S]*>/i.test(content);
 
-  // Enriquece o HTML com srcset/loading nas <img> da Media Library
-  const enrichedContent = useMemo(
-    () => (post && isHtml(post.content) ? enrichContentImages(post.content, mediaItems) : (post?.content ?? "")),
-    [post?.content, mediaItems]
-  );
+  // Enriquece imagens, injeta ids nos headings (defesa para posts sem migração) e extrai ToC
+  const { processedHtml, headings } = useMemo((): { processedHtml: string; headings: TocHeading[] } => {
+    if (!post || !isHtml(post.content)) return { processedHtml: post?.content ?? "", headings: [] };
+    const enriched = enrichContentImages(post.content, mediaItems);
+    const withIds = injectHeadingIds(enriched);
+    return { processedHtml: withIds, headings: extractHeadings(withIds) };
+  }, [post?.content, mediaItems]);
 
   // Quando o post não existe e o blog já inicializou, verifica regras de redirect
   useEffect(() => {
@@ -89,6 +94,17 @@ const BlogPostPage = () => {
       }
     }
   }, [loading, blogInitialized, post, redirectInitialized, redirectFindMatch, redirectIncrementHit, location.pathname, navigate]);
+
+  // Rola até o heading quando a URL contém hash (deep-link compartilhado ou direto)
+  useEffect(() => {
+    if (!post) return;
+    const hash = window.location.hash?.slice(1);
+    if (!hash) return;
+    requestAnimationFrame(() => {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [post?.slug]);
 
   if (loading && !post) {
     return (
@@ -128,7 +144,7 @@ const BlogPostPage = () => {
 
   const renderContent = (content: string) => {
     if (isHtml(content)) {
-      return <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: enrichedContent }} />;
+      return <div className="prose prose-lg max-w-none [&_h2]:scroll-mt-20 md:[&_h2]:scroll-mt-28 [&_h3]:scroll-mt-20 md:[&_h3]:scroll-mt-28" dangerouslySetInnerHTML={{ __html: processedHtml }} />;
     }
 
     return (
@@ -225,8 +241,9 @@ const BlogPostPage = () => {
           </div>
         </section>
 
-        <section className="section-padding">
+        <section className="px-4 md:px-8 pb-16 md:pb-24">
           <div className="container-custom mx-auto max-w-3xl">
+            <TableOfContents headings={headings} />
             {renderContent(post.content)}
             <div className="mt-8 flex flex-wrap gap-2 border-t border-border pt-6">
               <Tag className="h-4 w-4 text-muted-foreground" />
