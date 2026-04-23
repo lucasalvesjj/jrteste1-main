@@ -30,6 +30,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
 import BrandSlider from "@/components/BrandSlider";
+import HomeSeoIntro from "@/components/HomeSeoIntro";
 
 import { company, allBrands } from "@/data/company";
 import { usePublishedBlog, getPublishedPosts } from "@/hooks/usePublishedBlog";
@@ -695,6 +696,12 @@ const Index = () => {
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="!py-[1rem]">
+        <div className="container-custom">
+          <HomeSeoIntro />
         </div>
       </section>
 

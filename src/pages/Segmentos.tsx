@@ -6,6 +6,7 @@ import SchemaOrg from "@/components/SchemaOrg";
 import BrandSlider from "@/components/BrandSlider";
 import OptimizedImage from "@/components/OptimizedImage";
 import { allBrands } from "@/data/company";
+import SegmentosSeoIntro from "@/components/SegmentosSeoIntro";
 
 const segments = [
   /* 1 */ {
@@ -104,7 +105,7 @@ const Segmentos = () => (
       <BrandSlider brands={allBrands} title="Marcas que representamos" speed={117} reverse />
     </section>
 
-    <section className="section-padding">
+    <section className="section-padding !pb-[20px]">
       <div className="container-custom space-y-16">
         {segments.map((seg, i) => (
           <div key={seg.title} className="grid items-center gap-8 md:grid-cols-2">
@@ -142,6 +143,12 @@ const Segmentos = () => (
             </div>
           </div>
         ))}
+      </div>
+    </section>
+
+    <section className="!py-[1rem]">
+      <div className="container-custom">
+        <SegmentosSeoIntro />
       </div>
     </section>
 
