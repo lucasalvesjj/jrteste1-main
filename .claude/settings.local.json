@@ -47,7 +47,8 @@
       "Read(//c/Users/lucas/.claude/plans//**)",
       "Bash(node scripts/add-heading-ids.mjs)",
       "Bash(node -e ' *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(curl -sI \"https://comercial-jr-2.pages.dev/media/2026/03/e1d7bb94-da0b-4971-b896-cde11585c970/medium.webp\")"
     ]
   }
 }
