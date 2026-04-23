@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.23] - 2026-04-23
+
+### Alteracoes
+- Atualizacoes e melhorias gerais
+
+### Build Info
+- Git: 457c6fd (master)
+- Bundle: 692.6 KB JS, 102.4 KB CSS
+- Posts: 70 publicados
+---
+
 ## [1.0.22] - 2026-04-23
 
 ### Alteracoes
