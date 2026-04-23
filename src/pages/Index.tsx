@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -104,58 +104,55 @@ const SegmentosCarousel = () => {
     slidesToScroll: 1,
   });
 
-  const [isPaused, setIsPaused] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const timerStart = useRef(Date.now());
-  const rafId = useRef<number>(0);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const timerRef    = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  /* Reseta a barra de progresso */
-  const resetProgress = useCallback(() => {
-    timerStart.current = Date.now();
-    setProgress(0);
+  /* Inicia um ciclo: anima a barra via CSS e agenda a troca de slide */
+  const startCycle = useCallback(() => {
+    if (!emblaApi) return;
+    const el = progressRef.current;
+    if (el) {
+      el.style.transition = "none";
+      el.style.transform  = "scaleX(0)";
+      void el.offsetWidth; // força reflow antes de religar a transição
+      el.style.transition = `transform ${AUTOPLAY_MS}ms linear`;
+      el.style.transform  = "scaleX(1)";
+    }
+    if (timerRef.current !== null) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => emblaApi.scrollNext(), AUTOPLAY_MS);
+  }, [emblaApi]);
+
+  /* Pausa: congela a barra no ponto atual */
+  const stopCycle = useCallback(() => {
+    if (timerRef.current !== null) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+    const el = progressRef.current;
+    if (el) {
+      const snapshot = getComputedStyle(el).transform;
+      el.style.transition = "none";
+      el.style.transform  = snapshot;
+    }
   }, []);
 
-  /* Animação da barra de progresso via requestAnimationFrame */
   useEffect(() => {
     if (!emblaApi) return;
-
-    const tick = () => {
-      if (!isPaused) {
-        const elapsed = Date.now() - timerStart.current;
-        const pct = Math.min((elapsed / AUTOPLAY_MS) * 100, 100);
-        setProgress(pct);
-
-        if (pct >= 100) {
-          emblaApi.scrollNext();
-          timerStart.current = Date.now();
-          setProgress(0);
-        }
-      }
-      rafId.current = requestAnimationFrame(tick);
+    startCycle();
+    emblaApi.on("select", startCycle);
+    return () => {
+      if (timerRef.current !== null) clearTimeout(timerRef.current);
+      emblaApi.off("select", startCycle);
     };
-
-    rafId.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId.current);
-  }, [emblaApi, isPaused]);
-
-  /* Quando o slide muda manualmente, reseta o timer */
-  useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => resetProgress();
-    emblaApi.on("select", onSelect);
-    return () => { emblaApi.off("select", onSelect); };
-  }, [emblaApi, resetProgress]);
+  }, [emblaApi, startCycle]);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   return (
     <div
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => {
-        setIsPaused(false);
-        timerStart.current = Date.now() - (progress / 100) * AUTOPLAY_MS;
-      }}
+      onMouseEnter={stopCycle}
+      onMouseLeave={startCycle}
     >
       {/* Carrossel */}
       <div className="relative">
@@ -207,11 +204,12 @@ const SegmentosCarousel = () => {
         </div>
       </div>
 
-      {/* Barra de progresso */}
+      {/* Barra de progresso — animada por CSS transition (GPU), sem re-render React */}
       <div className="mx-auto mt-6 h-1 max-w-xs overflow-hidden rounded-full bg-primary/10">
         <div
-          className="h-full rounded-full bg-primary transition-none"
-          style={{ width: `${progress}%` }}
+          ref={progressRef}
+          className="h-full origin-left rounded-full bg-primary"
+          style={{ transform: "scaleX(0)" }}
         />
       </div>
     </div>
@@ -362,7 +360,7 @@ const Index = () => {
 
       {/* Marcas que representamos */}
       <section className="container-custom pt-10 pb-2">
-        <BrandSlider brands={allBrands} title="Marcas que representamos" speed={0.75} reverse />
+        <BrandSlider brands={allBrands} title="Marcas que representamos" speed={45} reverse />
       </section>
 
       {/* Sobre + stats secundários */}

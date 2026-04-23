@@ -67,44 +67,69 @@ const BrandLogo = ({ name }: { name: string }) => {
 interface Brand { name: string; logo?: string; }
 interface BrandSliderProps { brands: Brand[]; title?: string; speed?: number; reverse?: boolean; }
 
-const DEFAULT_SPEED = 0.3; // pixels por frame (~18 px/s a 60 fps)
-const GAP = 48;    // espaçamento entre logos em px
+// velocidade em pixels por segundo (independente de frame-rate)
+const DEFAULT_SPEED = 18; // px/s (~equivalente a 0.3 px/frame @ 60fps)
+const GAP = 48;
 
 const BrandSlider = ({ brands, title = "Marcas que trabalhamos", speed, reverse }: BrandSliderProps) => {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const offsetRef = useRef(0);
-  const rafRef = useRef(0);
-  const pausedRef = useRef(false);
+  const trackRef   = useRef<HTMLDivElement>(null);
+  const offsetRef  = useRef(0);
+  const rafRef     = useRef(0);
+  const pausedRef  = useRef(false);
 
-  // Duplica marcas para preencher o loop
-  const items = [...brands, ...brands];
-
-  const speedRef = useRef(speed ?? DEFAULT_SPEED);
+  const speedRef   = useRef(speed ?? DEFAULT_SPEED);
   const reverseRef = useRef(reverse ?? false);
-  speedRef.current = speed ?? DEFAULT_SPEED;
+  speedRef.current   = speed ?? DEFAULT_SPEED;
   reverseRef.current = reverse ?? false;
 
-  const tick = useCallback(() => {
+  // cache de layout — atualizado por ResizeObserver, nunca dentro do rAF
+  const halfWidthRef  = useRef(0);
+  const isDesktopRef  = useRef(false);
+  const lastTimeRef   = useRef(0);
+
+  // duplica marcas para loop infinito
+  const items = [...brands, ...brands];
+
+  // mede dimensões fora do loop de animação
+  useEffect(() => {
+    const measure = () => {
+      if (trackRef.current) halfWidthRef.current = trackRef.current.scrollWidth / 2;
+      isDesktopRef.current = window.innerWidth >= 1024;
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    if (trackRef.current) ro.observe(trackRef.current);
+    window.addEventListener("resize", measure, { passive: true });
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
+
+  const tick = useCallback((now: DOMHighResTimeStamp) => {
+    if (lastTimeRef.current === 0) lastTimeRef.current = now;
+    // limita o delta a 100ms para evitar saltos após tab voltar ao foco
+    const dt = Math.min((now - lastTimeRef.current) / 1000, 0.1);
+    lastTimeRef.current = now;
+
     const track = trackRef.current;
     if (track && !pausedRef.current) {
-      const s = speedRef.current;
-      // Se reverse=true e desktop (>=1024px): scroll para direita; senão: scroll para esquerda
-      const isDesktop = reverseRef.current && window.innerWidth >= 1024;
-      const direction = isDesktop ? 1 : -1;
-      offsetRef.current += s * direction;
-      // Largura de 1 conjunto (metade do track, já que duplicamos)
-      const halfWidth = track.scrollWidth / 2;
-      if (direction < 0 && Math.abs(offsetRef.current) >= halfWidth) {
-        offsetRef.current += halfWidth;
-      } else if (direction > 0 && offsetRef.current >= 0) {
-        offsetRef.current -= halfWidth;
+      const direction = (reverseRef.current && isDesktopRef.current) ? 1 : -1;
+      offsetRef.current += speedRef.current * direction * dt;
+
+      const half = halfWidthRef.current;
+      if (half > 0) {
+        if (direction < 0 && Math.abs(offsetRef.current) >= half) offsetRef.current += half;
+        else if (direction > 0 && offsetRef.current >= 0)          offsetRef.current -= half;
       }
-      track.style.transform = `translateX(${offsetRef.current}px)`;
+
+      track.style.transform = `translate3d(${offsetRef.current}px,0,0)`;
     }
     rafRef.current = requestAnimationFrame(tick);
   }, []);
 
   useEffect(() => {
+    lastTimeRef.current = 0;
     rafRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafRef.current);
   }, [tick]);
@@ -144,7 +169,7 @@ const BrandSlider = ({ brands, title = "Marcas que trabalhamos", speed, reverse 
           }}
         />
 
-        {/* Track — 1 linha horizontal, movida via JS transform */}
+        {/* Track — movido via JS transform (camada GPU com translate3d) */}
         <div
           ref={trackRef}
           style={{
