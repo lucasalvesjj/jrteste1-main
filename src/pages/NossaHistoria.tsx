@@ -43,6 +43,18 @@ const NossaHistoria = () => (
             ))}
           </div>
 
+          {/* Vídeo institucional */}
+          <div className="relative w-full md:max-w-2xl md:mx-auto aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/m4yIEnDPmVY?rel=0"
+              title="Comercial JR — Nossa História"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+
           {/* CTA — Missão, Visão e Valores */}
           <div className="rounded-2xl border-2 border-primary/15 bg-accent p-8 text-center">
             <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3">

@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.19] - 2026-04-23
+
+### Alteracoes
+- feat: pipeline de build de producao v1.0.0
+
+### Build Info
+- Git: d6764b7 (master)
+- Bundle: 692.1 KB JS, 102.4 KB CSS
+- Posts: 70 publicados
+---
+
 ## [1.0.18] - 2026-04-23
 
 ### Alteracoes
