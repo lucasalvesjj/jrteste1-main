@@ -27,9 +27,11 @@
 /assets/*.svg
   Cache-Control: public, max-age=31536000, immutable
 
-# ── Cache: Media (UUID no path = imutavel) ────
+# ── Media (UUID no path): cache + SEO noindex + canonical -> Home ──
 /media/*
   Cache-Control: public, max-age=31536000, immutable
+  X-Robots-Tag: noindex, nofollow
+  Link: <https://comercialjrltda.com.br/>; rel="canonical"
 
 # ── Cache: Imagens do site ────────────────────
 /images/*
