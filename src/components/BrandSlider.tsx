@@ -68,7 +68,7 @@ interface Brand { name: string; logo?: string; }
 interface BrandSliderProps { brands: Brand[]; title?: string; speed?: number; reverse?: boolean; }
 
 // velocidade em pixels por segundo (independente de frame-rate)
-const DEFAULT_SPEED = 18; // px/s (~equivalente a 0.3 px/frame @ 60fps)
+const DEFAULT_SPEED = 36; // px/s (~equivalente a 0.3 px/frame @ 120fps)
 const GAP = 48;
 
 const BrandSlider = ({ brands, title = "Marcas que trabalhamos", speed, reverse }: BrandSliderProps) => {
