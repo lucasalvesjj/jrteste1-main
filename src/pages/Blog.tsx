@@ -3,6 +3,7 @@ import { Search } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import BlogCard from "@/components/BlogCard";
+import BlogSeoIntro from "@/components/BlogSeoIntro";
 import { usePublishedBlog } from "@/hooks/usePublishedBlog";
 import { getVisibleCategories, isPostVisibleInAnyCategory } from "@/lib/blogCategories";
 import JRLoader from "@/components/JRLoader";
@@ -47,8 +48,10 @@ const Blog = () => {
         </div>
       </section>
 
-      <section className="section-padding">
+      <section className="section-padding !pt-[10px]">
         <div className="container-custom">
+          <BlogSeoIntro />
+
           <div className="mb-8 flex flex-col gap-4 md:flex-row">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
