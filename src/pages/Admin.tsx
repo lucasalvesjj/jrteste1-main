@@ -51,6 +51,7 @@ import {
 import { toast } from "sonner";
 import { useBlogStore } from "@/stores/blogStore";
 import { useRedirectStore } from "@/stores/redirectStore";
+import { generateId } from "@/lib/generateId";
 import type { BlogPost, BlogCategory } from "@/data/blogTypes";
 import { BLOG_DATA_PATH, parseBlogImport } from "@/lib/blogContent";
 import { getCategoryLabel, getCategoryTone, getPostCategories } from "@/lib/blogCategories";
@@ -926,7 +927,7 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
               onClick: () => {
                 try {
                   redirectStore.addRule({
-                    id: crypto.randomUUID(),
+                    id: generateId(),
                     sourceUrl: `/${editingSlug}`,
                     targetUrl: `/${post.slug}`,
                     type: 301,

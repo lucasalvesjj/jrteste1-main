@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
+import { generateId } from "@/lib/generateId";
 import type { RedirectRule, RedirectType } from "@/data/redirectTypes";
 import { REDIRECT_TYPES } from "@/data/redirectTypes";
 
@@ -63,7 +65,7 @@ const RedirectRuleEditor = ({ rule, groups, onSave, onCancel }: Props) => {
 
     const now = new Date().toISOString();
     const saved: RedirectRule = {
-      id: rule?.id || crypto.randomUUID(),
+      id: rule?.id || generateId(),
       sourceUrl: form.sourceUrl.trim(),
       targetUrl: form.type === 410 ? "" : form.targetUrl.trim(),
       type: form.type,
@@ -82,8 +84,8 @@ const RedirectRuleEditor = ({ rule, groups, onSave, onCancel }: Props) => {
 
   const is410 = form.type === 410;
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+  return createPortal(
+    <div className="dark admin-dark fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
       <div className="relative w-full max-w-lg rounded-xl border border-border bg-card shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-border px-5 py-4">
@@ -221,7 +223,8 @@ const RedirectRuleEditor = ({ rule, groups, onSave, onCancel }: Props) => {
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

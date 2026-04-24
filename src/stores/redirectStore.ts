@@ -7,6 +7,7 @@ import {
   type ParsedRedirectImport,
 } from "@/lib/redirectContent";
 import { findMatchingRule } from "@/lib/redirectMatcher";
+import { generateId } from "@/lib/generateId";
 
 type RedirectSource = "published-json" | "fallback-empty" | "local-draft";
 
@@ -210,7 +211,7 @@ export const useRedirectStore = create<RedirectStore>()(
           }
 
           const entry: NotFoundLogEntry = {
-            id: crypto.randomUUID(),
+            id: generateId(),
             url,
             referrer,
             userAgent,

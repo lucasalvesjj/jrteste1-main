@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.30] - 2026-04-24
+
+### Alteracoes
+- Atualizacoes e melhorias gerais
+
+### Build Info
+- Git: ba78fad (master)
+- Bundle: 719.0 KB JS, 104.1 KB CSS
+- Posts: 72 publicados
+---
+
 ## [1.0.29] - 2026-04-24
 
 ### Alteracoes
