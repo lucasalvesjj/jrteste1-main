@@ -35,11 +35,16 @@ const SEOHead = ({
 }: SEOHeadProps) => {
   const seo = usePublishedSeoContext();
 
-  const fullTitle = title ? `${title} | ${company.shortName}` : company.seo.title;
-  const desc      = description || company.seo.description;
-  const url       = canonical ? `${company.siteUrl}${canonical}` : company.siteUrl;
-  // Homepage: usa defaultImage publicada; posts: imagem do post; outras páginas estáticas: og-image.jpg
   const isHomepage = !canonical || canonical === "/";
+  const shortName  = seo.companyName || company.shortName;
+  const homeTitle  = seo.homeTitle || company.seo.title;
+  const homeDesc   = seo.homeDescription || company.seo.description;
+
+  const fullTitle = title
+    ? `${title} | ${shortName}`
+    : (isHomepage ? homeTitle : company.seo.title);
+  const desc = description || (isHomepage ? homeDesc : company.seo.description);
+  const url       = canonical ? `${company.siteUrl}${canonical}` : company.siteUrl;
   const publishedDefaultImage = isHomepage ? (seo.ogImage || company.seo.image) : null;
   const resolvedImage = ogImage ?? publishedDefaultImage ?? "/og-image.jpg";
   const image = resolvedImage.startsWith("http")
@@ -85,7 +90,7 @@ const SEOHead = ({
       <meta property="og:image:height" content={String(ogImageHeight)} />
       <meta property="og:type"        content={type} />
       <meta property="og:locale"      content={ogLocale} />
-      <meta property="og:site_name"   content={company.name} />
+      <meta property="og:site_name"   content={seo.companyName || company.name} />
 
       {/* ── Article específico ── */}
       {article && (

@@ -1,6 +1,8 @@
 // ──────────────────────────────────────────────
 // Vite Plugin — SEO Settings Sync API (DEV only)
+// + transformIndexHtml (DEV + BUILD)
 // Grava seo-settings.json em disco durante o desenvolvimento.
+// Injeta title/description no index.html no build final.
 // ──────────────────────────────────────────────
 
 import type { Plugin, ViteDevServer } from "vite";
@@ -21,17 +23,56 @@ function readBody(req: IncomingMessage): Promise<string> {
   });
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 export function seoSyncPlugin(): Plugin {
   let root = "";
 
   return {
     name: "vite-plugin-seo-sync",
-    apply: "serve",
 
     configResolved(config) {
       root = config.root;
     },
 
+    // ── Injeta title/description no HTML gerado (DEV + BUILD) ────────────────
+    transformIndexHtml: {
+      order: "pre",
+      handler(html: string) {
+        const filePath = getSeoSettingsPath(root);
+        if (!fs.existsSync(filePath)) return html;
+        try {
+          const data = JSON.parse(fs.readFileSync(filePath, "utf-8")) as Record<string, unknown>;
+          let result = html;
+
+          if (typeof data.homeTitle === "string" && data.homeTitle.trim()) {
+            result = result.replace(
+              /<title>[^<]*<\/title>/,
+              `<title>${escapeHtml(data.homeTitle)}</title>`,
+            );
+          }
+
+          if (typeof data.homeDescription === "string" && data.homeDescription.trim()) {
+            result = result.replace(
+              /(<meta name="description" content=")[^"]*(")/,
+              `$1${escapeHtml(data.homeDescription)}$2`,
+            );
+          }
+
+          return result;
+        } catch {
+          return html;
+        }
+      },
+    },
+
+    // ── API DEV: GET/PUT /api/seo-settings ────────────────────────────────────
     configureServer(server: ViteDevServer) {
       server.middlewares.use(async (req, res, next) => {
         const url = req.url || "";
@@ -52,13 +93,25 @@ export function seoSyncPlugin(): Plugin {
           return;
         }
 
-        // PUT /api/seo-settings — grava no disco
+        // PUT /api/seo-settings — valida e grava no disco
         if (req.method === "PUT" && url === "/api/seo-settings") {
           try {
             const body = await readBody(req);
-            const parsed = JSON.parse(body);
+            const parsed = JSON.parse(body) as Record<string, unknown>;
             if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
               throw new Error("Invalid seo-settings data: expected an object");
+            }
+
+            // M3 — validação de tamanhos
+            if (typeof parsed.homeTitle === "string" && parsed.homeTitle.length > 70) {
+              res.writeHead(422, { "Content-Type": "application/json" });
+              res.end(JSON.stringify({ error: "homeTitle excede 70 caracteres" }));
+              return;
+            }
+            if (typeof parsed.homeDescription === "string" && parsed.homeDescription.length > 160) {
+              res.writeHead(422, { "Content-Type": "application/json" });
+              res.end(JSON.stringify({ error: "homeDescription excede 160 caracteres" }));
+              return;
             }
 
             const filePath = getSeoSettingsPath(root);

@@ -29,7 +29,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && mediaUploadPlugin(),
     mode === "development" && redirectSyncPlugin(),
     mode === "development" && trackingSyncPlugin(),
-    mode === "development" && seoSyncPlugin(),
+    seoSyncPlugin(),
     sitemapPlugin(),
     htaccessPlugin(),
     cloudflareRedirectsPlugin(),
