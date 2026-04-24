@@ -766,7 +766,6 @@ const Index = () => {
             areaServed: {
               "@type": "State",
               name: "Espírito Santo",
-              addressCountry: "BR",
             },
             contactPoint: {
               "@type": "ContactPoint",
