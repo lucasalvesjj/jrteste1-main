@@ -35,6 +35,11 @@ function mapPublishedToSettings(data: Record<string, unknown>): Partial<SeoSetti
 // Cache em memória — evita re-fetch a cada navegação SPA
 let moduleCache: SeoSettings | null = null;
 
+/** Invalida o cache em memória, forçando novo fetch na próxima renderização. */
+export function invalidatePublishedSeoCache(): void {
+  moduleCache = null;
+}
+
 export function usePublishedSeo(): SeoSettings {
   const [settings, setSettings] = useState<SeoSettings>(
     () => moduleCache ?? defaultSeoSettings,

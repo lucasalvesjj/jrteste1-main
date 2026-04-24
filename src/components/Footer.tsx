@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { company } from "@/data/company";
-import { loadSeoSettings } from "@/hooks/useSeoSettings";
+import { usePublishedSeo } from "@/hooks/usePublishedSeo";
 
 const Footer = () => {
-  const seoSettings = loadSeoSettings();
+  const seoSettings = usePublishedSeo();
   // rel para links externos (exceto subdomínio da loja)
   const externalRel = seoSettings.externalLinksNofollow
     ? "noopener noreferrer nofollow"

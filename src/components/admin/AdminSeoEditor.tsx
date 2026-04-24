@@ -1,10 +1,12 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, Check, Github, Save } from "lucide-react";
 import { toast } from "sonner";
 import {
   loadGitHubConfig,
   publishToGitHub,
 } from "@/lib/githubPublish";
+import { SEO_STORAGE_KEY } from "@/hooks/useSeoSettings";
+import { invalidatePublishedSeoCache } from "@/hooks/usePublishedSeo";
 
 // ── Tracking Code ─────────────────────────────────────────────────────────
 
@@ -61,7 +63,7 @@ export function newTrackingCode(existingCount: number): TrackingCode {
 }
 
 // ── GlobalSeo — tipos e storage ───────────────────────────────────────────
-export const SEO_STORAGE_KEY = "comercial-jr-global-seo";
+export { SEO_STORAGE_KEY };
 
 type SeoKeys = keyof GlobalSeo;
 
@@ -106,6 +108,15 @@ function saveSeoKeys(keys: SeoKeys[], values: Partial<GlobalSeo>): void {
     if (k in values) (next as Record<string, unknown>)[k] = values[k];
   }
   localStorage.setItem(SEO_STORAGE_KEY, JSON.stringify(next));
+  if (import.meta.env.DEV) {
+    fetch("/api/seo-settings", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(next),
+    })
+      .then(() => invalidatePublishedSeoCache())
+      .catch((err) => console.warn("[seo-sync] disk sync failed:", err));
+  }
 }
 
 // ── useSeoSection — hook de estado por seção ─────────────────────────────
@@ -217,7 +228,44 @@ const LOCALE_OPTIONS = [
 ];
 
 // ── Componente principal ──────────────────────────────────────────────────
+
+/**
+ * Wrapper de hidratação: em DEV sincroniza o localStorage com o disco
+ * antes de montar o formulário, evitando que abrir o editor em uma máquina
+ * sem histórico sobrescreva os valores reais do repositório.
+ */
 const AdminSeoEditor = ({ onBack }: { onBack: () => void }) => {
+  const [ready, setReady] = useState(!import.meta.env.DEV);
+
+  useEffect(() => {
+    if (!import.meta.env.DEV) return;
+    fetch("/api/seo-settings", { cache: "no-store" })
+      .then((r) => (r.ok ? (r.json() as Promise<Record<string, unknown>>) : null))
+      .then((data) => {
+        if (data && typeof data === "object" && Object.keys(data).length > 0) {
+          localStorage.setItem(
+            SEO_STORAGE_KEY,
+            JSON.stringify({ ...SEO_DEFAULTS, ...(data as Partial<GlobalSeo>) }),
+          );
+        }
+      })
+      .catch(() => {})
+      .finally(() => setReady(true));
+  }, []);
+
+  if (!ready) {
+    return (
+      <div className="dark admin-dark min-h-screen bg-background flex items-center justify-center">
+        <p className="text-sm text-muted-foreground">Carregando configurações…</p>
+      </div>
+    );
+  }
+
+  return <AdminSeoEditorForm onBack={onBack} />;
+};
+
+/** Formulário real: inicializa seções a partir do localStorage já hidratado. */
+const AdminSeoEditorForm = ({ onBack }: { onBack: () => void }) => {
   const seo = loadSeo();
 
   // ── Seção 1 — Identidade ──

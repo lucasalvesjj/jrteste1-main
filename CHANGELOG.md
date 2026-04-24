@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.28] - 2026-04-24
+
+### Alteracoes
+- Atualizacoes e melhorias gerais
+
+### Build Info
+- Git: be0b5fa (master)
+- Bundle: 718.5 KB JS, 104.1 KB CSS
+- Posts: 72 publicados
+---
+
 ## [1.0.27] - 2026-04-24
 
 ### Alteracoes

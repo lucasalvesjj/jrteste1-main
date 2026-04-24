@@ -102,26 +102,6 @@ export function loadSeoSettings(): SeoSettings {
   }
 }
 
-/**
- * Busca as configurações SEO do arquivo publicado e atualiza o localStorage.
- * Deve ser chamada uma vez no startup do app para garantir que outros browsers
- * reflitam o que foi publicado no GitHub.
- */
-export async function syncSeoSettingsFromFile(): Promise<void> {
-  try {
-    const res = await fetch("/data/seo-settings.json", { cache: "no-store" });
-    if (!res.ok) return;
-    const data = await res.json() as Record<string, unknown>;
-    if (typeof data !== "object" || data === null) return;
-    localStorage.setItem(SEO_STORAGE_KEY, JSON.stringify({
-      ...defaultSeoSettings,
-      ...data,
-    }));
-  } catch {
-    // silencia erros de rede — fallback para localStorage existente
-  }
-}
-
 export function saveSeoSettings(settings: SeoSettings): void {
   localStorage.setItem(SEO_STORAGE_KEY, JSON.stringify(settings));
 }

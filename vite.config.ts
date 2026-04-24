@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 import { mediaUploadPlugin } from "./vite-plugin-media-upload";
 import { redirectSyncPlugin } from "./vite-plugin-redirect-sync";
 import { trackingSyncPlugin } from "./vite-plugin-tracking-sync";
+import { seoSyncPlugin } from "./vite-plugin-seo-sync";
 import { sitemapPlugin } from "./vite-plugin-sitemap";
 import { htaccessPlugin } from "./vite-plugin-htaccess";
 import { cloudflareRedirectsPlugin } from "./vite-plugin-cloudflare-redirects";
@@ -28,6 +29,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && mediaUploadPlugin(),
     mode === "development" && redirectSyncPlugin(),
     mode === "development" && trackingSyncPlugin(),
+    mode === "development" && seoSyncPlugin(),
     sitemapPlugin(),
     htaccessPlugin(),
     cloudflareRedirectsPlugin(),
