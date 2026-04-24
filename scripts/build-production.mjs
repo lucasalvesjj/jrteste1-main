@@ -425,6 +425,23 @@ async function main() {
   }
 
   // ===========================================================
+  // ETAPA 5.5 -- Pre-render (SSG via Puppeteer)
+  // ===========================================================
+  logStep("5.5", "Pre-render (SSG via Puppeteer)");
+
+  try {
+    const { prerender } = await import("./prerender.mjs");
+    const prerenderReport = await prerender();
+    logOk(`${prerenderReport.succeeded}/${prerenderReport.total} rotas pre-renderizadas`);
+    if (prerenderReport.failed > 0) {
+      log(`[AVISO] ${prerenderReport.failed} rota(s) falharam no pre-render.`);
+    }
+  } catch (err) {
+    log(`[AVISO] Pre-render falhou: ${err.message}`);
+    log("Build continua — site funcionara como SPA (schema.org nao estara no HTML estatico).");
+  }
+
+  // ===========================================================
   // ETAPA 6 -- Gerar version.json
   // ===========================================================
   logStep(6, "Gerar version.json");

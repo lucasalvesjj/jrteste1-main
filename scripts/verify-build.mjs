@@ -259,6 +259,37 @@ export function verifyBuild() {
     };
   });
 
+  // 17. Schema.org na raiz (pre-render SSG)
+  check(17, "CRITICO", "Schema.org presente em dist/index.html (SSG)", () => {
+    const htmlPath = path.join(DIST, "index.html");
+    if (!fs.existsSync(htmlPath)) return { passed: false, detail: "dist/index.html nao encontrado" };
+    const html = fs.readFileSync(htmlPath, "utf-8");
+    const count = (html.match(/application\/ld\+json/g) || []).length;
+    return {
+      passed: count >= 3,
+      detail: `${count} schema(s) encontrado(s) — minimo esperado: 3 (Organization, WebSite, BreadcrumbList)`,
+    };
+  });
+
+  // 18. Schema.org em rotas-chave (pre-render SSG)
+  check(18, "MEDIO", "Schema.org em rotas-chave (blog, contato, segmentos)", () => {
+    const routes = ["blog", "contato", "segmentos"];
+    const results18 = routes.map(r => {
+      const htmlPath = path.join(DIST, r, "index.html");
+      if (!fs.existsSync(htmlPath)) return `${r}: sem HTML pre-renderizado`;
+      const html = fs.readFileSync(htmlPath, "utf-8");
+      const count = (html.match(/application\/ld\+json/g) || []).length;
+      return `${r}: ${count} schema(s)`;
+    });
+    const allOk = routes.every(r => {
+      const htmlPath = path.join(DIST, r, "index.html");
+      if (!fs.existsSync(htmlPath)) return false;
+      const html = fs.readFileSync(htmlPath, "utf-8");
+      return (html.match(/application\/ld\+json/g) || []).length >= 1;
+    });
+    return { passed: allOk, detail: results18.join(" | ") };
+  });
+
   // Resumo
   const critical = results.filter((r) => r.severity === "CRITICO");
   const criticalFailed = critical.filter((r) => !r.passed);

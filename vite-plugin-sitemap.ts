@@ -15,7 +15,7 @@ import path from "path";
 const SITE_URL = "https://comercialjrltda.com.br";
 
 // Páginas estáticas com prioridade e frequência de mudança
-const STATIC_PAGES = [
+export const STATIC_PAGES = [
   { loc: "/",                         changefreq: "weekly",  priority: "1.0" },
   { loc: "/segmentos/",               changefreq: "monthly", priority: "0.8" },
   { loc: "/segmentos/assistencia-stihl/", changefreq: "monthly", priority: "0.8" },
