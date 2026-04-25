@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.32] - 2026-04-25
+
+### Alteracoes
+- Atualizacoes e melhorias gerais
+
+### Build Info
+- Git: b5520ef (master)
+- Bundle: 725.3 KB JS, 104.7 KB CSS
+- Posts: 70 publicados
+---
+
 ## [1.0.31] - 2026-04-25
 
 ### Alteracoes

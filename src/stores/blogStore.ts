@@ -46,7 +46,8 @@ const loadPublishedPosts = async () => {
   try {
     const data = await fetchPublishedPosts();
     return { ...data, source: "published-json" as const };
-  } catch {
+  } catch (err) {
+    console.error("[blogStore] Falha ao carregar blog-posts.json:", err);
     return {
       categories: normalizeImportedCategories(defaultCategories),
       posts: await getFallbackPosts(),
@@ -89,7 +90,9 @@ export const useBlogStore = create<BlogStore>()(
       init: async () => {
         const state = get();
 
-        if (state.initialized && state.posts.length > 0) {
+        // Preserva rascunhos locais; caso contrário, sempre recarrega do JSON
+        // publicado para evitar que o localStorage stale sobrescreva dados reais.
+        if (state.initialized && state.posts.length > 0 && state.source === "local-draft") {
           return;
         }
 

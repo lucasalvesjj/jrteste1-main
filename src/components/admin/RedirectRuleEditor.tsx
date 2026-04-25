@@ -47,6 +47,13 @@ const RedirectRuleEditor = ({ rule, groups, onSave, onCancel }: Props) => {
     }
   }, [rule]);
 
+  // Fechar com Esc
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onCancel(); };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [onCancel]);
+
   const validateRegex = useCallback((pattern: string) => {
     if (!pattern) { setRegexError(null); return; }
     try {
@@ -85,7 +92,10 @@ const RedirectRuleEditor = ({ rule, groups, onSave, onCancel }: Props) => {
   const is410 = form.type === 410;
 
   return createPortal(
-    <div className="dark admin-dark fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+    <div
+      className="dark admin-dark fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+      onClick={(e) => { if (e.target === e.currentTarget) onCancel(); }}
+    >
       <div className="relative w-full max-w-lg rounded-xl border border-border bg-card shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-border px-5 py-4">

@@ -8,6 +8,7 @@ import {
 } from "@/lib/redirectContent";
 import { findMatchingRule } from "@/lib/redirectMatcher";
 import { generateId } from "@/lib/generateId";
+import { toast } from "sonner";
 
 type RedirectSource = "published-json" | "fallback-empty" | "local-draft";
 
@@ -87,31 +88,22 @@ export const useRedirectStore = create<RedirectStore>()(
       init: async () => {
         if (get().initialized || get().loading) return;
 
-        // Preservar rascunhos locais do localStorage (já hidratados)
-        const current = get();
-        if (current.source === "local-draft" && current.rules.length > 0) {
-          set({ initialized: true, loading: false });
-          return;
-        }
-
         set({ loading: true });
-        const loaded = await loadPublishedRedirects();
-
-        // Re-verificar após await — hidratação pode ter completado durante o fetch
-        if (get().initialized) {
-          set({ loading: false });
-          return;
+        try {
+          const loaded = await loadPublishedRedirects();
+          set({
+            rules: loaded.rules,
+            notFoundLog: loaded.notFoundLog,
+            groups: loaded.groups,
+            source: loaded.source,
+            initialized: true,
+            loading: false,
+            lastLoadedAt: new Date().toISOString(),
+          });
+        } catch {
+          // Falha na rede: preserva o que está no localStorage como fallback
+          set({ initialized: true, loading: false });
         }
-
-        set({
-          rules: loaded.rules,
-          notFoundLog: loaded.notFoundLog,
-          groups: loaded.groups,
-          source: loaded.source,
-          initialized: true,
-          loading: false,
-          lastLoadedAt: new Date().toISOString(),
-        });
       },
 
       reloadPublished: async () => {
@@ -306,8 +298,13 @@ if (import.meta.env.DEV) {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(exportData),
-        }).catch((err) => {
-          console.warn("[redirectStore] disk sync failed:", err);
+        }).then(async (res) => {
+          if (!res.ok) {
+            const body = await res.json().catch(() => ({}));
+            toast.error(`Erro ao salvar redirects.json: ${body.error ?? res.status}`);
+          }
+        }).catch(() => {
+          toast.error("Falha ao sincronizar redirects com o disco. Verifique se o dev server está rodando.");
         });
       }, 300);
     }
