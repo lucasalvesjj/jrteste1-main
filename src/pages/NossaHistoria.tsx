@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import SchemaOrg from "@/components/SchemaOrg";
-import { Award, Users, MapPin, Calendar, ArrowRight } from "lucide-react";
+import { Award, Users, MapPin, Calendar, ArrowRight, Trophy, Sparkles, ArrowDown } from "lucide-react";
 
 const NossaHistoria = () => (
   <Layout>
@@ -20,6 +20,13 @@ const NossaHistoria = () => (
         <p className="text-primary-foreground/80 max-w-xl mx-auto">
           Mais de 41 anos construindo tradição e confiança no Espírito Santo.
         </p>
+        <a
+          href="#premios"
+          className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-heading font-bold uppercase tracking-wide shadow-lg hover:bg-secondary/90 hover:shadow-xl transition-all"
+        >
+          Ver Prêmios
+          <ArrowDown className="w-4 h-4" />
+        </a>
       </div>
     </section>
 
@@ -345,15 +352,123 @@ const NossaHistoria = () => (
             </p>
           </div>
 
-          {/* Prêmio */}
-          <div>
-            <h2 className="font-heading text-2xl font-bold text-foreground mb-4">Prêmio Marcas de Castelo</h2>
-            <p>
-              A Comercial JR é vencedora por 4 anos consecutivos do "Prêmio Marcas de Castelo", um reconhecimento pelo empenho de nossos colaboradores em oferecer o melhor preço e os melhores serviços de atendimento e entrega.
+        </div>
+      </div>
+    </section>
+
+    {/* Prêmios */}
+    <section id="premios" className="section-padding scroll-mt-20 bg-gradient-to-b from-background to-muted/30">
+      <div className="container-custom">
+
+        <h2 className="font-heading text-3xl md:text-4xl font-black text-foreground mb-4 text-center">
+          Reconhecimento Construído no Campo
+        </h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto text-center mb-4">
+          Ao longo dos anos, a Comercial JR conquistou mais do que clientes — conquistou confiança.
+          E quando essa confiança é reconhecida publicamente, ela se transforma em algo ainda mais forte:
+          prova de que o trabalho feito no dia a dia realmente faz diferença.
+        </p>
+        <p className="text-muted-foreground max-w-2xl mx-auto text-center mb-12">
+          Cada prêmio recebido não representa apenas uma votação ou um título.
+          Representa a escolha de produtores, clientes e parceiros que, diante de tantas opções,
+          decidiram confiar na Comercial JR para resolver aquilo que realmente importa.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-10">
+
+          {/* Marcas de Castelo */}
+          <div className="bg-card rounded-lg shadow-md p-6 border-t-4 border-secondary">
+            <div className="w-12 h-12 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mb-4">
+              <Trophy className="w-6 h-6" />
+            </div>
+            <h3 className="font-heading font-bold text-xl text-foreground mb-2">Prêmio Marcas de Castelo</h3>
+            <p className="text-muted-foreground text-sm mb-4">
+              A Comercial JR foi campeã do tradicional <strong className="text-foreground">Prêmio Marcas de Castelo</strong> por <strong className="text-foreground">4 anos consecutivos</strong>:
+            </p>
+            <ul className="flex flex-wrap gap-2 mb-4">
+              {["2015", "2016", "2017", "2018"].map((ano) => (
+                <li key={ano}>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary text-primary-foreground font-bold text-sm">
+                    {ano}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-muted-foreground text-sm">
+              Um reconhecimento direto da população e dos clientes da região,
+              que reforça a presença sólida da empresa em Castelo e no sul do Espírito Santo.
+            </p>
+          </div>
+
+          {/* DESTAK Digital */}
+          <div className="bg-card rounded-lg shadow-md p-6 border-t-4 border-secondary">
+            <div className="w-12 h-12 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mb-4">
+              <Award className="w-6 h-6" />
+            </div>
+            <h3 className="font-heading font-bold text-xl text-foreground mb-2">Prêmio DESTAK Digital</h3>
+            <p className="text-muted-foreground text-sm mb-4">
+              Com a evolução do mercado e a presença cada vez mais forte no digital,
+              a Comercial JR também se destacou como referência online,
+              conquistando o <strong className="text-foreground">Prêmio DESTAK Digital</strong> em:
+            </p>
+            <ul className="flex flex-wrap gap-2 mb-4">
+              {["2019", "2021"].map((ano) => (
+                <li key={ano}>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary text-primary-foreground font-bold text-sm">
+                    {ano}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-muted-foreground text-sm">
+              Esse reconhecimento marca o início de uma nova fase:
+              onde a confiança construída no balcão passa a se estender também para o ambiente digital.
+            </p>
+          </div>
+
+          {/* Conexão Digital */}
+          <div className="bg-card rounded-lg shadow-md p-6 border-t-4 border-secondary">
+            <div className="w-12 h-12 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mb-4">
+              <Sparkles className="w-6 h-6" />
+            </div>
+            <h3 className="font-heading font-bold text-xl text-foreground mb-2">Prêmio Conexão Digital</h3>
+            <p className="text-muted-foreground text-sm mb-4">
+              Mantendo consistência e evolução, a Comercial JR segue sendo reconhecida
+              pela sua presença digital e relacionamento com o cliente,
+              sendo campeã do <strong className="text-foreground">Prêmio Conexão Digital</strong> por <strong className="text-foreground">4 anos consecutivos</strong>:
+            </p>
+            <ul className="flex flex-wrap gap-2 mb-4">
+              {["2022", "2023", "2024", "2025"].map((ano) => (
+                <li key={ano}>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary text-primary-foreground font-bold text-sm">
+                    {ano}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-muted-foreground text-sm">
+              Mais do que estar presente online, esse prêmio valida algo essencial:
+              a capacidade de continuar próximo do cliente — mesmo fora da loja.
             </p>
           </div>
 
         </div>
+
+        {/* Fechamento */}
+        <div className="bg-card rounded-lg shadow-md p-8 border-l-4 border-secondary max-w-2xl mx-auto">
+          <h3 className="font-heading font-bold text-xl text-foreground mb-3">Mais do que prêmios, responsabilidade</h3>
+          <p className="text-muted-foreground mb-4">
+            Para a Comercial JR, cada reconhecimento aumenta a responsabilidade.
+            Porque por trás de cada voto existe uma expectativa:
+            a de continuar entregando soluções que funcionam na prática,
+            com atendimento próximo, conhecimento técnico e compromisso com o resultado.
+          </p>
+          <p className="text-muted-foreground">
+            E é exatamente isso que guia a empresa desde o início:{" "}
+            <strong className="text-secondary">não é sobre ganhar prêmios — é sobre não deixar o cliente errar quando mais importa.</strong>
+          </p>
+        </div>
+
       </div>
     </section>
 
