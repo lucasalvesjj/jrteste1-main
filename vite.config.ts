@@ -7,6 +7,7 @@ import { redirectSyncPlugin } from "./vite-plugin-redirect-sync";
 import { trackingSyncPlugin } from "./vite-plugin-tracking-sync";
 import { seoSyncPlugin } from "./vite-plugin-seo-sync";
 import { sitemapPlugin } from "./vite-plugin-sitemap";
+import { routeSeoPlugin } from "./vite-plugin-route-seo";
 import { htaccessPlugin } from "./vite-plugin-htaccess";
 import { cloudflareRedirectsPlugin } from "./vite-plugin-cloudflare-redirects";
 
@@ -31,6 +32,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && trackingSyncPlugin(),
     seoSyncPlugin(),
     sitemapPlugin(),
+    routeSeoPlugin(),
     htaccessPlugin(),
     cloudflareRedirectsPlugin(),
   ].filter(Boolean),

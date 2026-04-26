@@ -1,7 +1,21 @@
 {
   "version": 1,
-  "exportedAt": "2026-04-24T17:22:07.171Z",
+  "exportedAt": "2026-04-26T05:15:23.653Z",
   "rules": [
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "sourceUrl": "/sitemap.xml",
+      "targetUrl": "/sitemap-index.xml",
+      "type": 301,
+      "isRegex": false,
+      "group": "",
+      "enabled": true,
+      "hits": 0,
+      "lastHitAt": null,
+      "note": "Compat: crawlers que buscam /sitemap.xml",
+      "createdAt": "2026-04-26T00:00:00.000Z",
+      "updatedAt": "2026-04-26T00:00:00.000Z"
+    },
     {
       "id": "d003e306-be00-4359-9394-e43ded68eb6f",
       "sourceUrl": "/quais-sao-as-principais-pragas-do-cafe-arabica/",

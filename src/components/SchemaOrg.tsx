@@ -1,83 +1,73 @@
 /**
  * SchemaOrg — Componente utilitário para Schema.org JSON-LD
+ * Delega a construção dos objetos para src/lib/seo/schemas.ts (fonte única de verdade).
  *
  * Uso:
- *   <SchemaOrg type="breadcrumb" items={[{ name: "Início", url: "/" }, { name: "Blog", url: "/blog/" }]} />
+ *   <SchemaOrg type="breadcrumb" items={[{ name: "Início", url: "/" }]} />
  *   <SchemaOrg type="service" name="Irrigação Agrícola" description="..." url="/segmentos/irrigacao/" />
  *   <SchemaOrg type="webpage" name="..." description="..." url="..." />
+ *   <SchemaOrg type="localBusiness" />
+ *   <SchemaOrg type="website" />
+ *   <SchemaOrg type="article" article={{ headline, description, datePublished, url, ... }} />
  */
 
-const SITE_URL = "https://comercialjrltda.com.br";
-const ORG_ID   = `${SITE_URL}/#organization`;
+import {
+  buildBreadcrumb,
+  buildService,
+  buildWebPage,
+  buildWebSite,
+  buildLocalBusiness,
+  buildArticle,
+  buildFAQPage,
+  type BreadcrumbItem,
+  type ServiceData,
+  type WebPageData,
+  type ArticleData,
+  type FAQItem,
+} from "@/lib/seo/schemas";
 
 // ── Tipos ─────────────────────────────────────────────────────────────────────
-
-interface BreadcrumbItem {
-  name: string;
-  url: string;
-}
 
 interface BreadcrumbSchemaProps {
   type: "breadcrumb";
   items: BreadcrumbItem[];
 }
 
-interface ServiceSchemaProps {
+interface ServiceSchemaProps extends ServiceData {
   type: "service";
-  name: string;
-  description: string;
-  url: string;
 }
 
-interface WebPageSchemaProps {
+interface WebPageSchemaProps extends WebPageData {
   type: "webpage";
-  name: string;
-  description: string;
-  url: string;
 }
 
-type SchemaOrgProps = BreadcrumbSchemaProps | ServiceSchemaProps | WebPageSchemaProps;
-
-// ── Builders ──────────────────────────────────────────────────────────────────
-
-function buildBreadcrumb(items: BreadcrumbItem[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: item.url.startsWith("http") ? item.url : `${SITE_URL}${item.url}`,
-    })),
-  };
+interface LocalBusinessSchemaProps {
+  type: "localBusiness";
+  descriptionOverride?: string;
 }
 
-function buildService(name: string, description: string, url: string) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name,
-    description,
-    url: url.startsWith("http") ? url : `${SITE_URL}${url}`,
-    provider: { "@id": ORG_ID },
-    areaServed: { "@type": "State", name: "Espírito Santo", addressCountry: "BR" },
-    inLanguage: "pt-BR",
-  };
+interface WebSiteSchemaProps {
+  type: "website";
 }
 
-function buildWebPage(name: string, description: string, url: string) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": url.startsWith("http") ? url : `${SITE_URL}${url}`,
-    name,
-    description,
-    url: url.startsWith("http") ? url : `${SITE_URL}${url}`,
-    inLanguage: "pt-BR",
-    publisher: { "@id": ORG_ID },
-  };
+interface ArticleSchemaProps {
+  type: "article";
+  article: ArticleData;
 }
+
+interface FAQPageSchemaProps {
+  type: "faqPage";
+  items: FAQItem[];
+}
+
+type SchemaOrgProps =
+  | BreadcrumbSchemaProps
+  | ServiceSchemaProps
+  | WebPageSchemaProps
+  | LocalBusinessSchemaProps
+  | WebSiteSchemaProps
+  | ArticleSchemaProps
+  | FAQPageSchemaProps;
 
 // ── Componente ────────────────────────────────────────────────────────────────
 
@@ -89,10 +79,22 @@ export default function SchemaOrg(props: SchemaOrgProps) {
       schema = buildBreadcrumb(props.items);
       break;
     case "service":
-      schema = buildService(props.name, props.description, props.url);
+      schema = buildService({ name: props.name, description: props.description, url: props.url });
       break;
     case "webpage":
-      schema = buildWebPage(props.name, props.description, props.url);
+      schema = buildWebPage({ name: props.name, description: props.description, url: props.url });
+      break;
+    case "localBusiness":
+      schema = buildLocalBusiness(props.descriptionOverride);
+      break;
+    case "website":
+      schema = buildWebSite();
+      break;
+    case "article":
+      schema = buildArticle(props.article);
+      break;
+    case "faqPage":
+      schema = buildFAQPage(props.items);
       break;
   }
 

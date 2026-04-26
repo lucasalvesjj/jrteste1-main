@@ -45,7 +45,7 @@ const BombasMotoresPage = () => {
   return (
     <Layout>
       <SEOHead
-        title="Bombas e Motores Elétricos em Castelo ES | WEG, Schneider, Lepono — Comercial JR"
+        title="Bombas e Motores Elétricos em Castelo ES"
         description="Bombas centrífugas, submersas, periféricas e motores elétricos monofásicos e trifásicos em Castelo ES. Marcas WEG, Schneider, Lepono, Anauger e Eletroplas. Atendimento técnico especializado."
         canonical="/segmentos/bombas-e-motores/"
         ogImage="/og-image.jpg"

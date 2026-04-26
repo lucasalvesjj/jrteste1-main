@@ -28,6 +28,7 @@ import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import BlogCard from "@/components/BlogCard";
 import BrandSlider from "@/components/BrandSlider";
 import HomeSeoIntro from "@/components/HomeSeoIntro";
@@ -705,103 +706,9 @@ const Index = () => {
         </div>
       </section>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": ["Organization", "LocalBusiness"],
-            "@id": "https://comercialjrltda.com.br/#organization",
-            name: company.name,
-            alternateName: company.shortName,
-            url: company.siteUrl,
-            logo: {
-              "@type": "ImageObject",
-              url: "https://comercialjrltda.com.br/logo.webp",
-              width: 512,
-              height: 512,
-            },
-            image: "https://comercialjrltda.com.br/og-image.jpg",
-            description: company.seo.description,
-            foundingDate: "1985",
-            slogan: company.slogan,
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Av. Nossa Senhora da Penha, 1320",
-              addressLocality: "Castelo",
-              addressRegion: "ES",
-              postalCode: "29360-000",
-              addressCountry: "BR",
-            },
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: -20.6044,
-              longitude: -41.1939,
-            },
-            telephone: "+552835421332",
-            email: company.email,
-            openingHoursSpecification: [
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-                opens: "07:00",
-                closes: "17:00",
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: "Saturday",
-                opens: "07:00",
-                closes: "11:30",
-              },
-            ],
-            sameAs: [
-              company.social.facebook,
-              company.social.instagram,
-              company.social.youtube,
-              company.social.linkedin,
-              company.social.tiktok,
-            ],
-            hasMap: company.mapsUrl,
-            priceRange: "$$",
-            areaServed: {
-              "@type": "State",
-              name: "Espírito Santo",
-            },
-            contactPoint: {
-              "@type": "ContactPoint",
-              telephone: "+552835421332",
-              contactType: "customer service",
-              availableLanguage: "Portuguese",
-            },
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "@id": "https://comercialjrltda.com.br/#website",
-            url: "https://comercialjrltda.com.br/",
-            name: company.name,
-            inLanguage: "pt-BR",
-            publisher: { "@id": "https://comercialjrltda.com.br/#organization" },
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Início", item: "https://comercialjrltda.com.br/" },
-            ],
-          }),
-        }}
-      />
+      <SchemaOrg type="localBusiness" />
+      <SchemaOrg type="website" />
+      <SchemaOrg type="breadcrumb" items={[{ name: "Início", url: "/" }]} />
     </Layout>
   );
 };

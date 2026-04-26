@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { Calendar, Tag, ArrowLeft } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import SchemaOrg from "@/components/SchemaOrg";
 import BlogCard from "@/components/BlogCard";
 import { usePublishedBlog, getPostBySlug, getRelatedPosts } from "@/hooks/usePublishedBlog";
 import { getCategoryLabel, getPostCategories } from "@/lib/blogCategories";
@@ -218,6 +219,29 @@ const BlogPostPage = () => {
           tags: post.tags,
         }}
       />
+      <SchemaOrg
+        type="article"
+        article={{
+          headline: post.seo.metaTitle.replace(" | Comercial JR", ""),
+          description: post.seo.metaDescription,
+          image: post.seo.ogImage || post.image,
+          datePublished: post.date,
+          dateModified: post.updatedAt,
+          author: "Comercial JR",
+          url: post.seo.canonical || `/blog/${post.slug}/`,
+        }}
+      />
+      <SchemaOrg
+        type="breadcrumb"
+        items={[
+          { name: "Início", url: "/" },
+          { name: "Blog", url: "/blog/" },
+          { name: post.title, url: post.seo.canonical || `/blog/${post.slug}/` },
+        ]}
+      />
+      {post.faq && post.faq.length > 0 && (
+        <SchemaOrg type="faqPage" items={post.faq} />
+      )}
 
       <article>
         <section className="bg-brand-gradient py-12 text-primary-foreground md:py-20">

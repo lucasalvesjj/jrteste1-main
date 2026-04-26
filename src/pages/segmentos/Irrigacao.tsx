@@ -56,7 +56,7 @@ const IrrigacaoPage = () => {
   return (
     <Layout>
       <SEOHead
-        title="Irrigação Agrícola em Castelo ES | Sistemas, Bombas e Acessórios"
+        title="Irrigação Agrícola em Castelo ES"
         description="Soluções completas em irrigação para cafeicultura, pastagem e horticultura no Espírito Santo. Aspersão, gotejamento, bombas e acessórios das melhores marcas. Comercial JR — 41 anos de tradição em Castelo ES."
         canonical="/segmentos/irrigacao/"
         ogImage="/og-image.jpg"

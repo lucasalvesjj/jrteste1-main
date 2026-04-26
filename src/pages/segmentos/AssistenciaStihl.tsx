@@ -71,7 +71,7 @@ const AssistenciaStihlPage = () => {
   return (
     <Layout>
       <SEOHead
-        title="Assistência Técnica STIHL Autorizada em Castelo ES | Revenda Oficial — Comercial JR"
+        title="Assistência Técnica STIHL em Castelo ES"
         description="Revenda e assistência técnica autorizada STIHL em Castelo ES. Manutenção de motosserras, roçadeiras, sopradores e toda a linha STIHL. Peças originais e atendimento especializado no sul do Espírito Santo."
         canonical="/segmentos/assistencia-stihl/"
         ogImage="/og-image.jpg"

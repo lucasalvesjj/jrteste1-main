@@ -10,6 +10,11 @@ build/
 .cache/
 .npm-cache/
 .tools/
+.pip-cache/
+
+# Python
+.venv/
+.python-packages/
 
 # Logs
 logs

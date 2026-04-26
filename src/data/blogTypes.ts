@@ -1,3 +1,8 @@
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -11,6 +16,7 @@ export interface BlogPost {
   date: string;
   updatedAt?: string;
   status: "published" | "draft";
+  faq?: FAQItem[];
   seo: {
     metaTitle: string;
     metaDescription: string;

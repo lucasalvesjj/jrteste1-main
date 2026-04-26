@@ -92,6 +92,12 @@ const SEOHead = ({
       <meta property="og:locale"      content={ogLocale} />
       <meta property="og:site_name"   content={seo.companyName || company.name} />
 
+      {/* ── Twitter Card ── */}
+      <meta name="twitter:card"        content="summary_large_image" />
+      <meta name="twitter:title"       content={fullTitle} />
+      <meta name="twitter:description" content={desc} />
+      <meta name="twitter:image"       content={image} />
+
       {/* ── Article específico ── */}
       {article && (
         <>

@@ -1,4 +1,5 @@
 import { Suspense, lazy, useEffect, useMemo, useRef, useState } from "react";
+import type { FAQItem } from "@/data/blogTypes";
 import { AlertTriangle, ArrowLeft, Eye, History, Image as ImageIcon, Info, RotateCcw, Save, Trash2, Undo2, X } from "lucide-react";
 import { toast } from "sonner";
 import type { BlogCategory, BlogPost } from "@/data/blogTypes";
@@ -52,6 +53,7 @@ const emptyPost: BlogPost = {
   date: new Date().toISOString().split("T")[0],
   status: "draft",
   seo: { metaTitle: "", metaDescription: "", ogImage: "" },
+  faq: [] as FAQItem[],
 };
 
 const EditorFallback = () => (
@@ -97,6 +99,7 @@ const normalizeEditorPost = (post: BlogPost | undefined, availableCategories: Bl
     categories: nextCategories,
     tags: Array.isArray(base.tags) ? [...base.tags] : [],
     seo: { ...emptyPost.seo, ...base.seo },
+    faq: Array.isArray(base.faq) ? base.faq.map((f) => ({ ...f })) : [],
   };
 };
 
@@ -696,6 +699,78 @@ const AdminPostEditor = ({ post, categories, onSave, onCancel, onDelete, isSlugU
                     <div className="text-xs text-green-700">comercialjrltda.com.br/{form.slug}/</div>
                     <div className="line-clamp-2 text-sm text-muted-foreground">{form.seo.metaDescription || form.excerpt}</div>
                   </div>
+                </div>
+
+                {/* ── FAQ (FAQPage JSON-LD) ── */}
+                <div className="rounded-lg border border-border bg-card p-4 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="font-heading text-sm font-bold text-foreground">FAQ — Perguntas Frequentes</h3>
+                      <p className="mt-0.5 text-xs text-muted-foreground">Preencha para gerar FAQPage JSON-LD. Melhora destaque no Google.</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setForm((c) => ({
+                          ...c,
+                          faq: [...(c.faq || []), { question: "", answer: "" }],
+                        }))
+                      }
+                      className="rounded-lg border border-input bg-background px-3 py-1.5 text-xs font-medium text-foreground hover:bg-accent"
+                    >
+                      + Adicionar
+                    </button>
+                  </div>
+                  {(form.faq || []).length === 0 && (
+                    <p className="text-xs text-muted-foreground italic">Nenhuma pergunta adicionada.</p>
+                  )}
+                  {(form.faq || []).map((item, idx) => (
+                    <div key={idx} className="space-y-2 rounded-lg border border-input bg-background p-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-xs font-semibold text-muted-foreground">#{idx + 1}</span>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setForm((c) => ({
+                              ...c,
+                              faq: (c.faq || []).filter((_, i) => i !== idx),
+                            }))
+                          }
+                          className="text-xs text-destructive hover:underline"
+                        >
+                          Remover
+                        </button>
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="Pergunta"
+                        value={item.question}
+                        onChange={(e) =>
+                          setForm((c) => ({
+                            ...c,
+                            faq: (c.faq || []).map((f, i) =>
+                              i === idx ? { ...f, question: e.target.value } : f,
+                            ),
+                          }))
+                        }
+                        className="w-full rounded-lg border border-input bg-card px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                      />
+                      <textarea
+                        placeholder="Resposta"
+                        rows={3}
+                        value={item.answer}
+                        onChange={(e) =>
+                          setForm((c) => ({
+                            ...c,
+                            faq: (c.faq || []).map((f, i) =>
+                              i === idx ? { ...f, answer: e.target.value } : f,
+                            ),
+                          }))
+                        }
+                        className="w-full rounded-lg border border-input bg-card px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                      />
+                    </div>
+                  ))}
                 </div>
 
                 {/* ── SEO Avançado ── */}
