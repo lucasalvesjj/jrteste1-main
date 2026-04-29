@@ -38,9 +38,30 @@
 /images/*
   Cache-Control: public, max-age=31536000, immutable
 
-# ── Cache: Favicons ───────────────────────────
+# ── Cache: Favicons + ícones raiz (longa validade) ─
 /favicon.ico
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=604800
+/favicon-16.png
+  Cache-Control: public, max-age=31536000, immutable
+/favicon-32.png
+  Cache-Control: public, max-age=31536000, immutable
+/favicon-48.png
+  Cache-Control: public, max-age=31536000, immutable
+/favicon-192.png
+  Cache-Control: public, max-age=31536000, immutable
+/favicon-512.png
+  Cache-Control: public, max-age=31536000, immutable
+/apple-touch-icon.png
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── Cache: og-image (imutável; trocar nome ao atualizar) ─
+/og-image.jpg
+  Cache-Control: public, max-age=604800
+
+# ── Cache: Web App Manifest ─
+/manifest.webmanifest
+  Content-Type: application/manifest+json
+  Cache-Control: public, max-age=3600
 
 # ── Cache: JSON dinamico ─────────────────────
 /data/*.json

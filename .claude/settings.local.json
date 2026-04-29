@@ -72,7 +72,11 @@
       "Bash(cp -rp 'C:/Users/lucas/Downloads/jr1-main 2203/jrteste1-main/.tools' 'C:/Users/lucas/OneDrive/Documents/SITE JR BACKUPS/limpeza_2026-04-25/')",
       "WebFetch(domain:comercial-jr-2.pages.dev)",
       "WebSearch",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s \"https://comercial-jr-2.pages.dev/\")",
+      "Bash(curl -s \"https://comercial-jr-2.pages.dev/segmentos/irrigacao/\")",
+      "Bash(curl -I \"https://comercial-jr-2.pages.dev/sitemap.xml\")",
+      "Bash(curl -s \"https://comercial-jr-2.pages.dev/blog/diferenca-entre-serra-marmore-e-serra-circular/\")"
     ]
   }
 }
