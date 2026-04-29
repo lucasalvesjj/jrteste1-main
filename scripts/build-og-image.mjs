@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // build-og-image.mjs
-// Gera public/og-image.jpg (1200x630) com SVG → JPEG via sharp.
+// Gera public/og-image-v2.jpg (1200x630) com SVG → JPEG via sharp.
 // Texto em UTF-8 limpo (sem mojibake).
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -10,7 +10,7 @@ import sharp from "sharp";
 
 const ROOT = process.cwd();
 const LOGO_SRC = path.join(ROOT, "public", "favicon-base.png");
-const OUT = path.join(ROOT, "public", "og-image.jpg");
+const OUT = path.join(ROOT, "public", "og-image-v2.jpg");
 
 const W = 1200;
 const H = 630;
@@ -114,11 +114,6 @@ async function main() {
   const stat = fs.statSync(OUT);
   console.log(`[build-og-image] gerado ${OUT} — ${W}x${H}, ${stat.size} bytes`);
 }
-
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
 
 main().catch((err) => {
   console.error(err);

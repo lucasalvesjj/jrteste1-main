@@ -83,7 +83,7 @@ const Contato = () => {
         title="Contato"
         description="Fale com a Comercial JR em Castelo ES: (28) 3542-1332. Atendimento seg–sex 7h–17h | sáb 7h–11h30. Presencial, WhatsApp e e-mail."
         canonical="/contato/"
-        ogImage="/og-image.jpg"
+        ogImage="/og-image-v2.jpg"
       />
 
       <section className="bg-brand-gradient py-16 text-primary-foreground md:py-24">

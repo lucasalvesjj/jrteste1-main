@@ -111,7 +111,7 @@ export function buildLocalBusiness(descriptionOverride?: string) {
       width: 512,
       height: 512,
     },
-    image: `${SITE_URL}/og-image.jpg`,
+    image: `${SITE_URL}/og-image-v2.jpg`,
     description:
       descriptionOverride ||
       "Referência em máquinas elétricas, ferramentas, irrigação, bombas e motores no Espírito Santo. Revenda autorizada STIHL. Mais de 18.000 produtos, 41 anos de tradição.",

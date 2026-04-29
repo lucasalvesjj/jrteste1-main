@@ -36,7 +36,7 @@ const Blog = () => {
         title="Blog"
         description="Dicas e tutoriais sobre motosserras STIHL, bombas d'água, irrigação agrícola e ferramentas profissionais. Conteúdo técnico da Comercial JR — Castelo ES."
         canonical="/blog/"
-        ogImage="/og-image.jpg"
+        ogImage="/og-image-v2.jpg"
       />
 
       <section className="bg-brand-gradient py-16 text-primary-foreground md:py-24">

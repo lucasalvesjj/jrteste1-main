@@ -30,7 +30,7 @@ export const company = {
     title: "Comercial JR LTDA - Máquinas, Ferramentas e Irrigação em Castelo ES",
     description:
       "Referência em máquinas elétricas, ferramentas, irrigação, bombas e motores no Espírito Santo. Revenda autorizada STIHL. Mais de 18.000 produtos, 41 anos de tradição.",
-    image: "/og-image.jpg",
+    image: "/og-image-v2.jpg",
   },
 };
 

@@ -46,7 +46,7 @@ const SEOHead = ({
   const desc = description || (isHomepage ? homeDesc : company.seo.description);
   const url       = canonical ? `${company.siteUrl}${canonical}` : company.siteUrl;
   const publishedDefaultImage = isHomepage ? (seo.ogImage || company.seo.image) : null;
-  const resolvedImage = ogImage ?? publishedDefaultImage ?? "/og-image.jpg";
+  const resolvedImage = ogImage ?? publishedDefaultImage ?? "/og-image-v2.jpg";
   const image = resolvedImage.startsWith("http")
     ? resolvedImage
     : `${company.siteUrl}${resolvedImage}`;

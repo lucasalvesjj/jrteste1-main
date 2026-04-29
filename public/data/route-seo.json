@@ -3,7 +3,7 @@
     "path": "/",
     "title": "Comercial JR | Irrigação, Bombas e Ferramentas em Castelo ES",
     "description": "Soluções em irrigação, bombas e ferramentas em Castelo ES. Projetos completos, suporte técnico e parceria pra quem não pode errar no campo. Fale com a JR.",
-    "ogImage": "/og-image.jpg",
+    "ogImage": "/og-image-v2.jpg",
     "ogType": "website",
     "schemas": ["localBusiness", "website", "breadcrumb"],
     "breadcrumb": [
@@ -14,7 +14,7 @@
     "path": "/segmentos/",
     "title": "Segmentos | Comercial JR",
     "description": "Conheça os segmentos da Comercial JR: irrigação, bombas, ferramentas, máquinas elétricas, locação, assistência STIHL e poços artesianos em Castelo ES.",
-    "ogImage": "/og-image.jpg",
+    "ogImage": "/og-image-v2.jpg",
     "ogType": "website",
     "schemas": ["webpage", "breadcrumb"],
     "webpage": {
@@ -31,7 +31,7 @@
     "path": "/segmentos/irrigacao/",
     "title": "Irrigação Agrícola em Castelo ES | Comercial JR",
     "description": "Soluções completas em irrigação para cafeicultura, pastagem e horticultura no Espírito Santo. Aspersão, gotejamento, bombas e acessórios das melhores marcas. Comercial JR — 41 anos de tradição em Castelo ES.",
-    "ogImage": "/og-image.jpg",
+    "ogImage": "/og-image-v2.jpg",
     "ogType": "website",
     "schemas": ["service", "breadcrumb"],
     "service": {
@@ -49,7 +49,7 @@
     "path": "/segmentos/bombas-e-motores/",
     "title": "Bombas e Motores Elétricos em Castelo ES | Comercial JR",
     "description": "Bombas centrífugas, submersas, periféricas e motores elétricos monofásicos e trifásicos em Castelo ES. Marcas WEG, Schneider, Lepono, Anauger e Eletroplas. Atendimento técnico especializado.",
-    "ogImage": "/og-image.jpg",
+    "ogImage": "/og-image-v2.jpg",
     "ogType": "website",
     "schemas": ["service", "breadcrumb"],
     "service": {
@@ -67,7 +67,7 @@
     "path": "/segmentos/ferramentas/",
     "title": "Ferramentas Manuais em Castelo ES | Comercial JR",
     "description": "Ferramentas manuais profissionais e domésticas em Castelo ES. Chaves, alicates, serras, martelos e mais. Marcas Gedore, Gedore Red, Foxlux, MTX, APEX e Carbografite. 41 anos de tradição.",
-    "ogImage": "/og-image.jpg",
+    "ogImage": "/og-image-v2.jpg",
     "ogType": "website",
     "schemas": ["service", "breadcrumb"],
     "service": {
@@ -85,7 +85,7 @@
     "path": "/segmentos/maquinas/",
     "title": "Máquinas Elétricas em Castelo ES | Comercial JR",
     "description": "Máquinas elétricas profissionais em Castelo ES: furadeiras, marteletes, esmerilhadeiras, serras, compressores, politrizes e mais. Marcas DeWalt, Bosch, Makita, Black & Decker e Stanley. 41 anos de tradição.",
-    "ogImage": "/og-image.jpg",
+    "ogImage": "/og-image-v2.jpg",
     "ogType": "website",
     "schemas": ["service", "breadcrumb"],
     "service": {
@@ -103,7 +103,7 @@
     "path": "/segmentos/locacao/",
     "title": "Locação de Equipamentos em Castelo ES | Comercial JR",
     "description": "Aluguel de equipamentos para obra em Castelo ES: compressor, martelo rompedor, roçadeira, compactador, vibrador de concreto e mais. Locação por dia, semana ou mês.",
-    "ogImage": "/og-image.jpg",
+    "ogImage": "/og-image-v2.jpg",
     "ogType": "website",
     "schemas": ["service", "breadcrumb"],
     "service": {
@@ -121,7 +121,7 @@
     "path": "/segmentos/assistencia-stihl/",
     "title": "Assistência Técnica STIHL em Castelo ES | Comercial JR",
     "description": "Revenda e assistência técnica autorizada STIHL em Castelo ES. Manutenção de motosserras, roçadeiras, sopradores e toda a linha STIHL. Peças originais e atendimento especializado no sul do Espírito Santo.",
-    "ogImage": "/og-image.jpg",
+    "ogImage": "/og-image-v2.jpg",
     "ogType": "website",
     "schemas": ["service", "breadcrumb"],
     "service": {
@@ -139,7 +139,7 @@
     "path": "/segmentos/pocos-artesianos/",
     "title": "Poços Artesianos em Castelo ES | Comercial JR",
     "description": "Bombas submersas, motores, painéis de controle e acessórios para poços artesianos e semi-artesianos em Castelo ES. Orientação técnica especializada e estoque para pronta entrega no sul do Espírito Santo.",
-    "ogImage": "/og-image.jpg",
+    "ogImage": "/og-image-v2.jpg",
     "ogType": "website",
     "schemas": ["service", "breadcrumb"],
     "service": {
@@ -157,7 +157,7 @@
     "path": "/blog/",
     "title": "Blog | Comercial JR",
     "description": "Artigos sobre irrigação, ferramentas, máquinas elétricas, bombas e manutenção. Conteúdo técnico para produtores rurais e profissionais de Castelo ES.",
-    "ogImage": "/og-image.jpg",
+    "ogImage": "/og-image-v2.jpg",
     "ogType": "website",
     "schemas": ["webpage", "breadcrumb"],
     "webpage": {

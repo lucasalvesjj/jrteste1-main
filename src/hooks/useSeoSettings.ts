@@ -53,7 +53,7 @@ export const defaultSeoSettings: SeoSettings = {
 
   referrerPolicy: "no-referrer-when-downgrade",
 
-  ogImage: "/og-image.jpg",
+  ogImage: "/og-image-v2.jpg",
   ogLocale: "pt_BR",
   ogSiteName: "Comercial JR LTDA",
 

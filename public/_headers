@@ -65,6 +65,9 @@
 /og-image.jpg
   !Cache-Control
   Cache-Control: public, max-age=604800
+/og-image-v2.jpg
+  !Cache-Control
+  Cache-Control: public, max-age=604800
 
 # ── Cache: Web App Manifest ─
 /manifest.webmanifest

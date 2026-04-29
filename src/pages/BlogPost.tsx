@@ -304,7 +304,7 @@ const BlogPostPage = () => {
             description: post.seo.metaDescription || post.excerpt,
             datePublished: post.date,
             dateModified: post.updatedAt ?? post.date,
-            image: post.seo.ogImage || post.image || `https://comercialjrltda.com.br/og-image.jpg`,
+            image: post.seo.ogImage || post.image || `https://comercialjrltda.com.br/og-image-v2.jpg`,
             url: `https://comercialjrltda.com.br/${post.slug}/`,
             inLanguage: "pt-BR",
             author: {

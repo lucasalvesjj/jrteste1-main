@@ -81,7 +81,7 @@ const SEO_DEFAULTS: GlobalSeo = {
   homeTitle: "Comercial JR LTDA - Máquinas, Ferramentas e Irrigação",
   homeDescription: "Referência em máquinas, ferramentas e irrigação no Espírito Santo. Mais de 18.000 produtos e 41 anos de tradição.",
   companyName: "Comercial JR LTDA",
-  defaultImage: "/og-image.jpg",
+  defaultImage: "/og-image-v2.jpg",
   googleVerification: "da794cd9937527d01",
   defaultRobots: "index,follow",
   nofollowExternal: true, nofollowInternal: false,
@@ -405,7 +405,7 @@ const AdminSeoEditorForm = ({ onBack }: { onBack: () => void }) => {
             <input type="text" value={identity.local.companyName} onChange={(e) => identity.set({ companyName: e.target.value })} className={inputCls} />
           </Field>
           <Field label="Imagem OG Padrão (og:image)" hint="Caminho relativo ou URL absoluta. Ideal: 1200×630px">
-            <input type="text" value={identity.local.defaultImage} onChange={(e) => identity.set({ defaultImage: e.target.value })} className={inputCls} placeholder="/og-image.jpg" />
+            <input type="text" value={identity.local.defaultImage} onChange={(e) => identity.set({ defaultImage: e.target.value })} className={inputCls} placeholder="/og-image-v2.jpg" />
           </Field>
           <SectionSaveButton dirty={identity.dirty} onSave={identity.save} onDiscard={identity.discard} />
         </div>
