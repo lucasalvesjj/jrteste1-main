@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.34] - 2026-04-29
+
+### Alteracoes
+- fix(og-image): regenerar og-image.jpg sem mojibake (UTF-8 limpo)
+- checkup producao 2026-04-29: favicon multi-size + manifest + cache headers
+
+### Build Info
+- Git: 3ad4d87 (master)
+- Bundle: 726.3 KB JS, 92.6 KB CSS
+- Posts: 70 publicados
+---
+
 ## [1.0.33] - 2026-04-26
 
 ### Alteracoes
