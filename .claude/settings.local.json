@@ -76,7 +76,13 @@
       "Bash(curl -s \"https://comercial-jr-2.pages.dev/\")",
       "Bash(curl -s \"https://comercial-jr-2.pages.dev/segmentos/irrigacao/\")",
       "Bash(curl -I \"https://comercial-jr-2.pages.dev/sitemap.xml\")",
-      "Bash(curl -s \"https://comercial-jr-2.pages.dev/blog/diferenca-entre-serra-marmore-e-serra-circular/\")"
+      "Bash(curl -s \"https://comercial-jr-2.pages.dev/blog/diferenca-entre-serra-marmore-e-serra-circular/\")",
+      "Bash(curl -sI https://comercialjrltda.com.br/og-image.jpg)",
+      "Bash(curl -s https://comercialjrltda.com.br/)",
+      "Bash(node scripts/build-og-image.mjs)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }
