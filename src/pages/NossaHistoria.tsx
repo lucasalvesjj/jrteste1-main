@@ -10,7 +10,7 @@ const NossaHistoria = () => (
       title="Nossa História"
       description="Conheça a história da Comercial JR LTDA em Castelo ES: mais de 41 anos de tradição em máquinas, ferramentas, irrigação agrícola e referência no sul do Espírito Santo."
       canonical="/nossa-historia/"
-      ogImage="/og-image.jpg"
+      ogImage="/og-image-v2.jpg"
     />
 
     {/* Hero */}

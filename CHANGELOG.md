@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.36] - 2026-04-29
+
+### Alteracoes
+- fix: og-image-v2.jpg nova URL para forcar re-cache FB/LinkedIn
+- fix: og-image com brasao JR + _headers Cache-Control sem conflito
+- fix(og-image): regenerar og-image.jpg sem mojibake (UTF-8 limpo)
+- checkup producao 2026-04-29: favicon multi-size + manifest + cache headers
+
+### Build Info
+- Git: 04479c6 (master)
+- Bundle: 726.4 KB JS, 92.6 KB CSS
+- Posts: 70 publicados
+---
+
 ## [1.0.35] - 2026-04-29
 
 ### Alteracoes

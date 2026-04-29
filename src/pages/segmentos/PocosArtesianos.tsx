@@ -29,7 +29,7 @@ const PocosArtesianosPage = () => (
       title="Poços Artesianos em Castelo ES"
       description="Bombas submersas, motores, painéis de controle e acessórios para poços artesianos e semi-artesianos em Castelo ES. Orientação técnica especializada e estoque para pronta entrega no sul do Espírito Santo."
       canonical="/segmentos/pocos-artesianos/"
-      ogImage="/og-image.jpg"
+      ogImage="/og-image-v2.jpg"
     />
 
     {/* Hero */}

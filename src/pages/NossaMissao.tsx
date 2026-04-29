@@ -287,7 +287,7 @@ const NossaMissao = () => {
         title="Missão, Visão e Valores — Comercial JR LTDA em Castelo ES"
         description="Conheça a missão, visão e os 9 valores que guiam a Comercial JR LTDA há mais de 41 anos. Referência em máquinas, ferramentas e irrigação em Castelo e no Espírito Santo."
         canonical="/nossa-missao/"
-        ogImage="/og-image.jpg"
+        ogImage="/og-image-v2.jpg"
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>

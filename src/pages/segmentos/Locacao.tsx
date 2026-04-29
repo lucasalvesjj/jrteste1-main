@@ -73,7 +73,7 @@ const LocacaoPage = () => {
         title="Locação de Equipamentos em Castelo ES"
         description="Aluguel de equipamentos para obra em Castelo ES: compressor, martelo rompedor, roçadeira, compactador, vibrador de concreto e mais. Locação por dia, semana ou mês."
         canonical="/segmentos/locacao/"
-        ogImage="/og-image.jpg"
+        ogImage="/og-image-v2.jpg"
       />
 
       {/* Hero */}

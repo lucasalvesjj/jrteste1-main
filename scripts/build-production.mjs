@@ -393,6 +393,15 @@ async function main() {
   // ===========================================================
   logStep(4, "Build Vite");
 
+  // Regera favicon.ico multi-size antes do build
+  try {
+    execSync("node scripts/build-favicon.mjs", { cwd: ROOT, stdio: "inherit" });
+    logOk("favicon.ico regenerado (16/32/48 px)");
+  } catch {
+    logErr("build-favicon.mjs falhou — verificar public/favicon-base.png");
+    process.exit(1);
+  }
+
   try {
     execSync("npx vite build", { cwd: ROOT, stdio: "inherit" });
   } catch (err) {

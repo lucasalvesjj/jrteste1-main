@@ -49,7 +49,7 @@ const FerramentasPage = () => {
         title="Ferramentas Manuais em Castelo ES"
         description="Ferramentas manuais profissionais e domésticas em Castelo ES. Chaves, alicates, serras, martelos e mais. Marcas Gedore, Gedore Red, Foxlux, MTX, APEX e Carbografite. 41 anos de tradição."
         canonical="/segmentos/ferramentas/"
-        ogImage="/og-image.jpg"
+        ogImage="/og-image-v2.jpg"
       />
 
       {/* Hero */}
